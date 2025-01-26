@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+    background-color: ;
+} */
+
+
+.dir-rtl{direction: rtl;}
+.dir-ltr{direction: ltr;}
+:root {
+
+    /* colors */
+    /* primary*/
+    --primary: #005FF0;
+    /* blue10*/
+    --primary-50: #F2F7FF;
+    /* blue9*/
+    --primary-100: #E3EDFC;
+    /* blue8*/
+    --primary-200: #BDE4FC;
+    /* blue7*/
+    --primary-300: #96D0FA;
+    /* blue6*/
+    --primary-400: #499CF5;
+    /* blue11*/
+    --primary-500: #9FEAFF;
+    /* blue5*/
+    --primary-600: #0053D9;
+    /* blue4*/
+    --primary-700: #003EB3;
+    /* blue3*/
+    --primary-800: #002D8F;
+    /* blue2*/
+    --primary-900: #001E6B;
+    /* blue1 */
+    --primary-950: #001145;
+
+    --secondary: #FFA200;
+    /* yellow 1 */
+    --secondary-50: #facc15;
+    /* orange 10 */
+    --secondary-100: #FFFDF2;
+    /* orange 9 */
+    --secondary-200: #FFFAE6;
+    /* orange 8 */
+    --secondary-300: #FFF1BF;
+    /* orange 7 */
+    --secondary-400: #FFE699;
+    /* orange 6 */
+    --secondary-500: #FFC94D;
+    /* orange 5 */
+    --secondary-600: #FEF3E4;
+    /* orange 4 */
+    --secondary-700: #FCDAAD;
+    /* orange 3 */
+    --secondary-800: #FBC176;
+    /* orange 2 */
+    --secondary-900: #F9A940;
+    /* orange 1 */
+    --secondary-950: #F79009 ;
+
+    /* green 5 */
+    --success-500:#12B76A;
+    /* green 4 */
+    --success-400:#24E98D;
+    /* green 3 */
+    --success-300:#63F0AE;
+    /* green 2 */
+    --success-200:#A1F6CE;
+    /* green 1 */
+    --success-100:#E0FCEF;
+
+    /* red 5 */
+    --error-500:#F04438;
+    /* red 4 */
+    --error-400:#F36E64;
+    /* red 3 */
+    --error-300:#F79790;
+    /* red 2 */
+    --error-200:#FAC1BD;
+    /* red 1 */
+    --error-100:#FDEAE9;
+
+    /* gray 10 */
+    --neutral-50:#F9FBFC;
+    /* gray 9 */
+    --neutral-100:#F5F8FC;
+    /* gray 8 */
+    --neutral-200:#F3F3F3;
+    /* gray 7 */
+    --neutral-300:#E9EFF4;
+    /* gray 6 */
+    --neutral-400:#E0E6F2;
+    /* gray 5 */
+    --neutral-500:#DAE4ED;
+    /* gray 4 */
+    --neutral-600:#D3DEE9;
+    /* gray 3 */
+    --neutral-700:#CCD9E5;
+    /* gray 2 */
+    --neutral-800:#C4D3E2;
+    /* gray 1 */
+    --neutral-900:#BDCEDE;
+
+    /* text color 4 */
+    --txtneutral-200:#D3DBE0;
+    /* text color 3 */
+    --txtneutral-400:#98A2B3;
+    /* text color 2 */
+    --txtneutral-500:#667085;
+    /* text color 1 */
+    --txtneutral-900:#101828;
+
+    /* black color */
+    --shade-0:#FFFFFF;
+    /* white color */
+    --shade-1000:#0C0C0C;
+}
+
+html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
+::-webkit-scrollbar{width:10px;}::-webkit-scrollbar-track{background:var(--primary-50);}
+::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Black_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Black.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Black.woff) format('woff'),url(../fonts/YekanBakhFaNum-Black.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_ExtraBlack_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-ExtraBlack.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-ExtraBlack.woff) format('woff'),url(../fonts/YekanBakhFaNum-ExtraBlack.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_ExtraBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-ExtraBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-ExtraBold.woff) format('woff'),url(../fonts/YekanBakhFaNum-ExtraBold.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Bold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Bold.woff) format('woff'),url(../fonts/YekanBakhFaNum-Bold.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-SemiBold.woff) format('woff'),url(../fonts/YekanBakhFaNum-SemiBold.woff2) format('woff2')}    
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Thin.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Thin.woff) format('woff'),url(../fonts/YekanBakhFaNum-Thin.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Light.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Light.woff) format('woff'),url(../fonts/YekanBakhFaNum-Light.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Regular.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Regular.woff) format('woff'),url(../fonts/YekanBakhFaNum-Regular.woff2) format('woff2')}
