@@ -162,12 +162,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 @font-face{font-display:swap;font-family:'IRANYekanMobileBold-fa';font-style:normal;src:url('../fonts/IRANYekanMobileBold\(FaNum\).ttf') format('truetype')}
 @font-face{font-display:swap;font-family:'IRANYekanLightMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
 
-.active-megamenu-tab span{
-    transition: all;animation-duration: 0.5s;
-    transform: scale(110%) !important;color: var(--shade-100) !important;
-        transform-origin: center !important;display: inline-block;
-}
-/* .active-megamenu-tab{margin-top:-1em} */
-.active-megamenu-tab::after{display: block !important;}
+.active-megamenu-tab span{transition:all;animation-duration:.5s;transform:scale(110%)!important;color:var(--shade-100)!important;transform-origin:center!important;display:inline-block}
+.active-megamenu-tab::after , .active-menu-item::after{display: block !important;}
 .active-megamenu-tab .enable-icon{display: inline-block !important;}
 .active-megamenu-tab .disable-icon{display: none !important;}

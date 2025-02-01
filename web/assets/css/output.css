@@ -608,6 +608,10 @@ video {
   margin-top: 1rem;
 }
 
+.\!block {
+  display: block !important;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -628,10 +632,6 @@ video {
   height: 2rem;
 }
 
-.h-\[40px\] {
-  height: 40px;
-}
-
 .h-\[50px\] {
   height: 50px;
 }
@@ -650,10 +650,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-\[04px\] {
-  height: 04px;
 }
 
 .max-h-\[644px\] {
@@ -1049,6 +1045,10 @@ video {
   transition-duration: 75ms;
 }
 
+.duration-300 {
+  transition-duration: 300ms;
+}
+
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1349,17 +1349,15 @@ html,body{
 }
 
 .active-megamenu-tab span{
-  transition: all;
-  animation-duration: 0.5s;
-  transform: scale(110%) !important;
-  color: var(--shade-100) !important;
-  transform-origin: center !important;
-  display: inline-block;
+  transition:all;
+  animation-duration:.5s;
+  transform:scale(110%)!important;
+  color:var(--shade-100)!important;
+  transform-origin:center!important;
+  display:inline-block
 }
 
-/* .active-megamenu-tab{margin-top:-1em} */
-
-.active-megamenu-tab::after{
+.active-megamenu-tab::after , .active-menu-item::after{
   display: block !important;
 }
 
@@ -1427,6 +1425,11 @@ html,body{
   position: absolute;
 }
 
+.after\:-bottom-\[30px\]::after {
+  content: var(--tw-content);
+  bottom: -30px;
+}
+
 .after\:bottom-0::after {
   content: var(--tw-content);
   bottom: 0px;
@@ -1448,14 +1451,9 @@ html,body{
   margin-right: auto;
 }
 
-.after\:-mb-2::after {
+.after\:block::after {
   content: var(--tw-content);
-  margin-bottom: -0.5rem;
-}
-
-.after\:-mb-5::after {
-  content: var(--tw-content);
-  margin-bottom: -1.25rem;
+  display: block;
 }
 
 .after\:hidden::after {
@@ -1466,11 +1464,6 @@ html,body{
 .after\:h-1::after {
   content: var(--tw-content);
   height: 0.25rem;
-}
-
-.after\:w-full::after {
-  content: var(--tw-content);
-  width: 100%;
 }
 
 .after\:w-10\/12::after {
@@ -1513,6 +1506,11 @@ html,body{
 .hover\:px-1:hover {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+
+.hover\:after\:block:hover::after {
+  content: var(--tw-content);
+  display: block;
 }
 
 .group\/submenuitem:hover .group-hover\/submenuitem\:visible {
@@ -1563,6 +1561,10 @@ html,body{
 
 .group:hover .group-hover\:text-txtneutral-900 {
   color: var(--txtneutral-900);
+}
+
+.group\/navbaritem:hover .group-hover\/navbaritem\:text-secondary {
+  color: var(--secondary);
 }
 
 .group:hover .group-hover\:opacity-100 {
