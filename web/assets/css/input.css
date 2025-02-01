@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* @layer utilities {
+    .h-644 {
+      height: 644px;
+    }
+}
+     */
+
 /* body{
     background-color: ;
 } */
@@ -37,29 +45,39 @@
     /* blue1 */
     --primary-950: #001145;
 
+    --primary-shade-400: #9FEAFF ;
+
+
+
     --secondary: #FFA200;
+        /* orange 5 */
+        --secondary-100: #FEF3E4;
+        /* orange 4 */
+        --secondary-200: #FCDAAD;
+        /* orange 3 */
+        --secondary-300: #FBC176;
+        /* orange 2 */
+        --secondary-400: #F9A940;
+        /* orange 1 */
+        --secondary-500: #F79009 ;
+
+
+        
     /* yellow 1 */
-    --secondary-50: #facc15;
+    --secondary-complementary-50: #FFFDF2;
     /* orange 10 */
-    --secondary-100: #FFFDF2;
+    --secondary-complementary-100: #FFFAE6;
     /* orange 9 */
-    --secondary-200: #FFFAE6;
+    --secondary-complementary-200: #FFF1BF;
     /* orange 8 */
-    --secondary-300: #FFF1BF;
+    --secondary-complementary-300: #FFE699;
     /* orange 7 */
-    --secondary-400: #FFE699;
+    --secondary-complementary-400: #FFC94D;
     /* orange 6 */
-    --secondary-500: #FFC94D;
-    /* orange 5 */
-    --secondary-600: #FEF3E4;
-    /* orange 4 */
-    --secondary-700: #FCDAAD;
-    /* orange 3 */
-    --secondary-800: #FBC176;
-    /* orange 2 */
-    --secondary-900: #F9A940;
-    /* orange 1 */
-    --secondary-950: #F79009 ;
+    --secondary-complementary-500: #facc15;
+
+
+
 
     /* green 5 */
     --success-500:#12B76A;
@@ -116,7 +134,7 @@
     /* black color */
     --shade-0:#FFFFFF;
     /* white color */
-    --shade-1000:#0C0C0C;
+    --shade-100:#0C0C0C;
 }
 
 html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
@@ -124,11 +142,32 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 ::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
 
-@font-face{font-display:swap;font-family:'Yekan_Bakh_Black_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Black.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Black.woff) format('woff'),url(../fonts/YekanBakhFaNum-Black.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Yekan_Bakh_ExtraBlack_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-ExtraBlack.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-ExtraBlack.woff) format('woff'),url(../fonts/YekanBakhFaNum-ExtraBlack.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Yekan_Bakh_ExtraBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-ExtraBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-ExtraBold.woff) format('woff'),url(../fonts/YekanBakhFaNum-ExtraBold.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Bold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Bold.woff) format('woff'),url(../fonts/YekanBakhFaNum-Bold.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-SemiBold.woff) format('woff'),url(../fonts/YekanBakhFaNum-SemiBold.woff2) format('woff2')}    
-@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Thin.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Thin.woff) format('woff'),url(../fonts/YekanBakhFaNum-Thin.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Yekan_Bakh_Light_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Light.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Light.woff) format('woff'),url(../fonts/YekanBakhFaNum-Light.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Regular.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Regular.woff) format('woff'),url(../fonts/YekanBakhFaNum-Regular.woff2) format('woff2')}
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Bold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Bold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-SemiBold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Thin.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Thin.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Light.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Light.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Regular.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Regular.woff) format('woff')}
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold';font-style:normal;src:url('../fonts/YekanBakh-Bold.ttf') format('truetype'),url(../fonts/YekanBakh-Bold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold';font-style:normal;src:url('../fonts/YekanBakh-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakh-SemiBold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin';font-style:normal;src:url('../fonts/YekanBakh-Thin.ttf') format('truetype'),url(../fonts/YekanBakh-Thin.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light';font-style:normal;src:url('../fonts/YekanBakh-Light.ttf') format('truetype'),url(../fonts/YekanBakh-Light.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular';font-style:normal;src:url('../fonts/YekanBakh-Regular.ttf') format('truetype'),url(../fonts/YekanBakh-Regular.woff) format('woff')}
+    
+@font-face{font-display:swap;font-family:'MontserratAlternates-Bold';font-style:normal;src:url('../fonts/MontserratAlternates-Bold.ttf') format('truetype')}
+
+@font-face{font-display:swap;font-family:'IRANYekanRegularMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanRegular-fa';font-style:normal;src:url('../fonts/IRANYekanRegular\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanMobileBold-fa';font-style:normal;src:url('../fonts/IRANYekanMobileBold\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanLightMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
+
+.active-megamenu-tab span{
+    transition: all;animation-duration: 0.5s;
+    transform: scale(110%) !important;color: var(--shade-100) !important;
+        transform-origin: center !important;display: inline-block;
+}
+/* .active-megamenu-tab{margin-top:-1em} */
+.active-megamenu-tab::after{display: block !important;}
+.active-megamenu-tab .enable-icon{display: inline-block !important;}
+.active-megamenu-tab .disable-icon{display: none !important;}

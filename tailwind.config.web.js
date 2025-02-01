@@ -22,22 +22,24 @@ module.exports = {
         },
         secondary: {
           DEFAULT: "var(--secondary)",
-          50: "var(--secondary-50)",
           100: "var(--secondary-100)",
           200: "var(--secondary-200)",
           300: "var(--secondary-300)",
           400: "var(--secondary-400)",
           500: "var(--secondary-500)",
-          600: "var(--secondary-600)",
-          700: "var(--secondary-700)",
-          800: "var(--secondary-800)",
-          900: "var(--secondary-900)",
-          950: "var(--secondary-950)",
+        },
+        secondarycomplementary: {
+          DEFAULT: "var(--secondary-complementary-500)",
+          50: "var(--secondary-complementary-50)",
+          100: "var(--secondary-complementary-100)",
+          200: "var(--secondary-complementary-200)",
+          300: "var(--secondary-complementary-300)",
+          400: "var(--secondary-complementary-400)",
+          500: "var(--secondary-complementary-500)",
         },
         neutralcolor: {
           50: "var(--neutral-50)",
           100: "var(--neutral-100)",
-          50: "var(--neutral-50)",
           100: "var(--neutral-100)",
           200: "var(--neutral-200)",
           300: "var(--neutral-300)",
@@ -69,22 +71,37 @@ module.exports = {
            500: "var(--txtneutral-500)",
            900: "var(--txtneutral-900)",
         }, 
-        shade: {
+        shadeneutral: {
            0: "var(--shade-0)",
-           1000: "var(--shade-1000)",
+           100: "var(--shade-100)",
         }, 
 
       },
       fontFamily: {
-        yekanbakhblackFA: ["Yekan_Bakh_Black_fa"],
-        yekanbakhextrablackFA: ["Yekan_Bakh_ExtraBlack_fa"],
-        yekanbakhextraboldFA: ["Yekan_Bakh_ExtraBold_fa"],
         yekanbakhboldFA: ["Yekan_Bakh_Bold_fa"],
         yekanbakhsemiboldFA: ["Yekan_Bakh_SemiBold_fa"],
         yekanbakhthinFA: ["Yekan_Bakh_Thin_fa"],
         yekanbakhlightFA: ["Yekan_Bakh_Light_fa"],
         yekanbakhregularFA: ["Yekan_Bakh_Regular_fa"],
-      },
+
+
+        yekanbakhbold: ["Yekan_Bakh_Bold"],
+        yekanbakhsemibold: ["Yekan_Bakh_SemiBold"],
+        yekanbakhthin: ["Yekan_Bakh_Thin"],
+        yekanbakhlight: ["Yekan_Bakh_Light"],
+        yekanbakhregular: ["Yekan_Bakh_Regular"],
+
+
+        MontserratAlternatesBold: ["MontserratAlternates-Bold"],
+
+
+        IRANYekanRegularMobileFA: ["IRANYekanRegularMobile-fa"],
+        IRANYekanRegularFA: ["IRANYekanRegular-fa"],
+        IRANYekanMobileBoldFA: ["IRANYekanMobileBold-fa"],
+        IRANYekanLightMobileFA: ["IRANYekanLightMobile-fa"],
+
+
+      }
     },
   },
   plugins: [],
