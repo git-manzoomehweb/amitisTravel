@@ -12,28 +12,31 @@
 <body class="font-yekanbakhregularFA ">
 
     <header class="dir-rtl">
+        <div id="bg-dark-full" class="absolute -z-10 w-full h-full top-[80px] bottom-0 left-0 right-0 bg-black/30 hidden"></div>
         <div class="h-20 shadow-sm">
             <div class="max-w-7xl mx-auto flex justify-between items-center h-20">
 
 
                 <nav class="w-7/12 ">
                     <ul class="flex justify-start divide-x-2 divide-x-reverse divide-neutralcolor-600 gap-x-1">
-                        <li class=" pr-2 group/navbaritem">
+                        <li class=" pr-2 pl-1">
                             <a href=""
-                                class="text-sm font-yekanbakhsemiboldFA text-txtneutral-500 group-hover/navbaritem:text-secondary cursor-pointer">صفحه
+                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer 
+                                after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-['']
+                                 after:hidden after:rounded-t-xl after:absolute after:-bottom-[28px] hover:after:block">صفحه
                                 اصلی </a>
                         </li>
-                        <li class=" pr-2 group/navbaritem">
-                            <span onclick="openMegaMenu(this , 'megamenu-box')"
-                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 group-hover/navbaritem:text-secondary cursor-pointer
+                        <li class=" pr-2 ">
+                            <span onclick="toggleMegaMenu(this , '#megamenu-amitistour')"
+                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer
                                 
                                 
                                 after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary 
                                             after:content-[''] after:hidden after:rounded-t-xl after:absolute 
-                                            after:-bottom-[30px] hover:after:block
+                                            after:-bottom-[28px] hover:after:block
                                 
                                 ">تور
-                                های آمیتیس <svg class="inline-block" width="16" height="16" viewBox="0 0 24 24"
+                                های آمیتیس <svg class="inline-block arrowkey-main-navitem " width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M17.9197 8.17969H11.6897H6.07975C5.11975 8.17969 4.63975 9.33969 5.31975
  10.0197L10.4997 15.1997C11.3297 16.0297 12.6797 16.0297 13.5097 
@@ -41,21 +44,13 @@
  8.17969 17.9197 8.17969Z" fill="#667085" />
                                 </svg></span>
 
-
-
-
-
-
-                            <div class="megamenu-box w-full shadow-sm  absolute top-[83px] hidden
-                             h-[calc(100%-83px)] left-0 bottom-0 right-0 bg-black/30 
-                             
-                             transition-all ease-in-out duration-300 
-                             ">
+                            <div id="megamenu-amitistour" class="megamenu-box mainmegamenu w-full shadow-sm  absolute top-[83px] hidden
+                             h-[calc(100%-83px)] left-0 bottom-0 right-0 bg-black/30 transition-all ease-in-out duration-300">
                                 <div class="h-[50px] bg-neutralcolor-50 drop-shadow-sm">
                                     <div class="max-w-7xl mx-auto">
                                         <ul class="flex justify-start items-center h-[50px] gap-x-4">
 
-                                            <li class="h-[50px] group/category-megamenu relative 
+                                            <li onclick="toggleMegaMenu(this , 'amitistour-megamenu-box', '!flex','submegamenu')" class="h-[50px] group/category-megamenu relative 
                                             after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary 
                                             after:content-[''] after:hidden hover:after:block cursor-pointer after:rounded-t-xl after:absolute active-megamenu-tab 
                                             after:bottom-0 ">
@@ -71,7 +66,7 @@
                                                 </div>
                                             </li>
 
-                                            <li class="h-[50px] group/category-megamenu relative after:h-1 after:w-10/12 after:mx-auto after:left-0 
+                                            <li onclick="toggleMegaMenu(this , 'summertour-megamenu-box','!flex', 'submegamenu')" class="h-[50px] group/category-megamenu relative after:h-1 after:w-10/12 after:mx-auto after:left-0 
                                             after:right-0 after:bg-secondary 
                                             after:content-[''] after:hidden hover:after:block cursor-pointer after:rounded-t-xl after:absolute after:bottom-0 
                                             ">
@@ -92,11 +87,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="   bg-white shadow pb-5">
-                                    <div
-                                        class="load-items-megamenu max-w-7xl  mx-auto flex justify-between relative items-center">
+                                    <div  class="amitistour-megamenu-box submegamenu max-w-7xl mx-auto justify-between relative items-center !flex">
                                         <!-- تورهای آمیتیس مگامنو ایتم -->
 
                                         <div class="border-r-4  border-white  w-[calc(100%-250px)]  h-full 
@@ -1102,10 +1094,11 @@
                                                 width="" height="" alt="">
                                         </figure>
 
-
+                                        </div>
+                                        <div class="summertour-megamenu-box submegamenu max-w-7xl mx-auto justify-between relative items-center hidden">
                                         <!-- تورهای تابستانی مگامنو ایتم -->
 
-                                        <!-- <div class="border-r-4  border-white  w-[calc(100%-250px)]  h-full 
+                                         <div class="border-r-4  border-white  w-[calc(100%-250px)]  h-full 
                                         before:block before:absolute before:top-0 before:bottom-0 before:-right-1 before:z-50
                                         before:content-[''] before:w-2 before:h-full before:bg-white ">
                                             <div class=" divide-x-reverse divide-x gap-x-1 divide-neutralcolor-700 columns-4 -mr-1 ">
@@ -1132,62 +1125,169 @@
                                         <figure class=" h-full w-[250px] my-4">
                                             <img class="rounded-2xl w-[250px]" src="../assets/images/megamenu-image.png"
                                                 width="" height="" alt="">
-                                        </figure> -->
+                                        </figure>
 
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-
                         </li>
-                        <li class=" pr-2 group/navbaritem">
-                            <span
-                                class="text-sm font-yekanbakhsemiboldFA text-txtneutral-500 group-hover/navbaritem:text-secondary cursor-pointer">تور
-                                های پاییز 1403 <svg class="inline-block" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <li class=" pr-2 pl-1 ">
+                            <span onclick="toggleMegaMenu(this , '#megamenu-nowruz')"
+                                class="relative text-sm font-yekanbakhsemiboldFA text-secondary cursor-pointer
+                                
+                                
+                                after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary 
+                                            after:content-[''] after:hidden after:rounded-t-xl after:absolute 
+                                            after:-bottom-[28px] hover:after:block
+                                
+                                ">تور های نوروز</span>
+                        </li>
+                        <li class=" pr-2 relative">
+                            <span onclick="toggleDropDownMenu(this , '.dropdownmenu')"
+                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer 
+                                after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[28px] hover:after:block">خدمات
+                                ویزا <svg class="inline-block arrowkey-main-navitem" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path d="M17.9197 8.17969H11.6897H6.07975C5.11975 8.17969 4.63975 9.33969 5.31975
  10.0197L10.4997 15.1997C11.3297 16.0297 12.6797 16.0297 13.5097 
  15.1997L15.4797 13.2297L18.6897 10.0197C19.3597 9.33969 18.8797 
  8.17969 17.9197 8.17969Z" fill="#667085" />
-                                </svg></span>
+                                </svg>
+                            </span>
+
+                            <ul class="dropdownmenu absolute bg-white divide-y divide-neutralcolor-800 w-[304px] top-[3.30rem] right-0 rounded-b-lg shadow-lg hidden ">
+                                <li class="group/menuitem h-16 leading-[64px]">
+                                    <a href="#" class="px-12 w-full h-full block ">
+
+                                    <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                        src="../assets/images/personalcard.svg" width="24" height="24" alt="">
+
+                                    <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                        src="../assets/images/personalcard-active.svg" width="32" height="32"
+                                        alt="">
+                                        <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                         group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                                اخذ ویزا
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="group/menuitem h-16 leading-[64px]">
+                                    <a href="#" class="px-12 w-full h-full block">
+
+                                    <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                        src="../assets/images/timer.svg" width="24" height="24" alt="">
+
+                                    <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                        src="../assets/images/timer-active.svg" width="32" height="32"
+                                        alt="">
+                                        <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                         group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                               وقت سفارت
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="group/menuitem h-16 leading-[64px]">
+                                    <a href="#" class="px-12 w-full h-full block">
+
+                                    <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                        src="../assets/images/house.svg" width="24" height="24" alt="">
+
+                                    <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                        src="../assets/images/house-active.svg" width="32" height="32"
+                                        alt="">
+                                        <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                         group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                              اخذ اقامت
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+
                         </li>
-                        <li class=" pr-2 group/navbaritem">
-                            <span
-                                class="text-sm font-yekanbakhsemiboldFA text-txtneutral-500 group-hover/navbaritem:text-secondary cursor-pointer">خدمات
-                                ویزا <svg class="inline-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        <li class=" pr-2 relative">
+                            <span onclick="toggleDropDownMenu(this , '.dropdownmenu')"
+                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer 
+                                after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[28px] hover:after:block">اطلاعات
+                                مفید <svg class="inline-block arrowkey-main-navitem" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M17.9197 8.17969H11.6897H6.07975C5.11975 8.17969 4.63975 9.33969 5.31975
  10.0197L10.4997 15.1997C11.3297 16.0297 12.6797 16.0297 13.5097 
  15.1997L15.4797 13.2297L18.6897 10.0197C19.3597 9.33969 18.8797 
  8.17969 17.9197 8.17969Z" fill="#667085" />
                                 </svg></span>
+
+
+
+                                <ul class=" dropdownmenu absolute bg-white divide-y divide-neutralcolor-800 w-[304px] top-[3.30rem] right-0 rounded-b-lg shadow-lg hidden ">
+                                   
+                                    <li class="group/menuitem h-16 leading-[64px]">
+                                        <a href="#" class="px-12 w-full h-full block ">
+    
+                                        <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                            src="../assets/images/airplane.svg" width="24" height="24" alt="">
+    
+                                        <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                            src="../assets/images/airplane-active.svg" width="32" height="32"
+                                            alt="">
+                                            <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                             group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                                   ایرلاین ها
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="group/menuitem h-16 leading-[64px]">
+                                        <a href="#" class="px-12 w-full h-full block">
+    
+                                        <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                            src="../assets/images/building.svg" width="24" height="24" alt="">
+    
+                                        <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                            src="../assets/images/building-active.svg" width="32" height="32"
+                                            alt="">
+                                            <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                             group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                                 اطلاعات هتل ها
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="group/menuitem h-16 leading-[64px]">
+                                        <a href="#" class="px-12 w-full h-full block">
+    
+                                        <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                            src="../assets/images/calendar-search.svg" width="24" height="24" alt="">
+    
+                                        <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                            src="../assets/images/calendar-search-active.svg" width="32" height="32"
+                                            alt="">
+                                            <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                             group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                                 تبدیل تاریخ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="group/menuitem h-16 leading-[64px]">
+                                        <a href="#" class="px-12 w-full h-full block">
+    
+                                        <img class="inline-block disable-icon group-hover/menuitem:hidden"
+                                            src="../assets/images/calculator.svg" width="24" height="24" alt="">
+    
+                                        <img class="hidden enable-icon group-hover/menuitem:inline-block"
+                                            src="../assets/images/calculator-active.svg" width="32" height="32"
+                                            alt="">
+                                            <span class="mr-3 font-yekanbakhsemiboldFA text-sm text-txtneutral-500 inline-block
+                                             group-hover/menuitem:text-shadeneutral-100 transition-all duration-200 transform origin-center group-hover/menuitem:scale-110 ">
+                                                محاسبه اقساط
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+
                         </li>
-                        <li class=" pr-2 group/navbaritem">
+                        <li class=" pr-2 pl-1">
                             <span
-                                class="text-sm font-yekanbakhsemiboldFA text-txtneutral-500 group-hover/navbaritem:text-secondary cursor-pointer">اطلاعات
-                                مفید <svg class="inline-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.9197 8.17969H11.6897H6.07975C5.11975 8.17969 4.63975 9.33969 5.31975
- 10.0197L10.4997 15.1997C11.3297 16.0297 12.6797 16.0297 13.5097 
- 15.1997L15.4797 13.2297L18.6897 10.0197C19.3597 9.33969 18.8797 
- 8.17969 17.9197 8.17969Z" fill="#667085" />
-                                </svg></span>
-                        </li>
-                        <li class=" pr-2 group/navbaritem">
-                            <span
-                                class="text-sm font-yekanbakhsemiboldFA text-txtneutral-500 group-hover/navbaritem:text-secondary cursor-pointer">مجله
-                                گردشگری <svg class="inline-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.9197 8.17969H11.6897H6.07975C5.11975 8.17969 4.63975 9.33969 5.31975
- 10.0197L10.4997 15.1997C11.3297 16.0297 12.6797 16.0297 13.5097 
- 15.1997L15.4797 13.2297L18.6897 10.0197C19.3597 9.33969 18.8797 
- 8.17969 17.9197 8.17969Z" fill="#667085" />
-                                </svg></span>
+                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer 
+                                after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[28px] hover:after:block">مجله
+                                گردشگری </span>
                         </li>
                     </ul>
                 </nav>
@@ -1299,6 +1399,15 @@
 
     <footer class="dir-rtl">
 
+        <section class="w-full h-96 bg-(bgfootercategory)">
+
+        </section>
+        <section>
+
+        </section>
+        <section>
+
+        </section>
     </footer>
 
     <script src="../assets/js/amitisbal.core.js"></script>

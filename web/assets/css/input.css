@@ -135,7 +135,10 @@
     --shade-0:#FFFFFF;
     /* white color */
     --shade-100:#0C0C0C;
+
+    --bgfootercategory : '../images/footer-category.jpg',
 }
+
 
 html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 ::-webkit-scrollbar{width:10px;}::-webkit-scrollbar-track{background:var(--primary-50);}
@@ -162,7 +165,10 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 @font-face{font-display:swap;font-family:'IRANYekanMobileBold-fa';font-style:normal;src:url('../fonts/IRANYekanMobileBold\(FaNum\).ttf') format('truetype')}
 @font-face{font-display:swap;font-family:'IRANYekanLightMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
 
-.active-megamenu-tab span{transition:all;animation-duration:.5s;transform:scale(110%)!important;color:var(--shade-100)!important;transform-origin:center!important;display:inline-block}
+.active-menu-item{color:var(--shade-100)!important;}
+.active-megamenu-tab span{transition:all;animation-duration:.5s;transform:scale(110%)!important;color:var(--shade-100)!important;
+    transform-origin:center!important;display:inline-block}
 .active-megamenu-tab::after , .active-menu-item::after{display: block !important;}
 .active-megamenu-tab .enable-icon{display: inline-block !important;}
 .active-megamenu-tab .disable-icon{display: none !important;}
+
