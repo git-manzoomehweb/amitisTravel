@@ -37,6 +37,7 @@ module.exports = {
           400: "var(--secondary-complementary-400)",
           500: "var(--secondary-complementary-500)",
         },
+
         neutralcolor: {
           50: "var(--neutral-50)",
           100: "var(--neutral-100)",
@@ -75,6 +76,9 @@ module.exports = {
            0: "var(--shade-0)",
            100: "var(--shade-100)",
         }, 
+        imagecolor: {
+          DEFAULT: "var(--bg-image)",
+        },
 
       },
       fontFamily: {
@@ -101,7 +105,53 @@ module.exports = {
         IRANYekanLightMobileFA: ["IRANYekanLightMobile-fa"],
 
 
-      }
+      },
+      backgroundImage: {
+        'footer-texture': "url('../images/footer-category.jpg')",
+        'footer-airplane': "url('../images/right-airplane-cloud.png')",
+        'footer-cloud': "url('../images/center-cloud.png')",
+        'footer-airport': "url('../images/left-airport-clouds.png')",
+        
+        'tourism-pattern': "url('../images/TourismMagazine.svg')",
+        'faq-pattern': "url('../images/faq-pattern.svg')",
+        'list-pattern': "url('../images/bg-list-pattern.png')",
+
+        'secondary-redial-gradient': 'linear-gradient(90deg, rgba(249, 148, 23, 0) 0%, #F99417 21.09%, #F99417 77.66%, rgba(249, 148, 23, 0) 100%)',
+
+
+        // 'footer-bottom-texture': "url('../images/footer-pattern.png')",
+        // 'faq-texture': "url('/img/footer-texture.png')",
+      },
+      dropShadow: {
+        'footer': "0px -1px 20px rgba(0, 95, 240, 0.33)",
+        'footer-call-btn': "4px 0px 4px rgba(16, 16, 16, 0.21)",
+        'footer-sign-btn': "0px 0px 4px rgba(0, 0, 0, 0.25)",
+        'banner-search': "0px 0px 10px rgba(16, 16, 16, 0.1)",
+        'tourcards-swiper': "0px 4px 20px rgba(249, 148, 23, 0.5)",
+        'papulartours-swiper': "7px 5px 8px rgba(0, 0, 0, 0.25)",
+
+        'papulartours-aghsat-swiper': "0px 0px 4px #12B76A",
+        'papulartours-takhfif-swiper': "0px 0px 4px #F04438",
+
+        'support-7-24': "0px 0px 15px #005FF0",
+        'hvr-support-7-24': "0px 0px 15px #003EB3",
+        'tourcardvertically': '0px 0px 2px rgba(0, 0, 0, 0.25)',
+        'tourcardvertically-hvr': '0px 0px 10px #BDCEDE',
+        'tourcardvertically-success-hvr': '0px 0px 10px #12B76A',
+        'tourcardvertically-off-hvr': '0px 0px 10px #F04438',
+        'updating-tour-clock': '0px 0px 100px #FFFFFF',
+
+        // 'support-7-24': "0px 0px 20px #005FF0",
+        // 'hvr-support-7-24': "0px 0px 20px #003EB3",
+
+      },
+      boxShadow: {
+        'tourcardvertically': '0px 0px 2px rgba(0, 0, 0, 0.25)',
+      },
+      screens: {
+        '1920': '1920px',
+      },
+
     },
   },
   plugins: [],
