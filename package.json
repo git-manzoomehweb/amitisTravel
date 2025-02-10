@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/git-manzoomehweb/amitisTravel/issues"
   },
-  "homepage": "https://github.com/git-manzoomehweb/amitisTravel#readme"
+  "homepage": "https://github.com/git-manzoomehweb/amitisTravel#readme",
+  "dependencies": {
+    "wavesurfer.js": "^7.9.0"
+  }
 }
