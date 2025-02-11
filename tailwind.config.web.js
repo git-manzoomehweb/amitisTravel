@@ -116,6 +116,11 @@ module.exports = {
         'faq-pattern': "url('../images/faq-pattern.svg')",
         'list-pattern': "url('../images/bg-list-pattern.png')",
 
+
+        'top-film-frame': "url('../images/top-film-frame.png')",
+        'bottom-film-frame': "url('../images/bottom-film-frame.png')",
+        'under-film-pattern': "url('../images/under-video-pattern.png')",
+
         'secondary-redial-gradient': 'linear-gradient(90deg, rgba(249, 148, 23, 0) 0%, #F99417 21.09%, #F99417 77.66%, rgba(249, 148, 23, 0) 100%)',
 
 
@@ -140,6 +145,7 @@ module.exports = {
         'tourcardvertically-success-hvr': '0px 0px 10px #12B76A',
         'tourcardvertically-off-hvr': '0px 0px 10px #F04438',
         'updating-tour-clock': '0px 0px 100px #FFFFFF',
+        'comment-box': '0px 0px 4px rgba(0, 0, 0, 0.25)',
 
         // 'support-7-24': "0px 0px 20px #005FF0",
         // 'hvr-support-7-24': "0px 0px 20px #003EB3",

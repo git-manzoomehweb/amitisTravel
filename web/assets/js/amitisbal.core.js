@@ -357,3 +357,262 @@ if (document.querySelector(".swiper-papulartourcard")) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.remove("opacity-0");
+            scrollToTopBtn.classList.add("opacity-100");
+        } else {
+            scrollToTopBtn.classList.remove("opacity-100");
+            scrollToTopBtn.classList.add("opacity-0");
+        }
+    });
+
+    scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+
+// podcast box
+document.addEventListener("DOMContentLoaded", function () {
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const waveContainer = document.getElementById("waveform");
+    const audioElement = document.getElementById("audioSource"); 
+    let isManuallyPlaying = false;
+
+    const wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: '#fff',
+        progressColor: '#005FF0',
+        cursorColor: 'transparent',
+        barWidth: 1,
+        height: 40,
+        responsive: true
+    });
+
+    if (audioElement && audioElement.src) {
+        wavesurfer.load(audioElement.src); 
+    }
+
+    function togglePlayPause() {
+        if (wavesurfer.isPlaying()) {
+            wavesurfer.pause();
+            isManuallyPlaying = false;
+            waveContainer.classList.remove("playing");
+        } else {
+            wavesurfer.play();
+            isManuallyPlaying = true;
+            waveContainer.classList.add("playing");
+        }
+    }
+
+    playPauseBtn.addEventListener('click', function () {
+        togglePlayPause();
+    });
+});
+
+//video player
+// document.addEventListener("DOMContentLoaded", function () {
+//     const videoModal = document.getElementById("videoModal");
+//     const closeModal = document.getElementById("closeModal");
+//     const videoPlayer = document.getElementById("videoPlayer");
+//     const videoSource = document.getElementById("videoSource");
+    
+//     document.querySelectorAll(".openModal").forEach(button => {
+//         button.addEventListener("click", function () {
+//             const videoUrl = this.getAttribute("data-video");
+//             if (videoUrl) {
+//                 videoSource.src = videoUrl;
+//                 videoPlayer.load();
+//                 videoModal.classList.remove("hidden");
+//                 videoPlayer.play();
+//             }
+//         });
+//     });
+    
+//     function closeVideoModal() {
+//         videoModal.classList.add("hidden");
+//         videoPlayer.pause();
+//         videoPlayer.currentTime = 0;
+//     }
+    
+//     closeModal.addEventListener("click", closeVideoModal);
+//     videoModal.addEventListener("click", function (event) {
+//         if (event.target === videoModal) {
+//             closeVideoModal();
+//         }
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const videoModal = document.getElementById("videoModal");
+    const closeModal = document.getElementById("closeModal");
+    const videoPlayer = document.getElementById("videoPlayer");
+    const videoSource = document.getElementById("videoSource");
+
+    // اسلایدر Swiper
+    new Swiper(".passengers-video", {
+        slidesPerView: 'auto' ,
+        speed: 1500,
+        centeredSlides: true,
+        spaceBetween: 20,
+        effect: 'slide',
+        grabCursor: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        loop: true,
+
+    });
+
+    // رویداد کلیک برای باز کردن مودال
+    document.querySelectorAll(".openModal").forEach(item => {
+        item.addEventListener("click", function () {
+            const videoUrl = this.getAttribute("data-video");
+            if (videoUrl) {
+                videoSource.src = videoUrl;
+                videoPlayer.load();
+                videoModal.classList.remove("hidden");
+                videoPlayer.play();
+            }
+        });
+    });
+
+    // تابع بستن مودال
+    function closeVideoModal() {
+        videoModal.classList.add("hidden");
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+    }
+
+    closeModal.addEventListener("click", closeVideoModal);
+    videoModal.addEventListener("click", function (event) {
+        if (event.target === videoModal) {
+            closeVideoModal();
+        }
+    });
+});
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const sidebar = document.querySelector("aside");
+//     const sidebarControl = document.getElementById("sidebar-controll");
+//     const menuItems = document.querySelectorAll("aside ul li");
+//     const links = document.querySelectorAll("aside ul li a");
+
+//     // تابع اسکرول نرم
+//     links.forEach(link => {
+//         link.addEventListener("click", function (event) {
+//             const targetId = this.getAttribute("href").substring(1);
+//             const targetElement = document.getElementById(targetId);
+
+//             if (targetElement) {
+//                 event.preventDefault();
+//                 window.scrollTo({
+//                     top: targetElement.offsetTop - 20,
+//                     behavior: "smooth"
+//                 });
+//             }
+//         });
+//     });
+
+//     // بررسی وجود سکشن‌ها در صفحه و تغییر استایل
+//     function updateMenuItems() {
+//         menuItems.forEach(item => {
+//             const link = item.querySelector("a");
+//             const targetId = link.getAttribute("href").substring(1);
+//             const targetElement = document.getElementById(targetId);
+
+//             if (targetElement) {
+//                 item.classList.remove("grayscale"); // فعال‌سازی آیتم
+//                 item.classList.add("hover:bg-secondary-200"); // استایل هاور اضافه شود
+//             } else {
+//                 item.classList.add("grayscale"); // غیرفعال کردن آیتم
+//                 item.classList.remove("hover:bg-secondary-200");
+//             }
+//         });
+//     }
+
+//     updateMenuItems(); // بررسی اولیه
+//     window.addEventListener("resize", updateMenuItems);
+//     window.addEventListener("scroll", updateMenuItems);
+
+//     // تابع جمع کردن سایدبار
+//     sidebarControl.addEventListener("click", function () {
+//         sidebar.classList.toggle("collapsed");
+
+//         if (sidebar.classList.contains("collapsed")) {
+//             sidebar.classList.add("w-[80px]");
+//             sidebar.classList.remove("w-80");
+//             links.forEach(link => link.querySelector("span").classList.add("hidden"));
+//         } else {
+//             sidebar.classList.remove("w-[80px]");
+//             sidebar.classList.add("w-80");
+//             links.forEach(link => link.querySelector("span").classList.remove("hidden"));
+//         }
+//     });
+// });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector("aside");
+    const handleResize = document.getElementById("handle-resize");
+    const sidebarControl = document.getElementById("sidebar-controll");
+    const menuItems = document.querySelectorAll("aside ul li");
+    const links = document.querySelectorAll("aside ul li a");
+
+    // تابع اسکرول نرم
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                event.preventDefault();
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    // بررسی وجود سکشن‌ها در صفحه و تغییر استایل
+    function updateMenuItems() {
+        menuItems.forEach(item => {
+            const link = item.querySelector("a");
+            const targetId = link.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                item.classList.remove("grayscale"); // فعال‌سازی آیتم
+                item.classList.add("hover:bg-secondary-200"); // استایل هاور اضافه شود
+            } else {
+                item.classList.add("grayscale"); // غیرفعال کردن آیتم
+                item.classList.remove("hover:bg-secondary-200");
+            }
+        });
+    }
+
+    updateMenuItems(); // بررسی اولیه
+    window.addEventListener("resize", updateMenuItems);
+    window.addEventListener("scroll", updateMenuItems);
+
+    // تابع جمع کردن سایدبار
+    handleResize.addEventListener("click", function () {
+        sidebar.classList.toggle("collapsed");
+        sidebarControl.classList.toggle("rotate-180"); // اضافه کردن چرخش 180 درجه
+
+        if (sidebar.classList.contains("collapsed")) {
+            sidebar.classList.add("w-[100px]");
+            sidebar.classList.remove("w-80");
+            links.forEach(link => link.querySelector("span").classList.add("hidden"));
+        } else {
+            sidebar.classList.remove("w-[100px]");
+            sidebar.classList.add("w-80");
+            links.forEach(link => link.querySelector("span").classList.remove("hidden"));
+        }
+    });
+});

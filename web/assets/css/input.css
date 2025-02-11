@@ -314,3 +314,27 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 } */
 
 .faq-active span{clip-path: polygon(0 0, 0% 100%, 100% 0); background-color: var(--primary-100);width: 927px; height: 64px;}  
+
+
+        /* 🔹 انیمیشن لرزش (Pulse) */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        /* 🔹 افکت Glow هنگام پخش */
+        .playing {
+            animation: pulse 1.2s infinite ease-in-out;
+            /* box-shadow: 0px 0px 15px rgba(59, 130, 246, 0.8);  */
+            border-radius: 8px;
+        }
+
+        .collapsed {
+            width: 80px !important;
+        }
+        
+        .collapsed ul li a span {
+            display: none;
+        }
+        
