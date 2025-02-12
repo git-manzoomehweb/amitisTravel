@@ -121,6 +121,10 @@ module.exports = {
         'bottom-film-frame': "url('../images/bottom-film-frame.png')",
         'under-film-pattern': "url('../images/under-video-pattern.png')",
 
+        'mask-1': "url('../images/01-mask-image.jpg')",
+        'mask-2': "url('../images/02-mask-image.jpg')",
+        'mask-3': "url('../images/03-mask-image.jpg')",
+
         'secondary-redial-gradient': 'linear-gradient(90deg, rgba(249, 148, 23, 0) 0%, #F99417 21.09%, #F99417 77.66%, rgba(249, 148, 23, 0) 100%)',
 
 
@@ -146,6 +150,12 @@ module.exports = {
         'tourcardvertically-off-hvr': '0px 0px 10px #F04438',
         'updating-tour-clock': '0px 0px 100px #FFFFFF',
         'comment-box': '0px 0px 4px rgba(0, 0, 0, 0.25)',
+        'banner-visa': '0px 0px 30px rgba(0, 0, 0, 0.1)',
+        'visa-card': '0px 0px 10px rgba(0, 0, 0, 0.08)',
+        'visa-card-hvr': '0px 0px 10px rgba(0, 0, 0, 0.08)',
+        'visa-card-hvr': '0px 0px 10px rgba(0, 0, 0, 0.19)',
+        'visa-card-inner-img': '0px 0px 4px rgba(0, 0, 0, 0.25)',
+        'visa-view-slogan-card': '0px 0px 10px rgba(0, 0, 0, 0.1)',
 
         // 'support-7-24': "0px 0px 20px #005FF0",
         // 'hvr-support-7-24': "0px 0px 20px #003EB3",
