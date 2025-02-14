@@ -250,7 +250,7 @@ function ShareSocialMedia(event, containerid) {
         container.classList.remove("hovered","w-[302px]");
         onlybtncontainer.classList.remove("w-[302px]");
         txtcontainer.classList.remove("text-white");
-        bgactivation.classList.remove("right-0","mx-0","h-full","w-full");
+        bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
 
     } else {
         // بستن سایر باکس‌ها (در صورتی که چندین باکس وجود داشته باشد)
@@ -258,7 +258,7 @@ function ShareSocialMedia(event, containerid) {
             el.classList.remove("hovered","w-[302px]");
             onlybtncontainer.classList.remove("w-[302px]");
             txtcontainer.classList.remove("text-white");
-            bgactivation.classList.remove("right-0","mx-0","h-full","w-full");
+            bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
             el.querySelector(".socialmedia-box-share").classList.add("invisible", "opacity-0");
         });
 
@@ -267,9 +267,54 @@ function ShareSocialMedia(event, containerid) {
         container.classList.add("hovered","w-[302px]");
         onlybtncontainer.classList.add("w-[302px]");
         txtcontainer.classList.add("text-white");
-        bgactivation.classList.add("right-0","mx-0","h-full","w-full");
+        bgactivation.classList.add("right-0","!mx-0","h-full","w-full","p-0");
     }
 }
+
+
+function ShareSocialMediaPrimary(event, containerid) {
+    event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک داخل باکس
+
+    const container = document.getElementById(containerid);
+    const shareBox = container.querySelector('.socialmedia-box-share');
+    const txtcontainer = container.querySelector(".text-share-box");
+    const bgactivation = container.querySelector(".bg-activation-sharebtn");
+    const onlybtncontainer = document.getElementById("sharebutton-content");
+    
+
+    if (!container || !shareBox) return;
+
+    // بررسی باز یا بسته بودن
+    const isOpen = container.classList.contains("hovered");
+
+    if (isOpen) {
+        // بستن باکس
+        shareBox.classList.add("invisible", "opacity-0");
+        container.classList.remove("hovered","w-[302px]");
+        onlybtncontainer.classList.remove("w-[302px]");
+        txtcontainer.classList.remove("text-white");
+        // bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
+
+    } else {
+        // بستن سایر باکس‌ها (در صورتی که چندین باکس وجود داشته باشد)
+        document.querySelectorAll(".share-container").forEach(el => {
+            el.classList.remove("hovered","w-[302px]");
+            onlybtncontainer.classList.remove("w-[302px]");
+            txtcontainer.classList.remove("text-white");
+            // bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
+            el.querySelector(".socialmedia-box-share").classList.add("invisible", "opacity-0");
+        });
+
+        // باز کردن باکس
+        shareBox.classList.remove("invisible", "opacity-0","w-[302px]");
+        container.classList.add("hovered","w-[302px]");
+        onlybtncontainer.classList.add("w-[302px]");
+        txtcontainer.classList.add("text-white");
+        // bgactivation.classList.add("right-0","!mx-0","h-full","w-full","p-0");
+    }
+}
+
+
 document.addEventListener("click", function () {
     document.querySelectorAll(".share-container").forEach(el => {
         el.classList.remove("hovered", "w-[302px]");
@@ -279,7 +324,7 @@ document.addEventListener("click", function () {
         const bgactivation = el.querySelector(".bg-activation-sharebtn");
         if (onlybtncontainer) onlybtncontainer.classList.remove("w-[302px]");
         if (txtcontainer) txtcontainer.classList.remove("text-white");
-        if (bgactivation) bgactivation.classList.remove("right-0", "mx-0", "h-full", "w-full");
+        if (bgactivation) bgactivation.classList.remove("right-0", "!mx-0", "h-full", "w-full","p-0");
     });
 });
 
@@ -358,59 +403,63 @@ if (document.querySelector(".swiper-papulartourcard")) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const scrollToTopBtn = document.getElementById("scrollToTop");
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.remove("opacity-0");
-            scrollToTopBtn.classList.add("opacity-100");
-        } else {
-            scrollToTopBtn.classList.remove("opacity-100");
-            scrollToTopBtn.classList.add("opacity-0");
-        }
-    });
-
-    scrollToTopBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if(document.querySelector(".scrollToTop")){
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+    
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.remove("opacity-0");
+                scrollToTopBtn.classList.add("opacity-100");
+            } else {
+                scrollToTopBtn.classList.remove("opacity-100");
+                scrollToTopBtn.classList.add("opacity-0");
+            }
+        });
+    
+        scrollToTopBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 });
 
 // podcast box
 document.addEventListener("DOMContentLoaded", function () {
-    const playPauseBtn = document.getElementById("playPauseBtn");
-    const waveContainer = document.getElementById("waveform");
-    const audioElement = document.getElementById("audioSource"); 
-    let isManuallyPlaying = false;
-
-    const wavesurfer = WaveSurfer.create({
-        container: '#waveform',
-        waveColor: '#fff',
-        progressColor: '#005FF0',
-        cursorColor: 'transparent',
-        barWidth: 1,
-        height: 40,
-        responsive: true
-    });
-
-    if (audioElement && audioElement.src) {
-        wavesurfer.load(audioElement.src); 
-    }
-
-    function togglePlayPause() {
-        if (wavesurfer.isPlaying()) {
-            wavesurfer.pause();
-            isManuallyPlaying = false;
-            waveContainer.classList.remove("playing");
-        } else {
-            wavesurfer.play();
-            isManuallyPlaying = true;
-            waveContainer.classList.add("playing");
+    if(document.getElementById("playPauseBtn")){
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const waveContainer = document.getElementById("waveform");
+        const audioElement = document.getElementById("audioSource"); 
+        let isManuallyPlaying = false;
+    
+        const wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: '#fff',
+            progressColor: '#005FF0',
+            cursorColor: 'transparent',
+            barWidth: 1,
+            height: 40,
+            responsive: true
+        });
+    
+        if (audioElement && audioElement.src) {
+            wavesurfer.load(audioElement.src); 
         }
+    
+        function togglePlayPause() {
+            if (wavesurfer.isPlaying()) {
+                wavesurfer.pause();
+                isManuallyPlaying = false;
+                waveContainer.classList.remove("playing");
+            } else {
+                wavesurfer.play();
+                isManuallyPlaying = true;
+                waveContainer.classList.add("playing");
+            }
+        }
+    
+        playPauseBtn.addEventListener('click', function () {
+            togglePlayPause();
+        });
     }
-
-    playPauseBtn.addEventListener('click', function () {
-        togglePlayPause();
-    });
 });
 
 //video player
@@ -446,7 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     });
 // });
 
-if(document.querySelector(".passengers-video")){
+if(document.querySelector(".passengers-video") || document.getElementById("podcastandvideo")){
     document.addEventListener("DOMContentLoaded", function () {
         const videoModal = document.getElementById("videoModal");
         const closeModal = document.getElementById("closeModal");
@@ -663,4 +712,107 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+if(document.getElementById("banner-blog")){
 
+    var swiperbanner = new Swiper("#banner-blog", {
+        slidesPerView: 1,
+        centeredSlides: true,
+        navigation: {
+            nextEl: '.swiper-next-banner',
+            prevEl: '.swiper-prev-banner',
+          },
+        
+      });
+}
+
+
+
+if (document.querySelector(".swiper-most-visited")) {
+    const mostvisited = new Swiper('.swiper-most-visited', {
+    effect: "cards",
+    loop: true,
+    // grabCursor: true,
+    // cssMode: true,
+    perSlideOffset: 20,
+      navigation: {
+        nextEl: '.swiper-most-visited-next',
+        prevEl: '.swiper-most-visited-prev',
+      },
+    });
+
+    function updateSlideContent() {
+      const activeSlide = mostvisited.slides[mostvisited.activeIndex];
+      
+      if (activeSlide) {
+        const title = activeSlide.getAttribute('data-title') || '';
+        const text = activeSlide.getAttribute('data-text') || '';
+        const link = activeSlide.getAttribute('data-link') || '#';
+  
+        document.getElementById('title').innerText = title;
+        document.getElementById('text').innerHTML = text;
+        document.getElementById('bookinglink').setAttribute("href", link);
+      }
+    }
+  
+    mostvisited.on('slideChangeTransitionEnd', updateSlideContent);
+    updateSlideContent();
+  }
+
+  document.querySelectorAll('.dropdowntitr').forEach(item => {
+    item.addEventListener('click', function () {
+        let parent = this.closest('.dropdownBox');
+        let content = parent.querySelector('.dropdownCotent');
+        let icon = this.querySelector('.opendropdow');
+        
+        item.classList.toggle('border-b');
+        
+        if (content) {
+            content.classList.toggle('hidden');
+        }
+        
+        if (icon) {
+            icon.classList.toggle('rotate-180');
+        }
+    });
+});
+
+
+const fabButton = document.getElementById("fabButton");
+const fabMenu = document.getElementById("fabMenu");
+
+if(fabButton && fabMenu){
+    // باز و بسته کردن منو با کلیک روی دکمه
+    fabButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک روی دکمه
+        fabMenu.classList.toggle("scale-0");
+        fabMenu.classList.toggle("opacity-0");
+    });
+    
+    // بستن منو با کلیک خارج از آن
+    document.addEventListener("click", (event) => {
+        if (!fabMenu.contains(event.target) && !fabButton.contains(event.target)) {
+            fabMenu.classList.add("scale-0");
+            fabMenu.classList.add("opacity-0");
+        }
+    });
+}
+  
+
+if(document.querySelector(".partners-company-slider")){
+    var swiperpartners = new Swiper(".partners-company-slider", {
+        slidesPerView: "auto",
+        speed: 400,
+      centeredSlides: true,
+    //   spaceBetween: 20,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop:true,
+      navigation: {
+    nextEl: '.partners-company-button-next',
+    prevEl: '.partners-company-button-prev',
+    }
+    });
+}

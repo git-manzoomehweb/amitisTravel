@@ -115,15 +115,21 @@ module.exports = {
         'tourism-pattern': "url('../images/TourismMagazine.svg')",
         'faq-pattern': "url('../images/faq-pattern.svg')",
         'list-pattern': "url('../images/bg-list-pattern.png')",
+        'view-article-pattern': "url('../images/article-view-bg.png')",
 
 
         'top-film-frame': "url('../images/top-film-frame.png')",
         'bottom-film-frame': "url('../images/bottom-film-frame.png')",
         'under-film-pattern': "url('../images/under-video-pattern.png')",
 
+        'tringle-pattern': "url('../images/pattern-tringle.svg')",
+        'earth-pattern': "url('../images/earth-pattern.png')",
+
         'mask-1': "url('../images/01-mask-image.jpg')",
         'mask-2': "url('../images/02-mask-image.jpg')",
         'mask-3': "url('../images/03-mask-image.jpg')",
+
+        'aboutus-section1': "url('../images/airplan.png')",
 
         'secondary-redial-gradient': 'linear-gradient(90deg, rgba(249, 148, 23, 0) 0%, #F99417 21.09%, #F99417 77.66%, rgba(249, 148, 23, 0) 100%)',
 
@@ -156,6 +162,7 @@ module.exports = {
         'visa-card-hvr': '0px 0px 10px rgba(0, 0, 0, 0.19)',
         'visa-card-inner-img': '0px 0px 4px rgba(0, 0, 0, 0.25)',
         'visa-view-slogan-card': '0px 0px 10px rgba(0, 0, 0, 0.1)',
+        'article-searched-card': '0px 0px 4px rgba(0, 0, 0, 0.25)',
 
         // 'support-7-24': "0px 0px 20px #005FF0",
         // 'hvr-support-7-24': "0px 0px 20px #003EB3",
