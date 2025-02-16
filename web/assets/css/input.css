@@ -453,6 +453,16 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
     clip-path: url(#airline-section1);
   }
 
+  .hasNot-login-icon{display: none !important;}
+  .LoginInformation:hover .btnstyle > span{transform-origin: center; transform: scale(1.25);display: inline-block;}
+  .user-profile-container > button > span{display: none !important;}
+  .user-profile-btn::before{content: 'به حساب کاربری وارد شده اید';color: var(--success-500);font-size: 10px;}
 
-  
+  .main-login-container > .login-left-part{display: none !important;}
+  .main-login-container>.login-right-part{width:60%;float:none;margin:0 auto}
+  .main-login-container.rtl-lang .login-closed {
+    text-align: left;
+}
+  .main-login-container.rtl-lang .login-closed>svg{display:none!important}
+  .main-login-container.rtl-lang .login-closed::before{content: 'text';}
 
