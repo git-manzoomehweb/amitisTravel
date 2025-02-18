@@ -1,3 +1,40 @@
+<!-- ads pictures -->
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="2318548" sourcemid="ads"><member type="list" name="gallery" format="4" order="ord"></member></basis>
+
+<!-- destinations -->
+<basis core="dbsource" source="basiscore" mid="20" name="db" lid="1"><member name="destinations" type="tree" request="cat" parentid="140689" 
+    postsql="select * from [db.destinations] where catid <> 140689 LIMIT 8" /></basis>
+    <!-- postsql="select catID , Title, image , ord , link , parentid from [db.destinations] LIMIT 8"  -->
+<!-- summer special tours -->
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="151068">
+    <member name="specialtours" type="list" link="tour.bc" size="288X224" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491,
+     3087492, 3087493, 3087494, 3087497, 3087501, 3087502 " typeid="159" perpage="16" order="ord">
+    </member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist"></member>
+</basis>
+<basis core="inlinesource" name="joining">
+    <member name="listspecial" lefttblcol="db.specialtours.prp_10000504" righttblcol="list.airline.name" format="join"
+        jointype="leftjoin"></member>
+</basis>
+<!-- papular tours -->
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="151068">
+    <member name="papulartours" type="list" link="tour.bc" size="408X432" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491,
+     3087492, 3087493, 3087494, 3087497, 3087501, 3087502 " typeid="159" perpage="16" order="ord">
+    </member>
+</basis>
+<basis core="inlinesource" name="joining">
+    <member name="listpapular" lefttblcol="db.papulartours.prp_10000504" righttblcol="list.airline.name" format="join"
+        jointype="leftjoin"></member>
+</basis>
+<!-- magazine article -->
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213266">
+    <member name="magazinetourism" type="list" link="article.bc" propertyid="" typeid="159" perpage="4" order="ord">
+    </member>
+</basis>
+
+
 <!-- npm run watch:web -->
 <!DOCTYPE html>
 <html lang="fa">
@@ -52,8 +89,6 @@
 
 
 
-
-    <link rel="stylesheet" href="../assets/css/output.css">
     <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
     <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
     
@@ -62,6 +97,7 @@
 
 <body class="font-yekanbakhregularFA bg-neutralcolor-50">
 
+    <basis core="call" file="header.inc" ></basis>
 
 
     <main class="w-full">
@@ -73,12 +109,12 @@
 
             <button onclick="CloseAdv(this, 'advertise-banner')">
                 <svg width="40" height="40" class="absolute top-0 bottom-0 left-3 my-auto" >
-                    <use xlink:href="../assets/images/sprite-icons.svg#close-adv-icon"></use>
+                    <use xlink:href="./images/sprite-icons.svg#close-adv-icon"></use>
                 </svg>
             </button>
 
         </div>
-        <section class="bg-module-active max-w-7xl mx-auto max-xl:w-full  mt-9 rounded-t-3xl drop-shadow-banner-search " >
+        <section class="bg-module-active search-banner max-w-7xl mx-auto max-xl:w-full  mt-9 rounded-t-3xl drop-shadow-banner-search " >
             <div class="h-[480px] bg-primary-900 rounded-t-3xl">
 
             </div>
@@ -88,8 +124,8 @@
             <h2 class="invisible h-0 w-0 ">
                 آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری
             </h2>
-            <div class="bg-white border border-neutralcolor-800 h-72 w-full rounded-t-lg rounded-3xl -mt-4">
-    loading
+            <div class="bg-white border border-neutralcolor-800 h-72 w-full rounded-t-lg rounded-3xl -mt-4 search-box-container">
+                <div id="search-box"></div>
             </div>
         </section>
 
@@ -97,14 +133,14 @@
             <a href="#">
                 <figure class="w-[628px] h-[280px]  rounded-r-3xl overflow-hidden bg-imagecolor">
                     <img class="object-contain " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/بنر1.jpg"
+                    src="./images/Image-not-found.png" data-src="./images/non-upload/بنر1.jpg"
                      width="628" height="280" alt="">
                     <figcaption class="invisible h-0 w-0"></figcaption>
                 </figure>
             </a>
             <a href="#">
                 <figure class="w-[628px] h-[280px]  rounded-l-3xl overflow-hidden bg-imagecolor">
-                <img class="object-cover " loading="lazy" src="../assets/images/non-upload/بنر2.jpg" width="628" height="280" alt="">
+                <img class="object-cover " loading="lazy" src="./images/non-upload/بنر2.jpg" width="628" height="280" alt="">
                 <figcaption class="invisible h-0 w-0"></figcaption>
             </figure>
         </a>
@@ -112,709 +148,120 @@
 
         <div class="clear-both"></div>
 
-        <section class="max-w-7xl mx-auto text-center mt-16 block">
-            <h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative
-            before:content-[' '] before:w-20 before:h-20 
-            before:bg-secondary before:opacity-20 before:rounded-full
-            before:block before:absolute before:-right-6 before:-top-4
-            ">
-                مقاصد
-                <span class="font-yekanbakhboldFA" >
-                    گردشگــــری
-                </span>
-            </h2>
 
-            <div class="flex flex-wrap justify-between my-12 gap-8">
+        <basis core="list" datamembername="db.destinations"><layout><section class="max-w-7xl mx-auto text-center mt-16 block"><h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-6 before:-top-4 ">مقاصد <span class="font-yekanbakhboldFA" >گردشگــــری </span></h2><div class="flex flex-wrap justify-between my-12 gap-8">@child </div></section></layout><face filter="link is null"><article class="w-[296px] h-[224px] rounded-3xl overflow-hidden group/categorycard"><a href="/tour-list.bc?catid=@catid" class="block w-full h-full"><figure class="relative w-full h-full"><img class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" src="./images/Image-not-found.png" data-src="[##cms.cms.cdn##]/@image" alt="@title"><figcaption class=" absolute bottom-0 left-0 right-0 z-30 top-0 block bg-gradient-to-t from-txtneutral-900 to-transparent to-50% group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90% transition-all duration-500 "><span class="text-white font-yekanbakhsemiboldFA text-2xl absolute bottom-8 left-6 flex flex-row-reverse leading-6 group-hover/categorycard:left-8 transition-all duration-500 "><span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">@title </span><svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500"><use xlink:href="./images/sprite-icons.svg#arrow-right-icon"></use></svg></span></figcaption></figure></a></article></face><face><article class="w-[296px] h-[224px] rounded-3xl overflow-hidden group/categorycard"><a href="/@link" class="block w-full h-full"><figure class="relative w-full h-full"><img class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" src="./images/Image-not-found.png" data-src="[##cms.cms.cdn##]/@image" alt="@title"><figcaption class=" absolute bottom-0 left-0 right-0 z-30 top-0 block bg-gradient-to-t from-txtneutral-900 to-transparent to-50% group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90% transition-all duration-500 "><span class="text-white font-yekanbakhsemiboldFA text-2xl absolute bottom-8 left-6 flex flex-row-reverse leading-6 group-hover/categorycard:left-8 transition-all duration-500 "><span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">@title </span><svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500"><use xlink:href="./images/sprite-icons.svg#arrow-right-icon"></use></svg></span></figcaption></figure></a></article></face></basis>
 
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-                <article class="w-[296px] h-[224px] rounded-3xl  overflow-hidden group/categorycard">
-                    <a href="#" class="block w-full h-full">
-                        <figure class="relative w-full h-full">
-                            <img 
-                            class="object-contain group-hover/categorycard:scale-110 transition-all duration-500 " loading="lazy" 
-                    src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/cat.png"
-                            alt="">
-                            <figcaption class="
-                            absolute bottom-0 left-0 right-0 z-30 top-0 block 
-                            bg-gradient-to-t from-txtneutral-900 to-transparent to-50%
-                            group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90%
-                            transition-all duration-500
-                            
-                            ">
-                                <span class="text-white font-yekanbakhsemiboldFA text-2xl  absolute bottom-8 left-6 flex flex-row-reverse leading-6
-                                group-hover/categorycard:left-8 transition-all duration-500
-                                ">
-                                <span class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block">
-                                    ترکیه
-                                </span>
-                                    <svg width="24" height="25" class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500">
-                                        <use xlink:href="../assets/images/sprite-icons.svg#arrow-right-icon"></use>
-                                    </svg>
-                                </span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </article>
-            </div>
-        </section>
-
-
-        <section class=" mt-12 block bg-white h-[592px]  pt-16">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative
-                        before:content-[' '] before:w-20 before:h-20 
-                        before:bg-secondary before:opacity-20 before:rounded-full
-                        before:block before:absolute before:-right-12 before:-top-4">تورهای 
-                    <span class="font-yekanbakhboldFA">ویژه تابستان</span>
-                </h2>
-
-            </div>
-        
-
-            
-
-
-
-
-
-            <div class=" my-5  w-full relative  z-10 h-[448px]
-            ">
-
-                <div class="max-w-[1336px] w-full mx-auto mt-14 relative">
-
-                    <div class="swiper swiper-tourcard max-w-7xl mx-auto w-full ">
-                        <div class="swiper-wrapper">
-
-                          <div class="swiper-slide">
-                            <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
-                                <a href="" class="block w-full h-full ">
-                                    <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
-                                        <div class="rounded-t-[48px] overflow-hidden">
-                                            <img 
-                                        class="object-contain group-hover/tourcard:scale-110 transition-all duration-500 " loading="lazy" 
-                                src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/tour-image.png"
-                                        alt="">
-                                        </div>
-
-                                    <svg class="absolute top-9 -right-[16px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#takhfif-card-tour"></use>
-                                    </svg>
-                                    <svg class="absolute top-16 -right-[17px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#aghsat-card-tour"></use>
-                                    </svg>
-
-                                    </figure>
-                                    <div class="flex flex-col justify-between h-[calc(100%-268px)]">
-                                        <header class="w-[288px] mx-auto ">
-                                            <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
-                                                تور آنتالیا ویژه نمایشگاه سنگ و ساختمان 
-                                            </h2>
-                                            <div class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
-                                                <img src="../assets/images/non-upload/airline-1.png"  alt="">
-                                                <div class="border-x px-1 border-neutralcolor-700">
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        10 شب و 11 روز
-                                                    </span>
-    
-                                                
-                                                </div>
-                                                <div >
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        28 آبان
-                                                    </span>
-    
-    
-                                                </div>
-                                            </div>
-    
-                                        </header>
-    
-                                        <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
-                                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
-    
-                                            <div class="flex justify-between items-center gap-x-3">
-                                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
-                                                    135.000.000 تومان 
-                                                </span>
-                                                <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
-                                                    126.000.000 تومان 
-                                                </span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                </a>
-                            </article>
-                          </div>
-                          <div class="swiper-slide">
-                            <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
-                                <a href="" class="block w-full h-full ">
-                                    <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
-                                        <div class="rounded-t-[48px] overflow-hidden">
-                                            <img 
-                                        class="object-contain group-hover/tourcard:scale-110 transition-all duration-500 " loading="lazy" 
-                                src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/tour-image.png"
-                                        alt="">
-                                        </div>
-
-                                    <svg class="absolute top-9 -right-[16px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#takhfif-card-tour"></use>
-                                    </svg>
-                                    <svg class="absolute top-16 -right-[17px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#aghsat-card-tour"></use>
-                                    </svg>
-
-                                    </figure>
-                                    <div class="flex flex-col justify-between h-[calc(100%-268px)]">
-                                        <header class="w-[288px] mx-auto ">
-                                            <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
-                                                تور آنتالیا ویژه نمایشگاه سنگ و ساختمان 
-                                            </h2>
-                                            <div class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
-                                                <img src="../assets/images/non-upload/airline-1.png"  alt="">
-                                                <div class="border-x px-1 border-neutralcolor-700">
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        10 شب و 11 روز
-                                                    </span>
-    
-                                                
-                                                </div>
-                                                <div >
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        28 آبان
-                                                    </span>
-    
-    
-                                                </div>
-                                            </div>
-    
-                                        </header>
-    
-                                        <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
-                                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
-    
-                                            <div class="flex justify-between items-center gap-x-3">
-                                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
-                                                    135.000.000 تومان 
-                                                </span>
-                                                <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
-                                                    126.000.000 تومان 
-                                                </span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                </a>
-                            </article>
-                          </div>
-                          <div class="swiper-slide">
-                            <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
-                                <a href="" class="block w-full h-full ">
-                                    <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
-                                        <div class="rounded-t-[48px] overflow-hidden">
-                                            <img 
-                                        class="object-contain group-hover/tourcard:scale-110 transition-all duration-500 " loading="lazy" 
-                                src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/tour-image.png"
-                                        alt="">
-                                        </div>
-
-                                    <svg class="absolute top-9 -right-[16px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#takhfif-card-tour"></use>
-                                    </svg>
-                                    <svg class="absolute top-16 -right-[17px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#aghsat-card-tour"></use>
-                                    </svg>
-
-                                    </figure>
-                                    <div class="flex flex-col justify-between h-[calc(100%-268px)]">
-                                        <header class="w-[288px] mx-auto ">
-                                            <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
-                                                تور آنتالیا ویژه نمایشگاه سنگ و ساختمان 
-                                            </h2>
-                                            <div class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
-                                                <img src="../assets/images/non-upload/airline-1.png"  alt="">
-                                                <div class="border-x px-1 border-neutralcolor-700">
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        10 شب و 11 روز
-                                                    </span>
-    
-                                                
-                                                </div>
-                                                <div >
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        28 آبان
-                                                    </span>
-    
-    
-                                                </div>
-                                            </div>
-    
-                                        </header>
-    
-                                        <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
-                                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
-    
-                                            <div class="flex justify-between items-center gap-x-3">
-                                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
-                                                    135.000.000 تومان 
-                                                </span>
-                                                <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
-                                                    126.000.000 تومان 
-                                                </span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                </a>
-                            </article>
-                          </div>
-                          <div class="swiper-slide">
-                            <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
-                                <a href="" class="block w-full h-full ">
-                                    <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
-                                        <div class="rounded-t-[48px] overflow-hidden">
-                                            <img 
-                                        class="object-contain group-hover/tourcard:scale-110 transition-all duration-500 " loading="lazy" 
-                                src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/tour-image.png"
-                                        alt="">
-                                        </div>
-
-                                    <svg class="absolute top-9 -right-[16px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#takhfif-card-tour"></use>
-                                    </svg>
-                                    <svg class="absolute top-16 -right-[17px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#aghsat-card-tour"></use>
-                                    </svg>
-
-                                    </figure>
-                                    <div class="flex flex-col justify-between h-[calc(100%-268px)]">
-                                        <header class="w-[288px] mx-auto ">
-                                            <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
-                                                تور آنتالیا ویژه نمایشگاه سنگ و ساختمان 
-                                            </h2>
-                                            <div class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
-                                                <img src="../assets/images/non-upload/airline-1.png"  alt="">
-                                                <div class="border-x px-1 border-neutralcolor-700">
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        10 شب و 11 روز
-                                                    </span>
-    
-                                                
-                                                </div>
-                                                <div >
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        28 آبان
-                                                    </span>
-    
-    
-                                                </div>
-                                            </div>
-    
-                                        </header>
-    
-                                        <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
-                                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
-    
-                                            <div class="flex justify-between items-center gap-x-3">
-                                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
-                                                    135.000.000 تومان 
-                                                </span>
-                                                <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
-                                                    126.000.000 تومان 
-                                                </span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                </a>
-                            </article>
-                          </div>
-                          <div class="swiper-slide">
-                            <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
-                                <a href="" class="block w-full h-full ">
-                                    <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
-                                        <div class="rounded-t-[48px] overflow-hidden">
-                                            <img 
-                                        class="object-contain group-hover/tourcard:scale-110 transition-all duration-500 " loading="lazy" 
-                                src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/tour-image.png"
-                                        alt="">
-                                        </div>
-
-                                    <svg class="absolute top-9 -right-[16px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#takhfif-card-tour"></use>
-                                    </svg>
-                                    <svg class="absolute top-16 -right-[17px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#aghsat-card-tour"></use>
-                                    </svg>
-
-                                    </figure>
-                                    <div class="flex flex-col justify-between h-[calc(100%-268px)]">
-                                        <header class="w-[288px] mx-auto ">
-                                            <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
-                                                تور آنتالیا ویژه نمایشگاه سنگ و ساختمان 
-                                            </h2>
-                                            <div class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
-                                                <img src="../assets/images/non-upload/airline-1.png"  alt="">
-                                                <div class="border-x px-1 border-neutralcolor-700">
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        10 شب و 11 روز
-                                                    </span>
-    
-                                                
-                                                </div>
-                                                <div >
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        28 آبان
-                                                    </span>
-    
-    
-                                                </div>
-                                            </div>
-    
-                                        </header>
-    
-                                        <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
-                                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
-    
-                                            <div class="flex justify-between items-center gap-x-3">
-                                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
-                                                    135.000.000 تومان 
-                                                </span>
-                                                <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
-                                                    126.000.000 تومان 
-                                                </span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                </a>
-                            </article>
-                          </div>
-                          <div class="swiper-slide">
-                            <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
-                                <a href="" class="block w-full h-full ">
-                                    <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
-                                        <div class="rounded-t-[48px] overflow-hidden">
-                                            <img 
-                                        class="object-contain group-hover/tourcard:scale-110 transition-all duration-500 " loading="lazy" 
-                                src="../assets/images/Image-not-found.png" data-src="../assets/images/non-upload/tour-image.png"
-                                        alt="">
-                                        </div>
-
-                                    <svg class="absolute top-9 -right-[16px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#takhfif-card-tour"></use>
-                                    </svg>
-                                    <svg class="absolute top-16 -right-[17px]" width="141" height="50" >
-                                        <use xlink:href="../assets/images/sprite-icons.svg#aghsat-card-tour"></use>
-                                    </svg>
-
-                                    </figure>
-                                    <div class="flex flex-col justify-between h-[calc(100%-268px)]">
-                                        <header class="w-[288px] mx-auto ">
-                                            <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
-                                                تور آنتالیا ویژه نمایشگاه سنگ و ساختمان 
-                                            </h2>
-                                            <div class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
-                                                <img src="../assets/images/non-upload/airline-1.png"  alt="">
-                                                <div class="border-x px-1 border-neutralcolor-700">
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        10 شب و 11 روز
-                                                    </span>
-    
-                                                
-                                                </div>
-                                                <div >
-                                                    <svg class="inline-block" width="17" height="16" >
-                                                        <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour"></use>
-                                                    </svg>
-                                                    <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
-                                                        28 آبان
-                                                    </span>
-    
-    
-                                                </div>
-                                            </div>
-    
-                                        </header>
-    
-                                        <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
-                                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
-    
-                                            <div class="flex justify-between items-center gap-x-3">
-                                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
-                                                    135.000.000 تومان 
-                                                </span>
-                                                <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
-                                                    126.000.000 تومان 
-                                                </span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                </a>
-                            </article>
-                          </div>
-
-                        </div>  
+        <basis core="list" datamembername="joining.listspecial">
+            <layout>
+                <section class=" mt-12 block bg-white h-[592px] pt-16">
+                    <div class="max-w-7xl mx-auto text-center">
+                        <h2
+                            class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-12 before:-top-4">
+                            تورهای <span class="font-yekanbakhboldFA">ویژه تابستان</span></h2>
                     </div>
-                    <div class="swipertourcard-button-prev
-                    absolute top-auto bottom-[180px] z-50 -left-6 mt-auto 
-                    rounded-full w-12 h-12 bg-white border-r-4 border-secondary flex justify-center items-center
-                    
-                    ">
-                    <svg width="19" height="29" viewBox="0 0 19 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.6074 3.18359L4.19933 14.5917L15.6074 25.9998" stroke="#FFA200" stroke-width="5" stroke-linecap="round"/>
-                        </svg>
-                        
+                    <div class=" my-5 w-full relative z-10 h-[448px] ">
+                        <div class="max-w-[1336px] w-full mx-auto mt-14 relative">
+                            <div class="swiper swiper-tourcard max-w-7xl mx-auto w-full ">
+                                <div class="swiper-wrapper">
+                                    @child
+                                </div>
+                            </div>
+                            <div
+                                class="swipertourcard-button-prev absolute top-auto bottom-[180px] z-50 -left-6 mt-auto rounded-full w-12 h-12 bg-white border-r-4 border-secondary flex justify-center items-center ">
+                                <svg width="19" height="29" viewBox="0 0 19 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.6074 3.18359L4.19933 14.5917L15.6074 25.9998" stroke="#FFA200" stroke-width="5"
+                                        stroke-linecap="round" />
+                                </svg></div>
+                            <div
+                                class="swipertourcard-button-next absolute top-auto bottom-[180px] z-50 -right-6 mt-auto rounded-full w-12 h-12 bg-white border-l-4 border-secondary flex justify-center items-center ">
+                                <svg width="19" height="29" viewBox="0 0 19 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.13086 3.18359L14.5389 14.5917L3.13086 25.9998" stroke="#FFA200" stroke-width="5"
+                                        stroke-linecap="round" />
+                                </svg></div>
+                        </div><span
+                            class="absolute -z-10 left-0 right-0 bottom-0 top-auto h-[224px] w-full bg-secondary-redial-gradient "></span>
+                    </div>
+                </section>
+            </layout>
+
+
+            <face filter="link is null">
+            </face>
+
+
+            <face>
+                <div class="swiper-slide">
+                    <article class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard">
+                        <a href="" class="block w-full h-full ">
+                            <figure class=" w-[288px] h-[224px] mx-auto mt-6 relative">
+                                <div class="rounded-t-[48px] overflow-hidden">
+                                    <img class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 "
+                                        loading="lazy" src="./images/Image-not-found.png" data-src="/@db.specialtours.type_159"
+                                        alt="">
+                                </div>
+                
+                                <svg class="absolute top-9 -right-[16px]" width="141" height="50">
+                                    <use xlink:href="./images/sprite-icons.svg#takhfif-card-tour"></use>
+                                </svg>
+                                <svg class="absolute top-16 -right-[17px]" width="141" height="50">
+                                    <use xlink:href="./images/sprite-icons.svg#aghsat-card-tour"></use>
+                                </svg>
+                
+                            </figure>
+                            <div class="flex flex-col justify-between h-[calc(100%-268px)]">
+                                <header class="w-[288px] mx-auto ">
+                                    <h2 class="text-base font-yekanbakhsemibold leading-10 line-clamp-1 my-2">
+                                       @db.specialtours.title
+                                    </h2>
+                                    <div
+                                        class="flex flex-row-reverse justify-between items-center  rounded-lg border border-neutralcolor-700 p-1">
+                                        <img class="object-contain" src="/@list.airline.pic" width="88" height="32" alt="">
+                                        <div class="border-x px-1 border-neutralcolor-700">
+                                            <svg class="inline-block" width="17" height="16">
+                                                <use xlink:href="./images/sprite-icons.svg#daynight-card-tour"></use>
+                                            </svg>
+                                            <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
+                                               @db.specialtours.prp_8076
+                                            </span>
+                
+                
+                                        </div>
+                                        <div>
+                                            <svg class="inline-block" width="17" height="16">
+                                                <use xlink:href="./images/sprite-icons.svg#calendar-card-tour"></use>
+                                            </svg>
+                                            <span class="text-sm text-txtneutral-900 font-yekanbakhregularFA ">
+                                                @db.specialtours.prp_8077
+                                            </span>
+                
+                
+                                        </div>
+                                    </div>
+                
+                                </header>
+                
+                                <footer class="w-[288px] mx-auto flex justify-between items-center flex-wrap">
+                                    <span class="text-xs font-yekanbakhregularFA text-txtneutral-500">قیمت از</span>
+                
+                                    <div class="flex justify-between items-center gap-x-3">
+                                        <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through">
+                                            135.000.000 تومان
+                                        </span>
+                                        <span class="text-primary-700 text-base font-yekanbakhsemiboldFA ">
+                                            @db.specialtours.prp_8181
+                                        </span>
+                                    </div>
+                                </footer>
+                            </div>
+                        </a>
+                    </article>
                 </div>
-                    <div class="swipertourcard-button-next
-                    absolute top-auto bottom-[180px] z-50 -right-6 mt-auto 
-                    rounded-full w-12 h-12 bg-white border-l-4 border-secondary flex justify-center items-center
-                    
-                    ">
-                    <svg width="19" height="29" viewBox="0 0 19 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.13086 3.18359L14.5389 14.5917L3.13086 25.9998" stroke="#FFA200" stroke-width="5" stroke-linecap="round"/>
-                        </svg>
-
-                </div>
-                    <!-- <div class="swiper-button-prev
-
-                    
-                    "></div>
-                    <div class="swiper-button-next
-
-                    
-                    "></div> -->
+            </face>
 
 
+        </basis>
 
 
-                </div>
-                <span class="absolute -z-10 left-0 right-0 bottom-0 top-auto h-[224px] w-full bg-secondary-redial-gradient "></span>
-            </div>
-        </section>
 
 
         <section class=" block bg-white h-[780px]  pt-24">
@@ -833,7 +280,7 @@
                         
                         <div class="swiper-wrapper !w-[824px]">
                     
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (1).png">
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (1).png">
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0 ">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -844,13 +291,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -858,7 +305,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -876,7 +323,7 @@
     
 
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (2).png"> 
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (2).png"> 
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0  drop-shadow-papulartours-aghsat-swiper">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -887,13 +334,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -901,7 +348,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -923,7 +370,7 @@
                                 </article>
     
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (3).png">
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (3).png">
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0  drop-shadow-papulartours-takhfif-swiper">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -934,13 +381,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -948,7 +395,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -970,7 +417,7 @@
                                 </article>
 
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (1).png">
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (1).png">
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0 ">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -981,13 +428,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -995,7 +442,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -1013,7 +460,7 @@
     
 
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (2).png"> 
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (2).png"> 
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0  drop-shadow-papulartours-aghsat-swiper">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -1024,13 +471,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -1038,7 +485,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -1060,7 +507,7 @@
                                 </article>
     
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (3).png">
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (3).png">
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0  drop-shadow-papulartours-takhfif-swiper">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -1071,13 +518,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -1085,7 +532,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -1107,7 +554,7 @@
                                 </article>
 
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (1).png">
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (1).png">
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0 ">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -1118,13 +565,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -1132,7 +579,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -1150,7 +597,7 @@
     
 
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (2).png"> 
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (2).png"> 
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0  drop-shadow-papulartours-aghsat-swiper">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -1161,13 +608,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -1175,7 +622,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -1197,7 +644,7 @@
                                 </article>
     
                             </div>
-                            <div class="swiper-slide mr-8 !h-[104px]" data-image="../assets/images/non-upload/banner-pap (3).png">
+                            <div class="swiper-slide mr-8 !h-[104px]" data-image="./images/non-upload/banner-pap (3).png">
                                 <article class="w-[824px] h-[104px] rounded-lg bg-white border border-neutralcolor-800  group/papulartourcard relative p-2 pr-0  drop-shadow-papulartours-takhfif-swiper">
                                     <a href="" class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse  items-center w-full h-full gap-2  ">
                                         <div class="w-[30%] h-full flex flex-col items-center justify-center">
@@ -1208,13 +655,13 @@
                                         </div>
                                         <div class="w-[15%] h-full flex flex-col items-center justify-center">
 
-                                            <img class="mb-2" src="../assets/images/non-upload/airline-1.png" alt="">
-                                            <img class="pt-2 border-t border-neutralcolor-800" src="../assets/images/non-upload/airline-1.png" alt="">
+                                            <img class="mb-2" src="./images/non-upload/airline-1.png" alt="">
+                                            <img class="pt-2 border-t border-neutralcolor-800" src="./images/non-upload/airline-1.png" alt="">
                                         </div>
                                         <div class="w-[20%] h-full flex flex-col items-center justify-center">
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="24" height="25" >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     28 آبان
@@ -1222,7 +669,7 @@
                                             </div>
                                             <div class="text-right flex justify-between items-center my-2 w-full">
                                                 <svg class="block" width="25" height="24"  >
-                                                    <use xlink:href="../assets/images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                                    <use xlink:href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
                                                 </svg>
                                                 <span class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">
                                                     10 شب و 11 روز
@@ -1271,7 +718,7 @@
                 <figure  class="absolute left-0 top-[374px] bottom-[284px]  my-auto w-[408px] h-[432px] rounded-3xl overflow-hidden
                  drop-shadow-papulartours-swiper 
                   papulartours-image">
-                    <img id="papular-image-holder" class="w-[408px] h-[432px] object-cover" src="../assets/images/non-upload/banner-pap (1).png" alt="">
+                    <img id="papular-image-holder" class="w-[408px] h-[432px] object-cover" src="./images/non-upload/banner-pap (1).png" alt="">
                 </figure>
 
             </div>
@@ -1296,7 +743,7 @@
                         <article>
                             <a href="#" >
                                 <figure class="m-4  rounded-2xl overflow-hidden h-full flex justify-center items-center ">
-                                    <img class="object-cover  h-[480px] w-[296px]" src="../assets/images/non-upload/Rixos-Sungate-Hotel-Genel-126896 1.png" alt="">
+                                    <img class="object-cover  h-[480px] w-[296px]" src="./images/non-upload/Rixos-Sungate-Hotel-Genel-126896 1.png" alt="">
                                 </figure>
                                 <div class= "transition-all duration-300  group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20">
                                     <div class="m-4 mb-6 rounded-2xl  h-full bg-gradient-to-t from-black/30 from-0% to-20%  to-transparent
@@ -1307,7 +754,7 @@
                                            <h2 class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto">بهترین سواحل بدروم  سواحل بدروم  سواحل بدروم ترکیه</h2>
                                               <span class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl">
                                                   <svg  width="24" height="25"  class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block" >
-                                                      <use  xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                      <use  xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                   </svg>
                                                   1403-02-29
                                               </span>
@@ -1325,7 +772,7 @@
                         <article>
                             <a href="#">
                                 <figure class="m-4  rounded-2xl overflow-hidden h-full flex justify-center items-center ">
-                                    <img class="object-cover  h-[256px] w-[256px]" src="../assets/images/non-upload/Rixos-Sungate-Hotel-Genel-126896 1 (1).png" alt="">
+                                    <img class="object-cover  h-[256px] w-[256px]" src="./images/non-upload/Rixos-Sungate-Hotel-Genel-126896 1 (1).png" alt="">
                                 </figure>
                                 <div class= "transition-all duration-300  group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20">
                                     <div class="m-4 rounded-2xl  h-full bg-gradient-to-t from-black/30 from-0% to-20%  to-transparent
@@ -1336,7 +783,7 @@
                                            <h2 class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto">بهترین سواحل بدروم  سواحل بدروم  سواحل بدروم ترکیه</h2>
                                               <span class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl">
                                                   <svg  width="24" height="25"  class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block" >
-                                                      <use  xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                      <use  xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                   </svg>
                                                   1403-02-29
                                               </span>
@@ -1351,7 +798,7 @@
                         <article>
                             <a href="#">
                                 <figure class="m-4  rounded-2xl overflow-hidden h-full flex justify-center items-center ">
-                                    <img class="object-cover  h-[256px] w-[256px]" src="../assets/images/non-upload/Rixos-Sungate-Hotel-Genel-126896 1 (2).png" alt="">
+                                    <img class="object-cover  h-[256px] w-[256px]" src="./images/non-upload/Rixos-Sungate-Hotel-Genel-126896 1 (2).png" alt="">
                                 </figure>
                                 <div class= "transition-all duration-300  group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20">
                                     <div class="m-4 rounded-2xl  h-full bg-gradient-to-t from-black/30 from-0% to-20%  to-transparent
@@ -1362,7 +809,7 @@
                                            <h2 class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto">بهترین سواحل بدروم  سواحل بدروم  سواحل بدروم ترکیه</h2>
                                               <span class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl">
                                                   <svg  width="24" height="25"  class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block" >
-                                                      <use  xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                      <use  xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                   </svg>
                                                   1403-02-29
                                               </span>
@@ -1377,7 +824,7 @@
                         <article>
                             <a href="#">
                                 <figure class="m-4  rounded-2xl overflow-hidden h-full flex justify-center items-center ">
-                                    <img class="object-cover  h-[370px] w-264px" src="../assets/images/non-upload/The Unread Librarian 1.png" alt="">
+                                    <img class="object-cover  h-[370px] w-264px" src="./images/non-upload/The Unread Librarian 1.png" alt="">
                                 </figure>
                                 <div class= "transition-all duration-300  group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20">
                                     <div class="m-4 mb-5 rounded-2xl  h-full bg-gradient-to-t from-black/30 from-0% to-20%  to-transparent
@@ -1388,7 +835,7 @@
                                            <h2 class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto">بهترین سواحل بدروم  سواحل بدروم  سواحل بدروم ترکیه</h2>
                                               <span class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl">
                                                   <svg  width="24" height="25"  class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block" >
-                                                      <use  xlink:href="../assets/images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                                      <use  xlink:href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
                                                   </svg>
                                                   1403-02-29
                                               </span>
@@ -1415,7 +862,7 @@
         <div class="w-full my-6 h-[600px] relative">
             <div class="bg-primary w-full h-[440px] absolute left-0 right-0 -z-10 my-auto top-0 bottom-0 1920:h-[550px]"></div>
             <figure>
-                <img class="w-full h-[600px] object-contain" src="../assets/images/pwa-banner.png" alt="">
+                <img class="w-full h-[600px] object-contain" src="./images/pwa-banner.png" alt="">
             </figure>
         </div>
 
@@ -1537,7 +984,7 @@
                     <ul class="flex justify-between items-center my-6 max-w-7xl mx-auto gap-x-8 ">
                         <li class="w-1/3 flex justify-start gap-x-4 items-center ">
                             <figure>
-                                <img src="../assets/images/freebird.png" alt="">
+                                <img src="./images/freebird.png" alt="">
                             </figure>
                             <div>
                                 <h2 class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 leading-10 ">نمایندگی رسمی فریبرد</h2>
@@ -1549,7 +996,7 @@
                         </li>
                         <li class="w-1/3 flex justify-start gap-x-4 items-center ">
                             <figure>
-                                <img src="../assets/images/wallet-travel.png" alt="">
+                                <img src="./images/wallet-travel.png" alt="">
                             </figure>
                             <div>
                                 <h2 class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 leading-10 ">جیبتو خالی نکن، قسطی سفر کن</h2>
@@ -1559,7 +1006,7 @@
                         </li>
                         <li class="w-1/3 flex justify-start gap-x-4 items-center ">
                             <figure>
-                                <img src="../assets/images/internal-external-tours.png" alt="">
+                                <img src="./images/internal-external-tours.png" alt="">
                             </figure>
                             <div>
                                 <h2 class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 leading-10 ">تور داخلی و خارجی</h2>
@@ -1574,6 +1021,7 @@
 
     </main>
 
+    <basis core="call" file="footer.inc" ></basis>
 
 </body>
 

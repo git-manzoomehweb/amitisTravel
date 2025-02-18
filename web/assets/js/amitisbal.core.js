@@ -96,6 +96,35 @@ function toggleDropDownMenu(element, dropdownClass) {
     });
 }
 
+// load searchbox
+document.addEventListener("DOMContentLoaded", function () {
+    try {
+   var xhrobj = new XMLHttpRequest();
+   xhrobj.open('GET', 'search-engine.bc');
+   xhrobj.send();
+
+   xhrobj.onreadystatechange = function () {
+       if (this.readyState == 4 && this.status == 200) {
+           var container = document.getElementById('search-box');
+           container.innerHTML = xhrobj.responseText;
+
+           var scripts = container.getElementsByTagName("script");
+           for (var i = 0; i < scripts.length; i++) {
+               var scriptTag = document.createElement("script");
+               if (scripts[i].src) {
+                   scriptTag.src = scripts[i].src;
+                   scriptTag.async = false;
+               } else {
+                   scriptTag.text = scripts[i].textContent;
+               }
+               document.head.appendChild(scriptTag).parentNode.removeChild(scriptTag);
+           }
+       }
+   };
+} catch (error) {
+   console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
+}
+})
 
 
 function ToggleFAQ(element) {
