@@ -123,6 +123,7 @@ module.exports = {
         'under-film-pattern': "url('../images/under-video-pattern.png')",
 
         'tringle-pattern': "url('../images/pattern-tringle.svg')",
+        'tringle-tag-pattern': "url('../images/tringle-pattern-tag.svg')",
         'earth-pattern': "url('../images/earth-pattern.png')",
 
         'mask-1': "url('../images/01-mask-image.jpg')",
@@ -163,7 +164,8 @@ module.exports = {
         'visa-card-inner-img': '0px 0px 4px rgba(0, 0, 0, 0.25)',
         'visa-view-slogan-card': '0px 0px 10px rgba(0, 0, 0, 0.1)',
         'article-searched-card': '0px 0px 4px rgba(0, 0, 0, 0.25)',
-
+        
+        'travel-data-tour-detail': '-3px 0px 4px rgba(16, 16, 16, 0.12)',
         // 'support-7-24': "0px 0px 20px #005FF0",
         // 'hvr-support-7-24': "0px 0px 20px #003EB3",
 
@@ -178,4 +180,9 @@ module.exports = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      backgroundColor: ['peer-checked'],
+    },
+  },
 };

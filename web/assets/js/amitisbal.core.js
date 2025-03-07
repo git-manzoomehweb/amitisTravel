@@ -29,7 +29,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+function closeAllMenus() {
+    document.querySelectorAll(".megamenu-box, .dropdown-menu").forEach(menu => {
+        menu.classList.remove("!block");
+    });
+    document.querySelectorAll(".arrowkey-main-navitem").forEach(arrow => {
+        arrow.classList.remove("rotate-180");
+        arrow.querySelector("path").classList.remove("fill-secondary");
+    });
+    document.querySelectorAll(".active-menu-item, .active-megamenu-tab").forEach(item => {
+        item.classList.remove("active-menu-item", "active-megamenu-tab");
+    });
+}
+
 function openMegaMenu(navbarclicked , megamenuclass){
+    closeAllMenus();
     let megamenubox = navbarclicked.closest("li").querySelector(megamenuclass);
     let arrowkey = navbarclicked.querySelector(".arrowkey-main-navitem");
 
@@ -41,6 +55,7 @@ function openMegaMenu(navbarclicked , megamenuclass){
 }
 
 document.getElementById("megamenu-amitistour").addEventListener("click", function (event) {
+    closeAllMenus();
     if (event.target === this) {
         this.classList.add("hidden");
         this.classList.remove("!block");
@@ -52,6 +67,7 @@ document.getElementById("megamenu-amitistour").addEventListener("click", functio
 
 
 function openSubMegaMenu(submenu , submegamenuclass , displaymode , siblingsclass){
+    closeAllMenus();
     let siblings = submenu.closest(".megamenu-box").querySelectorAll("."+siblingsclass);
     let siblingnavbar = submenu.closest("ul").querySelectorAll("li");
     let submegamenubox = document.querySelector("."+submegamenuclass);
@@ -71,6 +87,7 @@ function openSubMegaMenu(submenu , submegamenuclass , displaymode , siblingsclas
 
 // menu DropDown functions
 function toggleDropDownMenu(element, dropdownClass) {
+    closeAllMenus();
     document.querySelectorAll(dropdownClass).forEach(dropdown => {
         dropdown.classList.remove("!block");
         dropdown.closest("li").querySelector(".arrowkey-main-navitem").classList.remove("rotate-180")
@@ -95,37 +112,6 @@ function toggleDropDownMenu(element, dropdownClass) {
         }
     });
 }
-
-// load searchbox
-document.addEventListener("DOMContentLoaded", function () {
-    try {
-   var xhrobj = new XMLHttpRequest();
-   xhrobj.open('GET', 'search-engine.bc');
-   xhrobj.send();
-
-   xhrobj.onreadystatechange = function () {
-       if (this.readyState == 4 && this.status == 200) {
-           var container = document.getElementById('search-box');
-           container.innerHTML = xhrobj.responseText;
-
-           var scripts = container.getElementsByTagName("script");
-           for (var i = 0; i < scripts.length; i++) {
-               var scriptTag = document.createElement("script");
-               if (scripts[i].src) {
-                   scriptTag.src = scripts[i].src;
-                   scriptTag.async = false;
-               } else {
-                   scriptTag.text = scripts[i].textContent;
-               }
-               document.head.appendChild(scriptTag).parentNode.removeChild(scriptTag);
-           }
-       }
-   };
-} catch (error) {
-   console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
-}
-})
-
 
 function ToggleFAQ(element) {
     document.querySelectorAll(".faq-active").forEach(activeItem => {
@@ -300,14 +286,14 @@ document.addEventListener("click", function () {
 if(document.querySelector(".swiper-tourcard")){
     var swipertourcard = new Swiper(".swiper-tourcard", {
         slidesPerView: 3.5,
-        speed: 400,
+        // speed: 400,
       centeredSlides: true,
       spaceBetween: 20,
       grabCursor: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
+    //   autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false,
+    //   },
       loop:true,
       navigation: {
     nextEl: '.swipertourcard-button-next',
@@ -315,14 +301,14 @@ if(document.querySelector(".swiper-tourcard")){
     },
       breakpoints: {
         640: {
-          slidesPerView:1,
+          slidesPerView:1.5,
           spaceBetween: 20,
         },
-        768: {
-          slidesPerView: 2,
+        1020: {
+          slidesPerView: 2.9,
           spaceBetween: 40,
         },
-        1280: {
+        1200: {
           slidesPerView: 3.5,
           spaceBetween: 50,
         },
@@ -369,25 +355,32 @@ if (document.querySelector(".swiper-papulartourcard")) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    if(document.querySelector(".scrollToTop")){
-        const scrollToTopBtn = document.getElementById("scrollToTop");
-    
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.remove("opacity-0");
-                scrollToTopBtn.classList.add("opacity-100");
-            } else {
-                scrollToTopBtn.classList.remove("opacity-100");
-                scrollToTopBtn.classList.add("opacity-0");
-            }
-        });
-    
-        scrollToTopBtn.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    }
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//     if(document.querySelector(".scrollToTop")){
+
+//     }
+// });
+
+function goTop(btn) {
+  window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+          btn.classList.remove("opacity-0");
+          btn.classList.add("opacity-100");
+      } else {
+          btn.classList.remove("opacity-100");
+          btn.classList.add("opacity-0");
+      }
+  });
+
+  btn.addEventListener("click", function () {
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+      });
+  });
+}
+
+
 
 // podcast box
 document.addEventListener("DOMContentLoaded", function () {
@@ -429,6 +422,171 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+if (document.querySelector(".passengers-video") || document.getElementById("podcastandvideo") || document.getElementById("articles-video")) {
+    document.addEventListener("DOMContentLoaded", function () {
+        const videoModal = document.getElementById("videoModal");
+        const closeModal = document.getElementById("closeModal");
+        const videoContainer = document.getElementById("videoContainer");
+
+        // اسلایدر Swiper
+        new Swiper(".passengers-video", {
+            slidesPerView: 'auto',
+            speed: 1500,
+            centeredSlides: true,
+            spaceBetween: 20,
+            effect: 'slide',
+            grabCursor: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            loop: true,
+        });
+
+        // باز کردن مودال و افزودن آیفریم
+        // document.querySelectorAll(".openModal").forEach(item => {
+        //     item.addEventListener("click", function () {
+        //         const embedCode = this.getAttribute("data-embed");
+        //         if (embedCode) {
+        //             videoContainer.innerHTML = embedCode;
+        //             videoModal.classList.remove("hidden");
+        //         }
+        //     });
+        // });
+
+
+        document.querySelectorAll(".openModal").forEach(item => {
+          item.addEventListener("click", async function () {
+              const videoId = this.getAttribute("data-id"); // گرفتن آیدی دکمه
+              if (videoId) {
+                  try {
+                      // فچ کردن از لینک
+                      const response = await fetch(`load-items.bc?id=${videoId}&typecard=video`);
+                      const embedCode = await response.text(); // دریافت رشته متنی
+      
+                      if (embedCode.startsWith("http")) {
+                          videoContainer.innerHTML = `
+                              <iframe width="1230" height="700" src="${embedCode}" allowfullscreen></iframe>
+                          `;
+                          videoModal.classList.remove("hidden");
+                      }
+                  } catch (error) {
+                      console.log("خطا در دریافت ویدئو:", error);
+                  }
+              }
+          });
+      });
+
+      
+
+        // بستن مودال
+        function closeVideoModal() {
+            videoModal.classList.add("hidden");
+            videoContainer.innerHTML = "";
+        }
+
+        closeModal.addEventListener("click", closeVideoModal);
+        videoModal.addEventListener("click", function (event) {
+            if (event.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    });
+}
+
+
+
+
+
+
+
+
+
+
+function openVisaForm(el, modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+  }
+
+  modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+      }
+  });
+
+  const modalContent = modal.querySelector('#visa-form-box');
+  modalContent.addEventListener('click', function (e) {
+      e.stopPropagation();
+  });
+}
+
+function uploadDocumentvisaForm(e) {
+  document.querySelector("#visa-request-form .Loading_Form").style.display =
+    "block";
+  let t = document
+    .querySelector("#visa-request-form")
+    .querySelector("#captchaContainer input[name='captcha']").value,
+    r = document
+      .querySelector("#visa-request-form")
+      .querySelector("#captchaContainer input[name='captchaid']").value,
+    i = JSON.stringify(e.source?.rows[0]);
+  $bc.setSource("cms.uploadvisaForm", {
+    value: i,
+    captcha: t,
+    captchaid: r,
+    run: !0,
+  });
+}
+function refreshCaptchavisaForm(e) {
+  $bc.setSource("captcha.refreshyq", !0);
+}
+function captchaRenderedvisaForm() {
+  document.querySelector("#visa-request-form .visaFormInput").placeholder =
+    "کد امنیتی";
+}
+async function OnProcessedEditObjecvisaForm(e) {
+  "6" == (await e.response.json()).errorid
+    ? ((document.querySelector(
+      "#visa-request-form .Loading_Form"
+    ).style.display = "none"),
+      (document.querySelector("#visa-request-form .message-api").innerHTML =
+        "درخواست شما با موفقیت ثبت شد."))
+    : (refreshCaptchavisaForm(),
+      setTimeout(() => {
+        (document.querySelector(
+          "#visa-request-form .Loading_Form"
+        ).style.display = "none"),
+          (document.querySelector(
+            "#visa-request-form .message-api"
+          ).innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید.");
+      }, 2e3));
+}
+async function RenderFormvisaForm() {
+
+  var e1=document.querySelector( "#visa-request-form .name-visa input" );
+  e1.setAttribute("placeholder", "نام و نام خانوادگی"); 
+  var e2=document.querySelector( "#visa-request-form .phone-visa input" );
+  e2.setAttribute("placeholder", "شماره تماس"); 
+  var e3=document.querySelector( "#visa-request-form .email-visa input" );
+  e3.setAttribute("placeholder", "ایمیل"); 
+  var e4=document.querySelector( "#visa-request-form .subject-visa input" );
+  e4.setAttribute("placeholder", "موضوع مشاوره"); 
+  var e5=document.querySelector( "#visa-request-form .age-visa input" );
+  e5.setAttribute("placeholder", "سن");
+}
+
+
+
+
+
+
+
+
+
 //video player
 // document.addEventListener("DOMContentLoaded", function () {
 //     const videoModal = document.getElementById("videoModal");
@@ -461,59 +619,60 @@ document.addEventListener("DOMContentLoaded", function () {
 //         }
 //     });
 // });
+// فثسفففسسینتابینتال
 
-if(document.querySelector(".passengers-video") || document.getElementById("podcastandvideo")){
-    document.addEventListener("DOMContentLoaded", function () {
-        const videoModal = document.getElementById("videoModal");
-        const closeModal = document.getElementById("closeModal");
-        const videoPlayer = document.getElementById("videoPlayer");
-        const videoSource = document.getElementById("videoSource");
+// if(document.querySelector(".passengers-video") || document.getElementById("podcastandvideo")){
+//     document.addEventListener("DOMContentLoaded", function () {
+//         const videoModal = document.getElementById("videoModal");
+//         const closeModal = document.getElementById("closeModal");
+//         const videoPlayer = document.getElementById("videoPlayer");
+//         const videoSource = document.getElementById("videoSource");
     
-        // اسلایدر Swiper
-        new Swiper(".passengers-video", {
-            slidesPerView: 'auto' ,
-            speed: 1500,
-            centeredSlides: true,
-            spaceBetween: 20,
-            effect: 'slide',
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
+//         // اسلایدر Swiper
+//         new Swiper(".passengers-video", {
+//             slidesPerView: 'auto' ,
+//             speed: 1500,
+//             centeredSlides: true,
+//             spaceBetween: 20,
+//             effect: 'slide',
+//             grabCursor: true,
+//             autoplay: {
+//                 delay: 2500,
+//                 disableOnInteraction: false,
+//             },
+//             loop: true,
     
-        });
+//         });
     
-        // رویداد کلیک برای باز کردن مودال
-        document.querySelectorAll(".openModal").forEach(item => {
-            item.addEventListener("click", function () {
-                const videoUrl = this.getAttribute("data-video");
-                if (videoUrl) {
-                    videoSource.src = videoUrl;
-                    videoPlayer.load();
-                    videoModal.classList.remove("hidden");
-                    videoPlayer.play();
-                }
-            });
-        });
+//         // رویداد کلیک برای باز کردن مودال
+//         document.querySelectorAll(".openModal").forEach(item => {
+//             item.addEventListener("click", function () {
+//                 const videoUrl = this.getAttribute("data-video");
+//                 if (videoUrl) {
+//                     videoSource.src = videoUrl;
+//                     videoPlayer.load();
+//                     videoModal.classList.remove("hidden");
+//                     videoPlayer.play();
+//                 }
+//             });
+//         });
     
-        // تابع بستن مودال
-        function closeVideoModal() {
-            videoModal.classList.add("hidden");
-            videoPlayer.pause();
-            videoPlayer.currentTime = 0;
-        }
+//         // تابع بستن مودال
+//         function closeVideoModal() {
+//             videoModal.classList.add("hidden");
+//             videoPlayer.pause();
+//             videoPlayer.currentTime = 0;
+//         }
     
-        closeModal.addEventListener("click", closeVideoModal);
-        videoModal.addEventListener("click", function (event) {
-            if (event.target === videoModal) {
-                closeVideoModal();
-            }
-        });
-    });
-}
-
+//         closeModal.addEventListener("click", closeVideoModal);
+//         videoModal.addEventListener("click", function (event) {
+//             if (event.target === videoModal) {
+//                 closeVideoModal();
+//             }
+//         });
+//     });
+// }
+// فثسفففسسینتابینتال
 // document.addEventListener("DOMContentLoaded", function () {
 //     const sidebar = document.querySelector("aside");
 //     const sidebarControl = document.getElementById("sidebar-controll");
@@ -783,3 +942,535 @@ if(document.querySelector(".partners-company-slider")){
     }
     });
 }
+
+function showMoreDates(element , dropdownid){
+    var btnText = element.innerText;
+    var dropDown = document.getElementById(dropdownid);
+    dropDown.classList.toggle("h-24");
+
+    console.log(btnText);
+    if(btnText == 'مشاهده بیشتر'){
+        console.log("کمتر")
+        element.innerText = 'مشاهده کمتر';
+    }else{
+        console.log("بیشتر")
+        element.innerText = 'مشاهده بیشتر';
+    }
+}
+
+
+
+  
+
+
+
+
+// comment section
+
+function activeTebComment(element, container) {
+    document.querySelectorAll(".comment-tab-title").forEach(el => {
+      el.classList.remove("border-primary-400");
+      el.classList.remove("bg-primary-100");
+      el.classList.remove("text-neutralcolor-700");
+    });
+    document.querySelectorAll(".comment-boxes").forEach(el => {
+      el.classList.add("hidden");
+    });
+    element.classList.add("border-primary-400");
+    element.classList.add("bg-primary-100");
+    element.classList.add("text-neutralcolor-700");
+    document.getElementById(container).classList.remove("hidden");
+  }
+  /*------------------REFRESH CAPTCHA-----------------------*/
+  async function reactionSubmit(id, type) {
+  
+    const response = await fetch("Client_CheckAuthentication.inc");
+    if (!response.ok) {
+      throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
+    } else {
+      let CheckAuthentication = await response.text();
+      if (CheckAuthentication === 'true') {
+        var xhr = new XMLHttpRequest();
+        var url = "/Like-Dislike.bc?id=" + encodeURIComponent(id) +
+          "&type=" + encodeURIComponent(type);
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+            } else {
+            }
+          }
+        };
+        xhr.send();
+      } else {
+        showLoginContainer(this);
+      }
+    }
+  
+  
+  }
+  
+  function refresh_captcha(element, event) {
+    var form = element.closest('form');
+    var captchaElement = form.querySelector('.load-captcha');
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/Client_Captcha.bc', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        captchaElement.innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send();
+  }
+  
+  async function Reply_Comment(element) {
+    const responsereply = await fetch("Client_CheckAuthentication.inc");
+    if (!responsereply.ok) {
+      throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
+    } else {
+      let CheckAuthentication = await responsereply.text();
+      if (CheckAuthentication === 'true') {
+        var firstname = document.querySelector('.user-profile-header .default-name').innerText;
+        var lastname = document.querySelector('.user-profile-header .default-family').innerText;
+        element.closest('.opinionRow').querySelector('.reply-title').value = firstname + " " + lastname;
+        element.closest('.opinionRow').querySelector('.replyCommentForm').classList.toggle("hidden");
+      } else {
+        showLoginContainer(this);
+      }
+    }
+  }
+  
+  async function SubmitOpinionForm(element, event) {
+    event.preventDefault();
+    const response = await fetch("Client_CheckAuthentication.inc");
+    if (!response.ok) {
+      throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
+    } else {
+      let CheckAuthentication = await response.text();
+      if (CheckAuthentication === 'true') {
+        var form = new FormData(element.closest('form'));
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', element.closest('form').action, true);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            document.getElementById('popupMessage').innerHTML = xhr.responseText;
+            document.getElementById('popuparticle').classList.remove("hidden");
+          } else {
+            document.getElementById('popupMessage').innerHTML = xhr.responseText;
+            document.getElementById('popuparticle').classList.remove("hidden");
+          }
+        };
+        xhr.send(form);
+        // window.location.reload();
+      } else {
+        showLoginContainer(this);
+      }
+    }
+   
+  }
+  
+  async function send_Reply(element, event) {
+    event.preventDefault();
+    var form = new FormData(element.closest('form'));
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', element.closest('form').action, true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        document.getElementById('popupMessage').innerHTML = xhr.responseText;
+        document.getElementById('popuparticle').classList.remove("hidden");
+      } else {
+        document.getElementById('popupMessage').innerHTML = xhr.responseText;
+        document.getElementById('popuparticle').classList.remove("hidden");
+      }
+    };
+    xhr.send(form);
+  }
+
+// comment section
+
+
+
+
+// calendar
+
+
+const weekDaysFa = ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
+const weekDaysEn = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+function getWeekDay(gy, gm, gd) {
+  let date = new Date(gy, gm - 1, gd);
+  return [weekDaysEn[date.getDay()], weekDaysFa[date.getDay()]];
+}
+
+
+
+
+const monthsFa = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+const monthsEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// تابع تشخیص کبیسه بودن برای شمسی و میلادی
+function isLeap(year, type) {
+  if (type === 'grg') return (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
+  return ((year % 33) === 1 || (year % 33) === 5 || (year % 33) === 9 || (year % 33) === 13 || (year % 33) === 17 || (year % 33) === 22 || (year % 33) === 26 || (year % 33) === 30);
+}
+
+function toShamsi(gy, gm, gd) {
+  let g_d_m = [0, 31, (isLeap(gy, 'grg') ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  let gy_day_no = (gy - 1600) * 365 + Math.floor((gy - 1600 + 3) / 4) - Math.floor((gy - 1600 + 99) / 100) + Math.floor((gy - 1600 + 399) / 400);
+  for (let i = 1; i < gm; i++) gy_day_no += g_d_m[i];
+  gy_day_no += gd - 1;
+
+  let j_day_no = gy_day_no - 79;
+  let j_np = Math.floor(j_day_no / 12053);
+  j_day_no %= 12053;
+
+  let jy = 979 + 33 * j_np + 4 * Math.floor(j_day_no / 1461);
+  j_day_no %= 1461;
+
+  if (j_day_no >= 366) {
+    jy += Math.floor((j_day_no - 1) / 365);
+    j_day_no = (j_day_no - 1) % 365;
+  }
+
+  let jm = (j_day_no < 186) ? 1 + Math.floor(j_day_no / 31) : 7 + Math.floor((j_day_no - 186) / 30);
+  let jd = (j_day_no < 186) ? 1 + (j_day_no % 31) : 1 + ((j_day_no - 186) % 30);
+
+  return [jy, jm, jd, monthsFa[jm - 1]];
+}
+
+function toGregorian(jy, jm, jd) {
+  jy -= 979;
+  let days = (jm <= 6) ? (jm - 1) * 31 + jd - 1 : 186 + (jm - 7) * 30 + jd - 1;
+  let g_day_no = 365 * jy + Math.floor(jy / 33) * 8 + Math.floor((jy % 33 + 3) / 4) + days + 79;
+
+  let gy = 1600 + 400 * Math.floor(g_day_no / 146097);
+  g_day_no %= 146097;
+
+  if (g_day_no >= 36525) {
+    g_day_no--;
+    gy += 100 * Math.floor(g_day_no / 36524);
+    g_day_no %= 36524;
+    if (g_day_no >= 365) g_day_no++;
+  }
+
+  gy += 4 * Math.floor(g_day_no / 1461);
+  g_day_no %= 1461;
+
+  if (g_day_no >= 366) {
+    gy += Math.floor((g_day_no - 1) / 365);
+    g_day_no = (g_day_no - 1) % 365;
+  }
+
+  let gm = 0, gd = g_day_no + 1;
+  let g_days_in_month = [31, (isLeap(gy, 'grg') ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  
+  while (gm < 12 && gd > g_days_in_month[gm]) gd -= g_days_in_month[gm++];
+
+  return [gy, gm + 1, gd, monthsEn[gm]];
+}
+
+
+// function convert() {
+//   let type = document.querySelector('input[name="calendar"]:checked').value;
+//   let year = parseInt(document.getElementById('year').value);
+//   let month = parseInt(document.getElementById('month').value);
+//   let day = parseInt(document.getElementById('day').value);
+
+//   if (!year || !month || !day) {
+//     alert('لطفاً تمام فیلدها را پر کنید.');
+//     return;
+//   }
+
+//   let result, weekDay;
+//   if (type === 'shamsi') {
+//     result = toGregorian(year, month, day);
+//     weekDay = getWeekDay(result[0], result[1], result[2]);
+//   } else {
+//     result = toShamsi(year, month, day);
+//     weekDay = getWeekDay(year, month, day);
+//   }
+
+//   document.getElementById('result1').innerText = `${result[0]}`
+//   document.getElementById('result2').innerText = `${result[0]} ${result[3]}`
+//   document.getElementById('result3').innerText = `${result[0]} ${result[3]} (${result[1]})`
+//   document.getElementById('result4').innerText = `${result[0]} ${result[3]} (${result[1]}) ${result[2].toString().padStart(2, '0')} `;
+//   document.getElementById('result5').innerText = `${result[0]} ${result[3]} (${result[1]}) ${result[2].toString().padStart(2, '0')} - ${weekDay[1]}`;
+//   document.getElementById('result6').innerText = `${weekDay[1]}`;
+// }
+
+
+
+// function convert() {
+//     let type = document.querySelector('input[name="calendar"]:checked').value;
+//     let year = parseInt(document.getElementById('year').value);
+//     let month = parseInt(document.getElementById('month').value);
+//     let day = parseInt(document.getElementById('day').value);
+  
+//     if (!year || !month || !day) {
+//       alert('لطفاً تمام فیلدها را پر کنید.');
+//       return;
+//     }
+  
+//     let result, weekDay;
+  
+//     if (type === 'shamsi') {
+//       result = toGregorian(year, month, day);
+//       weekDay = getWeekDay(result[0], result[1], result[2]);
+//       document.getElementById('result').innerText = `${weekDay[0]}, ${result[3]} ${result[2]} (${result[1]}) ${result[0]}`;
+//     } else {
+//       result = toShamsi(year, month, day);
+//       weekDay = getWeekDay(year, month, day);
+//       document.getElementById('result').innerText = `${weekDay[1]} ${result[2]} ${result[3]} (${result[1]}) ${result[0]}`;
+//     }
+//   }
+
+
+
+function convert() {
+    let type = document.querySelector('input[name="calendar"]:checked').value;
+    let year = parseInt(document.getElementById('year').value);
+    let month = parseInt(document.getElementById('month').value);
+    let day = parseInt(document.getElementById('day').value);
+  
+    if (!year || !month || !day) {
+      alert('لطفاً تمام فیلدها را پر کنید.');
+      return;
+    }
+  
+    let resultGrg, resultShm, weekDayGrg, weekDayShm;
+  
+    if (type === 'shamsi') {
+      resultGrg = toGregorian(year, month, day);
+      weekDayGrg = getWeekDay(resultGrg[0], resultGrg[1], resultGrg[2])[0];
+      resultShm = [year, month, day, monthsFa[month - 1]];
+      weekDayShm = getWeekDay(resultGrg[0], resultGrg[1], resultGrg[2])[1];
+    } else {
+      resultShm = toShamsi(year, month, day);
+      weekDayShm = getWeekDay(year, month, day)[1];
+      resultGrg = [year, month, day, monthsEn[month - 1]];
+      weekDayGrg = getWeekDay(year, month, day)[0];
+    }
+  
+    document.getElementById('result').innerHTML = `
+      <div class="text-primary-900 font-yekanbakhsemiboldFA text-base">${weekDayGrg} , ${resultGrg[3]} (${resultGrg[1]}) , ${resultGrg[2]}  , ${resultGrg[0]}</div>
+      <hr class="border-neutralcolor-800 block w-full  
+      
+      relative
+      after:content-[''] 
+      after:w-1 after:h-1 after:rounded-full after:bg-neutralcolor-800 after:inline-block 
+      after:absolute after:top-0 after:left-0 after:bottom-0 after:-mt-[2.5px] before:content-[''] 
+      before:w-1 before:h-1 before:rounded-full before:bg-neutralcolor-800 
+      before:inline-block before:absolute before:top-0 before:right-0 before:bottom-0 
+      before:-mt-[2.5px]
+      
+      ">
+      <div class="text-primary-900 font-yekanbakhsemiboldFA text-base">${weekDayShm} , ${resultShm[2]} , ${resultShm[3]} (${resultShm[1]}) , ${resultShm[0]}</div>
+    `;
+  }
+  
+  
+function fillOptions(select, start, end) {
+  select.innerHTML = '';
+  for (let i = start; i >= end; i--) {
+    select.innerHTML += `<option>${i}</option>`;
+  }
+}
+
+function updateYears() {
+  let type = document.querySelector('input[name="calendar"]:checked').value;
+  let yearSelect = document.getElementById('year');
+  fillOptions(yearSelect, type === 'shamsi' ? 1500 : 2100, type === 'shamsi' ? 1300 : 1900);
+}
+
+function updateMonths() {
+  let type = document.querySelector('input[name="calendar"]:checked').value;
+  let monthSelect = document.getElementById('month');
+  let months = (type === 'shamsi') ? monthsFa : monthsEn; // بررسی نوع تقویم
+  monthSelect.innerHTML = months.map((m, i) => `<option value="${i + 1}">${m}</option>`).join('');
+}
+
+function updateDays() {
+  let daySelect = document.getElementById('day');
+  let month = parseInt(document.getElementById('month').value);
+  let year = parseInt(document.getElementById('year').value);
+  let type = document.querySelector('input[name="calendar"]:checked').value;
+
+  let days = (month <= 6) ? 31 : (month <= 11 ? 30 : (type === 'shamsi' ? (isLeap(year, 'hsh') ? 30 : 29) : (isLeap(year, 'grg') ? 29 : 28)));
+  fillOptions(daySelect, days, 1);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateYears();
+  updateMonths();
+  updateDays();
+});
+
+
+// date-convertor
+
+if(document.getElementById("date-convertor")){
+    const labels = document.querySelectorAll('label[name="calendar-label"]');
+    
+    labels.forEach(label => {
+        label.addEventListener('click', () => {
+            labels.forEach(l => l.classList.remove('bg-secondary', 'bg-white', 'text-white'));
+            label.classList.add('bg-secondary' , 'text-white');
+            labels.forEach(l => {
+                if (l !== label) {
+                    l.classList.add('bg-white');
+                }
+            });
+        });
+    });
+}
+
+
+// calendar
+
+
+// article-list
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const checkboxes = document.querySelectorAll('.list-categories input[type="checkbox"]');
+  const resultContainer = document.querySelector("#resultContainer");
+  const searchForm = document.querySelector("#searchForm");
+  const searchInput = document.querySelector("#searchForm input[name='q']");
+
+  if (checkboxes.length > 0) {
+    checkboxes.forEach((checkbox, index) => {
+      const categoryId = checkbox.id;
+      const typeid = checkbox.getAttribute("typeid");
+
+      if (index === 0) {
+        checkbox.checked = true; // اولین چک‌باکس تیک خورده
+        fetch(`load-items.bc?catid=${categoryId}&typeid=${typeid}`, {
+          method: "GET",
+        })
+          .then((res) => res.text())
+          .then((data) => {
+            let itemWrapper = document.createElement("div");
+            itemWrapper.classList.add("categoryItem", "flex", "justify-start", "gap-y-5", "flex-wrap");
+            itemWrapper.setAttribute("data-id", categoryId);
+            itemWrapper.innerHTML = data;
+            resultContainer.appendChild(itemWrapper);
+          });
+      } else {
+        checkbox.checked = false; // بقیه چک‌باکس‌ها تیک نخورده باشن
+      }
+
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          fetch(`load-items.bc?catid=${categoryId}&typeid=${typeid}`, {
+            method: "GET",
+          })
+            .then((res) => res.text())
+            .then((data) => {
+              let itemWrapper = document.createElement("div");
+              itemWrapper.classList.add("categoryItem", "flex", "justify-start", "gap-y-5", "flex-wrap");
+              
+              if(typeid === 'article'){
+                itemWrapper.classList.add("gap-x-11");
+              }
+              if(typeid === 'hotel'){
+                itemWrapper.classList.add("mt-5");
+              }
+              itemWrapper.setAttribute("data-id", categoryId);
+              itemWrapper.innerHTML = data;
+              resultContainer.appendChild(itemWrapper);
+            });
+        } else {
+          const item = resultContainer.querySelector(`[data-id="${categoryId}"]`);
+          if (item) {
+            item.remove();
+          }
+        }
+      });
+    });
+  }
+
+  if (searchForm) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const searchText = searchInput.value;
+      const searchType = searchInput.getAttribute("searchtype");
+
+      if (searchText.trim() !== "") {
+        resultContainer.innerHTML = ""; // پاک کردن نتایج قبلی
+        fetch(`load-items.bc?q=${encodeURIComponent(searchText)}&searchtype=${searchType}`, {
+          method: "GET",
+        })
+          .then((res) => res.text())
+          .then((data) => {
+            let itemWrapper = document.createElement("div");
+            itemWrapper.classList.add("searchItem", "flex", "justify-start", "gap-y-5", "flex-wrap");
+            itemWrapper.innerHTML = data;
+            resultContainer.appendChild(itemWrapper);
+          });
+      }
+    });
+  }
+});
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const checkboxes = document.querySelectorAll('.list-categories input[type="checkbox"]');
+//   const resultContainer = document.querySelector("#resultContainer");
+
+//   if (checkboxes.length > 0) {
+//     checkboxes.forEach((checkbox, index) => {
+//       const categoryId = checkbox.id;
+//       const typeid = checkbox.getAttribute("typeid");
+
+//       if (index === 0) {
+//         checkbox.checked = true; // اولین چک‌باکس تیک خورده
+//         fetch(`load-items.bc?catid=${categoryId}&typeid=${typeid}`, {
+//           method: "GET",
+//         })
+//           .then((res) => res.text())
+//           .then((data) => {
+//             let itemWrapper = document.createElement("div");
+//             itemWrapper.classList.add("categoryItem", "flex", "justify-start", "gap-y-5", "flex-wrap");
+//             itemWrapper.setAttribute("data-id", categoryId);
+//             itemWrapper.innerHTML = data;
+//             resultContainer.appendChild(itemWrapper);
+//           });
+//       } else {
+//         checkbox.checked = false; // بقیه چک‌باکس‌ها تیک نخورده باشن
+//       }
+
+//       checkbox.addEventListener("change", () => {
+//         if (checkbox.checked) {
+//           fetch(`load-items.bc?catid=${categoryId}&typeid=${typeid}`, {
+//             method: "GET",
+//           })
+//             .then((res) => res.text())
+//             .then((data) => {
+//               let itemWrapper = document.createElement("div");
+//               itemWrapper.classList.add("categoryItem", "flex", "justify-start", "gap-y-5", "flex-wrap");
+              
+//               if(typeid === 'article'){
+//                 itemWrapper.classList.add("gap-x-11");
+//               }
+//               if(typeid === 'hotel'){
+//                 itemWrapper.classList.add("mt-5");
+//               }
+//               itemWrapper.setAttribute("data-id", categoryId);
+//               itemWrapper.innerHTML = data;
+//               resultContainer.appendChild(itemWrapper);
+//             });
+//         } else {
+//           const item = resultContainer.querySelector(`[data-id="${categoryId}"]`);
+//           if (item) {
+//             item.remove();
+//           }
+//         }
+//       });
+//     });
+//   }
+// });
+
+
+// article-list

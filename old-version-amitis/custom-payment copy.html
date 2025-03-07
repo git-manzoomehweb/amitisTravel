@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[##cms.seo.description##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <title>[##cms.seo.title##]</title>
+    <link href="/custom/payment/css/payment.ui.min.css" rel="stylesheet" />
+    
+</head>
+
+<body>
+    <!-- header -->
+    <basis core="call" file="header.inc"></basis>
+    <div class="loginRegister"></div>
+    <main class="layout__body__container">
+        <!-- payment section -->
+        <div class="payment__container max-w-7xl mx-auto max-xl:mx-5">
+            <div class="payment__content rounded-2xl p-8 bg-gray-50 shadow-lg my-8">
+                <div class="text-sm">
+                    <basis core="schema" run="atclient"
+                        schemaurl="/schema/domainform/[##cms.Host.CustomPaymentId1##]/[##cms.Host.CustomPaymentId2##]/fa/Custom-Payment"
+                        displaymode="new" button="[data-btn-submit]" resultsourceid="edit.data"
+                        OnRendered="schemaRendered">
+                    </basis>
+                    <basis core="api" if="{##cms.submit.run|(false)##}" run="atclient"
+                        url="/schema/domainform/[##cms.Host.CustomPaymentId1##]/fa/editobject" method="post"
+                        body="object_edit={##cms.submit.value##}&captcha={##cms.submit.captcha##}&captchaid={##cms.submit.captchaid##}"
+                        content-type="application/x-www-form-urlencoded" triggers='cms.submit'
+                        OnProcessed="OnProcessedEditObject">
+                    </basis>
+                    <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                        triggers="captcha.refresh">
+                        <member name="code" type="scalar" request="captcha"></member>
+                    </basis>
+                    <div data-bc-question="">
+                        <div data-bc-title-container=""><span data-bc-question-title="" data-bc-schema-info-prpid="2582"
+                                data-sys-text="">کد امنیتی</span></div>
+                        <div id="captchaContainer" data-bc-answer-container="" data-bc-schema-info-multi="0"
+                            data-bc-schema-info-word="1052" data-bc-schema-info-part="1"
+                            data-bc-schema-info-part-0-type="text">
+
+                            <div data-bc-answer-collection="">
+                                <div data-bc-answer="">
+                                    <div data-bc-part-container="">
+                                        <basis datamembername="captcha.code" core="print" run="atclient">
+                                            <face>
+                                                <script type="text/template">
+                                                        <div data-bc-part-container="" class="w-full">
+                                                            <div data-bc-part="" class="captcha" data-bc-part-related-cell="">
+                                                              <input type="text" class="contactUsInput" name="captcha" maxlength="4" />
+                                                              <input type="hidden" name="captchaid" value="@captcha@" />
+                                                            </div>
+                                                            <div data-bc-part="" class="refresh" data-bc-part-related-cell="">
+                                                                <svg width="30" height="30" onclick="renderCaptchaCode(this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokewidth="{1.5}" stroke="currentColor" class="inline-block cursor-pointer mt-1 ml-1 mr-1">
+                                                                    <path strokelinecap="round" strokelinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"></path>
+                                                                </svg>
+                                                              <img class="inline-block rounded-xl" src="/@captcha@" width="88" height="35" />
+                                                            </div>
+                                                          </div>
+                                                    </script>
+                                            </face>
+                                        </basis>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="data-bc-btn rounded-md cursor-pointer bg-primary p-1 hover:bg-secondary" type="button"
+                    data-btn-submit>
+                    ارسال
+                </button>
+                <basis core="callback" run="atclient" method="submitPayment" triggers="edit.data"></basis>
+                <div class="message__api text-center"></div>
+            </div>
+            <div class="hidden mb-5 loading__api" id="ballsWaveG">
+                <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                <div id="ballsWaveG_8" class="ballsWaveG"></div>
+            </div>
+        </div>
+    <script src="[##cms.cms.cdn##]/custom/payment/js/payment.function.js" type="text/javascript"></script>
+</body>
+
+</html>

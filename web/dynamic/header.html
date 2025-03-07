@@ -11,8 +11,12 @@
 
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="article">
     <member name="cat-visa-services" type="tree" request="cat" parentid="150949"
-        order="[##cms.Host.tour-cat-order|(order)##]" />
+        order="[##cms.Host.tour-cat-order|(ord)##]" />
 
+</basis>
+
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+    <member name="info" type="view" />
 </basis>
 
 
@@ -54,7 +58,7 @@
                         </span>
                     
                         <div id="megamenu-amitistour"
-                            class="megamenu-box mainmegamenu w-full shadow-sm  absolute top-[83px] hidden
+                            class="megamenu-box mainmegamenu z-50 w-full shadow-sm  absolute top-[80px] hidden
                                              h-[calc(100%-83px)] left-0 bottom-0 right-0 bg-black/30 transition-all ease-in-out duration-300">
                             <div class="h-[50px] bg-neutralcolor-50 drop-shadow-sm">
                                 <div class="max-w-7xl mx-auto max-xl:w-[95%]">
@@ -311,7 +315,7 @@
         8.17969 17.9197 8.17969Z" fill="#667085" />
                     </svg>
                 </span>
-                <ul class="dropdownmenu absolute bg-white divide-y divide-neutralcolor-800 w-[304px] top-[3.30rem] right-0 rounded-b-lg shadow-lg hidden ">
+                <ul class="dropdownmenu z-50 absolute bg-white divide-y divide-neutralcolor-800 w-[304px] top-[3.30rem] right-0 rounded-b-lg shadow-lg hidden ">
                     @child
                 </ul>
             </li>
@@ -435,7 +439,7 @@
 
 
         <ul
-            class=" dropdownmenu absolute bg-white divide-y divide-neutralcolor-800 w-[304px] top-[3.30rem] right-0 rounded-b-lg shadow-lg hidden ">
+            class=" dropdownmenu z-50 absolute bg-white divide-y divide-neutralcolor-800 w-[304px] top-[3.30rem] right-0 rounded-b-lg shadow-lg hidden ">
 
             <li class="group/menuitem h-16 leading-[64px]">
                 <a href="ایرلاین_ها" class="px-12 w-full h-full block ">

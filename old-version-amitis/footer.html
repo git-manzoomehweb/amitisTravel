@@ -1,0 +1,257 @@
+<basis core="dbsource" source="basiscore" mid="20" name="db" lid="1" catid="140689">
+    <member name="tour1-footer" type="list" link="tour.bc" propertyid="" order="ord" typeid="159" perpage="7" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1" catid="150936">
+    <member name="tour2-footer" type="list" link="article.bc" propertyid="" order="date desc" typeid="159"
+        perpage="7" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1" catid="140704">
+    <member name="hotels-footer" type="list" link="hotels-article.bc" propertyid="" order="date desc" typeid="159"
+        perpage="7" />
+</basis>
+<div id="footer-resize">
+    <div class="inner-resize">
+        <div class="amitis-info">
+            <div class="amitis-info-inner">
+                <div class="address-box">
+                    <img src="[##cms.cms.cdn##]/images/address.png" alt="address" />
+                    <basis core="view" datamembername="contact.content">
+                        <face filter="prpID=7999" level="1"> <span> @child </span></face>
+                        <face filter="prpID=7999" level="2"><span> @answer </span></face>
+                    </basis>
+                </div>
+                <div class="phone-box">
+                    <div class="phone-img"><img src="[##cms.cms.cdn##]/images/tel_footer.png" alt="phone" /></div>
+                    <div class="phones">
+                        <basis core="view" datamembername="contact.content">
+                            <face filter="prpID=8000" level="1">@child</face>
+                            <face filter="prpID=8000 and valueID=10365453">
+                                <div><span>تلفن : </span><span class="tel">+98(21) @answer </span></div>
+                            </face>
+                            <face filter="prpID=8000 and valueID=333510600">
+                                <div><span>تماس از تهران : </span><span class="tel">+98(21) @answer </span></div>
+                            </face>
+                        </basis>
+                    </div>
+                </div>
+                <div class="fax-box">
+                    <img src="[##cms.cms.cdn##]/images/fax.png" alt="fax" />
+                    <basis core="view" datamembername="contact.content">
+                        <face filter="prpID=8393" level="1"> <span> @child </span></face>
+                        <face filter="prpID=8393" level="2"><span>فکس : </span><span class="fax">+98(21)@answer</span>
+                        </face>
+                    </basis>
+                </div>
+                <div class="social-box">
+                    <span class="instagram"><a aria-label="instagram" href="https://www.instagram.com/amitis.travel"><i
+                                class="fa fa-instagram" aria-hidden="true"></i><span
+                                class="social-hover instagram-hover"></span></a></span>
+                    <span class="twitter"><a aria-label="twittter" href="https://twitter.com/amitistravelco"><i
+                                class="fa fa-twitter" aria-hidden="true"></i><span
+                                class="social-hover twitter-hover"></span></a></span>
+                    <span class="youtube"><a aria-label="youtube"
+                            href="https://www.youtube.com/channel/UCVlqo9eMVtIopZE4QVh4pAg"><i
+                                class="fa fa-youtube-play" aria-hidden="true"></i><span
+                                class="social-hover youtube-hover"></span></a></span>
+                    <span class="telegram"><a aria-label=" telegram" href="https://t.me/amitistravel"><i
+                                class="fa fa-paper-plane"></i><span
+                                class="social-hover telegram-hover"></span></a></span>
+                    <span class="aparat"><a aria-label="aparat" href="http://www.aparat.com/Amitistravel"><img
+                                src="[##cms.cms.cdn##]/images/aparat.png" onmouseover="hover(this);"
+                                onmouseout="unhover(this);" alt="social" /><span
+                                class="social-hover aparat-hover"></span></a></span>
+                </div>
+            </div>
+            <div class="amitis-info-text">
+                <div><span>عازم کجا هستید؟هیچ فرقی نمی‌کند. این حق شماست که سفری باکیفیت، آسان و مطمئن را تجربه کنید.
+                        آمیتیس اینجاست تا تجربه‌ای شایسته از یک سفر به‌یادماندنی را ایجاد کند تجربه‎‌ای که برازنده منزلت
+                        شما باشد.</span></div>
+                <div><span>سفر باید آسان باشد، مطمئن و به‌صرفه؛ و همه اینها در آمیتیس خلاصه شده. از هر کجا به هر کجا، با
+                        هواپیما، قطار، اتوبوس یا تور. حتی برای اقامت شایسته در سفرهای خارجی می‌توانید روی هتل‌های آمیتیس
+                        حساب کنید.</span></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="amitis-popular">
+            <div class="amitis-popular-inner">
+                <div class="populars popular-Des">
+                    <div class="popular-title">مقاصد پر طرفدار</div>
+                    <basis core="list" datamembername="db.tour1-footer">
+                        <layout>
+                            <div>
+                                @child
+                            </div>
+                        </layout>
+                        <face filter="link is null">
+                            <p><a href="/tour-list.bc?catid=@catid">@title</a></p>
+                        </face>
+                        <face>
+                            <p><a href="@link">@title</a></p>
+                        </face>
+                    </basis>
+                </div>
+                <div class="populars popular-Flights">
+                    <div class="popular-title">پروازهای پر طرفدار</div>
+                    <basis core="list" datamembername="db.tour2-footer">
+                        <div>
+                            @child
+                        </div>
+                        <face filter="link is null">
+                            <p><a href="/tour-list.bc?catid=@catid">@title</a></p>
+                        </face>
+                        <face>
+                            <p><a href="@link">@title</a></p>
+                        </face>
+                    </basis>
+                </div>
+                <div class="populars popular-Hotels">
+                    <div class="popular-title">هتل های پر طرفدار</div>
+                    <basis core="list" datamembername="db.hotels-footer">
+                        <div>
+                            @child
+                        </div>
+                        <face filter="link is null">
+                            <p><a href="/tour-list.bc?catid=@catid">@title</a></p>
+                        </face>
+                        <face>
+                            <p><a href="@link">@title</a></p>
+                        </face>
+                    </basis>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="amitis-signs">
+            <div class="signs-inner">
+                <!-- <div><img src="images/sign6.png" alt="sign"/></div>-->
+                <!--<div><img src="images/sign5.png" alt="sign"/></div>-->
+                <div><a href="https://www.iata.org/"><img src="[##cms.cms.cdn##]/images/sign4.png" alt="sign" width="70"
+                            height="70"></a></div>
+                <div><a href="https://www.mcth.ir/"><img src="[##cms.cms.cdn##]/images/sign3.png" alt="sign" width="70"
+                            height="70"></a></div>
+                <div><a href="https://www.cao.ir/paxrights"><img src="[##cms.cms.cdn##]/images/sign2.png" alt="sign"
+                            width="70" height="70"></a></div>
+                <div><a href="https://www.cao.ir/"><img src="[##cms.cms.cdn##]/images/sign1.png" alt="sign" width="70"
+                            height="70"></a></div>
+
+
+
+
+                            
+                <!-- <div><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=19315&Code=I55jbblXxZQr051flUvv"><img style="width: 90px; height: 85px;" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=19315&Code=I55jbblXxZQr051flUvv" alt="" style="cursor:pointer" id="I55jbblXxZQr051flUvv"></a></div> -->
+                <div><a target="_blank" rel="noopener"
+                        href="https://trustseal.enamad.ir/?id=19315&Code=I55jbblXxZQr051flUvv"><img
+                            src="[##cms.cms.cdn##]/images/81.png" alt="نماد" width="70" height="70"></a></div>
+                <!-- <div><img style="width: 90px;" id = 'nbqejxlzjxlzrgvjwlaonbqe' style = 'cursor:pointer' onclick = 'window.open("https://logo.samandehi.ir/Verify.aspx?id=211342&p=uiwkrfthrfthxlaoaodsuiwk", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=70, height=71, top=30")' alt = 'logo-samandehi' src = 'https://logo.samandehi.ir/logo.aspx?id=211342&p=odrfnbpdnbpdqftishwlodrf' /></div>  -->
+                <div><a href="https://logo.samandehi.ir/Verify.aspx?id=211342&p=uiwkrfthrfthxlaoaodsuiwk"><img decoding="async" loading="lazy"
+                            src="[##cms.cms.cdn##]/images/samandehi.png" alt="ساماندهی" width="70" height="70"></a>
+                </div>
+                <div><a aria-label="sign" referrerpolicy="origin" target="_blank"
+                        href="https://trustseal.enamad.ir/?id=112296&Code=tIBEKCOSb2b1KfwP4I5Z"><img decoding="async" loading="lazy"
+                            style="width: 90px; height: 85px;" referrerpolicy="origin"
+                            src="https://Trustseal.eNamad.ir/logo.aspx?id=112296&Code=tIBEKCOSb2b1KfwP4I5Z" alt=""
+                            style="cursor:pointer" id="tIBEKCOSb2b1KfwP4I5Z"></a></div>
+
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="amitis-footer-menu">
+            <div class="footer-menu-inner">
+                <ul>
+                    <li><a href="مقاصد_گردشگری">مقاصد گردشگری</a></li>
+                    <li><a href="اطلاعات-هتل-ها">اطلاعات هتل ها</a></li>
+                    <li><a href="اطلاعات_کشورها">اطلاعات کشور ها</a></li>
+                    <li><a href="ثبت-شکایات">ثبت شکایت</a></li>
+                    <li><a href="قوانین-سایت">قوانین وب سایت</a></li>
+                    <li><a href="مجله_گردشگری">مجله گردشگری</a></li>
+                    <li><a href="تماس-با-ما">ارتباط با ما</a></li>
+                </ul>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div class="amitis-copyright">
+            <div class="copyright-inner">
+                <div class="rights-web">
+                    <div>
+                        <a href="http://www.basisfly.com/طراحی-سایت-مخصوص-آژانس-مسافرتی" target="_blank">طراحی سایت
+                            آژانس مسافرتی</a> و <a href="http://www.basisfly.com/" target="_blank">رزرواسیون آنلاین توسط
+                            بیسیس فلای
+                        </a> <img src="[##cms.cms.cdn##]/images/basisfly-logo.png" width="" height="20">
+                        <div class="clr"></div>
+                    </div>
+                </div>
+                <div class="rights-web trusted">
+                    <a href="https://www.basisfly.com/">
+                        <img src="[##cms.cms.cdn##]/images/trust-logo.png" alt="trust-logo" width="" height="23">
+                    </a>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
+<script type='text/javascript' src="[##cms.cms.cdn##]/js/jquery.navgoco.js"></script>
+<!--js menu-->
+<script type='text/javascript' src="[##cms.cms.cdn##]/js/off-canvas.js"></script>
+<!--js menu-->
+<script>
+    $(document).ready(function () {
+        $(".cost").each(function () {
+            $(this).html($(this).html().replace(',', ''));
+        });
+        $(".cost").each(function () {
+            $(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+        })
+        $(".tour-duration span").each(function () {
+            $(this).html($(this).html().replace(',', ''));
+        });
+    });
+
+    function hover(element) {
+        element.setAttribute('src', 'images/aparat-hover.png');
+    }
+
+    function unhover(element) {
+        element.setAttribute('src', 'images/aparat.png');
+    }
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('#magaMenu').length && !$(event.target).closest('.menu-item').length) {
+            $("#magaMenu").slideUp();
+        }
+    });
+
+    $(document).ready(function (e) {
+        $(".Continents-li span").first().addClass("actived");
+        $(".Continents-li:nth-child(2)").find("span").css("color", "#ee2948");
+        $(".countries").load("/loadingItemsMenuTour.bc?catid=140689");
+
+    });
+    $("#flip").click(function (e) {
+        e.preventDefault();
+        $("#magaMenu").slideToggle("slow");
+    });
+
+
+    function loadMenu(a) {
+        $(".countries").append('<div id="ballsWaveG"><div id="ballsWaveG_1" class="ballsWaveG"></div><div id="ballsWaveG_2" class="ballsWaveG"></div><div id="ballsWaveG_3" class="ballsWaveG"></div><div id="ballsWaveG_4" class="ballsWaveG"></div><div id="ballsWaveG_5" class="ballsWaveG"></div><div id="ballsWaveG_6" class="ballsWaveG"></div><div id="ballsWaveG_7" class="ballsWaveG"></div><div id="ballsWaveG_8" class="ballsWaveG"></div></div>').load("/loadingItemsMenuTour.bc?catid=" + a);
+        $(".Continents-li").click(function () {
+            $(this).find("span").addClass("actived");
+            $(this).siblings().find("span").removeClass("actived");
+        });
+
+    }
+
+    $(document).ready(function () {
+        $(window).bind('scroll', function () {
+
+            if ($(window).scrollTop() > 8) {
+
+                $('#menu-logo-resize').addClass('menuLogo-Scrool');
+            }
+            else { $('#menu-logo-resize').removeClass('menuLogo-Scrool'); }
+        });
+    })
+
+</script>

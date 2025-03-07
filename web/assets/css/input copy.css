@@ -1,0 +1,462 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+    .animate-expand {
+        animation: expand 0.6s  cubic-bezier(0.34, 1.56, 0.64, 1) forwards ;
+    }
+    li:has(input:checked) {
+        background-color: #e0f2fe; /* رنگ پس‌زمینه‌ای که می‌خوای */
+      }
+}
+
+
+/* @layer utilities {
+    .h-644 {
+      height: 644px;
+    }
+}
+     */
+
+/* body{
+    background-color: ;
+} */
+
+
+.dir-rtl{direction: rtl;}
+.dir-ltr{direction: ltr;}
+:root {
+
+    /* colors */
+    /* primary*/
+    --primary: #005FF0;
+    /* blue10*/
+    --primary-50: #F2F7FF;
+    /* blue9*/
+    --primary-100: #E3EDFC;
+    /* blue8*/
+    --primary-200: #BDE4FC;
+    /* blue7*/
+    --primary-300: #96D0FA;
+    /* blue6*/
+    --primary-400: #499CF5;
+    /* blue11*/
+    --primary-500: #9FEAFF;
+    /* blue5*/
+    --primary-600: #0053D9;
+    /* blue4*/
+    --primary-700: #003EB3;
+    /* blue3*/
+    --primary-800: #002D8F;
+    /* blue2*/
+    --primary-900: #001E6B;
+    /* blue1 */
+    --primary-950: #001145;
+
+    --primary-shade-400: #9FEAFF ;
+
+
+
+    --secondary: #FFA200;
+        /* orange 5 */
+        --secondary-100: #FEF3E4;
+        /* orange 4 */
+        --secondary-200: #FCDAAD;
+        /* orange 3 */
+        --secondary-300: #FBC176;
+        /* orange 2 */
+        --secondary-400: #F9A940;
+        /* orange 1 */
+        --secondary-500: #F79009 ;
+
+
+        
+    /* yellow 1 */
+    --secondary-complementary-50: #FFFDF2;
+    /* orange 10 */
+    --secondary-complementary-100: #FFFAE6;
+    /* orange 9 */
+    --secondary-complementary-200: #FFF1BF;
+    /* orange 8 */
+    --secondary-complementary-300: #FFE699;
+    /* orange 7 */
+    --secondary-complementary-400: #FFC94D;
+    /* orange 6 */
+    --secondary-complementary-500: #facc15;
+
+
+
+
+    /* green 5 */
+    --success-500:#12B76A;
+    /* green 4 */
+    --success-400:#24E98D;
+    /* green 3 */
+    --success-300:#63F0AE;
+    /* green 2 */
+    --success-200:#A1F6CE;
+    /* green 1 */
+    --success-100:#E0FCEF;
+
+    /* red 5 */
+    --error-500:#F04438;
+    /* red 4 */
+    --error-400:#F36E64;
+    /* red 3 */
+    --error-300:#F79790;
+    /* red 2 */
+    --error-200:#FAC1BD;
+    /* red 1 */
+    --error-100:#FDEAE9;
+
+    /* gray 10 */
+    --neutral-50:#F9FBFC;
+    /* gray 9 */
+    --neutral-100:#F5F8FC;
+    /* gray 8 */
+    --neutral-200:#F3F3F3;
+    /* gray 7 */
+    --neutral-300:#E9EFF4;
+    /* gray 6 */
+    --neutral-400:#E0E6F2;
+    /* gray 5 */
+    --neutral-500:#DAE4ED;
+    /* gray 4 */
+    --neutral-600:#D3DEE9;
+    /* gray 3 */
+    --neutral-700:#CCD9E5;
+    /* gray 2 */
+    --neutral-800:#C4D3E2;
+    /* gray 1 */
+    --neutral-900:#BDCEDE;
+
+    /* text color 4 */
+    --txtneutral-200:#D3DBE0;
+    /* text color 3 */
+    --txtneutral-400:#98A2B3;
+    /* text color 2 */
+    --txtneutral-500:#667085;
+    /* text color 1 */
+    --txtneutral-900:#101828;
+
+    /* black color */
+    --shade-0:#FFFFFF;
+    /* white color */
+    --shade-100:#0C0C0C;
+
+    --bgfootercategory : '../images/footer-category.jpg';
+
+    --bg-image: #f3f4f6 ;
+}
+
+
+html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
+::-webkit-scrollbar{width:10px;}::-webkit-scrollbar-track{background:var(--primary-50);}
+::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
+
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Bold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Bold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-SemiBold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Thin.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Thin.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Light.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Light.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Regular.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Regular.woff) format('woff')}
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold';font-style:normal;src:url('../fonts/YekanBakh-Bold.ttf') format('truetype'),url(../fonts/YekanBakh-Bold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold';font-style:normal;src:url('../fonts/YekanBakh-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakh-SemiBold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin';font-style:normal;src:url('../fonts/YekanBakh-Thin.ttf') format('truetype'),url(../fonts/YekanBakh-Thin.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light';font-style:normal;src:url('../fonts/YekanBakh-Light.ttf') format('truetype'),url(../fonts/YekanBakh-Light.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular';font-style:normal;src:url('../fonts/YekanBakh-Regular.ttf') format('truetype'),url(../fonts/YekanBakh-Regular.woff) format('woff')}
+    
+@font-face{font-display:swap;font-family:'MontserratAlternates-Bold';font-style:normal;src:url('../fonts/MontserratAlternates-Bold.ttf') format('truetype')}
+
+@font-face{font-display:swap;font-family:'IRANYekanRegularMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanRegular-fa';font-style:normal;src:url('../fonts/IRANYekanRegular\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanMobileBold-fa';font-style:normal;src:url('../fonts/IRANYekanMobileBold\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanLightMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
+
+.active-menu-item{color:var(--shade-100)!important;}
+.active-megamenu-tab span{transition:all;animation-duration:.5s;transform:scale(110%)!important;color:var(--shade-100)!important;transform-origin:center!important;display:inline-block}
+.active-megamenu-tab::after,.active-menu-item::after{display:block!important}
+.active-megamenu-tab .enable-icon{display:inline-block!important}
+.active-megamenu-tab .disable-icon{display:none!important}
+
+/* .drop-footer{box-shadow: 0px -1px 20px rgba(0, 95, 240, 0.33);} */
+
+
+@keyframes expandtel {
+    0% {
+        width: 20px;
+        height: 20px;
+        left: 0;
+    }
+    50% {
+        width: 105%;
+        height: 100%;
+        left: 0;
+        border-radius: 16px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        border-radius: 16px;
+        background-color: var(--primary); /* آبی بمونه */
+    }
+}
+
+@keyframes contracttel {
+    0% {
+        width: 100%;
+        height: 100%;
+        left: 0.25rem;
+        background-color: var(--primary); /* اول آبی بمونه */
+    }
+    50% {
+        width: 105%;
+        height: 100%;
+        border-radius: 16px;
+        left: 0.75rem;
+
+        background-color: var(--primary);
+    }
+    100% {
+        width: 43px;
+        height: 43px;
+        border-radius: 6px;
+        left: 1.25rem;
+
+        background-color: var(--primary); /* برگرده به رنگ اولیه */
+    }
+}
+
+@keyframes expandemail {
+    0% {
+        width: 20px;
+        height: 20px;
+        left: 0;
+    }
+    50% {
+        width: 105%;
+        height: 100%;
+        left: 0;
+        border-radius: 16px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        border-radius: 16px;
+        background-color: var(--primary); /* آبی بمونه */
+    }
+}
+
+@keyframes contractemail {
+    0% {
+        width: 100%;
+        height: 100%;
+        left: 10%;
+        background-color: var(--primary); /* اول آبی بمونه */
+    }
+    50% {
+        width: 105%;
+        height: 100%;
+        border-radius: 16px;
+        left: 5%;
+
+        background-color: var(--primary);
+    }
+    100% {
+        width: 43px;
+        height: 43px;
+        border-radius: 6px;
+        left: 30%;
+
+        background-color: var(--primary); /* برگرده به رنگ اولیه */
+    }
+}
+
+.group\/telbutton:hover .telbutton {
+    animation: expandtel 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.group\/telbutton:not(:hover) .telbutton {
+    animation: contracttel 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.group\/emailbutton:hover .emailbutton {
+    animation: expandemail 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.group\/emailbutton:not(:hover) .emailbutton {
+    animation: contractemail 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+ /* .swiper-papulartourcard */
+ 
+ .swiper-scrollbar-drag{background:var(--primary)!important;width:8px!important;border-radius:10px!important;right:-3px!important}
+ .swiper-papulartourcard .swiper-slide-active .papulartours-image{display:block!important}
+ .faq-active span{clip-path:polygon(0 0,0% 100%,100% 0);background-color:var(--primary-100);width:927px;height:64px}
+
+ .swiper-papulartourcard .swiper-slide-active .papulartours-image{
+    display: block !important;
+
+}
+
+.bg-footer-texture {
+    background-image: url('../images/footer-category.jpg');
+}
+
+
+
+
+        /* 🔹 انیمیشن لرزش (Pulse) */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        /* 🔹 افکت Glow هنگام پخش */
+        .playing {
+            animation: pulse 1.2s infinite ease-in-out;
+            /* box-shadow: 0px 0px 15px rgba(59, 130, 246, 0.8);  */
+            border-radius: 8px;
+        }
+
+        .collapsed {
+            width: 80px !important;
+        }
+        
+        .collapsed ul li a span {
+            display: none;
+        }
+        
+        @keyframes bounce-wall {
+            0% { 
+                border-radius: 50% ;
+            }
+            60% { 
+                height: 190%;
+                border-radius: 10% ;
+            }
+            80% { 
+                height: 185%;
+                border-radius: 0 ;
+            }
+            100% { 
+                height: 190%;
+                border-radius: 0 ;
+            }
+        }
+        .group:hover .group-hover\:animate-bounce-wall {
+            animation: bounce-wall 1s forwards;
+        }
+
+        @keyframes bounce-text {
+            0% { 
+            }
+            90% { 
+                text-align: 50%; }
+            95% { 
+                height: 55%; }
+            100% { 
+                height: 50%; }
+        }
+        .group:hover .group-hover\:animate-bounce-text {
+            animation: bounce-text 0.6s forwards;
+        }
+        .group:not(:hover) .group-hover\:animate-bounce-text {
+            animation: bounce-text 0.4s ease reverse;
+        }
+
+
+        .mask-banner-slider {
+            -webkit-mask-image: url(../images/slider-mask-shape.svg);
+            mask-image: url(../images/slider-mask-shape.svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            mask-size: contain;
+            width: 1280px ;
+            height: 560px;
+        }
+
+
+        .clamped-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: justify; /* متن را برای تعادل در خطوط وسط‌چین می‌کند */
+        }
+        
+        /* ترفند برای کاهش عرض خط آخر */
+        .clamped-text::after {
+            content: "";
+            display: inline-block;
+            width: 60%; /* تنظیم عرض خط آخر، مقدار را تغییر دهید تا اندازه مطلوب حاصل شود */
+        }
+        
+        
+        
+        
+ .card:nth-last-child(1),.card:nth-last-child(2):nth-child(odd){margin-left:auto}
+ .clipped-section{width:100%;height:1203px;background-size:cover;background-color:var(--primary-950);-webkit-clip-path:url(#section1);clip-path:url(#section1)}.clipped-section-form{width:100%;height:1066px;background-color:var(--primary-950);background-size:cover;background-image:url(../images/pattern-tringle.svg);-webkit-clip-path:url(#sectionform);clip-path:url(#sectionform)}
+ .clipped-airline-section1{width:100%;height:696px;background-color:var(--primary-950);background-image:url(../images/airplane-pattern.png);background-size:cover;-webkit-clip-path:url(#airline-section1);clip-path:url(#airline-section1)}
+ .clipped-airline-section2{width:100%;height:780px;background-color:var(--shade-0);background-size:cover;-webkit-clip-path:url(#airline-section1);clip-path:url(#airline-section1)}
+ .hasNot-login-icon{display: none !important;}
+.LoginInformation:hover .btnstyle > span{transform-origin: center; transform: scale(1.25);display: inline-block;}
+.user-profile-container > button > span{display: none !important;}
+.user-profile-btn::before{content: 'به حساب کاربری وارد شده اید';color: var(--success-500);font-size: 10px;}
+.main-login-container #login-title .login-icon{display: none !important;}
+.main-login-container > .login-left-part{display: none !important;}
+.main-login-container>.login-right-part{width:60%;float:none;margin:2em auto;clear: both;}
+.main-login-container.rtl-lang .login-closed{text-align:left}
+.main-login-container{font-family:"Yekan_Bakh_Regular_fa" !important;    text-align: center;} 
+.main-login-container.rtl-lang{text-align:center!important}
+.main-login-container #login-title{display:flex;align-items:center;align-content:center;flex-direction:column}
+.main-login-container.rtl-lang .login-closed>svg{display:none!important}
+.main-login-container.rtl-lang .login-closed::after{content:"";display:block;width:72px;height:72px;float:left;background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path d="M36 46.75C30.07 46.75 25.25 41.93 25.25 36C25.25 30.07 30.07 25.25 36 25.25C41.93 25.25 46.75 30.07 46.75 36C46.75 41.93 41.93 46.75 36 46.75ZM36 26.75C30.9 26.75 26.75 30.9 26.75 36C26.75 41.1 30.9 45.25 36 45.25C41.1 45.25 45.25 41.1 45.25 36C45.25 30.9 41.1 26.75 36 26.75Z" fill="%23101828"/><path d="M33.1694 39.5801C32.9794 39.5801 32.7894 39.5101 32.6394 39.3601C32.3494 39.0701 32.3494 38.5901 32.6394 38.3001L38.2994 32.6401C38.5894 32.3501 39.0694 32.3501 39.3594 32.6401C39.6494 32.9301 39.6494 33.4101 39.3594 33.7001L33.6994 39.3601C33.5594 39.5101 33.3594 39.5801 33.1694 39.5801Z" fill="%23101828"/><path d="M38.8294 39.5801C38.6394 39.5801 38.4494 39.5101 38.2994 39.3601L32.6394 33.7001C32.3494 33.4101 32.3494 32.9301 32.6394 32.6401C32.9294 32.3501 33.4094 32.3501 33.6994 32.6401L39.3594 38.3001C39.6494 38.5901 39.6494 39.0701 39.3594 39.3601C39.2094 39.5101 39.0194 39.5801 38.8294 39.5801Z" fill="%23101828"/></svg>');background-size:contain;background-repeat:no-repeat}.main-operationUser-container button,.login-btn,.main-login-container{box-shadow:0 2px 5px rgba(0,0,0,.15);border-radius:12px}
+.main-login-container{width:650px;height:480px}
+
+
+
+
+/* searchbox edits */
+span.module-icon.inline-block{display: block !important;}
+svg.module-icon-active , svg.module-icon-deactive{width: 64px !important;height: 64px !important;}
+.search-box-container .reserve-btn:not(.active-module) .module-icon .module-icon-deactive{display:block}
+.reservation-item{height:112px!important;display:flex;justify-content:center;align-items:center;row-gap: 4em}
+.search-nav{width: 100%;height: 112px !important;border-bottom: 1px solid var(--neutral-500); }
+.search-box-container .reserve-btn{height: 112px !important;display:flex;flex-direction:column;justify-content:center;align-content:space-around;align-items:center;font-size: 16px;font-family: 'Yekan_Bakh_SemiBold_fa';
+color: var(--txtneutral-500);margin: 0;}
+#r-flight,#r-hotel,#r-flighthotel,#r-tour,#r-insurance,#r-cip,#r-visa{width:97%!important;margin:0 auto}
+ul.flighttype-items .clr{display: none; width: 0;height: 0;}
+ul.flighttype-items{display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;align-content:center;height:38px!important;line-height:38px!important}
+.reserve-search > button{background: var(--secondary) !important;font-family: 'Yekan_Bakh_SemiBold_fa' !important;font-size: 18px !important;color: white ;height:64px;}
+.click-content label{display: none !important;}
+.search-box-container .reserve-btn.ml-3{margin-left:0!important}
+ #oneway,#backtoback,#multi{display:flex;flex-direction:row;justify-content:center;align-items:center;column-gap:.25em}
+#oneway::before,#backtoback::before,#multi::before{content:'';width:16px;height:16px;border-radius:100%;border:4px solid var(--neutral-700);display:inline-block}
+.active-r-btn#oneway::before,.active-r-btn#backtoback::before,.active-r-btn#multi::before{border:4px solid var(--secondary)}
+.search-box-container .active-r-btn{background-color:transparent!important;color:black!important}
+.search-box-container .active-r-btn>span{color:black!important}
+.Basis_Date_Box , .Flightclass-Passenger{border:1px solid var(--neutral-800);border-radius:4px}
+.search-box-container .reserve-btn.active-module{background-color:transparent!important;color:var(--primary)!important}
+.reserve-field.departure-route,.reserve-field.destination-route,.reserve-field.passengers-field,.reserve-field.traveltype-field,.reserve-field.flighttype-field{border:1px solid var(--neutral-800);border-radius:4px}
+ .exchangeRoute{width:32px!important;height:32px!important;left:-16px!important}
+ .exchangeRoute>svg{width:32px!important;height:32px!important}
+ .form-search label>svg{width:32px!important;height:32px!important;}
+ .form-search label>span{display:none!important;}.form-search .auto-fit{display:none!important;}
+ .flight-routes.w-2\/5.flex.gap-2.max-xl\:w-full.max-xl\:block.max-xl\:gap-0{gap:0;width:40%}
+ .reserve-field{height:64px!important}label.float-right.w-full{float:none;width:32px;display:block}
+ .click-content.border-type-1{display:flex;align-items:center;column-gap:.25em;}.mstring_date{display:none!important;}
+ .Basis_Date.start_date,.Basis_Date.end_date{padding-top:0!important;float:none!important;position:unset!important;}
+ .reserve-field.departure-date,.reserve-field.return-date{display:flex;justify-content:start;}.reserve-field.destination-route .click-content>label{display:none!important;}
+ .reserve-search{height:64px!important}.reserve-search>button{border-radius:4px!important}
+ .search-box-container input,.search-box-container select,.search-box-container button{border:unset;font-family:'Yekan_Bakh_Regular'!important}
+ .Flightclass-Passenger{flex-direction:row-reverse!important}.flightclass-field>div>label{display:none!important;}
+ .passengers-field>div>label svg.h-full.float-left.align-middle.mt-2{display:none!important;}
+ #r-flight .reserve-field.passengers-field{border:none!important;}
+ #search-box button.flex.items-center.justify-center,
+ .search-flighthotel{flex-direction:row-reverse;width:184px!important;font-size:18px!important}
+ /* searchbox edits */
