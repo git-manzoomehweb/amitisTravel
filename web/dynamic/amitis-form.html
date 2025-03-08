@@ -1,0 +1,247 @@
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2362719">
+    <member name="installment_info" type="view" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <title>[##cms.seo.title|(طرح مانیسا)##]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[##cms.seo.description|(آژانس مسافرتی لاچین سیر ارائه کننده تور خارجی و داخلی ، بلیط هواپیما، رزرو هتل در اقصی نقاط دنیا و اخذ ویزا، پرواز های چارتری و هتل های گارانتی . 41664166- 021)##]">
+    <link rel="canonical" href="[##cms.cms.full-url##]" />
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="[##cms.cms.cdn##]/images/custom_icon.png" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="manifest" href="homescreen-manifest.inc">
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/lachinseir-forms.min.css">
+    <script src="https://cdn.basiscore.net/lachinseir.com/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+</head>
+
+<body>
+    <!-- Header start-->
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
+    <!-- header end -->
+    <main class="w-95per mx-auto  mt-90px">
+        <div class="w-full h-185px rounded-20px bg-gradient-to-b from-[#14775F] to-[#25DDB1] text-white flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="font-danablack text-xl my-5">راهنمای اقساط </h1>
+                <h2 class="text-sm font-danaregular">طرح مانیسا</h2>
+            </div>
+        </div>
+
+        <div class="dir-rtl mt-5 font-danaregular">
+            <aside class="w-full">
+                <basis core="print" datamembername="db.installment_info">
+                    <layout>
+                        <ul id="sidebar">
+                            <li class="group/landinglinks h-72px leading-72px  hover:bg-primary-500 rounded-xl bg-primary-500 text-white hover:text-white mb-4 ">
+                                <a class="flex justify-between w-full h-full pr-4  text-base font-danaregular items-center" href="#calculator-form">
+                                    <span>محاسبه گر</span>
+                                    <svg class=" stroke-primary-500 group-hover/landinglinks:stroke-white" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M29 36L18.895 26.1212C17.7017 24.9545 17.7017 23.0455 18.895 21.8788L29 12" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </li>
+
+                            @child
+                        </ul>
+                    </layout>
+                    <face filter="TypeID in(250)">
+                        <li class="group/landinglinks h-72px leading-72px bg-neutralcolor-100 hover:bg-primary-500 rounded-xl text-neutralcolor-900 hover:text-white mb-4 ">
+                            <a class="flex justify-between w-full h-full pr-4  text-base font-danaregular items-center" href="#@valueID">
+                                <span>@text</span>
+                                <svg class=" stroke-primary-500 group-hover/landinglinks:stroke-white" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M29 36L18.895 26.1212C17.7017 24.9545 17.7017 23.0455 18.895 21.8788L29 12" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </li>
+                    </face>
+                </basis>
+            </aside>
+
+            <section class="w-full mt-5">
+                <div id="calculator-form" class="flex justify-start items-center gap-x-2">
+                    <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.18 29.4936V26.1299" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M19.5 29.4941V22.7666" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M27.82 29.4942V19.3867" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M27.82 9.50586L27.0725 10.3834C22.9287 15.2259 17.3712 18.6546 11.18 20.1984" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M23.0587 9.50586H27.82V14.2509" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M14.625 35.75H24.375C32.5 35.75 35.75 32.5 35.75 24.375V14.625C35.75 6.5 32.5 3.25 24.375 3.25H14.625C6.5 3.25 3.25 6.5 3.25 14.625V24.375C3.25 32.5 6.5 35.75 14.625 35.75Z" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h2 class="text-base font-danaregular text-primary-400">محاسبه گر اقساط مانیسا</h2>
+                </div>
+                <span class="text-sm font-danaregular text-neutralcolor-900">مبلغ درخواستی و مدت زمان بازپرداخت را مشخص
+                    کنید</span>
+
+                <div class="w-full">
+                    <form action="">
+                        <label class="font-danaregular text-base mt-5 mb-2 block" for="amount">مبلغ وام</label>
+                        <div class="w-full rounded-xl bg-primary-50 h-76px leading-76px flex justify-between px-2">
+                            <span class="text-32px font-danamedium cursor-pointer hover:text-primary-500 w-12 h-76px text-center" onclick="increase(130)">+</span>
+                            <div>
+                                <input id="amount" class="bg-transparent w-14 font-danaregular text-base text-center" type="text" value="10" placeholder="100" oninput="updateLoanAmount(this.value)">
+                                <span class="font-danaregular text-base ">میلیون تومان</span>
+                            </div>
+                            <span class="text-32px font-danamedium cursor-pointer hover:text-primary-500 w-12 h-76px text-center" onclick="decrease()">-</span>
+                        </div>
+
+                        <div class="relative mt-6">
+                            <input oninput="updateLoanFromRange(this.value)" type="range" min="10" max="130" value="10" class="slider" id="myRange">
+                            <span class=" absolute left-0 text-neutralcolor-500 top-10 font-danaregular text-sm">10
+                                میلیون تومان </span>
+                            <span class=" absolute right-0 text-neutralcolor-500 top-10 font-danaregular text-sm">130
+                                میلیون تومان</span>
+                        </div>
+
+
+                        <div class="mt-16">
+                            <span class="text-base font-danaregular my-5">
+                                مدت باز پرداخت
+                            </span>
+
+                            <ul class="flex justify-between mt-2 flex-wrap gap-y-2" id="month-list">
+                                <li id="firstsuggest" month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)" class="h-16 rounded-10px bg-primary-400 w-49per text-white text-center leading-64px hover:bg-primary-400 hover:text-white text-base cursor-pointer">
+                                    12ماهه</li>
+                                <li onclick="calculateMonth(18 , 0.27 , this)" class="h-16 rounded-10px bg-neutralcolor-100 w-49per text-neutralcolor-900 text-center leading-64px hover:bg-primary-400 hover:text-white text-base cursor-pointer">
+                                    18ماهه</li>
+                            </ul>
+
+                            <div class="bg-neutralcolor-100 rounded-xl py-2 px-2 mt-5">
+                                <ul class="divide-y-2  divide-neutralcolor-300">
+                                    <li class=" flex justify-between leading-76px text-base font-danaregular">
+                                        <span>مبلغ کل : </span>
+                                        <div>
+                                            <span class="total-amount">
+                                                0
+                                            </span>
+
+                                            <span>تومان</span>
+                                        </div>
+                                    </li>
+                                    <li class=" flex justify-between leading-76px text-base font-danaregular">
+                                        <span>مبلغ کل با اعمال تسهیلات: </span>
+                                        <div>
+                                            <span class="Total-amount-facilities">
+                                                0
+                                            </span>
+
+                                            <span>تومان</span>
+                                        </div>
+                                    </li>
+                                    <li class=" flex justify-between leading-76px text-base font-danaregular">
+                                        <span>مبلغ هر قسط : </span>
+                                        <div class="text-attention-400">
+                                            <span class="amount-each-installment">
+                                                0
+                                            </span>
+
+                                            <span>تومان</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div onclick="openSignupInstallmentForm()" class="cursor-pointer h-16 bg-primary-400 rounded-10px mt-5 w-full text-center text-white hover:bg-primary-700 font-danaregular text-base leading-64px">
+                                    ثبت نام</div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <basis core="print" datamembername="db.installment_info">
+                        <layout>
+                            <div class="mt-14 ">
+                                @child
+                            </div>
+                        </layout>
+                        <face filter="TypeID in(150 , 129)">
+                            <div class="w-full">
+                                <h3 class="text-base font-danaregular text-neutralcolor-900 my-5 ">
+                                    @text
+                                </h3>
+                                <div class="text-base font-danaregular text-neutralcolor-900 text-justify">
+                                    @largetext
+                                </div>
+                            </div>
+                        </face>
+                        <face filter="TypeID in(250)">
+                            <div id="@valueID" class="w-full">
+                                <h3 class="text-base font-danabold text-neutralcolor-900 my-5 max-w-7xl overflow-hidden">
+                                    <span class="after:h-1 after:w-full after:content-[''] after:bg-primary-500 after:inline-block ruby after:align-middle">
+                                        @text
+                                    </span>
+                                </h3>
+                                <div class="text-base font-danaregular text-neutralcolor-900 text-justify">
+                                    @largetext
+                                </div>
+                            </div>
+                        </face>
+                    </basis>
+
+                </div>
+            </section>
+        </div>
+
+
+        <div id="modal-signup-background" class="fixed bg-black/40 backdrop-blur-xl top-0 left-0 right-0 bottom-0 hidden">
+            <section id="signup-form-lachinseir" class="bg-white rounded-10px absolute top-0 bottom-0 left-0 right-0 w-318px m-auto p-4 dir-rtl font-danaregular h-613px overflow-y-auto">
+                <div class="free-form-container form-container mt-7 max-xl:mx-auto  max-xl:pb-4">
+                    <basis core="schema" run="atclient" schemaurl="/schema/domainform/C6BA2175-066E-46AD-9B16-F784D1918F65/9589E691-6ED2-423A-BE23-3C7E2DE375EB/fa/فرم-طرح-مانیسا" displaymode="new" button="[data-btn-upload]" resultsourceid="upload.data" onrendered="RenderForm"></basis>
+                    <basis core="api" if="{##cms.upload.run|(false)##}" run="atclient" url="/schema/domainform/C6BA2175-066E-46AD-9B16-F784D1918F65/fa/editobject" method="post" body="object_edit={##cms.upload.value##}&captcha={##cms.upload.captcha##}&captchaid={##cms.upload.captchaid##}" content-type="application/x-www-form-urlencoded" triggers="cms.upload" onprocessed="OnProcessedEditObject"></basis>
+                    <div class="free-form-content">
+                        <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh" data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58" data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                            <basis core="dbsource" source="trust_login" name="captcha" run="atclient" triggers="captcha.refresh">
+                                <member name="code" type="scalar" request="captcha"></member>
+                            </basis>
+                            <div class="flex justify-between items-center captcha-submit-container">
+                                <basis datamembername="captcha.code" core="print" run="atclient" onrendered="captchaRendered">
+                                    <face>
+                                        <script type="text/template">
+                                            <div class="flex items-center w-49per">
+                                                <input type="text" class="contactUsInput codeinputm" placeholder="کد امنیتی" name="captcha" maxlength="4" />
+                                                <input type="hidden" name="captchaid" value="@captcha@" />
+                                            </div>
+
+                                        <div class="flex flex-row-reverse items-center bg-neutralcolor-100 rounded-10px w-49per">
+                                            <svg class="cursor-pointer inline-block" width="35" height="25"  onclick="refreshCaptcha()" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6498 3.34999C12.0198 1.71999 9.70978 0.779992 7.16978 1.03999C3.49978 1.40999 0.479777 4.38999 0.0697772 8.05999C-0.480223 12.91 3.26978 17 7.99978 17C11.1898 17 13.9298 15.13 15.2098 12.44C15.5298 11.77 15.0498 11 14.3098 11C13.9398 11 13.5898 11.2 13.4298 11.53C12.2998 13.96 9.58978 15.5 6.62978 14.84C4.40978 14.35 2.61978 12.54 2.14978 10.32C1.30978 6.43999 4.25978 2.99999 7.99978 2.99999C9.65978 2.99999 11.1398 3.68999 12.2198 4.77999L10.7098 6.28999C10.0798 6.91999 10.5198 7.99999 11.4098 7.99999H14.9998C15.5498 7.99999 15.9998 7.54999 15.9998 6.99999V3.40999C15.9998 2.51999 14.9198 2.06999 14.2898 2.69999L13.6498 3.34999Z" fill="#000000" /></svg> <img  class="inline-block" src="https://www.basispanel.ir/@captcha@" width="80" height="40" alt="captcha code" /></div>
+                                    </script>
+                                    </face>
+                                </basis>
+                            </div>
+                            <div
+                            class="text-center bg-primary-400 rounded-10px text-white sendform-btn hover:bg-primary-800 h-10 w-full leading-10 float-right">
+                            <button class="data-body-btn w-full" type="button"
+                                data-btn-upload><span>ارسال</span></button>
+                        </div>
+                        </div>
+                        <basis core="callback" run="atclient" method="uploadDocument" triggers="upload.data"></basis>
+                        <div class="message-api text-center mt-2"></div>
+                        <div class="clear-both"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- footer start-->
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+<basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
+    <!-- footer end-->
+
+    <script src="[##cms.cms.cdn##]/js/lachinseir-forms.js"></script>
+</body>
+
+</html>

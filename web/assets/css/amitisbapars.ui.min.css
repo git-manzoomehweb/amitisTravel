@@ -1058,6 +1058,10 @@ video {
   grid-column: span 3 / span 3;
 }
 
+.col-start-1 {
+  grid-column-start: 1;
+}
+
 .col-start-2 {
   grid-column-start: 2;
 }
@@ -1072,6 +1076,18 @@ video {
 
 .col-start-5 {
   grid-column-start: 5;
+}
+
+.col-end-1 {
+  grid-column-end: 1;
+}
+
+.col-end-2 {
+  grid-column-end: 2;
+}
+
+.col-end-3 {
+  grid-column-end: 3;
 }
 
 .row-span-2 {
@@ -1090,6 +1106,10 @@ video {
   grid-row: span 6 / span 6;
 }
 
+.row-start-1 {
+  grid-row-start: 1;
+}
+
 .row-start-2 {
   grid-row-start: 2;
 }
@@ -1100,6 +1120,22 @@ video {
 
 .row-start-4 {
   grid-row-start: 4;
+}
+
+.row-end-2 {
+  grid-row-end: 2;
+}
+
+.row-end-3 {
+  grid-row-end: 3;
+}
+
+.row-end-4 {
+  grid-row-end: 4;
+}
+
+.row-end-5 {
+  grid-row-end: 5;
 }
 
 .row-end-7 {
@@ -1362,6 +1398,10 @@ video {
 
 .-mt-\[22rem\] {
   margin-top: -22rem;
+}
+
+.-mt-\[500px\] {
+  margin-top: -500px;
 }
 
 .-mt-\[540px\] {
@@ -2415,6 +2455,10 @@ video {
   width: 307px;
 }
 
+.w-\[31\%\] {
+  width: 31%;
+}
+
 .w-\[320px\] {
   width: 320px;
 }
@@ -2760,12 +2804,20 @@ video {
   grid-template-columns: 328px 288px 288px 296px;
 }
 
+.grid-cols-\[408px_240px_264px\] {
+  grid-template-columns: 408px 240px 264px;
+}
+
 .grid-rows-4 {
   grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 
 .grid-rows-7 {
   grid-template-rows: repeat(7, minmax(0, 1fr));
+}
+
+.grid-rows-\[120px_120px_120px_120px\] {
+  grid-template-rows: 120px 120px 120px 120px;
 }
 
 .flex-row {
@@ -3597,6 +3649,10 @@ video {
   background-image: url('../images/pattern-tringle.svg');
 }
 
+.bg-tringle-tag-pattern {
+  background-image: url('../images/tringle-pattern-tag.svg');
+}
+
 .bg-under-film-pattern {
   background-image: url('../images/under-video-pattern.png');
 }
@@ -4274,6 +4330,10 @@ video {
   line-height: 200px;
 }
 
+.leading-\[203\%\] {
+  line-height: 203%;
+}
+
 .leading-\[22px\] {
   line-height: 22px;
 }
@@ -4350,6 +4410,11 @@ video {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
+.text-neutral-900 {
+  --tw-text-opacity: 1;
+  color: rgb(23 23 23 / var(--tw-text-opacity, 1));
 }
 
 .text-neutralcolor-700 {
@@ -4441,6 +4506,10 @@ video {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-85 {
+  opacity: 0.85;
 }
 
 .bg-blend-luminosity {
@@ -4663,6 +4732,12 @@ video {
 
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.backdrop-opacity-15 {
+  --tw-backdrop-opacity: opacity(0.15);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -5330,6 +5405,14 @@ html,body{
   /* عرض 100 درصد و ارتفاع ثابت */
   mask-size: 100% 100%;
   /* عرض 100 درصد و ارتفاع ثابت */
+}
+
+.clipped-tag-page {
+  width: 100%;
+  height: 574px;
+  background-color: var(--primary-950)  ;
+  background-size: cover;
+  clip-path: url(#tag-clip-path);
 }
 
 .clamped-text::after{
@@ -7960,6 +8043,12 @@ button.calendar-apply-date{
   }
 }
 
+@media (max-width: 1360px) {
+  .max-\[1360px\]\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1300px) {
   .max-\[1300px\]\:h-\[300px\] {
     height: 300px;
@@ -8043,6 +8132,10 @@ button.calendar-apply-date{
     height: auto;
   }
 
+  .max-xl\:w-1\/2 {
+    width: 50%;
+  }
+
   .max-xl\:w-1\/3 {
     width: 33.333333%;
   }
@@ -8081,10 +8174,6 @@ button.calendar-apply-date{
 
   .max-xl\:w-full {
     width: 100%;
-  }
-
-  .max-xl\:w-1\/2 {
-    width: 50%;
   }
 
   .max-xl\:min-w-\[48\%\] {
@@ -8159,10 +8248,6 @@ button.calendar-apply-date{
 }
 
 @media not all and (min-width: 1024px) {
-  .max-lg\:w-1\/2 {
-    width: 50%;
-  }
-
   .max-lg\:justify-start {
     justify-content: flex-start;
   }

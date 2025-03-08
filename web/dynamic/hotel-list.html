@@ -12,7 +12,7 @@
 </basis>
 
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.tagid##]">
-    <member name="tags" type="view" postsql="select * from [db.tags] where prpID in(3087604)" />
+    <member name="tags" type="view" postsql="select * from [db.tags] where prpID in(3087624)" />
 </basis>
 
 
@@ -254,9 +254,9 @@
                         </div>
                     </layout>
                     <face>                                        
-                        <a href="tag.bc?q=@text" class="border border-neutralcolor-800 text-txtneutral-500 bg-white font-yekanbakhregularFA text-sm leading-[22px] rounded-xl py-1 px-4 inline-block
+                        <a href="tag.bc?catid=@text&tagtype=@number" class="border border-neutralcolor-800 text-txtneutral-500 bg-white font-yekanbakhregularFA text-sm leading-[22px] rounded-xl py-1 px-4 inline-block
                         hover:border-primary-50 hover:bg-primary-50 cursor-pointer hover:text-primary transition-all duration-300 
-                        ">@text</a>
+                        ">@largetext</a>
                     </face>
                 </basis>
 

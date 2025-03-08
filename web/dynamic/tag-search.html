@@ -1,0 +1,127 @@
+<basis core="group" if="[##cms.query.tagtype##]=1">
+    <!-- tour -->
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]"><member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]"><member name="suggestiontour" type="list" link="tour.bc" size="272X176" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491, 3087492, 3087493, 3087494, 3087497, 3087501, 3087502 ,3087561,3087562,3087563 " typeid="159" perpage="4" order="ord"></member></basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]"><member name="airline" type="list" request="spelist"></member></basis>
+<basis core="inlinesource" name="joining"><member name="suggestiontour" lefttblcol="db.suggestiontour.prp_10000504" righttblcol="list.airline.name" format="join" jointype="leftjoin"></member></basis>
+
+</basis>
+
+
+
+<basis core="group" if="[##cms.query.tagtype##]=4">
+    <!-- article -->
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+    <member name="articles" type="list" link="article.bc"
+     propertyid="7244,7249" size="248X240" typeid="159" perpage="50"
+        order="ord"></member>
+</basis>
+
+</basis>
+
+
+
+<basis core="group" if="[##cms.query.tagtype##]=2">
+    <!-- hotel -->
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+        <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+    </basis>
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+        <member name="hotels" type="list" link="hotel.bc"
+         propertyid="7244,177402,177404,177405" size="272X176" typeid="159" perpage="50"
+            order="ord"></member>
+    </basis>
+
+</basis>
+
+<basis core="group" if="[##cms.query.tagtype##]=3">
+    <!-- visa -->
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+        <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+    </basis>
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="list" catid="[##cms.query.catid##]">
+        <member name="visa" type="list" link="visa.bc" propertyid="7244,7249" size="80X80" typeid="159" perpage="50"
+            order="ord"></member>
+    </basis>
+
+
+</basis>
+
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+
+
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+</head>
+<body>
+    <basis core="call" file="header.inc"></basis>
+
+    <main>
+        <section class="max-w-7xl mx-auto">
+            <svg class="absolute h-0 w-0 ">
+                <clipPath id="tag-clip-path" clipPathUnits="objectBoundingBox">
+                    <path
+                        d="M0,0.632 C0,0.679,0.016,0.722,0.039,0.735 C0.126,0.785,0.34,0.898,0.5,0.898 C0.66,0.898,0.874,0.785,0.961,0.735 C0.984,0.722,1,0.679,1,0.632 V0.008 C1,-0.053,0.975,-0.102,0.944,-0.102 L0.056,-0.102 C0.025,-0.102,0,-0.053,0,0.008 L0,0.632">
+                    </path>
+                </clipPath>
+            </svg>
+
+            <div class="clipped-tag-page  relative max-w-7xl
+    bg-tringle-tag-pattern
+ bg-center bg-no-repeat  backdrop-opacity-15
+ ">
+                <div class="bg-primary-950 opacity-85 w-full h-full block absolute top-0 left-0 right-0 bottom-0">
+                </div>
+            </div>
+            <div class="flex justify-evenly relative z-10 -mt-[500px]">
+                <div class="w-7/12 mt-10">
+                    <span class="font-yekanbakhsemiboldFA text-[32px] text-white mb-3 ">نتایج بر اساس انتخاب شما:</span>
+                    <h1 class="text-white leading-[203%] text-[80px] font-yekanbakhboldFA">تور های ویژه</h1>
+                </div>
+
+                <figure>
+                    <img src="./images/clipboard-img.png" width="416" height="520" alt="صفحه برچسب ها">
+                </figure>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+    </main>
+
+
+    <basis core="call" file="footer.inc"></basis>
+</body>
+</html>

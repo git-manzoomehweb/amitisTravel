@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const lazyImages = document.querySelectorAll("img[data-src]");
     
@@ -430,19 +431,21 @@ if (document.querySelector(".passengers-video") || document.getElementById("podc
         const videoContainer = document.getElementById("videoContainer");
 
         // اسلایدر Swiper
-        new Swiper(".passengers-video", {
-            slidesPerView: 'auto',
-            speed: 1500,
-            centeredSlides: true,
-            spaceBetween: 20,
-            effect: 'slide',
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-        });
+        if(document.querySelector(".passengers-video")){
+          new Swiper(".passengers-video", {
+              slidesPerView: 'auto',
+              speed: 1500,
+              centeredSlides: true,
+              spaceBetween: 20,
+              effect: 'slide',
+              grabCursor: true,
+              autoplay: {
+                  delay: 2500,
+                  disableOnInteraction: false,
+              },
+              loop: true,
+          });
+        }
 
         // باز کردن مودال و افزودن آیفریم
         // document.querySelectorAll(".openModal").forEach(item => {
@@ -1300,9 +1303,11 @@ function updateDays() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateYears();
-  updateMonths();
-  updateDays();
+  if(document.getElementById("date-convertor")){
+    updateYears();
+    updateMonths();
+    updateDays();
+  }
 });
 
 
