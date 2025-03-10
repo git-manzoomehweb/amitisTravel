@@ -7,72 +7,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>[##cms.seo.title|(طرح مانیسا)##]</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="[##cms.seo.description|(آژانس مسافرتی لاچین سیر ارائه کننده تور خارجی و داخلی ، بلیط هواپیما، رزرو هتل در اقصی نقاط دنیا و اخذ ویزا، پرواز های چارتری و هتل های گارانتی . 41664166- 021)##]">
-    <link rel="canonical" href="[##cms.cms.full-url##]" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <!-- Title & Description -->
     <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
         <member type="list" name="list" request="taglist" preview=""></member>
     </basis>
     <basis core="print" datamembername="tag.list">
-        <face filter="key='canonical'">
+        <face filter="key = 'canonical'">
             <link rel="canonical" href="@value" />
         </face>
         <face>
             <meta property="@key" content="@value" />
         </face>
     </basis>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="[##cms.cms.cdn##]/images/custom_icon.png" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="manifest" href="homescreen-manifest.inc">
-    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/lachinseir-forms.min.css">
-    <script src="https://cdn.basiscore.net/lachinseir.com/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
-    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+    <script src="../assets/js/amitis-installment-forms.js"></script>
+    <link rel="stylesheet" href="../assets/css/output.css">
 </head>
 
 <body>
     <!-- Header start-->
     <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- header end -->
-    <main class="w-95per mx-auto  mt-90px">
-        <div class="w-full h-185px rounded-20px bg-gradient-to-b from-[#14775F] to-[#25DDB1] text-white flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="font-danablack text-xl my-5">راهنمای اقساط </h1>
-                <h2 class="text-sm font-danaregular">طرح مانیسا</h2>
-            </div>
-        </div>
+    <main class="w-full max-w-7xl mx-auto  mt-90px">
+
 
         <div class="dir-rtl mt-5 font-danaregular">
-            <aside class="w-full">
-                <basis core="print" datamembername="db.installment_info">
-                    <layout>
-                        <ul id="sidebar">
-                            <li class="group/landinglinks h-72px leading-72px  hover:bg-primary-500 rounded-xl bg-primary-500 text-white hover:text-white mb-4 ">
-                                <a class="flex justify-between w-full h-full pr-4  text-base font-danaregular items-center" href="#calculator-form">
-                                    <span>محاسبه گر</span>
-                                    <svg class=" stroke-primary-500 group-hover/landinglinks:stroke-white" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M29 36L18.895 26.1212C17.7017 24.9545 17.7017 23.0455 18.895 21.8788L29 12" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </li>
 
-                            @child
-                        </ul>
-                    </layout>
-                    <face filter="TypeID in(250)">
-                        <li class="group/landinglinks h-72px leading-72px bg-neutralcolor-100 hover:bg-primary-500 rounded-xl text-neutralcolor-900 hover:text-white mb-4 ">
-                            <a class="flex justify-between w-full h-full pr-4  text-base font-danaregular items-center" href="#@valueID">
-                                <span>@text</span>
-                                <svg class=" stroke-primary-500 group-hover/landinglinks:stroke-white" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M29 36L18.895 26.1212C17.7017 24.9545 17.7017 23.0455 18.895 21.8788L29 12" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </li>
-                    </face>
-                </basis>
-            </aside>
 
             <section class="w-full mt-5">
                 <div id="calculator-form" class="flex justify-start items-center gap-x-2">

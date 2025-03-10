@@ -1,11 +1,27 @@
-const rangeInput = document.getElementById('myRange');
-const amountInput = document.getElementById('amount');
 
-rangeInput.addEventListener('input', updateRangeBackground);
-let firstsuggest = document.getElementById("firstsuggest");
-let loanAmount = 10;
-let loanMonths = firstsuggest.getAttribute("month");
-let interestRate = firstsuggest.getAttribute("rate");
+let rangeInput ;
+let amountInput ;
+let firstsuggest ;
+let loanAmount ;
+let loanMonths ;
+let interestRate ;
+
+document.addEventListener("DOMContentLoaded", function () {
+     rangeInput = document.getElementById('myRange');
+     amountInput = document.getElementById('amount');
+    
+    rangeInput.addEventListener('input', updateRangeBackground);
+     firstsuggest = document.getElementById("firstsuggest");
+     loanAmount = 10;
+     loanMonths = firstsuggest.getAttribute("month");
+     interestRate = firstsuggest.getAttribute("rate");
+     updateRangeBackground();
+
+    console.log(loanAmount)
+
+});
+
+
 
 function updateRangeBackground() {
     const value = rangeInput.value;
@@ -24,6 +40,7 @@ function updateLoanAmount(amount) {
 }
 
 function updateLoanFromRange(amount) {
+    console.log(amount)
     loanAmount = amount;
     document.getElementById('amount').value = amount;
     updateRangeBackground();

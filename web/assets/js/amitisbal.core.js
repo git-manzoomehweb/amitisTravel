@@ -1392,6 +1392,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+  }else if(document.querySelector("#resultContainer-mainlist")){
+
+    const maincategoryId = document.querySelector("#resultContainer-mainlist").getAttribute('catid');
+    const maintypeid = document.querySelector("#resultContainer-mainlist").getAttribute('typeid');
+    const resultContainermain = document.querySelector("#resultContainer-mainlist");
+      fetch(`load-items.bc?catid=${maincategoryId}&typeid=${maintypeid}`, {
+        method: "GET",
+      })
+        .then((res) => res.text())
+        .then((data) => {
+          let itemWrapper = document.createElement("div");
+          itemWrapper.classList.add("categoryItem", "flex", "justify-start", "gap-y-5", "flex-wrap");
+          itemWrapper.setAttribute("data-id", maincategoryId);
+          itemWrapper.innerHTML = data;
+          resultContainermain.appendChild(itemWrapper);
+        });
   }
 
   if (searchForm) {
@@ -1479,3 +1495,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // article-list
+
+// hotel-view
+if(document.querySelector("#comments-slider")){
+  var swipercomments = new Swiper("#comments-slider", {
+      slidesPerView: 1.5 ,
+      speed: 1500,
+      centeredSlides: true,
+      spaceBetween: 20,
+      grabCursor: true,
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: true,
+      },
+      loop: true,
+  });
+}
+// hotel-view
