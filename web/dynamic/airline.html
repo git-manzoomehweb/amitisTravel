@@ -6,8 +6,13 @@
     
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
     <member name="article-view" type="view" />
-    <member name="bannerimage" type="view" postsql="select * from [db.bannerimage] where TypeID in (159)" />
 </basis>
+
+
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="article">
+    <member type="list" name="bannerimage" format="4" order="ord" postsql="SELECT * FROM [db.bannerimage] LIMIT 1"></member>
+</basis>
+
 
 <!DOCTYPE html>
 <html lang="fa">
@@ -31,7 +36,7 @@
         </face>
     </basis>
 
-    <link rel="preload" as="image" imageSrcSet="[##db.bannerimage.text##]" fetchpriority="high" />
+    <link rel="preload" as="image" imageSrcSet="[##db.bannerimage.largeIMG##]" fetchpriority="high" />
 
     <!-- pwa metatags -->
     <basis core="call" file="pwa.inc" />
@@ -49,7 +54,12 @@
         
         <section class="max-w-7xl mx-auto w-full ">
             <figure class="w-full h-[560px] border-b-[16px] border-b-neutralcolor-600 rounded-b-[263.5px] rounded-t-lg overflow-hidden">
-                <img class="w-full h-full object-cover" src="[##db.bannerimage.text##]" width="1280" height="544"  alt="بنر ایرلاین">
+                <basis core="list" datamembername="db.bannerimage">
+                    <face>
+                        <img class="w-full h-full object-cover" src="@largeIMG" width="1280" height="544"  alt="@name">
+                    </face>
+                </basis>
+                        
                 <basis core="list" datamembername="db.article-view">
                     <layout>
                         <figcaption>

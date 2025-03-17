@@ -129,7 +129,7 @@
 }
 
 
-html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
+html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl;position: relative; }
 ::-webkit-scrollbar{width:10px;}::-webkit-scrollbar-track{background:var(--primary-50);}
 ::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
@@ -165,3 +165,6 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
     clip-path: url(#clip-path-handler);
   }
 
+.writing-mode-sideways-lr{
+    writing-mode: sideways-lr;
+}

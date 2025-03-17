@@ -1,0 +1,61 @@
+<script src="https://cdn.basiscore.net/_js/basiscore-2.0.12.min.js"></script>
+<script src="https://cdn.basiscore.net/_js/alasql.min.js"></script>
+
+
+<basis core="api" name="api.executionPlanViewDates"
+url="https://basisfly.com/api/inventory/packages/execution-plan-view/" method="post"
+content-type="application/json" run="atclient" body='{
+    "pid": "[##cms.query.id##]",
+    "title": "dates",
+    "dmnid": "[##cms.cms.domainid##]",
+    "ownerid": "[##cms.cms.ownerid##]"
+}'>
+</basis>
+<basis core="api" name="api.executionPlanTypesView"
+url="https://basisfly.com/api/inventory/packages/execution-plan-view/" method="post"
+content-type="application/json" run="atclient" body='{
+    "pid": "[##cms.query.id##]",
+    "title": "execution",
+    "dmnid": "[##cms.cms.domainid##]",
+    "ownerid": "[##cms.cms.ownerid##]"
+}'>
+</basis>
+<basis core="callback" run="atclient" triggers="db.execution" method="callbackSourceExecutionPlanTypesView">
+</basis>
+<basis core="api" name="api.inventoryView" url="https://basisfly.com/api/inventory/packages/inventory-view/"
+method="post" content-type="application/json" run="atclient" triggers="db.inventoryViewSpecificDate" body='{
+    "pid": "[##cms.query.id##]",
+    "from": "{##db.inventoryViewSpecificDate.from|()##}",
+    "to": "{##db.inventoryViewSpecificDate.to|()##}",
+    "day": "{##db.inventoryViewSpecificDate.day|()##}",
+    "pagename": "[##cms.host.pageNameInventory|(Tem1_Hotel.bc)##]",
+    "dmnid": "[##cms.cms.domainid##]",
+    "ownerid": "[##cms.cms.ownerid##]"
+}'>
+</basis>
+<basis core="api" name="api.airlinesOriginsGallery"
+url="https://data.basiscore.net/en/bc/airlines/id/gallery/json" method="post" body='{
+    "token": "1E45BBAE-3BE7-4B08-8A8E-8DF7B2E0C7D7",
+    "wordid": 94122,
+    "usedforid": [{##db.airlinesOriginsGallery.ids##}]
+} ' content-type="application/json" run="atclient" triggers="db.airlinesOriginsGallery"
+if="{##db.airlinesOriginsGallery.run|(false)##}" onprocessed="onProcessedAirlinesOriginsImg">
+</basis>
+<basis core="api" name="api.airlinesDestinationsGallery"
+url="https://data.basiscore.net/en/bc/airlines/id/gallery/json" method="post" body='{
+    "token": "1E45BBAE-3BE7-4B08-8A8E-8DF7B2E0C7D7",
+    "wordid": 94122,
+    "usedforid": [{##db.airlinesDestinationsGallery.ids##}]
+
+} ' content-type="application/json" run="atclient" triggers="db.airlinesDestinationsGallery"
+if="{##db.airlinesDestinationsGallery.run|(false)##}" onprocessed="onProcessedAirlinesDestinationsImg">
+</basis>
+<basis core="api" name="api.hotelGallery" url="https://data.basiscore.net/en/bc/hotel/id/gallery/json"
+method="post" body='{
+    "token": "1E45BBAE-3BE7-4B08-8A8E-8DF7B2E0C7D7",
+    "wordid": 94122,
+    "usedforid": [{##db.hotelGallery.ids##}]
+
+} ' content-type="application/json" run="atclient" triggers="db.hotelGallery"
+if="{##db.hotelGallery.run|(false)##}" onprocessed="onProcessedHotelsImg">
+</basis>
