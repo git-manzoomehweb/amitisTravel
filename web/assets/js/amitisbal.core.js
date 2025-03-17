@@ -1,3 +1,20 @@
+document.addEventListener("DOMContentLoaded", function () {
+  let pageName = window.location.pathname.split('/').pop(); // دریافت نام صفحه
+  if (pageName.startsWith("Tem3_") || pageName.startsWith("Client_")) {
+      myFunction(); // اجرای فانکشن در صورت تطابق
+  }else{
+    console.log("thk;akk h[vh kannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+  }
+});
+
+function myFunction() {
+  console.log("فانکشن اجرا شد!");
+  console.log("فانکشن 2222اجرا شد!");
+  console.log("فانکشن 333333اجرا شد!");
+  // کدهای مورد نظرتون رو اینجا قرار بدید
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const lazyImages = document.querySelectorAll("img[data-src]");

@@ -656,7 +656,7 @@ const renderHotels = async (element, type) => {
             <div class=" flex flex-row-reverse float-right ">
                 <figure
                     class="${index !== 0 ? ' -mr-24 ' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative">
-                    <img class="w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden " src="${img}"
+                    <img class=" tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden " src="${img}"
                         data-pageName="${document.querySelector(".layout__body__container").dataset.pagenameinventory}"
                         data-id="${item.hotel.hotelid}" width="216" height="160" alt="" />
                     <figcaption
