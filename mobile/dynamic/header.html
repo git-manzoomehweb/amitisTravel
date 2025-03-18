@@ -1,5 +1,22 @@
-<!-- basiscore-data -->
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/amitisbapars-mob.ui.css">
+
+</head>
+<body>
+    
+
+
+
+
+
+
+    <!-- basiscore-data -->
+<!-- <basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour">
     <member name="cat-amitis-tours" type="tree" request="cat" parentid="110382"
         order="[##cms.Host.tour-cat-order|(order)##]" />
     <member name="cat-amitis-tours-image" type="tree" request="cat" parentid="140689"
@@ -13,19 +30,18 @@
 </basis>
 <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
     <member name="info" type="view" />
-</basis>
+</basis> -->
 
-<!-- <link rel="stylesheet" href="../assets/css/amitisbapars-mob.ui.css"> -->
-<!-- header-desktop -->
+
 <header id="header-contents" class="dir-rtl w-full ">
 
     <div class="top-header-mobile w-full h-14 bg-white shadow-lg fixed top-0 left-0 right-0 flex justify-between items-center px-4 z-[55]">
-        <div class="w-1/3 flex justify-start items-center">
-            <svg class="inline-block hamburger-menu-closed" width="24" height="24">
-                <use href="./images/sprite-icons.svg#hamburger-menu-closed"></use>
+        <div class="w-1/3 flex justify-start items-center" >
+            <svg onclick="OpenHamburgerMenu(this , '.hamburger-menu')" class="inline-block hamburger-menu-closed" width="24" height="24">
+                <use href="../assets/images/sprite-icons.svg#hamburger-menu-closed"></use>
             </svg>
-            <svg class="hidden hamburger-menu-opened" width="24" height="24">
-                <use href="./images/sprite-icons.svg#hamburger-menu-opened"></use>
+            <svg onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );" class="hidden hamburger-menu-opened" width="24" height="24">
+                <use href="../assets/images/sprite-icons.svg#hamburger-menu-opened"></use>
             </svg>
         </div>
         <div class="w-1/3 flex justify-center items-center">
@@ -41,23 +57,27 @@
 
             <div class="bg-primary rounded-[4px] flex justify-center items-center w-6 h-6">
                 <svg class="inline-block" width="24" height="24">
-                    <use href="./images/sprite-icons.svg#call-icon-mobile"></use>
+                    <use href="../assets/images/sprite-icons.svg#call-icon-mobile"></use>
                 </svg>
             </div>
         </a>
         </div>
     </div>
 
-    <div class="hamburger-menu  w-full h-full fixed top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-md 
-    z-[54] flex justify-normal align-bottom items-end">
-        <nav class="bg-white rounded-l-2xl min-h-[512px] max-h-[calc(100%-200px)] h-full w-[calc(100%-64px)]">
+    <div class="hamburger-menu  w-full h-full fixed top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-md hidden
+    z-[54]  justify-normal align-bottom items-end">
+        <nav class="hamburgermenu-items bg-white 
+        rounded-l-2xl min-h-[512px]
+         max-h-[calc(100%-200px)] h-full
+          ease-in-out duration-700 transition-all
+          w-[calc(100%-64px)] translate-x-full ">
             <div>
             <ul class="flex justify-between gap-x-2 w-[90%] mx-auto my-3">
                 <li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group ">
 
                     <a href="#" class="w-full h-full flex-col justify-center items-center flex px-4 ">
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#card-payment-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#card-payment-icon"></use>
                         </svg>
                         <span class="block text-xs font-yekanbakhsemiboldFA text-shadeneutral-100 text-center group-hover:text-primary pt-2">
                             پرداخت آنلاین
@@ -69,7 +89,7 @@
 
                     <a href="#" class="w-full h-full flex-col justify-center items-center flex px-4 ">
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#calculator-id"></use>
+                            <use href="../assets/images/sprite-icons.svg#calculator-id"></use>
                         </svg>
                         <span class="block text-xs font-yekanbakhsemiboldFA text-shadeneutral-100 text-center group-hover:text-primary pt-2">
                             محاسبه اقساط
@@ -81,7 +101,7 @@
 
                     <a href="#" class="w-full h-full flex-col justify-center items-center flex px-4 ">
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#book-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#book-icon"></use>
                         </svg>
                         <span class="block text-xs font-yekanbakhsemiboldFA text-shadeneutral-100 text-center group-hover:text-primary pt-2">
                             مجله گردشگری
@@ -91,30 +111,32 @@
                 </li>
             </ul>
             </div>
-            <ul class="w-full divide-y divide-neutralcolor-600 hamburgermenu-mainmenu">
+            <ul class="w-full divide-y divide-neutralcolor-600 hamburgermenu-mainmenu
+            h-[calc(100%-100px)] overflow-y-auto
+            ">
                 <li class="leading-[56px]">
                     <a class="w-[90%] mx-auto flex justify-between items-center " href="#">
                         <svg class="inline-block" width="16" height="16">
-                            <use href="./images/sprite-icons.svg#hamburger-home-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-home-icon"></use>
                         </svg>
                         <span>
                             خانه
                         </span>
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
                         </svg>
                     </a>
                 </li> 
                 <li class="leading-[56px] ">
                     <a class="w-[90%] mx-auto flex justify-between items-center " href="#">
                         <svg class="inline-block" width="16" height="16">
-                            <use href="./images/sprite-icons.svg#hamburger-map-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-map-icon"></use>
                         </svg>
                         <span>
                             تورهای آمیتیس
                         </span>
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
                         </svg>
                     </a>
 
@@ -131,52 +153,71 @@
                 <li class="leading-[56px]">
                     <a class="w-[90%] mx-auto flex justify-between items-center " href="#">
                         <svg class="inline-block" width="16" height="16">
-                            <use href="./images/sprite-icons.svg#hamburger-img-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-img-icon"></use>
                         </svg>
                         <span>
                             تورهای تابستانی
                         </span>
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
                         </svg>
                     </a>
                 </li> 
                 <li class="leading-[56px]">
                     <a class="w-[90%] mx-auto flex justify-between items-center " href="#">
                         <svg class="inline-block" width="16" height="16">
-                            <use href="./images/sprite-icons.svg#hamburger-visaservices-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-visaservices-icon"></use>
                         </svg>
                         <span>
                             خدمات ویزا
                         </span>
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
                         </svg>
                     </a>
+
+                    <ul class="hamburgermenu-submenu">
+                        <li>
+                            <svg  class="inline-block" width="16" height="16">
+                                <use href="../assets/images/sprite-icons.svg#hamburger-visaservices-active-icon"></use>
+                            </svg>
+                            اخذ ویزا</li>
+                        <li>
+                            <svg class="inline-block" width="16" height="16">
+                                <use href="../assets/images/sprite-icons.svg#hamburger-timer-icon"></use>
+                            </svg>
+                            وقت سفارت</li>
+                        <li>
+                            <svg class="inline-block" width="16" height="16">
+                                <use href="../assets/images/sprite-icons.svg#hamburger-house-icon"></use>
+                            </svg>
+                            اخذ اقامت</li>
+                    </ul>
+
                 </li> 
                 <li class="leading-[56px]">
                     <a class="w-[90%] mx-auto flex justify-between items-center " href="#">
                         <svg class="inline-block" width="16" height="16">
-                            <use href="./images/sprite-icons.svg#hamburger-usefulinfo-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-usefulinfo-icon"></use>
                         </svg>
                         <span>
                             اطلاعات مفید
                         </span>
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
                         </svg>
                     </a>
                 </li> 
                 <li class="leading-[56px]">
                     <a class="w-[90%] mx-auto flex justify-between items-center " href="#">
                         <svg class="inline-block" width="16" height="16">
-                            <use href="./images/sprite-icons.svg#hamburger-contactinfo-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-contactinfo-icon"></use>
                         </svg>
                         <span>
                             ارتباط با ما
                         </span>
                         <svg class="inline-block" width="24" height="24">
-                            <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                            <use href="../assets/images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
                         </svg>
                     </a>
                 </li> 
@@ -185,18 +226,83 @@
 
         <div class="w-16 flex justify-center items-center min-h-[512px] max-h-[calc(100%-200px)] h-full">
 
-            <svg onclick="closeHamburgerMenu(this);" class="inline-block cursor-pointer" width="40" height="40">
-                <use href="./images/sprite-icons.svg#close-hamburger-menu"></use>
+            <svg onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );" class="inline-block cursor-pointer" width="40" height="40">
+                <use href="../assets/images/sprite-icons.svg#close-hamburger-menu"></use>
             </svg>
 
         </div>
 
     </div>
 
-    <div class="bottom-menu-items fixed bottom-0 left-0 right-0 h-16 shadow-md bg-white flex justify-between gap-x-2 items-center z-[53]">
+    <div class=" bottom-menu-items fixed bottom-0 left-0 right-0 h-16 shadow-md bg-white flex justify-between gap-x-2 items-center z-[53]">
 
     </div>
 
 </header>
 
-<!-- header-mobile -->
+<script>
+    // function OpenHamburgerMenu(element , menuContainer){
+
+    //     element.closest("div").querySelector(".hamburger-menu-closed").classList.toggle("hidden");
+    //     element.closest("div").querySelector(".hamburger-menu-opened").classList.toggle("hidden");
+
+    //     document.querySelector(menuContainer).classList.toggle("hidden");
+    //     document.querySelector(menuContainer).classList.toggle("flex");
+
+    //     document.querySelector(menuContainer).querySelector(".hamburgermenu-items").classList.toggle("translate-x-full")
+    //     document.querySelector(menuContainer).querySelector(".hamburgermenu-items").classList.toggle("translate-x-0")
+
+    // }
+    // function closeHamburgerMenu(element , hedaerContainer , menuContainer){
+
+    //     document.querySelector(hedaerContainer).querySelector(".hamburger-menu-closed").classList.remove("hidden");
+    //     document.querySelector(hedaerContainer).querySelector(".hamburger-menu-opened").classList.add("hidden");
+
+    //     document.querySelector(menuContainer).classList.add("hidden");
+    //     document.querySelector(menuContainer).classList.remove("flex");
+
+    //     document.querySelector(menuContainer).querySelector(".hamburgermenu-items").classList.add("translate-x-full")
+    //     document.querySelector(menuContainer).querySelector(".hamburgermenu-items").classList.add("translate-x-0")
+
+
+    // }
+
+
+    function OpenHamburgerMenu(element, menuContainer) {
+    element.closest("div").querySelector(".hamburger-menu-closed").classList.toggle("hidden");
+    element.closest("div").querySelector(".hamburger-menu-opened").classList.toggle("hidden");
+
+    let menu = document.querySelector(menuContainer);
+    let menuItems = menu.querySelector(".hamburgermenu-items");
+
+    menu.classList.remove("hidden"); // نمایش منو
+    menu.classList.add("flex"); // نمایش با flex اما بدون تغییر translate
+
+    setTimeout(() => {
+        menuItems.classList.remove("translate-x-full");
+        menuItems.classList.add("translate-x-0");
+    }, 10); // تاخیر برای اعمال transition
+}
+
+function closeHamburgerMenu(element, headerContainer, menuContainer) {
+    let menu = document.querySelector(menuContainer);
+    let menuItems = menu.querySelector(".hamburgermenu-items");
+
+    document.querySelector(headerContainer).querySelector(".hamburger-menu-closed").classList.remove("hidden");
+    document.querySelector(headerContainer).querySelector(".hamburger-menu-opened").classList.add("hidden");
+
+    menuItems.classList.remove("translate-x-0");
+    menuItems.classList.add("translate-x-full");
+
+    setTimeout(() => {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+    }, 600); // مدت زمان برابر با transition در Tailwind
+}
+
+
+</script>
+
+</body>
+</html>
+
