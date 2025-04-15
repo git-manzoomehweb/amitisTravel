@@ -107,15 +107,18 @@ module.exports = {
 
       },
       backgroundImage: {
-        'tour-texture': "url('../images/Mobile/pattern-tour-mob.png')",
+        'tour-texture': "url('../images/pattern-tour-mob.png')",
+        'footer-mob-texture': "url('../images/footer-pattern-logo-amitis.png')",
 
       },
       dropShadow: {
 
-
+        'fixedmenumob' : '0px -1px 4px rgba(12, 12, 12, 0.2)',
+        'floatingcallclose' : '0px 0px 4px rgba(0, 0, 0, 0.25)',
       },
       boxShadow: {
         'tourcardvertically': '0px 0px 2px rgba(0, 0, 0, 0.25)',
+        'floatingcall': '0px 0px 20px #3276F0',
       },
       screens: {
         '1920': '1920px',

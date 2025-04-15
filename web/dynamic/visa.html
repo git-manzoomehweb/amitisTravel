@@ -1,4 +1,6 @@
 <!-- npm run watch:web -->
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]"><member name="information" type="view" /></basis>
+
 <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
     <member name="navigation" type="tree" request="navigationcat" />
     </basis>
@@ -125,7 +127,7 @@
 
 
 
-        <basis core="print" datamembername="db.info">
+        <basis core="print" datamembername="db.information">
             <face filter="TypeID in(240) and prpID in(8000) and valueID in(333510600)">
                 <div
                     class=" fixed -left-[15em] hover:left-0 top-24 z-50 bg-primary h-[88px] rounded-r-2xl hover:bg-primary-800 w-[307px] drop-shadow-support-7-24 hover:drop-shadow-hvr-support-7-24 transition-all duration-500 ">

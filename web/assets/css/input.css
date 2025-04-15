@@ -10,6 +10,9 @@
       }
 }
 
+body{
+    padding-top: 80px;
+}
 
 /* @layer utilities {
     .h-644 {
@@ -421,8 +424,232 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
         background-size: contain;
         background-repeat: no-repeat;
       }
-      
-    .main-operationUser-container button,.login-btn,.main-login-container{box-shadow:0 2px 5px rgba(0,0,0,.15);border-radius:12px}.main-login-container{width:650px;min-height:480px}.main-operationUser-container input[type="password"],.main-login-container input[type="password"],.main-login-container input[type="text"]{}span.module-icon.inline-block{display:block!important}svg.module-icon-active,svg.module-icon-deactive{width:64px!important;height:64px!important}.search-box-container .reserve-btn:not(.active-module) .module-icon .module-icon-deactive{display:block}.reservation-item{height:112px!important;display:flex;justify-content:center;align-items:center;column-gap:3em}.search-nav{width:100%;height:112px!important;border-bottom:1px solid var(--neutral-500)}.search-box-container .reserve-btn{position:relative;;height:112px!important;display:flex;flex-direction:column;justify-content:center;align-content:space-around;align-items:center;font-size:16px;font-family:'Yekan_Bakh_SemiBold_fa';color:var(--txtneutral-500);margin:0}#r-flight,#r-hotel,#r-flighthotel,#r-tour,#r-insurance,#r-cip,#r-visa{width:97%!important;margin:0 auto}ul.flighttype-items .clr{display:none;width:0;height:0}ul.flighttype-items{display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;align-content:center;height:38px!important;line-height:38px!important;margin:1em auto;}.reserve-search>button{background:var(--secondary)!important;font-family:'Yekan_Bakh_SemiBold_fa'!important;font-size:18px!important;color:white;height:64px}.search-box-container .reserve-btn.ml-3{margin-left:0!important}#oneway,#backtoback,#multi{display:flex;flex-direction:row;justify-content:center;align-items:center;-moz-column-gap:.25em;column-gap:.25em}#oneway::before,#backtoback::before,#multi::before{content:'';width:16px;height:16px;border-radius:100%;border:4px solid var(--neutral-700);display:inline-block}.active-r-btn#oneway::before,.active-r-btn#backtoback::before,.active-r-btn#multi::before{border:4px solid var(--secondary)}.search-box-container .active-r-btn{background-color:transparent!important;color:black!important}.search-box-container .active-r-btn>span{color:black!important}.exchangeRoute{width:32px!important;height:32px!important;left:-16px!important}.exchangeRoute>svg{width:32px!important;height:32px!important}.form-search{margin:1em 0;}.form-search label>svg{width:32px!important;height:32px!important;}.form-search label>span{display:none!important;}.form-search .auto-fit{display:none!important;}.flight-routes.w-2\/5.flex.gap-2.max-xl\:w-full.max-xl\:block.max-xl\:gap-0{gap:0;width:40%}.reserve-field{height:64px!important}label.float-right.w-full{float:none;width:32px;display:block}.return-date label.float-right.w-full{float:none;display:none!important;}.click-content.border-type-1{display:flex;align-items:center;column-gap:.25em;}.Basis_Date_Box,.Flightclass-Passenger{border:1px solid var(--neutral-800);border-radius:4px}.mstring_date{display:none!important;}.Basis_Date.start_date,.Basis_Date.end_date{padding-top:0!important;float:none!important;position:unset!important;}.reserve-field.departure-date,.reserve-field.return-date{display:flex;justify-content:start;}.reserve-field.destination-route .click-content>label{display:none!important;}.reserve-search{height:64px!important}.reserve-search>button{border-radius:4px!important}.search-box-container input,.search-box-container select,.search-box-container button{border:unset;font-family:'Yekan_Bakh_Regular'!important}.Flightclass-Passenger{flex-direction:row-reverse!important;justify-content:space-between!important;gap:0!important;}.flightclass-field>div>label{display:none!important;}.passengers-field>div>label svg.h-full.float-left.align-middle.mt-2{display:none!important;}#r-flight .reserve-field.passengers-field{border:none!important;}#r-flighthotel .reserve-field.passengers-field{border:none!important;}#search-box button.flex.items-center.justify-center,.search-flighthotel{flex-direction:row-reverse;width:184px!important;font-size:18px!important;display:flex;align-items:center;column-gap:.75em;}.search-box-container .reserve-btn.active-module{background-color:transparent!important;color:var(--primary)!important}.reserve-field.departure-route,.reserve-field.destination-route,.reserve-field.passengers-field,.reserve-field.traveltype-field,.reserve-field.flighttype-field{border:1px solid var(--neutral-800);border-radius:4px}.search-box-container .clr{display:none!important;}.Basis_Date_Box .border-type-1.h-full.rounded-type-1.px-2{display:flex!important;width:100%!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important}.search-box-container .Flightclass-Passenger.w-2\/5{width:30%!important;}.search-box-container .Basis_Date_Box.w-1\/5{width:30%!important;}.reserve-field.return-date label>svg{display:none!important;}#r-flight .reserve-field.departure-route,#r-flighthotel .reserve-field.departure-route{border-left:none!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important;}.reserve-field.destination-route{border-top-right-radius:0!important;border-bottom-right-radius:0!important;}.reserve-field.return-date{border-right:1px solid var(--neutral-800)}.exchangeRoute:hover{background:transparent!important;}.reserve-field.passengers-field>.border-type-1.h-full.rounded-type-1.px-2{display:flex;justify-items:center;column-gap:.5em;align-items:center;}ul.FlightClass li{display:flex;align-items:center;flex-direction:row-reverse;text-align:left}.flightclass-field>.border-type-1.h-full.rounded-type-1.px-2{color:var(--txtneutral-500)!important;font-size:14px!important;font-family:'Yekan_Bakh_Regular'!important;display:flex;justify-content:center;align-items:center}.adult-count,.child-count,.room-count,.passenger-count,.flighttype-text,.traveltype-text,.passenger-counts{color:var(--txtneutral-500)!important;font-size:14px!important}.flighttype-text,.traveltype-text{margin-right:8px!important}input.departure.text-value{margin-left:21px}input.destination.text-value{margin-right:21px}.FlightClass li::before{content:'';width:16px;height:16px;border-radius:100%;border:4px solid var(--neutral-700);display:inline-block}.reserve-field.flightclass-field.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4.w-auto{width:33.33%!important}.passenger-item label>span{display:block!important;}.search-box-container .text-textColor{color:var(--txtneutral-500)}.passengerbox.hidden-box{height:100%;display:inline-table}.passengerbox .close-passenger-box{display:none!important}#search-box .clear-both.float-right.w-full{float:none!important;clear:both!important;display:inline-block!important}.multicity-flight-form .Basis_Date_Box{height:64px!important;width:33%!important}.multicity-flight-form::after{content:"";display:block;clear:both}.multicity-flight-form .route-minus-btn{width:24px!important;height:24px!important;position:absolute;left:15px;top:0;bottom:0;margin-top:auto;margin-bottom:auto;z-index:10;display:flex;justify-content:center;align-items:center}.multicity-flight-form .route-content{height:64px!important;display:flex!important;justify-content:space-between!important;align-items:center;margin-bottom:9px!important}.multicity-flight-form .multi-route-tlt{rotate:90deg;background:var(--primary-50);border:1px solid var(--neutral-600);border-top-left-radius:4px;border-top-right-radius:4px;width:66px!important;display:inline-block;font-size:11px!important;font-family:'Yekan_Bakh_Regular_fa';line-height:25px;text-align:center;margin-right:-19px!important;margin-left:-19px!important;margin-top:7px!important}.multicity-flight-form .reserve-field.departure-route{border-radius:0!important}.multicity-flight-form .flight-routes{gap:0;width:66%!important}.multicity-flight-form .Flightclass-Passenger.w-2\/5,.multicity-flight-form .add-routs{width:calc(100% - 192px)!important}.multicity-flight-form .reserve-search,.multicity-flight-form .remove-routs{width:184px!important}.multicity-flight-form .remove-routs,.multicity-flight-form .add-routs{font-size:14px!important;color:black;border-radius:4px;border:1px solid var(--neutral-600)}.multicity-flight-form .route-container{width:60%!important;float:right}.multicity-flight-form .reserve-field>.h-full{display:flex!important;justify-content:space-between!important}.multicity-flight-form .multiroute-fields{width:40%!important;flex-wrap:wrap;flex-direction:row;float:left;justify-content:space-between;padding-right:8px;gap:0!important}.multiroute-fields>.reserve-field{width:100%!important}.multiroute-fields>.Flightclass-Passenger{width:50%!important;margin-bottom:7px}.searchList>.flex.relative.mb-2.float-right.w-full.clear-both>div.h-9.leading-9>svg{display:none!important;}.searchList .reserve-location{width:100%!important;}.searchList,.flighttype,.traveltype,.passengerbox,.Basis_Calendar_Box{border-radius:8px!important;border:1px solid var(--neutral-700);padding:5px!important;margin-top:.5em!important;z-index:40!important}.FlightClass{border-radius:8px!important;border:1px solid var(--neutral-700);padding:5px!important;margin-top:.5em!important;border-right:none!important;border-top-right-radius:0!important;border-bottom-right-radius:0!important}.r-flight .passengerbox,.r-flighthotel .passengerbox{border-radius:8px!important;border:1px solid var(--neutral-700);padding:5px!important;margin-top:.5em!important;border-left:none!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important}.overflow-scroll{overflow-y:scroll}.textlocation{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;color:var(--txtneutral-900);font-family:'Yekan_Bakh_SemiBold_fa';font-size:14px}.selectLocation{width:95%;margin:0 auto;margin-bottom:.5rem;}.selectLocation .parent-item,.selectLocation .child-item{display:flex;align-items:center;}.selectLocation .parent-item>svg,.selectLocation .child-item>svg{min-width:15px;min-height:15px;margin-left:1rem;padding-top:4px;padding-bottom:4px;display:block;}.active-module::after{content:"";height:4px;width:100%;border-top-left-radius:4px;border-top-right-radius:4px;background:var(--primary);display:block;position:absolute;left:0;right:0;bottom:0;top:auto;margin-top:auto}#search-box .down-icon{display:none!important;}.flighttype-field>div,.traveltype-field>div{display:flex;align-items:center;}.plus-count,.minus-count{width:22px!important;height:22px!important;border:2px solid var(--neutral-800);color:black;border-radius:7px;justify-content:center;align-items:center;font-size:24px;line-height:33px!important}.plus-count>.h-full.leading-8,.minus-count>.h-full.leading-8{line-height:18px!important}.r-flight .reserve-field.passengers-field.w-2\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4,.r-flighthotel .reserve-field.passengers-field.w-2\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4{width:56%!important}.r-flight .reserve-field.flightclass-field.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4,.r-flighthotel .reserve-field.flightclass-field.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4{width:44%!important}.FlightClass>li{height:40px;background-color:var(--neutral-50);border-radius:8px;padding:8px;margin:1em auto;width:90%}.form-search label>span.flightclass-fa,.form-search label>span.flightclass-en{display:block!important;}.flightclass-fa{margin-left:5px!important;display:block!important;color:var(--shade-100)!important;font-size:10px!important;font-family:'Yekan_Bakh_Regular'!important}.flightclass-en{margin-left:5px!important;color:var(--txtneutral-500)!important;font-size:10px!important;display:block!important;font-family:'Yekan_Bakh_Regular'!important}.FlightClass li.active-FlightClass::before{border-color:var(--secondary)}.FlightClass{padding-right:0!important;}.passenger-item,input.childcount,input.adultcount,.createChildDropdown>label,.select-age,select,input.roomcount{font-family:'IRANYekanRegularMobile-fa'!important;font-size:12px!important}.alert-passengers,.alert-adults{position:absolute;top:0;left:0;right:0;background:var(--error-200)!important;color:var(--error-500)!important;display:block!important;font-size:12px!important;font-family:'Yekan_Bakh_Regular_fa';border-radius:4px}.contentRoom{border-top:1px solid var(--neutral-700)!important;padding-top:.5em!important;}.deleteRoom{color:var(--error-500)!important;font-family:'Yekan_Bakh_Bold'!important;}.numberOfRoom{font-family:'Yekan_Bakh_Bold'!important;}.Rooms{clear:both!important;float:none!important}.createChildDropdown{margin-bottom:0!important}.passenger-item{height:44px;margin-bottom:.25rem!important;display:flex;justify-content:space-between;align-items:center}.passenger-item.child-passenger-item{border-top:1px solid var(--neutral-700)}.searchList>.flex.relative.mb-2.float-right.w-full.clear-both>div.h-9.leading-9{display:none!important;}.reserve-field.CheckHotelDate{height:auto!important;margin-bottom:0!important}.Wrapper-ExteraHoteldate p.clear-both.text-base.text-textColor{display:none!important;}.Basis_Date_ExteraHoteldate{padding:0!important;margin:0;}input.Basis_Date_ExteraHoteldate{position:static!important;margin-right:5px}label.needhotel-label{color:var(--txtneutral-500)}.search-box-container .Wrapper-CheckHotelDate input ~ .needhotel-label::before,.search-box-container .Wrapper-PrivateCompartment input ~ .PrivateCompartment-label::before{position:absolute;top:0;left:auto;right:0;display:block;width:16px!important;height:16px!important;content:"";-webkit-user-select:none;-moz-user-select:none;user-select:none;background-color:transparent!important;border-radius:50px!important;border:4px solid var(--neutral-700)!important;box-shadow:0;cursor:pointer}.search-box-container .Wrapper-CheckHotelDate input:checked ~ .needhotel-label::after,.search-box-container .Wrapper-PrivateCompartment input:checked ~ .PrivateCompartment-label::after{content:""!important;position:absolute;top:0;left:auto;right:0;color:#fff;font-family:'fontawesome';font-size:12px;line-height:16px!important;width:16px!important;height:16px!important;text-align:center;cursor:pointer;background-color:transparent!important;border-radius:50px!important;border:4px solid var(--secondary)!important}.route-minus-btn{padding:0!important;}.route-minus-btn>span{display:none!important;}.removeroute-icon,.addroute-icon,.removeall-icon{width:24px!important;height:24px!important}.add-routs{display:flex!important;justify-content:center!important;align-items:center!important;gap:1em!important;flex-direction:row-reverse!important;background-color:var(--neutral-50)!important;color:black!important}.remove-routs{display:flex!important;justify-content:center!important;align-items:center!important;gap:1em!important;flex-direction:row-reverse!important;color:black!important}.add-routs>span{display:block;width:calc(100% - 50px)!important;}.birthdate-dates input{font-size:14px!important;}.toggle-calendar{background:var(--secondary)!important;border-radius:6px!important;width:100%!important;font-size:14px!important;margin:1em auto!important}.toggle-calendar:hover{background:var(--primary)!important;color:white!important}.calendar-switch{font-size:12px;cursor:pointer;font-family:'Yekan_Bakh_Bold'!important;line-height:24px!important;color:var(--secondary)}button.calendar-apply-date{background:var(--secondary)!important;color:white!important}.calendar-footer input,.calendar-footer::placeholder{font-family:'Yekan_Bakh_Regular_fa'!important}.current_day{background-color:var(--secondary-400)!important;}.Basis_Calendar .current_day::after{border-color:var(--secondary-500) transparent transparent!important}.Basis_Calendar .selected_date{background:var(--secondary-500)!important}.month_name{background-color:var(--secondary)!important;color:white!important;font-size:13px;padding:.5em;border-radius:5px}.module-banner{background-position:top;background-repeat:no-repeat;background-size:cover}.loader-searchbox{margin:6em auto;width:16px;height:16px;position:relative;left:-32px;border-radius:50%;color:var(--primary);background:currentColor;box-shadow:32px 0,-32px 0,64px 0}.loader-searchbox::after{content:'';position:absolute;left:-32px;top:0;width:16px;height:16px;border-radius:10px;background:var(--secondary);animation:move 3s linear infinite alternate}@keyframes move{0%,5%{left:-32px;width:16px}15%,20%{left:-32px;width:48px}30%,35%{left:0;width:16px}45%,50%{left:0;width:48px}60%,65%{left:32px;width:16px}75%,80%{left:32px;width:48px}95%,100%{left:64px;width:16px}}.main-login-container input,.main-login-container button{font-family:'Yekan_Bakh_Regular_fa'!important;}.payment__container .data-bc-btn{width:calc(100% - 75px);margin:0 auto;display:block}.payment__container [data-bc-answer-title-container]{display:none!important}.payment__container [data-bc-schema-direction="rtl"] [data-bc-part-container],.payment__container [data-bc-schema-direction="rtl"] [data-bc-btn-container]{float:none!important;margin:0 auto!important}.payment__container [data-bc-answer-container]{float:none!important;display:inline-block;width:100%!important}.payment__container [data-bc-schema-direction="rtl"] [data-bc-title-container]{float:none!important;margin:5px auto!important;color:var(--secondary)!important;width:calc(100% - 75px)!important}.payment__container [data-bc-answer-container] input[type="text"],.payment__container [data-bc-answer-container] input[type="password"],.payment__container [data-bc-answer-container] input[type="time"],.payment__container [data-bc-answer-container] input[type="color"],.payment__container [data-bc-answer-container] input[type="file"],.payment__container [data-bc-answer-container] select{height:80px!important;font-size:24px!important}#captchaContainer .captcha-flex{width:100%!important}.captcha>[data-bc-title-container]{width:calc(100% - 75px)!important;margin:0 auto!important}@media not all and (min-width:1280px){.clipped-airline-section2{height:1060px;background-position:center}}
+    .main-operationUser-container button,.login-btn,.main-login-container{box-shadow:0 2px 5px rgba(0,0,0,.15);border-radius:12px}.main-login-container{width:650px;min-height:480px}.main-operationUser-container input[type="password"],.main-login-container input[type="password"],.main-login-container input[type="text"]{}span.module-icon.inline-block{display:block!important}svg.module-icon-active,svg.module-icon-deactive{width:64px!important;height:64px!important}.search-box-container .reserve-btn:not(.active-module) .module-icon .module-icon-deactive{display:block}.reservation-item{height:112px!important;display:flex;justify-content:center;align-items:center;column-gap:3em}.search-nav{width:100%;height:112px!important;border-bottom:1px solid var(--neutral-500)}.search-box-container .reserve-btn{position:relative;;height:112px!important;display:flex;flex-direction:column;justify-content:center;align-content:space-around;align-items:center;font-size:16px;font-family:'Yekan_Bakh_SemiBold_fa';color:var(--txtneutral-500);margin:0}#r-flight,#r-hotel,#r-flighthotel,#r-tour,#r-insurance,#r-cip,#r-visa{width:97%!important;margin:0 auto}ul.flighttype-items .clr{display:none;width:0;height:0}ul.flighttype-items{display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;align-content:center;height:38px!important;line-height:38px!important;margin:1em auto;}
+    .reserve-search>button{background:var(--secondary)!important;
+        font-family:'Yekan_Bakh_SemiBold_fa'!important;font-size:18px!important;color:white;height:64px}
+        
+        .search-box-container .reserve-btn.ml-3{margin-left:0!important}#oneway,#backtoback,#multi{display:flex;flex-direction:row;justify-content:center;align-items:center;-moz-column-gap:.25em;column-gap:.25em}#oneway::before,#backtoback::before,#multi::before{content:'';width:16px;height:16px;border-radius:100%;border:4px solid var(--neutral-700);display:inline-block}.active-r-btn#oneway::before,.active-r-btn#backtoback::before,.active-r-btn#multi::before{border:4px solid var(--secondary)}.search-box-container .active-r-btn{background-color:transparent!important;color:black!important}.search-box-container .active-r-btn>span{color:black!important}.exchangeRoute{width:32px!important;height:32px!important;left:-16px!important}.exchangeRoute>svg{width:32px!important;height:32px!important}.form-search{margin:1em 0;}.form-search label>svg{width:32px!important;height:32px!important;}
+    .form-search label>span{display:none!important;}
+    .form-search .auto-fit{display:none!important;}
+    .flight-routes.w-2\/5.flex.gap-2.max-xl\:w-full.max-xl\:block.max-xl\:gap-0{gap:0;width:40%}.reserve-field{height:64px!important}label.float-right.w-full{float:none;width:32px;display:block}.return-date label.float-right.w-full{float:none;display:none!important;}
+    .click-content.border-type-1{min-height: 64px !important;height: 100%;display:flex;align-items:center;column-gap:.25em;}
+    .Basis_Date_Box,.Flightclass-Passenger{border:1px solid var(--neutral-800);border-radius:4px;height: 64px !important;}.mstring_date{display:none!important;}.Basis_Date.start_date,.Basis_Date.end_date{padding-top:0!important;float:none!important;position:unset!important;}
+    .reserve-field.departure-date,.reserve-field.return-date{display:flex;justify-content:start;}
+    .reserve-field.destination-route .click-content>label{display:none!important;}
+    
+    .reserve-search{height:64px!important}
+    .reserve-search>button{border-radius:4px!important}
+    .reserve-search:hover >button{background-color: var(--secondary-500) !important;}
+    .search-box-container input,
+    .search-box-container select,
+    .search-box-container button , .date-info-destination , .date-info-departure , .calendar-footer input, .calendar-footer ::placeholder{border:unset;font-family:'Yekan_Bakh_Regular_fa'!important}
+    
+    .Flightclass-Passenger{flex-direction:row-reverse!important;justify-content:space-between!important;gap:0!important;}.flightclass-field>div>label{display:none!important;}.passengers-field>div>label svg.h-full.float-left.align-middle.mt-2{display:none!important;}#r-flight .reserve-field.passengers-field{border:none!important;}#r-flighthotel .reserve-field.passengers-field{border:none!important;}#search-box button.flex.items-center.justify-center,.search-flighthotel{flex-direction:row-reverse;width:184px!important;font-size:18px!important;display:flex;align-items:center;column-gap:.75em;}.search-box-container .reserve-btn.active-module{background-color:transparent!important;color:var(--primary)!important}.reserve-field.departure-route,.reserve-field.destination-route,.reserve-field.passengers-field,.reserve-field.traveltype-field,.reserve-field.flighttype-field{border:1px solid var(--neutral-800);border-radius:4px}.search-box-container .clr{display:none!important;}.Basis_Date_Box .border-type-1.h-full.rounded-type-1.px-2{display:flex!important;width:100%!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important}.search-box-container .Flightclass-Passenger.w-2\/5{width:30%!important;}.search-box-container .Basis_Date_Box.w-1\/5{width:30%!important;}.reserve-field.return-date label>svg{display:none!important;}#r-flight .reserve-field.departure-route,#r-flighthotel .reserve-field.departure-route{border-left:none!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important;}
+    .reserve-field.destination-route{border-top-right-radius:0!important;border-bottom-right-radius:0!important;}.reserve-field.return-date{border-right:1px solid var(--neutral-800)}.exchangeRoute:hover{background:transparent!important;}.reserve-field.passengers-field>.border-type-1.h-full.rounded-type-1.px-2{display:flex;justify-items:center;column-gap:.5em;align-items:center;}ul.FlightClass li{display:flex;align-items:center;flex-direction:row-reverse;text-align:left}
+    /* .flightclass-field>.border-type-1.h-full.rounded-type-1.px-2{color:var(--txtneutral-500)!important;font-size:14px!important;font-family:'Yekan_Bakh_Regular'!important;display:flex;justify-content:center;align-items:center} */
+    .flightclass-field>.border-type-1.h-full.rounded-type-1.px-2,
+    .flightclass-field>.border-type-1.cursor-pointer.h-full.rounded-type-1.px-2
+    {display: none !important;}
+    ul.FlightClass{
+        display: block !important;
+        position: static;
+        height: auto;
+    }
+    .adult-count,.child-count,.room-count,.passenger-count,.flighttype-text,.traveltype-text,.passenger-counts{color:var(--txtneutral-500)!important;font-size:14px!important}.flighttype-text,.traveltype-text{margin-right:8px!important}input.departure.text-value{margin-left:21px}input.destination.text-value{margin-right:21px}.FlightClass li::before{content:'';width:16px;height:16px;border-radius:100%;border:4px solid var(--neutral-700);display:inline-block}.reserve-field.flightclass-field.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4.w-auto{width:33.33%!important}
+    .passenger-item label>span{display:block!important;    font-size: 12px;
+        line-height: 20px;}
+    .search-box-container .text-textColor{color:var(--txtneutral-500)}
+    .passengerbox.hidden-box{height:100%;display:inline-table}
+    .passengerbox .close-passenger-box{display:none!important}
+    #search-box .clear-both.float-right.w-full{float:none!important;clear:both!important;display:inline-block!important}.multicity-flight-form .Basis_Date_Box{height:64px!important;width:33%!important}.multicity-flight-form::after{content:"";display:block;clear:both}.multicity-flight-form .route-minus-btn{width:24px!important;height:24px!important;position:absolute;left:15px;top:0;bottom:0;margin-top:auto;margin-bottom:auto;z-index:10;display:flex;justify-content:center;align-items:center}
+    .multicity-flight-form .route-content{height:64px!important;display:flex!important;justify-content:space-between!important;align-items:center;margin-bottom:7px!important}.multicity-flight-form .multi-route-tlt{rotate:90deg;background:var(--primary-50);border:1px solid var(--neutral-600);border-top-left-radius:4px;border-top-right-radius:4px;width:66px!important;display:inline-block;font-size:11px!important;font-family:'Yekan_Bakh_Regular_fa';line-height:25px;text-align:center;margin-right:-19px!important;margin-left:-19px!important;margin-top:7px!important}.multicity-flight-form .reserve-field.departure-route{border-radius:0!important}.multicity-flight-form .flight-routes{gap:0;width:66%!important}.multicity-flight-form .Flightclass-Passenger.w-2\/5,.multicity-flight-form .add-routs{width:calc(100% - 192px)!important}.multicity-flight-form .reserve-search,.multicity-flight-form .remove-routs{width:184px!important}.multicity-flight-form .remove-routs,.multicity-flight-form .add-routs{font-size:14px!important;color:black;border-radius:4px;border:1px solid var(--neutral-600)}.multicity-flight-form .route-container{width:60%!important;float:right}.multicity-flight-form .reserve-field>.h-full{display:flex!important;justify-content:space-between!important}.multicity-flight-form .multiroute-fields{width:40%!important;flex-wrap:wrap;flex-direction:row;float:left;justify-content:space-between;padding-right:8px;gap:0!important}.multiroute-fields>.reserve-field{width:100%!important}.multiroute-fields>.Flightclass-Passenger{width:50%!important;margin-bottom:7px}.searchList>.flex.relative.mb-2.float-right.w-full.clear-both>div.h-9.leading-9>svg{display:none!important;}.searchList .reserve-location{width:100%!important;}
+    .searchList,.flighttype,.traveltype,.passengerbox,.Basis_Calendar_Box{border-radius:8px!important;border:1px solid var(--neutral-700);padding:5px!important;margin-top:.5em!important;z-index:40!important}
+    /* .FlightClass{border-radius:8px!important;border:1px solid var(--neutral-700);padding:5px!important;margin-top:.5em!important;} */
+    .r-flight .passengerbox,.r-flighthotel .passengerbox{border-radius:8px!important;border:1px solid var(--neutral-700);
+        padding:5px!important;margin-top:.5em!important;}
+        
+    .overflow-scroll{overflow-y:scroll}.textlocation{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;color:var(--txtneutral-900);font-family:'Yekan_Bakh_SemiBold_fa';font-size:14px}.selectLocation{width:95%;margin:0 auto;margin-bottom:.5rem;}.selectLocation .parent-item,.selectLocation .child-item{display:flex;align-items:center;}.selectLocation .parent-item>svg,.selectLocation .child-item>svg{min-width:15px;min-height:15px;margin-left:1rem;padding-top:4px;padding-bottom:4px;display:block;}.active-module::after{content:"";height:4px;width:100%;border-top-left-radius:4px;border-top-right-radius:4px;background:var(--primary);display:block;position:absolute;left:0;right:0;bottom:0;top:auto;margin-top:auto}#search-box .down-icon{display:none!important;}.flighttype-field>div,.traveltype-field>div{display:flex;align-items:center;}.plus-count,.minus-count{width:22px!important;height:22px!important;border:2px solid var(--neutral-800);color:black;border-radius:7px;justify-content:center;align-items:center;font-size:24px;line-height:33px!important}.plus-count>.h-full.leading-8,.minus-count>.h-full.leading-8{line-height:18px!important}
+    .r-flight .reserve-field.passengers-field,
+    .multicity-flight-form .passenger-counts_container,
+    .r-flighthotel .reserve-field.passengers-field{width:100%!important}
+    
+    .r-flight .reserve-field.flightclass-field,
+    .r-flighthotel .reserve-field.flightclass-field{width:44%!important;float: left;}
+
+    .FlightClass>li{height:40px;background-color:var(--neutral-50);border-radius:8px;padding:8px;margin:0.5em auto;width:90%}
+    .form-search label>span.flightclass-fa,.form-search label>span.flightclass-en{display:block!important;}
+    .flightclass-fa{text-align: left;margin-left:10px!important;display:block!important;color:var(--shade-100)!important;font-size:10px!important;font-family:'Yekan_Bakh_Regular_fa'!important}
+    .flightclass-en{margin-left:10px!important;color:var(--txtneutral-500)!important;font-size:10px!important;display:block!important;font-family:'Yekan_Bakh_Regular'!important}.FlightClass li.active-FlightClass::before{border-color:var(--secondary)}.FlightClass{padding-right:0!important;}
+    .passenger-item,input.childcount,input.adultcount,.createChildDropdown>label,.select-age,select
+    ,input.roomcount,input.infantcount{font-family:'IRANYekanRegularMobile-fa'!important;font-size:12px!important}
+    .numberOfRoom {
+        color: var(--shade-100) !important;
+    }
+
+    .r-flighthotel .Rooms {
+        clear: both !important;
+        float: none !important;
+        width: 55% !important ;
+    }
+    .r-flighthotel .Rooms .passenger-item{
+        width: 100% !important ;
+    }
+    .alert-passengers,.alert-adults{position:absolute;top:0;left:0;right:0;background:var(--error-200)!important;
+        color:var(--error-500)!important;display:block!important;font-size:12px!important;font-family:'Yekan_Bakh_Regular_fa';
+        border-radius:4px;z-index: 10;}
+        
+        .contentRoom{border-top:1px solid var(--neutral-700)!important;padding-top:.5em!important;}
+        
+        .deleteRoom{color:var(--error-500)!important;font-family:'Yekan_Bakh_Bold'!important;}.numberOfRoom{font-family:'Yekan_Bakh_Bold'!important;}.Rooms{clear:both!important;float:none!important}.createChildDropdown{margin-bottom:0!important}
+    .passenger-item{margin-bottom:.25rem!important;display:flex;justify-content:space-between;align-items:center;}
+    .r-flight .passenger-item, .r-flighthotel .passenger-item {
+        float: right;
+        width: 55% !important;
+        clear: right !important;
+    }
+        .r-flight .passengerbox.hidden-box.bg-white.w-full.relative.z-10.border-type-1.rounded-type-1.p-2 ,
+        .r-flighthotel .passengerbox.hidden-box.bg-white.w-full.relative.z-10.border-type-1.rounded-type-1.p-2{
+            width: 120% !important;
+        }
+    .passenger-item.child-passenger-item , .infant-passenger-item{border-top:1px solid var(--neutral-700);margin-top: 0.5em;
+        padding-top: 1em;}
+    
+    .searchList>.flex.relative.mb-2.float-right.w-full.clear-both>div.h-9.leading-9{display:none!important;}.reserve-field.CheckHotelDate{height:auto!important;margin-bottom:0!important}.Wrapper-ExteraHoteldate p.clear-both.text-base.text-textColor{display:none!important;}.Basis_Date_ExteraHoteldate{padding:0!important;margin:0;}input.Basis_Date_ExteraHoteldate{position:static!important;margin-right:5px}label.needhotel-label{color:var(--txtneutral-500)}.search-box-container .Wrapper-CheckHotelDate input ~ .needhotel-label::before,.search-box-container .Wrapper-PrivateCompartment input ~ .PrivateCompartment-label::before{position:absolute;top:0;left:auto;right:0;display:block;width:16px!important;height:16px!important;content:"";-webkit-user-select:none;-moz-user-select:none;user-select:none;background-color:transparent!important;border-radius:50px!important;border:4px solid var(--neutral-700)!important;box-shadow:0;cursor:pointer}.search-box-container .Wrapper-CheckHotelDate input:checked ~ .needhotel-label::after,.search-box-container .Wrapper-PrivateCompartment input:checked ~ .PrivateCompartment-label::after{content:""!important;position:absolute;top:0;left:auto;right:0;color:#fff;font-family:'fontawesome';font-size:12px;line-height:16px!important;width:16px!important;height:16px!important;text-align:center;cursor:pointer;background-color:transparent!important;border-radius:50px!important;border:4px solid var(--secondary)!important}.route-minus-btn{padding:0!important;}.route-minus-btn>span{display:none!important;}.removeroute-icon,.addroute-icon,.removeall-icon{width:24px!important;height:24px!important}.add-routs{display:flex!important;justify-content:center!important;align-items:center!important;gap:1em!important;flex-direction:row-reverse!important;background-color:var(--neutral-50)!important;color:black!important}.remove-routs{display:flex!important;justify-content:center!important;align-items:center!important;gap:1em!important;flex-direction:row-reverse!important;color:black!important}.add-routs>span{display:block;width:calc(100% - 50px)!important;}.birthdate-dates input{font-size:14px!important;}.toggle-calendar{background:var(--secondary)!important;border-radius:6px!important;width:100%!important;font-size:14px!important;margin:1em auto!important}.toggle-calendar:hover{background:var(--primary)!important;color:white!important}.calendar-switch{font-size:12px;cursor:pointer;font-family:'Yekan_Bakh_Bold'!important;line-height:24px!important;color:var(--secondary)}button.calendar-apply-date{background:var(--secondary)!important;color:white!important}.calendar-footer input,.calendar-footer::placeholder{font-family:'Yekan_Bakh_Regular_fa'!important}.current_day{background-color:var(--secondary-400)!important;}.Basis_Calendar .current_day::after{border-color:var(--secondary-500) transparent transparent!important}.Basis_Calendar .selected_date{background:var(--secondary-500)!important}.month_name{background-color:var(--secondary)!important;color:white!important;font-size:13px;padding:.5em;border-radius:5px}.module-banner{background-position:top;background-repeat:no-repeat;background-size:cover}.loader-searchbox{margin:6em auto;width:16px;height:16px;position:relative;left:-32px;border-radius:50%;color:var(--primary);background:currentColor;box-shadow:32px 0,-32px 0,64px 0}.loader-searchbox::after{content:'';position:absolute;left:-32px;top:0;width:16px;height:16px;border-radius:10px;background:var(--secondary);animation:move 3s linear infinite alternate}@keyframes move{0%,5%{left:-32px;width:16px}15%,20%{left:-32px;width:48px}30%,35%{left:0;width:16px}45%,50%{left:0;width:48px}60%,65%{left:32px;width:16px}75%,80%{left:32px;width:48px}95%,100%{left:64px;width:16px}}.main-login-container input,.main-login-container button{font-family:'Yekan_Bakh_Regular_fa'!important;}.payment__container .data-bc-btn{width:calc(100% - 75px);margin:0 auto;display:block}.payment__container [data-bc-answer-title-container]{display:none!important}.payment__container [data-bc-schema-direction="rtl"] [data-bc-part-container],.payment__container [data-bc-schema-direction="rtl"] [data-bc-btn-container]{float:none!important;margin:0 auto!important}.payment__container [data-bc-answer-container]{float:none!important;display:inline-block;width:100%!important}.payment__container [data-bc-schema-direction="rtl"] [data-bc-title-container]{float:none!important;margin:5px auto!important;color:var(--secondary)!important;width:calc(100% - 75px)!important}.payment__container [data-bc-answer-container] input[type="text"],.payment__container [data-bc-answer-container] input[type="password"],.payment__container [data-bc-answer-container] input[type="time"],.payment__container [data-bc-answer-container] input[type="color"],.payment__container [data-bc-answer-container] input[type="file"],.payment__container [data-bc-answer-container] select{height:80px!important;font-size:24px!important}#captchaContainer .captcha-flex{width:100%!important}.captcha>[data-bc-title-container]{width:calc(100% - 75px)!important;margin:0 auto!important}@media not all and (min-width:1280px){.clipped-airline-section2{height:1060px;background-position:center}}
+
+span.text-grays-400.mr-2{
+    font-size: 8px !important;
+    font-family: 'IRANYekanRegularMobile-fa';
+    text-align: right;
+    line-height: 12px;
+    margin-right: 0;}
+
+.passenger-birthday-dropdown {
+    font-size: 12px !important ;
+    z-index: 50 !important ;border-radius: 4px;
+}
+
+.flight-routes .destination-route label>svg{display: none !important;}
+
+/* 1280 - 1024  */
+
+@media not all and (min-width: 1280px) {
+    .search-box-container .max-xl\:w-full {
+        width: 100% !important;
+    }
+
+    .search-box-container .Basis_Date_Box.w-1\/5 {
+        width: 100% !important;
+    }
+
+    .search-box-container .Flightclass-Passenger.w-2\/5 {
+        width: 100% !important;
+    }
+
+    .search-box-container button {
+        transform: scale(1);
+    }
+
+    .reserve-field.passengers-field.cursor-pointer.w-2\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4 {
+        margin-bottom: 0 !important ;
+      }
+
+      #r-flight .one-btb-flight-form .reserve-field.departure-route, #r-flighthotel .reserve-field.departure-route {
+        border: 1px solid var(--neutral-800) !important;
+        border-radius: 4px !important;
+      }
+
+      #search-box button.flex.items-center.justify-center, .search-flighthotel {
+        width: 100% !important;
+      }
+
+      .Basis_Calendar_Box {
+        width: auto !important;
+      }
+
+      .r-flight .passengerbox.hidden-box.bg-white.w-full.relative.z-10.border-type-1.rounded-type-1.p-2, .r-flighthotel .passengerbox.hidden-box.bg-white.w-full.relative.z-10.border-type-1.rounded-type-1.p-2 {
+        width: 100% !important;
+      }
+
+      .reserve-search.w-auto.h-20.max-xl\:w-full {
+        margin-top: 1em !important;
+      }
+
+      .bg-white.border.border-neutralcolor-800.min-h-\[266px\].w-full.rounded-t-lg.rounded-3xl.-mt-4.search-box-container.pb-10{
+        padding-bottom: 0 !important;
+      }
+
+      .reserve-field.destination-route {
+        border-top-right-radius: 4px !important;
+        border-bottom-right-radius: 4px !important;
+    }
+
+    .search-box-container .exchangeRoute.max-xl\:top-\[65px\] {
+        top: 54px;
+        left: 8px !important;
+    }
+
+
+    .multicity-flight-form .route-container {
+        width: 100% !important;
+        float: none !important;
+        clear: both;
+    }
+
+    .multicity-flight-form .multiroute-fields {
+        width: 100% !important;
+        float: none !important ;
+        clear: both;
+
+    }
+
+    /* .multicity-flight-form .reserve-field {
+        height: auto !important;
+    } */
+
+
+    .multicity-flight-form .reserve-field.departure-route{
+        border-left: none !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+
+    .multicity-flight-form .reserve-field.destination-route {
+        border-top-right-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    .multicity-flight-form .Basis_Date_Box{
+        margin-right: 1em !important;
+    }
+
+
+    .search-box-container .multicity-flight-form .reserve-field,
+    .search-box-container .multicity-flight-form .Basis_Date_Box
+    
+    {margin-bottom: 0 !important;} 
+    .search-box-container .multicity-flight-form .flight-routes , 
+    .multicity-flight-form .route-content-inner {
+        display: flex !important;
+    }
+
+    .multicity-flight-form .exchangeRoute.max-xl\:top-\[65px\]{
+        top: 14px !important;
+        left: -17px !important;
+        rotate: 90deg !important;
+    }
+
+    .multicity-flight-form .reserve-field.departure-route{
+        border-left: none !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    }
+
+}
+
+
+
+
+
 
 
 
@@ -499,5 +726,36 @@ input[type=range]::-moz-range-thumb {
     background: #005FF0;
     cursor: pointer
 }
+/* .departure-date , .return-date{display: none !important;} */
+@media not all and (min-width: 1280px) {
+    .search-box-container .max-xl\:top-\[65px\] {
+        top: 33px;
+    }
+}
 
  /* article */
+ /* searchbox */
+ /* banners */
+.flight-banner-background{
+    background-image: url(../images/flight-search-bg.jpg);
+}
+.hotel-banner-background{
+    background-image: url(../images/hotel-search-bg.jpg);
+}
+.flighthotel-banner-background{
+    background-image: url(../images/flighthotel-search-bg.jpg);
+}
+.tour-banner-background{
+    background-image: url(../images/tour-search-bg.jpg);
+}
+.insurance-banner-background{
+    background-image: url(../images/insurance-search-bg.jpg);
+}
+.cip-banner-background{
+    background-image: url(../images/cip-search-bg.jpg);
+}
+.visa-banner-background{
+    background-image: url(../images/visa-search-bg.jpg);
+}
+/* banners */
+ /* searchbox */
