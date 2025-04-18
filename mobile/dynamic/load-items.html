@@ -1,0 +1,476 @@
+<basis core="group" if="'[##cms.query.typecard##]'='video'">
+    <basis core="dbsource" source="media" name="video" lid="1" mid="15" mainid="[##cms.query.id##]" >
+        <member type="view" name="detail" /></basis>
+    <basis core="print" datamembername="video.detail">
+        <face filter="TypeID in(254) and prpID in (1002)">@largetext </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typeid##]'='article'">
+
+    <basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+        <member name="scalar" type="scalar" typeid="150" />
+    </basis>
+    <basis core="print" datamembername="db.scalar">
+        <face>
+            <h1 class="my-3 text-center font-yekanbakhboldFA text-lg
+            text-secondary block clear-both w-full">
+                @column1
+            </h1>
+        </face>
+    </basis>
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+        <member name="articlesload" type="list" link="article.bc"
+         propertyid="7244,7249" size="248X240" typeid="159" perpage="50"
+            order="ord"></member>
+    </basis>
+    <basis core="list" datamembername="db.articlesload">
+        <layout>
+            @child
+        </layout>
+        <face filter="link is null">
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article class="w-[280px] h-[336px] drop-shadow-article-searched-card bg-white rounded-lg
+                 group/articlecard relative ">
+                    <a href="article.bc?id=@id" class="w-full h-full p-4 block ">
+                        <h2 class="text-center h-[56px] font-yekanbakhsemiboldFA text-base text-black">@title</h2>
+                        <div class=" text-txtneutral-500 text-sm font-yekanbakhregularFA text-justify line-clamp-2 h-0 
+                        transition-all duration-500
+                        group-hover/articlecard:my-2
+                        group-hover/articlecard:h-fit
+                        ">
+                        @prp_7244
+                    </div>
+                        <figure class="absolute bottom-5 left-0 right-0 mx-auto 
+                         w-[248px] h-[240px] rounded-lg  transition-all duration-500
+                          group-hover/articlecard:h-[176px] drop-shadow-sm">
+                            <img class="w-[248px] h-[240px] rounded-lg object-cover transition-all duration-500 group-hover/articlecard:h-[176px]" src="@00248X00240prp" alt="@title">
+                        </figure>
+                    </a>
+                    
+                </article>
+            </div>
+        </face>
+        <face>
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article class="w-[280px] h-[336px] drop-shadow-article-searched-card bg-white rounded-lg group/articlecard relative ">
+                    <a href="@link" class="w-full h-full p-4 block ">
+                        <h2 class="text-center h-[56px] font-yekanbakhsemiboldFA text-base text-black">@title</h2>
+                        <div class=" text-txtneutral-500 text-sm font-yekanbakhregularFA text-justify line-clamp-2 h-0 
+                        transition-all duration-500
+                        group-hover/articlecard:my-2
+                        group-hover/articlecard:h-fit
+                        ">
+                        @prp_7244
+                    </div>
+                        <figure class="absolute bottom-5 left-0 right-0 mx-auto 
+                         w-[248px] h-[240px] rounded-lg  transition-all duration-500
+                          group-hover/articlecard:h-[176px] drop-shadow-sm">
+                            <img class="w-[248px] h-[240px] rounded-lg object-cover transition-all duration-500 group-hover/articlecard:h-[176px]" src="@00248X00240prp" alt="@title">
+                        </figure>
+                    </a>
+                    
+                </article>
+            </div>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typeid##]'='hotel'">
+
+    <basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+        <member name="scalar" type="scalar" typeid="150" />
+    </basis>
+    <basis core="print" datamembername="db.scalar">
+        <face>
+            <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
+            font-yekanbakhsemiboldFA text-2xl leading-10 py-1 px-2 h-12 
+            before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
+            ">@column1</h2>
+            <hr class="w-full my-3">
+        </face>
+    </basis>
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+        <member name="articlesload" type="list" link="hotel.bc"
+         propertyid="7244,177402,177404,177405" size="272X176" typeid="159" perpage="50"
+            order="ord"></member>
+    </basis>
+    <basis core="list" datamembername="db.articlesload">
+        <layout>
+                @child
+        </layout>
+
+
+
+        <face filter="link is null">
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article
+                    class="w-[304px] h-[328px] bg-white drop-shadow-md rounded-2xl group/hotelcard p-4 hover:drop-shadow-xl">
+                    <a href="hotel.bc?id=@id">
+                        <figure class="w-[272px] h-[176px] mx-auto 
+                        rounded-2xl overflow-hidden">
+                            <img class="w-[272px] h-[176px] mx-auto 
+                             group-hover/hotelcard:scale-105 transition-all duration-500
+                            " src="@00272X00176prp" width="272" height="176" alt="@title">
+                        </figure>
+                        <h2 class="text-txtneutral-900 text-base">
+        
+                            <span class="font-yekanbakhsemiboldFA line-clamp-1 my-2">
+                                @title
+                            </span>
+                        </h2>
+        
+                        <div class="h-8 flex justify-between items-center">
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg>
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA line-clamp-1 w-[80px]">@prp_177405</span>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177404 ستاره</span>
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                                </svg>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177402</span>
+                                <img class="inline-block" src="./images/booking-logo.png" width="32" height="32" alt="booking">
+                            </div>
+                        </div>
+        
+                    </a>
+                </article>
+            </div>
+
+        </face>
+        <face>
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article
+                    class="w-[304px] h-[328px] bg-white drop-shadow-md rounded-2xl group/hotelcard p-4 hover:drop-shadow-xl">
+                    <a href="@link">
+                        <figure class="w-[272px] h-[176px] mx-auto 
+                        rounded-2xl overflow-hidden">
+                            <img class="w-[272px] h-[176px] mx-auto 
+                             group-hover/hotelcard:scale-105 transition-all duration-500
+                            " src="@00272X00176prp" width="272" height="176" alt="@title">
+                        </figure>
+                        <h2 class="text-txtneutral-900 text-base">
+        
+                            <span class="font-yekanbakhsemiboldFA line-clamp-1 my-2">
+                                @title
+                            </span>
+                        </h2>
+        
+                        <div class="h-8 flex justify-between items-center">
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg>
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA line-clamp-1 w-[80px]">@prp_177405</span>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177404 ستاره</span>
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                                </svg>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177402</span>
+                                <img class="inline-block" src="./images/booking-logo.png" width="32" height="32" alt="booking">
+                            </div>
+                        </div>
+        
+                    </a>
+                </article>
+            </div>
+
+        </face>
+    </basis>
+
+
+
+
+</basis>
+<basis core="group" if="'[##cms.query.typeid##]'='visa'">
+
+    <basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+        <member name="scalar" type="scalar" typeid="150" />
+    </basis>
+    <basis core="print" datamembername="db.scalar">
+        <face>
+            <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
+            font-yekanbakhsemiboldFA text-2xl leading-10 py-1 px-2 h-12 
+            before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
+            ">@column1</h2>
+            <hr class="w-full my-3">
+        </face>
+    </basis>
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="list" catid="[##cms.query.catid##]" >
+        <member name="visa" type="list" link="visa.bc" propertyid="7244,7249" size="80X80" typeid="159"
+         perpage="50" order="ord"></member></basis>
+
+    <basis core="list" datamembername="list.visa">
+        <layout>
+                @child
+        </layout>
+        <face filter="link is null">
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article
+                    class="w-[272px] h-[184px] rounded-lg bg-white border border-white hover:border-neutralcolor-700 transition-all duration-500 drop-shadow-visa-card hover:drop-shadow-visa-card-hvr">
+                    <a href="visa.bc?id=@id" class="w-full h-full block">
+                        <figure class="flex flex-col items-center "><img
+                                class="drop-shadow-visa-card-inner-img w-20 h-20 rounded-full mx-auto overflow-hidden mt-5 object-cover"
+                                src="@00080X00080prp" width="80" height="80" alt="@title">
+                            <figcaption class="text-base font-yekanbakhregularFA text-center leading-6 mt-7">
+                                <h2>@title</h2>
+                            </figcaption>
+                        </figure>
+                    </a></article>
+            </div>
+        </face>
+        <face>
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article
+                    class="w-[272px] h-[184px] rounded-lg bg-white border border-white hover:border-neutralcolor-700 transition-all duration-500 drop-shadow-visa-card hover:drop-shadow-visa-card-hvr">
+                    <a href="@link" class="w-full h-full block">
+                        <figure class="flex flex-col items-center "><img
+                                class="drop-shadow-visa-card-inner-img w-20 h-20 rounded-full mx-auto overflow-hidden mt-5 object-cover"
+                                src="@00080X00080prp" width="80" height="80" alt="@title">
+                            <figcaption class="text-base font-yekanbakhregularFA text-center leading-6 mt-7">
+                                <h2>@title</h2>
+                            </figcaption>
+                        </figure>
+                    </a></article>
+            </div>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typeid##]'='tour'">
+
+    <basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+        <member name="scalar" type="scalar" typeid="150" />
+    </basis>
+    <basis core="print" datamembername="db.scalar">
+        <face>
+            <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
+            font-yekanbakhsemiboldFA text-2xl leading-10 py-1 px-2 h-12 
+            before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
+            ">@column1</h2>
+            <hr class="w-full my-3">
+        </face>
+    </basis>
+
+
+
+
+         <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]"><member name="tourlist" type="list" link="tour.bc"
+             size="272X176" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491, 3087492, 3087493, 3087494, 3087497, 3087501, 3087502 ,3087561,3087562,3087563 " typeid="159" perpage="4" order="ord"></member></basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]"><member name="airline" type="list" request="spelist"></member></basis>
+<basis core="inlinesource" name="joining"><member name="tourlist" lefttblcol="db.tourlist.prp_10000504" righttblcol="list.airline.name" format="join" jointype="leftjoin"></member></basis>
+
+
+<basis core="list" datamembername="joining.tourlist">
+    <layout>
+       @child
+    </layout>
+    <face filter=" [db.tourlist.link] is null">
+        <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+            <article class="w-[272px] h-[264px] rounded-3xl overflow-hidden relative group my-3">
+                <a href="/tour.bc?id=@db.tourlist.id" class="w-full h-full ">
+                    <figure class="relative w-full h-[176px]">
+                        <img class="w-full h-full object-cover transition-all duration-300 group-hover:blur-sm" 
+                             src="@db.tourlist.00272X00176prp" width="272" height="176" alt="@db.tourlist.title">
+                        
+                        <div class="absolute inset-0 bg-primary opacity-0 transition-all duration-300 group-hover:opacity-50 mix-blend-overlay"></div>
+                    </figure>
+                
+                    <div class="border border-neutralcolor-800
+                    px-4 py-2
+                    w-full h-[112px] absolute bottom-0 left-0 right-0 bg-white rounded-3xl">
+                        <header>
+                            <h2 class="line-clamp-1 text-right text-primary-900 text-base font-yekanbakhsemiboldFA mt-2">@db.tourlist.title</h2>
+                            <div class="flex justify-between items-center my-1 gap-x-1">
+                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-clamp-1 w-1/3 ">@db.tourlist.prp_8077</span>
+                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-clamp-1 w-1/3 ">@db.tourlist.prp_8076</span>
+                                <img class="w-20 h-6 object-contain" src="@list.airline.pic" width="80" height="24" alt="@list.airline.name">
+                            </div>
+                        
+                        </header>
+                        <footer class="flex justify-between items-center">
+                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 ">قیمت از</span>
+                            <span class="text-primary-700 font-yekanbakhsemiboldFA text-base line-clamp-1">@db.tourlist.prp_8181</span>
+                        </footer>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </face>
+    <face>
+        <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+            <article class="w-[272px] h-[264px] rounded-3xl overflow-hidden relative group my-3">
+                <a href="@db.tourlist.link" class="w-full h-full ">
+                    <figure class="relative w-full h-[176px]">
+                        <img class="w-full h-full object-cover transition-all duration-300 group-hover:blur-sm" 
+                             src="@db.tourlist.00272X00176prp" width="272" height="176" alt="@db.tourlist.title">
+                        
+                        <div class="absolute inset-0 bg-primary opacity-0 transition-all duration-300 group-hover:opacity-50 mix-blend-overlay"></div>
+                    </figure>
+                
+                    <div class="border border-neutralcolor-800
+                    px-4 py-2
+                    w-full h-[112px] absolute bottom-0 left-0 right-0 bg-white rounded-3xl">
+                        <header>
+                            <h2 class="line-clamp-1 text-right text-primary-900 text-base font-yekanbakhsemiboldFA mt-2">@db.tourlist.title</h2>
+                            <div class="flex justify-between items-center my-1 gap-x-1">
+                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-clamp-1 w-1/3 ">@db.tourlist.prp_8077</span>
+                                <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-clamp-1 w-1/3 ">@db.tourlist.prp_8076</span>
+                                <img class="w-20 h-6 object-contain" src="@list.airline.pic" width="80" height="24" alt="@list.airline.name">
+                            </div>
+                        
+                        </header>
+                        <footer class="flex justify-between items-center">
+                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-500 ">قیمت از</span>
+                            <span class="text-primary-700 font-yekanbakhsemiboldFA text-base line-clamp-1">@db.tourlist.prp_8181</span>
+                        </footer>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </face>
+</basis>
+
+</basis>
+
+<basis core="group" if="'[##cms.query.searchtype##]'='hotel-search'">
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" q="[##cms.query.q|(0)##]">
+        <member name="articlesload" type="list" link="hotel.bc"
+         propertyid="7244,177402,177404,177405" size="272X176" typeid="159" perpage="50"
+            order="ord"></member>
+    </basis>
+
+    <basis core="list" datamembername="db.articlesload">
+        <layout>
+            <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
+            font-yekanbakhsemiboldFA text-2xl leading-10 py-1 px-2 h-12 
+            before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
+            ">
+        نتیجه سرچ شما برای [##cms.query.q##]
+        </h2>
+            <hr class="w-full my-3">
+
+                @child
+        </layout>
+        <else-layout>
+            <section class="max-w-7xl mx-auto w-full flex flex-col items-center mt-24">
+                <figure >
+                    <img src="./images/empty-list-image.png" width="460px" height="403" alt="404">
+                </figure>
+                <h2 class="font-yekanbakhregularFA text-lg text-txtneutral-900">متاسفانه برای 
+                    [##cms.query.q##]
+                    موردی یافت نشد!</h2>
+    
+                    <a href="/" class="bg-primary w-[424px] h-12 rounded-lg text-white my-4 flex justify-center items-center gap-x-2">
+                        
+                        بازگشت به صفحه اصلی
+                        <svg width="25" height="24" >
+                            <use xlink:href="./images/sprite-icons.svg#arrow-left-white"></use>
+                        </svg>
+                    
+                    </a>
+            </section>
+        </else-layout>
+
+
+        <face filter="link is null">
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article
+                    class="w-[304px] h-[328px] bg-white drop-shadow-md rounded-2xl group/hotelcard p-4 hover:drop-shadow-xl">
+                    <a href="hotel.bc?id=@id">
+                        <figure class="w-[272px] h-[176px] mx-auto 
+                        rounded-2xl overflow-hidden">
+                            <img class="w-[272px] h-[176px] mx-auto 
+                             group-hover/hotelcard:scale-105 transition-all duration-500
+                            " src="@00272X00176prp" width="272" height="176" alt="@title">
+                        </figure>
+                        <h2 class="text-txtneutral-900 text-base">
+        
+                            <span class="font-yekanbakhsemiboldFA line-clamp-1 my-2">
+                                @title
+                            </span>
+                        </h2>
+        
+                        <div class="h-8 flex justify-between items-center">
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg>
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA line-clamp-1 w-[80px]">@prp_177405</span>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177404 ستاره</span>
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                                </svg>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177402</span>
+                                <img class="inline-block" src="./images/booking-logo.png" width="32" height="32" alt="booking">
+                            </div>
+                        </div>
+        
+                    </a>
+                </article>
+            </div>
+
+        </face>
+        <face>
+            <div class="w-1/3 max-xl:w-1/2 flex justify-center items-center ">
+                <article
+                    class="w-[304px] h-[328px] bg-white drop-shadow-md rounded-2xl group/hotelcard p-4 hover:drop-shadow-xl">
+                    <a href="@link">
+                        <figure class="w-[272px] h-[176px] mx-auto 
+                        rounded-2xl overflow-hidden">
+                            <img class="w-[272px] h-[176px] mx-auto 
+                             group-hover/hotelcard:scale-105 transition-all duration-500
+                            " src="@00272X00176prp" width="272" height="176" alt="@title">
+                        </figure>
+                        <h2 class="text-txtneutral-900 text-base">
+        
+                            <span class="font-yekanbakhsemiboldFA line-clamp-1 my-2">
+                                @title
+                            </span>
+                        </h2>
+        
+                        <div class="h-8 flex justify-between items-center">
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg>
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA line-clamp-1 w-[80px]">@prp_177405</span>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177404 ستاره</span>
+                                <svg class="inline-block" width="16" height="16">
+                                    <use xlink:href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                                </svg>
+                            </div>
+                            <div class="bg-neutralcolor-50 rounded-lg p-2 h-12 flex gap-x-1 items-center">
+                                <span class="text-primary-900 text-xs font-yekanbakhregularFA ">@prp_177402</span>
+                                <img class="inline-block" src="./images/booking-logo.png" width="32" height="32" alt="booking">
+                            </div>
+                        </div>
+        
+                    </a>
+                </article>
+            </div>
+
+        </face>
+    </basis>
+
+
+
+
+</basis>

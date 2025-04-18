@@ -4,6 +4,11 @@
 
 .dir-rtl{direction: rtl;}
 .dir-ltr{direction: ltr;}
+
+body{
+    padding-top: 56px;
+}
+
 :root {
 
     /* colors */
@@ -642,4 +647,70 @@ ul , .hide-srollbar{
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
   }
+
+
+  .faq-active{
+    border-radius: 8px;
+    border: 1px solid var(--primary-100);
+    margin: 2px auto;
+    overflow: hidden;
+    padding: 0 !important;
+  }
+  .faq-active > .answer-box{
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+ .input-font-standard{
+    font-size: 16px !important;
+    transform: scale(0.875);
+    transform-origin: right center;
+}
+
 /* tour list */
+
+/* visa-list */
+#visa-request-form [data-bc-section] {
+    margin-bottom: 0 !important;
+    padding: 10px 10px;
+    padding-bottom: 0 !important;
+  }
+  
+  #visa-request-form legend {
+    display: none !important;
+  }
+  
+  #visa-request-form [data-bc-answer-container] input[type="text"] ,
+  #visa-request-form [data-bc-answer-container] select 
+  {
+    height: 32px;
+    border: 1px solid var(--neutral-700) !important;
+    font-size: 16px !important;
+    border-radius: 16px !important;
+    /* padding: 0.1em 0.8em !important; */
+  }
+  #visa-request-form [data-bc-answer-container] input[type="text"]::placeholder  {
+    font-size: 16px !important;
+    transform: scale(0.875);
+    transform-origin: right center;
+  }
+  
+  #visa-request-form [data-bc-part-container] , #visa-request-form [data-bc-btn-container] {
+    width: 100% !important;
+  }
+  
+  #visa-request-form [data-bc-answer-container] {
+    display: inline-block;
+    width: 100% !important;
+  }
+  
+  #visa-request-form [data-bc-question] {
+    width: 100%;
+    display: inline-block;
+  }
+  
+  #visa-request-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    display: none !important;
+  }
+  
+/* visa-list */

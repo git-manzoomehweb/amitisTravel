@@ -1,3 +1,60 @@
+<basis core='dbsource' name='captcha' source='trust_login'><member name='code' type='scalar' request='captcha'></member></basis>
+
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+    <member name="scalar" type="scalar" typeid="150" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+
+<basis core="dbsource" source="userbehavior" name="db" usedforid="[##cms.query.aid##]">
+    <member name="comment" type="list" order="ord" request="listcomment" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="bannerimage" type="tree" request="cat" parentid=""
+        postsql="select * from [db.bannerimage] where catid = [##cms.query.catid##]" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="listtours" type="list" link="tour.bc" size="296X232" propertyid=" 8181,8076,8077,10000502,10000503, 10000504,
+     177406, 177585, 3087490 ,3087561,3087562,3087563 " typeid="159" perpage="20" pageno="[##cms.query.pagenum|(1)##]" order="ord">
+    </member>
+    <member name="paging" type="list" request="paging" count="4" parentname="listtours"></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist"></member>
+</basis>
+<basis core="inlinesource" name="joining">
+    <member name="listtourpage" lefttblcol="db.listtours.prp_10000504" righttblcol="list.airline.name" 
+    format="join" jointype="leftjoin"></member>
+</basis>
+
+
+<basis core="dbsource" source="media" name="db" lid="1" usedforid="[##cms.query.vid##]" sourcemid="article"><member name="audio" type="list" format="audio" link="article.bc" order="ord"/></basis>
+<basis core="inlinesource" name="joining"><member name="podcast" lefttblcol="db.audio.ord" righttblcol="db.media-gallery.ord" format="join" jointype="leftjoin"/></basis>
+
+  <basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.vid##]" sourcemid="article">
+    <member type="list" name="media-gallery" format="4" order="ord"></member>
+</basis>
+
+
+
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.nid##]">
+    <member name="important_content" type="view"  />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.fid##]">
+    <member name="faq_tours" type="view" postsql="select * from [db.faq_tours] where TypeID in(250)" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
+    <member name="seotext" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.tid##]">
+    <member name="travel_video" type="view" postsql="select * from [db.travel_video] where TypeID in(250)" />
+</basis>
+
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -11,10 +68,14 @@
   <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
   <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
 
-
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
 </head>
 
 <body class=" bg-neutral-50">
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"></basis>
 
   <main>
 
@@ -135,6 +196,27 @@
     </ul>
     
 
+    <section class="bg-footer-texture bg-cover my-12 ">
+        <div class="max-w-5xl w-[90%] mx-auto ">
+            
+            <figure class=" flex flex-row-reverse justify-between items-start">
+                <img src="../assets/images/attention-mob-icon.png" width="70" height="88" alt="نکته">
+                <figcaption class="text-secondary font-yekanbakhboldFA text-2xl">نکته</figcaption>
+            </figure>
+
+            <div class=" flex flex-col justify-center -mt-8">
+                <div class="font-IRANYekanRegularMobileFA leading-6 text-sm my-3 text-black text-justify ">
+                    <span class="float-left block w-1/2 bg-transparent h-5">
+
+                    </span>
+                    در ایام بهار و تابستان علاقه‌مندان به
+بازدید از کشور ترکیه و شهر آنتالیا می‌توانند با خرید تور آنتالیا ارزان ، با کمترین هزینه برای سفر، بیشترین لذت را از تعطیلات ببرند و سفر خاطره‌انگیزی را تجربه کنند.
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 
 
     <div class="flex max-sm:flex-col gap-y-3 my-3 flex-wrap">
@@ -186,7 +268,68 @@
                       <div class=" flex justify-between w-[calc(100%-65px)] ">
                           <span class="font-yekanbakhregularFA text-xs text-txtneutral-500 leading-[48px] w-12 inline-block">قیمت از </span>
 
-                          <div class="w-[calc(100%-50px)] inline-block">
+                          <div class="w-[calc(100%-50px)] flex items-center gap-x-1">
+                            <span class="text-[8px] font-yekanbakhregularFA text-txtneutral-500 line-through">114.000.000</span>
+                            <span class="font-yekanbakhsemiboldFA text-sm text-primary-700">114.000.000 تومان
+                              </span>
+                          </div>
+                      </div>
+                      <span class="w-[1px] h-[21px] bg-neutralcolor-700"></span>
+                      <img class="w-[60px] h-[18px] object-contain" src="../assets/images/non-upload/airline-1.png" width="60" height="18" alt="@title">
+                  </div>
+              </div>
+      
+          </a>
+      </article>
+      <article
+          class="bg-white relative rounded-3xl shadow-[0px_0px_2px_#BDCEDE] max-w-[304px] w-[95%] h-[160px] mx-auto overflow-hidden">
+          <a href="#" class="w-full h-full block ">
+
+
+              <div class="flex gap-x-1 absolute left-4 top-0">
+                  <div class="relative w-[16px] h-[48px] flex items-center justify-center">
+                      <svg class="block opendropdow absolute inset-0" width="16" height="48">
+                          <use
+                              href="../assets/images/sprite-icons.svg#label-installment">
+                          </use>
+                      </svg>
+                      <span class="text-[8px] text-white font-yekanbakhsemiboldFA writing-mode-sideways-lr 
+                  absolute inset-0 flex items-center justify-right pt-1">
+                          اقساطی
+                      </span>
+                  </div>
+                  <div class="relative w-[16px] h-[48px] flex items-center justify-center">
+                      <svg class="block opendropdow absolute inset-0" width="16" height="48">
+                          <use href="../assets/images/sprite-icons.svg#label-off"></use>
+                      </svg>
+                      <span class="text-[8px] text-white font-yekanbakhsemiboldFA writing-mode-sideways-lr 
+                  absolute inset-0 flex items-center justify-right pt-1">تخفیف</span>
+                  </div>
+              </div>
+
+      <div class="w-[95%] mx-auto my-2 flex gap-x-2">
+          <figure class="min-w-24 min-h-24 max-h-24 h-24 rounded-r-2xl rounded-[48px] overflow-hidden border">
+              <img class="w-24 h-24 max-h-24 object-cover" src="../assets/images/Mobile/image-not-found-96X96.jpg" alt="">
+          </figure>
+          <div class="w-[calc(100%-110px)]">
+              <div class="h-14 pt-2 flex items-center">
+                  <h2 class="font-yekanbakhsemiboldFA text-sm leading-6 w-[77%] -tracking-wide line-clamp-2 ">تور آنتالیا ویژه نمایشگاه سنگ و ساختمان</h2>
+              </div>
+          
+              <div class="flex justify-between flex-wrap font-yekanbakhregularFA text-xs text-txtneutral-900 min-h-8 my-2 items-center">
+                  <span>28 آبان</span>
+                  <span class="w-[1px] h-[21px] bg-neutralcolor-700"></span>
+                  <span>10 شب و 11 روز</span>
+              </div>
+          </div>
+      </div>
+      
+              <div class="h-12 bg-neutralcolor-100 w-full absolute bottom-0 left-0 right-0">
+                  <div class="h-12 w-[95%] mx-auto flex justify-between items-center gap-x-1">
+                      <div class=" flex justify-between w-[calc(100%-65px)] ">
+                          <span class="font-yekanbakhregularFA text-xs text-txtneutral-500 leading-[48px] w-12 inline-block">قیمت از </span>
+
+                          <div class="w-[calc(100%-50px)] flex items-center ">
                             <span class="text-[8px] font-yekanbakhregularFA text-txtneutral-500 line-through">114.000.000</span>
                             <span class="font-yekanbakhsemiboldFA text-sm text-primary-700">114.000.000 تومان
                               2.460 دلار +</span>
@@ -296,35 +439,32 @@
 <!-- نظرات -->
 
 
-<section class="bg-white">
-  <div class="min-h-12 relative
-   bg-gradient-to-r
-   from-0 via-70% to-100%  
-   to-[#FFA200]/70 via-[#FFA200]/20 from-white clear-both flex justify-between">
 
-      <div>
-          <div class="min-h-12 h-12 w-6 bg-white/50 rounded-l-full inline-block float-right ml-4"></div>
-          <h2 class="text-secondary leading-[48px] font-yekanbakhlightFA text-sm inline-block w-fit">
-              سوالات
-              <span class="font-yekanbakhsemiboldFA">متداول</span>
-          </h2>
-      </div>
-  </div>
 
 
 
   <basis core="list" datamembername="db.faq_tours">
     <layout>
-
-        <section id="box-faq-list" class=" block pt-24 bg-faq-pattern bg-center bg-cover bg-no-repeat bg-neutralcolor-50 pb-10">
-            <div class="max-w-7xl mx-auto text-center relative">
-                <h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-10 before:-top-4">سوالات <span class="font-yekanbakhboldFA">متداول</span></h2>
-                <ul class="mt-12">@child </ul>
+        <section class="bg-white">
+            <div class="min-h-12 relative
+             bg-gradient-to-r
+             from-0 via-70% to-100%  
+             to-[#FFA200]/70 via-[#FFA200]/20 from-white clear-both flex justify-between">
+          
+                <div>
+                    <div class="min-h-12 h-12 w-6 bg-white/50 rounded-l-full inline-block float-right ml-4"></div>
+                    <h2 class="text-secondary leading-[48px] font-yekanbakhlightFA text-sm inline-block w-fit">
+                        سوالات
+                        <span class="font-yekanbakhsemiboldFA">متداول</span>
+                    </h2>
+                </div>
             </div>
+
+                <ul class="mt-12">@child </ul>
         </section>
     </layout>
     <face>
-        <li class="mt-6 cursor-pointer" onclick="ToggleFAQ(this )">
+        <li class="mt-6 cursor-pointer" onclick="ToggleFAQMob(this )">
             <div class="question-box bg-white rounded-lg  px-12 h-16 relative overflow-hidden ">
                 <span class=" absolute top-0 left-0 z-10"></span>
                 <div class="flex justify-between items-center gap-6 h-16 relative z-20">
@@ -355,7 +495,74 @@
 
   </section>
 
+
+
+  
+<div class="clear-both"></div>
+
+<basis core="list" datamembername="db.media-gallery">
+    <layout>
+        <section id="box-passengers-video"
+        class=" block pt-5 bg-under-film-pattern bg-opacity-25 bg-center bg-cover bg-no-repeat bg-neutralcolor-50 pb-32 mb-32 ">
+        <div class="w-full text-center relative">
+            <h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative
+                                    before:content-[' '] before:w-20 before:h-20 mb-20
+                                    before:bg-secondary before:opacity-20 before:rounded-full
+                                    before:block before:absolute before:-right-10 before:-top-4">
+                                    ویدئو ارسالی
+            <span class="font-yekanbakhboldFA">مسافران آمیتیس</span>
+        
+            </h2>
+        
+            <div class="bg-top-film-frame h-16 w-full bg-repeat-x -mb-1"></div>
+            <div class="swiper passengers-video w-full bg-primary-950">
+                <div class="swiper-wrapper">
+                    @child
+                </div>
+            </div>
+            <div class="bg-bottom-film-frame h-16 w-full bg-repeat-x -mt-1"></div>
+        </div>
+        </section>
+    </layout>
+    <face filter="ord not in(1000 , 1001)">
+        <div class="swiper-slide  !w-[377px] !h-[271px] group/passengervideo cursor-pointer openModal transition-all duration-500"
+        data-id="@Table2ID">
+        <figure class="w-[377px] h-[271px] overflow-hidden rounded-[21px] relative ">
+
+            <img src="@largeIMG" alt="@name" class=" cursor-pointer w-full h-full object-cover
+        group-hover/passengervideo:blur-md transition-all duration-500">
+
+
+            <div
+                class=" from-black/90 to-transparent  absolute bottom-0 left-0 right-0 
+        group-hover/passengervideo:backdrop-blur-md h-full pt-24 group-hover/passengervideo:bg-gradient-to-t transition-all duration-500">
+
+                <img class="mx-auto mb-5 group-hover/passengervideo:hidden "
+                    src="./images/play-icon-video-icon.png" width="86" height="82" alt="@name">
+
+                <img class="mx-auto mb-5 hidden group-hover/passengervideo:block"
+                    src="./images/play-icon-video-icon-active.png" width="86" height="82"
+                    alt="@name">
+
+
+
+                <div
+                    class="flex gap-x-1 items-center justify-center mb-5 h-12 invisible group-hover/passengervideo:visible transition-all duration-500">
+                    <span class="text-white drop-shadow-xs text-xl font-yekanbakhsemiboldFA leading-8">@name</span>
+                    <span class="text-secondary font-yekanbakhsemiboldFA text-base">مسافر</span>
+                    <span class="text-secondary font-yekanbakhsemiboldFA text-base">@description</span>
+                </div>
+            </div>
+        </figure>
+    </div>
+    </face>
+</basis>
+
+<div class="clear-both"></div>
+
   </main>
+  
+  <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"></basis>
 
 </body>
 

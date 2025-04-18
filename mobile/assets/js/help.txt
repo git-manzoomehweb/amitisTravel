@@ -1,1 +1,5 @@
 در این بخش لطفا اسکریپت های مربوط به پروژه خود را قرار دهید 
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.sid##]">
+    <member name="visa_benefits" type="list" link="article.bc" propertyid="7244,7249" size="32X32" typeid="159"
+        perpage="50" order="ord"></member>
+</basis>

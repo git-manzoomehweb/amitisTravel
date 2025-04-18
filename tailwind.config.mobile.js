@@ -110,6 +110,10 @@ module.exports = {
         'tour-texture': "url('../images/pattern-tour-mob.png')",
         'footer-mob-texture': "url('../images/footer-pattern-logo-amitis.png')",
 
+        'top-film-frame': "url('../images/top-film-frame-mob.png')",
+        'bottom-film-frame': "url('../images/bottom-film-frame-mob.png')",
+        'under-film-pattern': "url('../images/under-video-pattern.png')",
+
       },
       dropShadow: {
 

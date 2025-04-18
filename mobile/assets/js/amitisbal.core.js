@@ -155,45 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 // default - mobile - sliders
 
-if (window.innerWidth < 1024) {
-  document.addEventListener("DOMContentLoaded", function () {
-      const tabs = document.querySelectorAll('.bmi-tab');
-        const activeMap = {
-          "page-hotels": "hotel",
-          "page-tours": "tour",
-          "page-home": "home",
-          "page-magazine": "magazine",
-      };
-  
-      const bodyClass = document.body.className;
-      let activeTab = null;
-  
-      console.log(bodyClass)
-      for (const cls in activeMap) {
-          if (bodyClass.includes(cls)) {
-              activeTab = activeMap[cls];
-              break;
-          }
-      }
-      console.log(activeTab)
-
-        tabs.forEach(t => {
-          t.querySelector('.bmi-active-btn').classList.add('hidden');
-          t.querySelector('.bmi-simple-btn').classList.remove('hidden');
-          t.querySelector('.tab-text').classList.remove('text-primary');
-      });
-        if (activeTab) {
-          const currentTab = document.querySelector(`.bmi-tab[data-page="${activeTab}"]`);
-          if (currentTab) {
-              currentTab.querySelector('.bmi-active-btn').classList.remove('hidden');
-              currentTab.querySelector('.bmi-simple-btn').classList.add('hidden');
-              currentTab.querySelector('.tab-text').classList.add('text-primary');
-
-          }
-      }
-  });
-}
-
 
 
 
@@ -420,7 +381,90 @@ if (window.innerWidth > 1024) {
       }
   }
   
-
+  function ShareSocialMedia(event, containerid) {
+      event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک داخل باکس
+  
+      const container = document.getElementById(containerid);
+      const shareBox = container.querySelector('.socialmedia-box-share');
+      const txtcontainer = container.querySelector(".text-share-box");
+      const bgactivation = container.querySelector(".bg-activation-sharebtn");
+      const onlybtncontainer = document.getElementById("sharebutton-content");
+      
+  
+      if (!container || !shareBox) return;
+  
+      // بررسی باز یا بسته بودن
+      const isOpen = container.classList.contains("hovered");
+  
+      if (isOpen) {
+          // بستن باکس
+          shareBox.classList.add("invisible", "opacity-0");
+          container.classList.remove("hovered","w-[302px]");
+          onlybtncontainer.classList.remove("w-[302px]");
+          txtcontainer.classList.remove("text-white");
+          bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
+  
+      } else {
+          // بستن سایر باکس‌ها (در صورتی که چندین باکس وجود داشته باشد)
+          document.querySelectorAll(".share-container").forEach(el => {
+              el.classList.remove("hovered","w-[302px]");
+              onlybtncontainer.classList.remove("w-[302px]");
+              txtcontainer.classList.remove("text-white");
+              bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
+              el.querySelector(".socialmedia-box-share").classList.add("invisible", "opacity-0");
+          });
+  
+          // باز کردن باکس
+          shareBox.classList.remove("invisible", "opacity-0","w-[302px]");
+          container.classList.add("hovered","w-[302px]");
+          onlybtncontainer.classList.add("w-[302px]");
+          txtcontainer.classList.add("text-white");
+          bgactivation.classList.add("right-0","!mx-0","h-full","w-full","p-0");
+      }
+  }
+  
+  
+  function ShareSocialMediaPrimary(event, containerid) {
+      event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک داخل باکس
+  
+      const container = document.getElementById(containerid);
+      const shareBox = container.querySelector('.socialmedia-box-share');
+      const txtcontainer = container.querySelector(".text-share-box");
+      const bgactivation = container.querySelector(".bg-activation-sharebtn");
+      const onlybtncontainer = document.getElementById("sharebutton-content");
+      
+  
+      if (!container || !shareBox) return;
+  
+      // بررسی باز یا بسته بودن
+      const isOpen = container.classList.contains("hovered");
+  
+      if (isOpen) {
+          // بستن باکس
+          shareBox.classList.add("invisible", "opacity-0");
+          container.classList.remove("hovered","w-[302px]");
+          onlybtncontainer.classList.remove("w-[302px]");
+          txtcontainer.classList.remove("text-white");
+          // bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
+  
+      } else {
+          // بستن سایر باکس‌ها (در صورتی که چندین باکس وجود داشته باشد)
+          document.querySelectorAll(".share-container").forEach(el => {
+              el.classList.remove("hovered","w-[302px]");
+              onlybtncontainer.classList.remove("w-[302px]");
+              txtcontainer.classList.remove("text-white");
+              // bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
+              el.querySelector(".socialmedia-box-share").classList.add("invisible", "opacity-0");
+          });
+  
+          // باز کردن باکس
+          shareBox.classList.remove("invisible", "opacity-0","w-[302px]");
+          container.classList.add("hovered","w-[302px]");
+          onlybtncontainer.classList.add("w-[302px]");
+          txtcontainer.classList.add("text-white");
+          // bgactivation.classList.add("right-0","!mx-0","h-full","w-full","p-0");
+      }
+  }
   
   
   document.addEventListener("click", function () {
@@ -435,7 +479,9 @@ if (window.innerWidth > 1024) {
           if (bgactivation) bgactivation.classList.remove("right-0", "!mx-0", "h-full", "w-full","p-0");
       });
   });
-
+  
+  
+  
   if(document.querySelector(".swiper-tourcard")){
       var swipertourcard = new Swiper(".swiper-tourcard", {
           slidesPerView: 3.5,
@@ -468,7 +514,6 @@ if (window.innerWidth > 1024) {
         },
       });
   }
-
   if (document.querySelector(".swiper-papulartourcard")) {
     var swipertourcard = new Swiper(".swiper-papulartourcard", {
         slidesPerView: 'auto',
@@ -509,6 +554,12 @@ if (window.innerWidth > 1024) {
     }
   }
   
+  // document.addEventListener("DOMContentLoaded", function () {
+  //     if(document.querySelector(".scrollToTop")){
+  
+  //     }
+  // });
+  
   function goTop(btn) {
     window.addEventListener("scroll", function () {
         if (window.scrollY > 300) {
@@ -526,10 +577,362 @@ if (window.innerWidth > 1024) {
             behavior: "smooth"
         });
     });
-  } 
+  }
   
-
-    
+  
+  
+  // podcast box
+  document.addEventListener("DOMContentLoaded", function () {
+      if(document.getElementById("playPauseBtn")){
+          const playPauseBtn = document.getElementById("playPauseBtn");
+          const waveContainer = document.getElementById("waveform");
+          const audioElement = document.getElementById("audioSource"); 
+          let isManuallyPlaying = false;
+      
+          const wavesurfer = WaveSurfer.create({
+              container: '#waveform',
+              waveColor: '#fff',
+              progressColor: '#005FF0',
+              cursorColor: 'transparent',
+              barWidth: 1,
+              height: 40,
+              responsive: true
+          });
+      
+          if (audioElement && audioElement.src) {
+              wavesurfer.load(audioElement.src); 
+          }
+      
+          function togglePlayPause() {
+              if (wavesurfer.isPlaying()) {
+                  wavesurfer.pause();
+                  isManuallyPlaying = false;
+                  waveContainer.classList.remove("playing");
+              } else {
+                  wavesurfer.play();
+                  isManuallyPlaying = true;
+                  waveContainer.classList.add("playing");
+              }
+          }
+      
+          playPauseBtn.addEventListener('click', function () {
+              togglePlayPause();
+          });
+      }
+  });
+  
+  
+  if (document.querySelector(".passengers-video") || document.getElementById("podcastandvideo") || document.getElementById("articles-video")) {
+      document.addEventListener("DOMContentLoaded", function () {
+          const videoModal = document.getElementById("videoModal");
+          const closeModal = document.getElementById("closeModal");
+          const videoContainer = document.getElementById("videoContainer");
+  
+          // اسلایدر Swiper
+          if(document.querySelector(".passengers-video")){
+            new Swiper(".passengers-video", {
+                slidesPerView: 'auto',
+                speed: 1500,
+                centeredSlides: true,
+                spaceBetween: 20,
+                effect: 'slide',
+                grabCursor: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+            });
+          }
+  
+          // باز کردن مودال و افزودن آیفریم
+          // document.querySelectorAll(".openModal").forEach(item => {
+          //     item.addEventListener("click", function () {
+          //         const embedCode = this.getAttribute("data-embed");
+          //         if (embedCode) {
+          //             videoContainer.innerHTML = embedCode;
+          //             videoModal.classList.remove("hidden");
+          //         }
+          //     });
+          // });
+  
+  
+          document.querySelectorAll(".openModal").forEach(item => {
+            item.addEventListener("click", async function () {
+                const videoId = this.getAttribute("data-id"); // گرفتن آیدی دکمه
+                if (videoId) {
+                    try {
+                        // فچ کردن از لینک
+                        const response = await fetch(`load-items.bc?id=${videoId}&typecard=video`);
+                        const embedCode = await response.text(); // دریافت رشته متنی
+        
+                        if (embedCode.startsWith("http")) {
+                            videoContainer.innerHTML = `
+                                <iframe width="1230" height="700" src="${embedCode}" allowfullscreen></iframe>
+                            `;
+                            videoModal.classList.remove("hidden");
+                        }
+                    } catch (error) {
+                        console.log("خطا در دریافت ویدئو:", error);
+                    }
+                }
+            });
+        });
+  
+        
+  
+          // بستن مودال
+          function closeVideoModal() {
+              videoModal.classList.add("hidden");
+              videoContainer.innerHTML = "";
+          }
+  
+          closeModal.addEventListener("click", closeVideoModal);
+          videoModal.addEventListener("click", function (event) {
+              if (event.target === videoModal) {
+                  closeVideoModal();
+              }
+          });
+      });
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  function openVisaForm(el, modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+  
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    });
+  
+    const modalContent = modal.querySelector('#visa-form-box');
+    modalContent.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+  }
+  
+  function uploadDocumentvisaForm(e) {
+    document.querySelector("#visa-request-form .Loading_Form").style.display =
+      "block";
+    let t = document
+      .querySelector("#visa-request-form")
+      .querySelector("#captchaContainer input[name='captcha']").value,
+      r = document
+        .querySelector("#visa-request-form")
+        .querySelector("#captchaContainer input[name='captchaid']").value,
+      i = JSON.stringify(e.source?.rows[0]);
+    $bc.setSource("cms.uploadvisaForm", {
+      value: i,
+      captcha: t,
+      captchaid: r,
+      run: !0,
+    });
+  }
+  function refreshCaptchavisaForm(e) {
+    $bc.setSource("captcha.refreshyq", !0);
+  }
+  function captchaRenderedvisaForm() {
+    document.querySelector("#visa-request-form .visaFormInput").placeholder =
+      "کد امنیتی";
+  }
+  async function OnProcessedEditObjecvisaForm(e) {
+    "6" == (await e.response.json()).errorid
+      ? ((document.querySelector(
+        "#visa-request-form .Loading_Form"
+      ).style.display = "none"),
+        (document.querySelector("#visa-request-form .message-api").innerHTML =
+          "درخواست شما با موفقیت ثبت شد."))
+      : (refreshCaptchavisaForm(),
+        setTimeout(() => {
+          (document.querySelector(
+            "#visa-request-form .Loading_Form"
+          ).style.display = "none"),
+            (document.querySelector(
+              "#visa-request-form .message-api"
+            ).innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید.");
+        }, 2e3));
+  }
+  async function RenderFormvisaForm() {
+  
+    var e1=document.querySelector( "#visa-request-form .name-visa input" );
+    e1.setAttribute("placeholder", "نام و نام خانوادگی"); 
+    var e2=document.querySelector( "#visa-request-form .phone-visa input" );
+    e2.setAttribute("placeholder", "شماره تماس"); 
+    var e3=document.querySelector( "#visa-request-form .email-visa input" );
+    e3.setAttribute("placeholder", "ایمیل"); 
+    var e4=document.querySelector( "#visa-request-form .subject-visa input" );
+    e4.setAttribute("placeholder", "موضوع مشاوره"); 
+    var e5=document.querySelector( "#visa-request-form .age-visa input" );
+    e5.setAttribute("placeholder", "سن");
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //video player
+  // document.addEventListener("DOMContentLoaded", function () {
+  //     const videoModal = document.getElementById("videoModal");
+  //     const closeModal = document.getElementById("closeModal");
+  //     const videoPlayer = document.getElementById("videoPlayer");
+  //     const videoSource = document.getElementById("videoSource");
+      
+  //     document.querySelectorAll(".openModal").forEach(button => {
+  //         button.addEventListener("click", function () {
+  //             const videoUrl = this.getAttribute("data-video");
+  //             if (videoUrl) {
+  //                 videoSource.src = videoUrl;
+  //                 videoPlayer.load();
+  //                 videoModal.classList.remove("hidden");
+  //                 videoPlayer.play();
+  //             }
+  //         });
+  //     });
+      
+  //     function closeVideoModal() {
+  //         videoModal.classList.add("hidden");
+  //         videoPlayer.pause();
+  //         videoPlayer.currentTime = 0;
+  //     }
+      
+  //     closeModal.addEventListener("click", closeVideoModal);
+  //     videoModal.addEventListener("click", function (event) {
+  //         if (event.target === videoModal) {
+  //             closeVideoModal();
+  //         }
+  //     });
+  // });
+  // فثسفففسسینتابینتال
+  
+  // if(document.querySelector(".passengers-video") || document.getElementById("podcastandvideo")){
+  //     document.addEventListener("DOMContentLoaded", function () {
+  //         const videoModal = document.getElementById("videoModal");
+  //         const closeModal = document.getElementById("closeModal");
+  //         const videoPlayer = document.getElementById("videoPlayer");
+  //         const videoSource = document.getElementById("videoSource");
+      
+  //         // اسلایدر Swiper
+  //         new Swiper(".passengers-video", {
+  //             slidesPerView: 'auto' ,
+  //             speed: 1500,
+  //             centeredSlides: true,
+  //             spaceBetween: 20,
+  //             effect: 'slide',
+  //             grabCursor: true,
+  //             autoplay: {
+  //                 delay: 2500,
+  //                 disableOnInteraction: false,
+  //             },
+  //             loop: true,
+      
+  //         });
+      
+  //         // رویداد کلیک برای باز کردن مودال
+  //         document.querySelectorAll(".openModal").forEach(item => {
+  //             item.addEventListener("click", function () {
+  //                 const videoUrl = this.getAttribute("data-video");
+  //                 if (videoUrl) {
+  //                     videoSource.src = videoUrl;
+  //                     videoPlayer.load();
+  //                     videoModal.classList.remove("hidden");
+  //                     videoPlayer.play();
+  //                 }
+  //             });
+  //         });
+      
+  //         // تابع بستن مودال
+  //         function closeVideoModal() {
+  //             videoModal.classList.add("hidden");
+  //             videoPlayer.pause();
+  //             videoPlayer.currentTime = 0;
+  //         }
+      
+  //         closeModal.addEventListener("click", closeVideoModal);
+  //         videoModal.addEventListener("click", function (event) {
+  //             if (event.target === videoModal) {
+  //                 closeVideoModal();
+  //             }
+  //         });
+  //     });
+  // }
+  // فثسفففسسینتابینتال
+  // document.addEventListener("DOMContentLoaded", function () {
+  //     const sidebar = document.querySelector("aside");
+  //     const sidebarControl = document.getElementById("sidebar-controll");
+  //     const menuItems = document.querySelectorAll("aside ul li");
+  //     const links = document.querySelectorAll("aside ul li a");
+  
+  //     // تابع اسکرول نرم
+  //     links.forEach(link => {
+  //         link.addEventListener("click", function (event) {
+  //             const targetId = this.getAttribute("href").substring(1);
+  //             const targetElement = document.getElementById(targetId);
+  
+  //             if (targetElement) {
+  //                 event.preventDefault();
+  //                 window.scrollTo({
+  //                     top: targetElement.offsetTop - 20,
+  //                     behavior: "smooth"
+  //                 });
+  //             }
+  //         });
+  //     });
+  
+  //     // بررسی وجود سکشن‌ها در صفحه و تغییر استایل
+  //     function updateMenuItems() {
+  //         menuItems.forEach(item => {
+  //             const link = item.querySelector("a");
+  //             const targetId = link.getAttribute("href").substring(1);
+  //             const targetElement = document.getElementById(targetId);
+  
+  //             if (targetElement) {
+  //                 item.classList.remove("grayscale"); // فعال‌سازی آیتم
+  //                 item.classList.add("hover:bg-secondary-200"); // استایل هاور اضافه شود
+  //             } else {
+  //                 item.classList.add("grayscale"); // غیرفعال کردن آیتم
+  //                 item.classList.remove("hover:bg-secondary-200");
+  //             }
+  //         });
+  //     }
+  
+  //     updateMenuItems(); // بررسی اولیه
+  //     window.addEventListener("resize", updateMenuItems);
+  //     window.addEventListener("scroll", updateMenuItems);
+  
+  //     // تابع جمع کردن سایدبار
+  //     sidebarControl.addEventListener("click", function () {
+  //         sidebar.classList.toggle("collapsed");
+  
+  //         if (sidebar.classList.contains("collapsed")) {
+  //             sidebar.classList.add("w-[80px]");
+  //             sidebar.classList.remove("w-80");
+  //             links.forEach(link => link.querySelector("span").classList.add("hidden"));
+  //         } else {
+  //             sidebar.classList.remove("w-[80px]");
+  //             sidebar.classList.add("w-80");
+  //             links.forEach(link => link.querySelector("span").classList.remove("hidden"));
+  //         }
+  //     });
+  // });
+  
   if(document.getElementById("handle-resize")){
       document.addEventListener("DOMContentLoaded", function () {
           const sidebar = document.querySelector("aside");
@@ -763,7 +1166,128 @@ if (window.innerWidth > 1024) {
   
   
   
-
+  // comment section
+  
+  function activeTebComment(element, container) {
+      document.querySelectorAll(".comment-tab-title").forEach(el => {
+        el.classList.remove("border-primary-400");
+        el.classList.remove("bg-primary-100");
+        el.classList.remove("text-neutralcolor-700");
+      });
+      document.querySelectorAll(".comment-boxes").forEach(el => {
+        el.classList.add("hidden");
+      });
+      element.classList.add("border-primary-400");
+      element.classList.add("bg-primary-100");
+      element.classList.add("text-neutralcolor-700");
+      document.getElementById(container).classList.remove("hidden");
+    }
+    /*------------------REFRESH CAPTCHA-----------------------*/
+    async function reactionSubmit(id, type) {
+    
+      const response = await fetch("Client_CheckAuthentication.inc");
+      if (!response.ok) {
+        throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
+      } else {
+        let CheckAuthentication = await response.text();
+        if (CheckAuthentication === 'true') {
+          var xhr = new XMLHttpRequest();
+          var url = "/Like-Dislike.bc?id=" + encodeURIComponent(id) +
+            "&type=" + encodeURIComponent(type);
+          xhr.open("GET", url, true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+              } else {
+              }
+            }
+          };
+          xhr.send();
+        } else {
+          showLoginContainer(this);
+        }
+      }
+    
+    
+    }
+    
+    function refresh_captcha(element, event) {
+      var form = element.closest('form');
+      var captchaElement = form.querySelector('.load-captcha');
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/Client_Captcha.bc', true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          captchaElement.innerHTML = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
+    
+    async function Reply_Comment(element) {
+      const responsereply = await fetch("Client_CheckAuthentication.inc");
+      if (!responsereply.ok) {
+        throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
+      } else {
+        let CheckAuthentication = await responsereply.text();
+        if (CheckAuthentication === 'true') {
+          var firstname = document.querySelector('.user-profile-header .default-name').innerText;
+          var lastname = document.querySelector('.user-profile-header .default-family').innerText;
+          element.closest('.opinionRow').querySelector('.reply-title').value = firstname + " " + lastname;
+          element.closest('.opinionRow').querySelector('.replyCommentForm').classList.toggle("hidden");
+        } else {
+          showLoginContainer(this);
+        }
+      }
+    }
+    
+    async function SubmitOpinionForm(element, event) {
+      event.preventDefault();
+      const response = await fetch("Client_CheckAuthentication.inc");
+      if (!response.ok) {
+        throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
+      } else {
+        let CheckAuthentication = await response.text();
+        if (CheckAuthentication === 'true') {
+          var form = new FormData(element.closest('form'));
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', element.closest('form').action, true);
+          xhr.onload = function () {
+            if (xhr.status === 200) {
+              document.getElementById('popupMessage').innerHTML = xhr.responseText;
+              document.getElementById('popuparticle').classList.remove("hidden");
+            } else {
+              document.getElementById('popupMessage').innerHTML = xhr.responseText;
+              document.getElementById('popuparticle').classList.remove("hidden");
+            }
+          };
+          xhr.send(form);
+          // window.location.reload();
+        } else {
+          showLoginContainer(this);
+        }
+      }
+     
+    }
+    
+    async function send_Reply(element, event) {
+      event.preventDefault();
+      var form = new FormData(element.closest('form'));
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', element.closest('form').action, true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById('popupMessage').innerHTML = xhr.responseText;
+          document.getElementById('popuparticle').classList.remove("hidden");
+        } else {
+          document.getElementById('popupMessage').innerHTML = xhr.responseText;
+          document.getElementById('popuparticle').classList.remove("hidden");
+        }
+      };
+      xhr.send(form);
+    }
+  
+  // comment section
   
   
   
@@ -1188,149 +1712,19 @@ if (window.innerWidth > 1024) {
   // hotel-view
 }
 
-
-function ShareSocialMedia(event, containerid) {
-  event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک داخل باکس
-
-  const container = document.getElementById(containerid);
-  const shareBox = container.querySelector('.socialmedia-box-share');
-  const txtcontainer = container.querySelector(".text-share-box");
-  const bgactivation = container.querySelector(".bg-activation-sharebtn");
-  const onlybtncontainer = document.getElementById("sharebutton-content");
-  
-
-  if (!container || !shareBox) return;
-
-  // بررسی باز یا بسته بودن
-  const isOpen = container.classList.contains("hovered");
-
-  if (isOpen) {
-      // بستن باکس
-      shareBox.classList.add("invisible", "opacity-0");
-      container.classList.remove("hovered","w-[302px]");
-      onlybtncontainer.classList.remove("w-[302px]");
-      txtcontainer.classList.remove("text-white");
-      bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
-
-  } else {
-      // بستن سایر باکس‌ها (در صورتی که چندین باکس وجود داشته باشد)
-      document.querySelectorAll(".share-container").forEach(el => {
-          el.classList.remove("hovered","w-[302px]");
-          onlybtncontainer.classList.remove("w-[302px]");
-          txtcontainer.classList.remove("text-white");
-          bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
-          el.querySelector(".socialmedia-box-share").classList.add("invisible", "opacity-0");
-      });
-
-      // باز کردن باکس
-      shareBox.classList.remove("invisible", "opacity-0","w-[302px]");
-      container.classList.add("hovered","w-[302px]");
-      onlybtncontainer.classList.add("w-[302px]");
-      txtcontainer.classList.add("text-white");
-      bgactivation.classList.add("right-0","!mx-0","h-full","w-full","p-0");
-  }
-}
-
-
-function ShareSocialMediaMob(event, containerid) {
-  event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک داخل باکس
-
-  const container = document.getElementById(containerid);
-  const shareBox = container.querySelector('.socialmedia-box-share');
-  const txtcontainer = container.querySelector(".text-share-box");
-  const bgactivation = container.querySelector(".bg-activation-sharebtn");
-  const onlybtncontainer = document.getElementById("sharebutton-content");
-  
-
-  if (!container || !shareBox) return;
-
-  // بررسی باز یا بسته بودن
-  const isOpen = container.classList.contains("hovered");
-
-  if (isOpen) {
-      // بستن باکس
-      shareBox.classList.add("invisible", "opacity-0");
-      txtcontainer.classList.remove("text-white");
-      bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
-
-  } else {
-      // بستن سایر باکس‌ها (در صورتی که چندین باکس وجود داشته باشد)
-      document.querySelectorAll(".share-container").forEach(el => {
-          txtcontainer.classList.remove("text-white");
-          bgactivation.classList.remove("right-0","!mx-0","h-full","w-full","p-0");
-          el.querySelector(".socialmedia-box-share").classList.add("invisible", "opacity-0");
-      });
-
-      // باز کردن باکس
-      shareBox.classList.remove("invisible", "opacity-0");
-      txtcontainer.classList.add("text-white");
-      bgactivation.classList.add("right-0","!mx-0","h-full","w-full","p-0");
-  }
-}
-
-function ShareSocialMediaMob(event, containerid) {
-  event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک داخل باکس
-
-  const container = document.getElementById(containerid);
-  if (!container) return;
-
-  const shareBox = container.querySelector('.socialmedia-box-share');
-  const txtcontainer = container.querySelector(".text-share-box");
-  const bgactivation = container.querySelector(".bg-activation-sharebtn");
-
-  // بررسی باز یا بسته بودن
-  const isOpen = container.classList.contains("hovered");
-
-  if (isOpen) {
-      // بستن باکس جاری
-      shareBox.classList.add("invisible", "opacity-0");
-      txtcontainer.classList.remove("text-white");
-      bgactivation.classList.remove("right-0", "!mx-0", "h-full", "w-full", "p-0");
-      container.classList.remove("hovered");
-
-  } else {
-      // بستن همه‌ی باکس‌ها
-      document.querySelectorAll(".share-container").forEach(el => {
-          el.classList.remove("hovered");
-
-          const box = el.querySelector(".socialmedia-box-share");
-          const txt = el.querySelector(".text-share-box");
-          const bg = el.querySelector(".bg-activation-sharebtn");
-
-          if (box) box.classList.add("invisible", "opacity-0");
-          if (txt) txt.classList.remove("text-white");
-          if (bg) bg.classList.remove("right-0", "!mx-0", "h-full", "w-full", "p-0");
-      });
-
-      // باز کردن باکس جاری
-      shareBox.classList.remove("invisible", "opacity-0");
-      txtcontainer.classList.add("text-white");
-      bgactivation.classList.add("right-0", "!mx-0", "h-full", "w-full", "p-0");
-      container.classList.add("hovered");
-  }
-}
-
-
-
-
 function ToggleFAQMob(element) {
   document.querySelectorAll(".faq-active").forEach(activeItem => {
       if (activeItem !== element) {
         activeItem.classList.remove("faq-active");
-
-
-        let questiontitle = activeItem.querySelector(".question-title");
-        questiontitle.classList.add("text-txtneutral-900");
+        let questiontitle = document.querySelector(".question-title");
+        questiontitle.classList.add("text-txtneutral-500");
         questiontitle.classList.remove("text-primary");
-
-        let questionRow = document.querySelector(".row-question-answer");
-        questionRow.classList.remove("py-1");
 
           let questionBox = activeItem.querySelector(".question-box");
           questionBox.classList.remove("bg-primary-50");
           questionBox.classList.add("bg-white");
           let answerBox = activeItem.querySelector(".answer-box");
-          answerBox.classList.remove("visible", "p-2");
+          answerBox.classList.remove("visible", "p-5");
           answerBox.classList.add("invisible", "h-0", "p-0", "m-0");
           answerBox.querySelector("div").classList.add("opacity-0");
 
@@ -1341,383 +1735,28 @@ function ToggleFAQMob(element) {
   let questionBox = element.querySelector(".question-box");
   let answerBox = element.querySelector(".answer-box");
 
-  let questiontitle = element.querySelector(".question-title");
-  let questionRow = document.querySelector(".row-question-answer");
+  let questiontitle = document.querySelector(".question-title");
 
 
   if (element.classList.contains("faq-active")) {
-    questiontitle.classList.remove("text-txtneutral-900");
+    questiontitle.classList.remove("text-txtneutral-500");
     questiontitle.classList.add("text-primary");
-    questionRow.classList.remove("py-1");
 
       questionBox.classList.remove("bg-white");
       questionBox.classList.add("bg-primary-50");
-      answerBox.classList.add("visible", "p-2");
+      answerBox.classList.add("visible", "p-5");
       answerBox.classList.remove("invisible", "h-0", "p-0", "m-0");
       answerBox.querySelector("div").classList.remove("opacity-0");
 
 
   } else {
-    questiontitle.classList.add("text-txtneutral-900");
+    questiontitle.classList.add("text-txtneutral-500");
     questiontitle.classList.remove("text-primary");
-    questionRow.classList.add("py-1");
-
       questionBox.classList.remove("bg-primary-50");
       questionBox.classList.add("bg-white");
-      answerBox.classList.remove("visible", "p-2");
+      answerBox.classList.remove("visible", "p-5");
       answerBox.classList.add("invisible", "h-0", "p-0", "m-0");
       answerBox.querySelector("div").classList.add("opacity-0");
 
   }
 }
-
-
-  // podcast box
-  document.addEventListener("DOMContentLoaded", function () {
-    if(document.getElementById("playPauseBtn")){
-        const playPauseBtn = document.getElementById("playPauseBtn");
-        const waveContainer = document.getElementById("waveform");
-        const audioElement = document.getElementById("audioSource"); 
-        let isManuallyPlaying = false;
-        let wavesurfer;
-
-        if (window.innerWidth > 1024) {
-           wavesurfer = WaveSurfer.create({
-              container: '#waveform',
-              waveColor: '#fff',
-              progressColor: '#005FF0',
-              cursorColor: 'transparent',
-              barWidth: 1,
-              height: 40,
-              responsive: true
-          });
-          
-        }else{
-           wavesurfer = WaveSurfer.create({
-              container: '#waveform',
-              waveColor: '#fff',
-              progressColor: '#005FF0',
-              cursorColor: 'transparent',
-              barWidth: 1,
-              height: 10,
-              responsive: true
-          });
-
-        }
-    
-        if (audioElement && audioElement.src) {
-            wavesurfer.load(audioElement.src); 
-        }
-    
-        function togglePlayPause() {
-            if (wavesurfer.isPlaying()) {
-                wavesurfer.pause();
-                isManuallyPlaying = false;
-                waveContainer.classList.remove("playing");
-            } else {
-                wavesurfer.play();
-                isManuallyPlaying = true;
-                waveContainer.classList.add("playing");
-            }
-        }
-    
-        playPauseBtn.addEventListener('click', function () {
-            togglePlayPause();
-        });
-    }
-});
-
-if (document.querySelector(".passengers-video") || document.getElementById("podcastandvideo") || document.getElementById("articles-video")) {
-  document.addEventListener("DOMContentLoaded", function () {
-      const videoModal = document.getElementById("videoModal");
-      const closeModal = document.getElementById("closeModal");
-      const videoContainer = document.getElementById("videoContainer");
-
-      // اسلایدر Swiper
-      if(document.querySelector(".passengers-video")){
-        new Swiper(".passengers-video", {
-            slidesPerView: 'auto',
-            speed: 1500,
-            centeredSlides: true,
-            spaceBetween: 20,
-            effect: 'slide',
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-        });
-      }
-
-      // باز کردن مودال و افزودن آیفریم
-      // document.querySelectorAll(".openModal").forEach(item => {
-      //     item.addEventListener("click", function () {
-      //         const embedCode = this.getAttribute("data-embed");
-      //         if (embedCode) {
-      //             videoContainer.innerHTML = embedCode;
-      //             videoModal.classList.remove("hidden");
-      //         }
-      //     });
-      // });
-
-
-      document.querySelectorAll(".openModal").forEach(item => {
-        item.addEventListener("click", async function () {
-            const videoId = this.getAttribute("data-id"); // گرفتن آیدی دکمه
-
-            if (videoId) {
-
-                try {
-                    // فچ کردن از لینک
-                    const response = await fetch(`load-items.bc?id=${videoId}&typecard=video`);
-                    const embedCode = await response.text(); // دریافت رشته متنی
-
-                    if (embedCode.startsWith("http")) {
-                      if(window.innerWidth > 1024){
-                        videoContainer.innerHTML = `<iframe width="1230" height="700" src="${embedCode}" allowfullscreen></iframe>`;
-                      }else{
-                        videoContainer.innerHTML = `<iframe class="absolute inset-0 w-full h-full object-contain"  src="${embedCode}" allowfullscreen frameborder="0"></iframe>`;
-
-                      }
-                        videoModal.classList.remove("hidden");
-                    }
-                } catch (error) {
-                    console.log("خطا در دریافت ویدئو:", error);
-                }
-            }
-        });
-    });
-
-    
-
-      // بستن مودال
-      function closeVideoModal() {
-          videoModal.classList.add("hidden");
-          videoContainer.innerHTML = "";
-      }
-
-      closeModal.addEventListener("click", closeVideoModal);
-      videoModal.addEventListener("click", function (event) {
-          if (event.target === videoModal) {
-              closeVideoModal();
-          }
-      });
-  });
-}
-
-
-
-  // comment section
-  
-  function activeTebComment(element, container) {
-    document.querySelectorAll(".comment-tab-title").forEach(el => {
-      el.classList.remove("border-primary-400");
-      el.classList.remove("bg-primary-100");
-      el.classList.remove("text-neutralcolor-700");
-    });
-    document.querySelectorAll(".comment-boxes").forEach(el => {
-      el.classList.add("hidden");
-    });
-    element.classList.add("border-primary-400");
-    element.classList.add("bg-primary-100");
-    element.classList.add("text-neutralcolor-700");
-    document.getElementById(container).classList.remove("hidden");
-  }
-  /*------------------REFRESH CAPTCHA-----------------------*/
-  async function reactionSubmit(id, type) {
-  
-    const response = await fetch("Client_CheckAuthentication.inc");
-    if (!response.ok) {
-      throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
-    } else {
-      let CheckAuthentication = await response.text();
-      if (CheckAuthentication === 'true') {
-        var xhr = new XMLHttpRequest();
-        var url = "/Like-Dislike.bc?id=" + encodeURIComponent(id) +
-          "&type=" + encodeURIComponent(type);
-        xhr.open("GET", url, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-            } else {
-            }
-          }
-        };
-        xhr.send();
-      } else {
-        showLoginContainer(this);
-      }
-    }
-  
-  
-  }
-  
-  function refresh_captcha(element, event) {
-    var form = element.closest('form');
-    var captchaElement = form.querySelector('.load-captcha');
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/Client_Captcha.bc', true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        captchaElement.innerHTML = xhr.responseText;
-      }
-    };
-    xhr.send();
-  }
-  
-  async function Reply_Comment(element) {
-    const responsereply = await fetch("Client_CheckAuthentication.inc");
-    if (!responsereply.ok) {
-      throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
-    } else {
-      let CheckAuthentication = await responsereply.text();
-      if (CheckAuthentication === 'true') {
-        var firstname = document.querySelector('.user-profile-content .default-name').innerText;
-        var lastname = document.querySelector('.user-profile-content .default-family').innerText;
-        element.closest('.opinionRow').querySelector('.reply-title').value = firstname + " " + lastname;
-        element.closest('.opinionRow').querySelector('.replyCommentForm').classList.toggle("hidden");
-      } else {
-        showLoginContainer(this);
-      }
-    }
-  }
-  
-  async function SubmitOpinionForm(element, event) {
-    event.preventDefault();
-    const response = await fetch("Client_CheckAuthentication.inc");
-    if (!response.ok) {
-      throw new Error('متاسفانه مشکلی به وجود آمده است لطفا بعدا مجددا تلاش فرمایید.');
-    } else {
-      let CheckAuthentication = await response.text();
-      if (CheckAuthentication === 'true') {
-        var form = new FormData(element.closest('form'));
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', element.closest('form').action, true);
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            document.getElementById('popupMessage').innerHTML = xhr.responseText;
-            document.getElementById('popuparticle').classList.remove("hidden");
-          } else {
-            document.getElementById('popupMessage').innerHTML = xhr.responseText;
-            document.getElementById('popuparticle').classList.remove("hidden");
-          }
-        };
-        xhr.send(form);
-        // window.location.reload();
-      } else {
-        showLoginContainer(this);
-      }
-    }
-   
-  }
-  
-  async function send_Reply(element, event) {
-    event.preventDefault();
-    var form = new FormData(element.closest('form'));
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', element.closest('form').action, true);
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        document.getElementById('popupMessage').innerHTML = xhr.responseText;
-        document.getElementById('popuparticle').classList.remove("hidden");
-      } else {
-        document.getElementById('popupMessage').innerHTML = xhr.responseText;
-        document.getElementById('popuparticle').classList.remove("hidden");
-      }
-    };
-    xhr.send(form);
-  }
-
-// comment section
-
-
-
-// visa-list _ visa
-
-function openVisaForm(el, modalId) {
-  const modal = document.getElementById(modalId);
-  let modalvisaclose ;
-  if (window.innerWidth < 1024) {
-    modalvisaclose = document.getElementById("closeModalVisa");
-    modalvisaclose.addEventListener('click', function (e) {
-      if (e.target === modalvisaclose) {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
-      }
-  });
-  }
-
-  if (modal) {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-  }
-
-  modal.addEventListener('click', function (e) {
-      if (e.target === modal && e.target !== modalvisaclose) {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
-      }
-  });
-
-  const modalContent = modal.querySelector('#visa-form-box');
-  modalContent.addEventListener('click', function (e) {
-      e.stopPropagation();
-  });
-}
-
-function uploadDocumentvisaForm(e) {
-  document.querySelector("#visa-request-form .Loading_Form").style.display =
-    "block";
-  let t = document
-    .querySelector("#visa-request-form")
-    .querySelector("#captchaContainer input[name='captcha']").value,
-    r = document
-      .querySelector("#visa-request-form")
-      .querySelector("#captchaContainer input[name='captchaid']").value,
-    i = JSON.stringify(e.source?.rows[0]);
-  $bc.setSource("cms.uploadvisaForm", {
-    value: i,
-    captcha: t,
-    captchaid: r,
-    run: !0,
-  });
-}
-function refreshCaptchavisaForm(e) {
-  $bc.setSource("captcha.refreshyq", !0);
-}
-function captchaRenderedvisaForm() {
-  document.querySelector("#visa-request-form .visaFormInput").placeholder =
-    "کد امنیتی";
-}
-async function OnProcessedEditObjecvisaForm(e) {
-  "6" == (await e.response.json()).errorid
-    ? ((document.querySelector(
-      "#visa-request-form .Loading_Form"
-    ).style.display = "none"),
-      (document.querySelector("#visa-request-form .message-api").innerHTML =
-        "درخواست شما با موفقیت ثبت شد."))
-    : (refreshCaptchavisaForm(),
-      setTimeout(() => {
-        (document.querySelector(
-          "#visa-request-form .Loading_Form"
-        ).style.display = "none"),
-          (document.querySelector(
-            "#visa-request-form .message-api"
-          ).innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید.");
-      }, 2e3));
-}
-async function RenderFormvisaForm() {
-
-  var e1=document.querySelector( "#visa-request-form .name-visa input" );
-  e1.setAttribute("placeholder", "نام و نام خانوادگی"); 
-  var e2=document.querySelector( "#visa-request-form .phone-visa input" );
-  e2.setAttribute("placeholder", "شماره تماس"); 
-  var e3=document.querySelector( "#visa-request-form .email-visa input" );
-  e3.setAttribute("placeholder", "ایمیل"); 
-  var e4=document.querySelector( "#visa-request-form .subject-visa input" );
-  e4.setAttribute("placeholder", "موضوع مشاوره"); 
-  var e5=document.querySelector( "#visa-request-form .age-visa input" );
-  e5.setAttribute("placeholder", "سن");
-}
-// visa-list _ visa
