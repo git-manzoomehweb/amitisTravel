@@ -109,10 +109,16 @@ module.exports = {
       backgroundImage: {
         'tour-texture': "url('../images/pattern-tour-mob.png')",
         'footer-mob-texture': "url('../images/footer-pattern-logo-amitis.png')",
+        'pattern-tringle-mob': "url('../images/pattern-tringle.svg')",
 
         'top-film-frame': "url('../images/top-film-frame-mob.png')",
         'bottom-film-frame': "url('../images/bottom-film-frame-mob.png')",
         'under-film-pattern': "url('../images/under-video-pattern.png')",
+
+        'mask-1': "url('../images/01-mask-image.jpg')",
+        'mask-2': "url('../images/02-mask-image.jpg')",
+        'mask-3': "url('../images/03-mask-image.jpg')",
+        
 
       },
       dropShadow: {

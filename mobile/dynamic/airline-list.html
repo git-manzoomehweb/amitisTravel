@@ -1,0 +1,88 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]"><member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.iid##]"><member name="internal-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328,3087666" perpage="8" size="64X40" order="ord" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.eid##]"><member name="external-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328,3087666" perpage="8" size="64X40" order="ord" /></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]"><member name="seotext" type="view" /></basis>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
+    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="pwa.inc" />
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="style.inc" />
+</head>
+<body class="font-yekanbakhregularFA">
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="header.inc"></basis>
+    <main class="w-full relative ">
+        <svg class="absolute h-0 w-0 ">
+            <clipPath id="airline-section1" clipPathUnits="objectBoundingBox">
+                <path d="M0,0.814 C0,0.814,0.295,1,0.5,1 C0.705,1,1,0.814,1,0.814 V0 L0,0 L0,0.814"></path>
+            </clipPath>
+        </svg>
+        <svg class="svg absolute h-0 w-0"><clipPath id="airline-section2" clipPathUnits="objectBoundingBox"><path d="M0,0 C0,0,0.295,0.07,0.5,0.07 C0.705,0.07,1,0,1,0 V1 H0 L0,0"></path></clipPath></svg>
+        <div class="clipped-airline-section1 z-[2] relative bg-blend-luminosity bg-left">
+            <div class="py-6 max-w-7xl mx-auto w-[95%]">
+
+                <ul class="flex h-12 items-end gap-x-3 justify-start font-yekanbakhregularFA text-base leading-[56px] "
+                    itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
+                            itemprop="item" href="/" aria-label="home"><svg class="inline-block ml-2" width="25" height="24"
+                                viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.9541 22.75H6.37406C3.63406 22.75 1.41406 20.52 1.41406 17.78V10.37C1.41406 9.00997 2.25406 7.29997 3.33406 6.45997L8.72406 2.25997C10.3441 0.999974 12.9341 0.939974 14.6141 2.11997L20.7941 6.44997C21.9841 7.27997 22.9141 9.05997 22.9141 10.51V17.79C22.9141 20.52 20.6941 22.75 17.9541 22.75ZM9.64406 3.43997L4.25406 7.63997C3.54406 8.19997 2.91406 9.46997 2.91406 10.37V17.78C2.91406 19.69 4.46406 21.25 6.37406 21.25H17.9541C19.8641 21.25 21.4141 19.7 21.4141 17.79V10.51C21.4141 9.54997 20.7241 8.21997 19.9341 7.67997L13.7541 3.34997C12.6141 2.54997 10.7341 2.58997 9.64406 3.43997Z"
+                                    fill="#FFF" />
+                                <path
+                                    d="M12.1641 18.75C11.7541 18.75 11.4141 18.41 11.4141 18V15C11.4141 14.59 11.7541 14.25 12.1641 14.25C12.5741 14.25 12.9141 14.59 12.9141 15V18C12.9141 18.41 12.5741 18.75 12.1641 18.75Z"
+                                    fill="#FFF" />
+                            </svg><span itemprop="name" class="text-white">صفحه اصلی</span>
+                            <meta itemprop="position" content="1">
+                        </a></li>
+                    <basis core="print" datamembername="db.navigation">
+                        <face filter="RowNumber=max(RowNumber) and parentcatid<>110383">
+                            <li class="text-secondary" itemprop="itemListElement" itemscope=""
+                                itemtype="https://schema.org/ListItem"><svg class="inline-block mx-2" width="9" height="14"
+                                    viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#FFF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg><span itemprop="name">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </li>
+                        </face>
+                        <face filter="link is null and parentcatid<>110383">
+                            <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
+                                    itemprop="item" href="/tour-list.bc?catid=@parentcatid" aria-label="@title"><svg
+                                        class="inline-block mx-2" width="9" height="14" viewBox="0 0 9 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#FFF" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg><span itemprop="name " class="text-white">@title</span>
+                                    <meta itemprop="position" content="@rownumber" />
+                                </a></li>
+                        </face>
+                        <face filter="parentcatid<>110383">
+                            <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
+                                    itemprop="item" href="@link" aria-label="@title"><svg class="inline-block mx-2" width="9"
+                                        height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#FFF" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg><span itemprop="name" class="text-white">@title</span>
+                                    <meta itemprop="position" content="@rownumber" />
+                                </a></li>
+                        </face>
+                    </basis>
+                </ul>
+                
+                <h1 class="text-white text-2xl font-yekanbakhboldFA ">ایرلاین ها</h1>
+                <h2 class="text-secondary text-sm font-yekanbakhregularFA ">بهترین ایرلاین های داخلی و خارجی</h2>
+            </div>
+        </div>
+        <basis core="list" datamembername="db.internal-airlines"><layout><div class=" -mt-10 z-[1] relative"><div class="max-w-7xl mx-auto w-[95%] pt-16"><h2 class="text-center text-sm font-yekanbakhsemiboldFA text-primary-900">ایرلاین های پرطرفدار داخلی</h2><svg class="mx-auto mt-4" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0" stroke-width="2" stroke-linecap="round" /><path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0" stroke-width="2" stroke-linecap="round" /></svg><div class="flex justify-start flex-wrap gap-8 mt-12 mb-3 max-xl:gap-x-0">@child </div></div></div></layout><face filter="link is null"><div class="w-fit max-xl:w-1/3 flex justify-center items-center "><article class="w-24 h-14 border border-error-200 bg-white rounded-lg group/airlinecard relative"><a href="airline.bc?id=@id"><figure><img class="group-hover/airlinecard:w-16 group-hover/airlinecard:h-8 object-contain mx-auto invisible h-0 w-0 group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" loading="lazy" width="64" height="32" alt="@title"></figure><figure class="-mt-6 w-[64px] h-[40px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px] group-hover/airlinecard:absolute group-hover/airlinecard:bottom-2 group-hover/airlinecard:right-1 transition-all duration-500"><img src="[##cms.cms.cdn##]/@00064X00040prp" loading="lazy" class="object-contain w-[64px] h-[40px] group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px]" width="64" height="40" alt="@title"></figure><h2 class="text-sm mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-2 group-hover/airlinecard:my-0 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500 line-clamp-1">@title</h2></a></article></div></face><face><div class="w-fit max-xl:w-1/3 flex justify-center items-center "><article class="w-24 h-14 border border-error-200 bg-white rounded-lg group/airlinecard relative"><a href="@link"><figure><img class="group-hover/airlinecard:w-16 group-hover/airlinecard:h-8 object-contain mx-auto invisible h-0 w-0 group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" loading="lazy" width="64" height="32" alt="@title"></figure><figure class="-mt-6 w-[64px] h-[40px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px] group-hover/airlinecard:absolute group-hover/airlinecard:bottom-2 group-hover/airlinecard:right-1 transition-all duration-500"><img src="[##cms.cms.cdn##]/@00064X00040prp" loading="lazy" class="object-contain w-[64px] h-[40px] group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px]" width="64" height="40" alt="@title"></figure><h2 class="text-sm mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-2 group-hover/airlinecard:my-0 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500 line-clamp-1">@title</h2></a></article></div></face></basis>
+        <basis core="list" datamembername="db.external-airlines"><layout><div class=" clipped-airline-section2 bg-primary-950 -z[5] relative h-[600px] bg-earth-pattern bg-cover bg-center"><div class="max-w-7xl mx-auto w-[95%] pt-16"><h2 class="text-center text-sm font-yekanbakhsemiboldFA text-white">ایرلاین های پرطرفدار خارجی </h2><svg class="mx-auto mt-4" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#CCC" stroke-width="2" stroke-linecap="round" /><path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#FFF" stroke-width="2" stroke-linecap="round" /></svg><div class="flex justify-start flex-wrap gap-8 mt-12 mb-4 max-xl:gap-x-0">@child </div></div></div></layout><face filter="link is null"><div class="w-fit max-xl:w-1/3 flex justify-center items-center "><article class="w-24 h-14 border border-error-200 bg-white rounded-lg group/airlinecard relative"><a href="airline.bc?id=@id"><figure><img class="group-hover/airlinecard:w-16 group-hover/airlinecard:h-8 object-contain mx-auto invisible h-0 w-0 group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" loading="lazy" width="64" height="32" alt="@title"></figure><figure class="-mt-6 w-[64px] h-[40px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px] group-hover/airlinecard:absolute group-hover/airlinecard:bottom-2 group-hover/airlinecard:right-1 transition-all duration-500"><img src="[##cms.cms.cdn##]/@00064X00040prp" loading="lazy" class="object-contain w-[64px] h-[40px] group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px]" width="64" height="40" alt="@title"></figure><h2 class="text-sm mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-2 group-hover/airlinecard:my-0 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500 line-clamp-1">@title</h2></a></article></div></face><face><div class="w-fit max-xl:w-1/3 flex justify-center items-center "><article class="w-24 h-14 border border-error-200 bg-white rounded-lg group/airlinecard relative"><a href="@link"><figure><img class="group-hover/airlinecard:w-16 group-hover/airlinecard:h-8 object-contain mx-auto invisible h-0 w-0 group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" loading="lazy" width="64" height="32" alt="@title"></figure><figure class="-mt-6 w-[64px] h-[40px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px] group-hover/airlinecard:absolute group-hover/airlinecard:bottom-2 group-hover/airlinecard:right-1 transition-all duration-500"><img src="[##cms.cms.cdn##]/@00064X00040prp" loading="lazy" class="object-contain w-[64px] h-[40px] group-hover/airlinecard:w-[19px] group-hover/airlinecard:h-[12px]" width="64" height="40" alt="@title"></figure><h2 class="text-sm mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-2 group-hover/airlinecard:my-0 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500 line-clamp-1">@title</h2></a></article></div></face></basis>
+        <basis core="list" datamembername="db.seotext"><layout><section class="w-full mt-2">@child </section></layout><face filter="TypeID in(150)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-base leading-10 p-2 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">@text</h2><hr class="w-full"></face><face filter="TypeID in(129)"><div class="bg-white py-3 px-3 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">@largetext </div></face><face filter="TypeID in(250)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-base leading-10 p-2 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">@text</h2><hr class="w-full"><div class="bg-white py-3 px-3 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">@largetext </div></face></basis>
+    </main>
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="footer.inc"></basis>
+</body>
+</html>

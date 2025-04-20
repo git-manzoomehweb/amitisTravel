@@ -15,6 +15,7 @@
 
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.bid##]">
     <member name="herotext" type="view" />
+    <member name="bannerimage" type="view" postsql="select text from [db.bannerimage] where TypeID in(159)" />
     <member name="herotitle" type="view" postsql="select text from [db.herotitle] where TypeID in(150)" />
 </basis>
 
@@ -63,6 +64,10 @@
         </face>
     </basis>
 
+
+    <link rel="preload" as="image"
+    imageSrcSet="[##cms.cms.cdn##]/[##db.bannerimage.text|(images/image-not-found-752X456.jpg)##]"
+    fetchpriority="high" />
 
     <!-- pwa metatags -->
     <basis core="call" file="pwa.inc" />
@@ -232,11 +237,13 @@
                     </div>
                     </div>
                 </face>
-                <face filter="TypeID in(159)">
-                    <figure class="w-5/12 h-[464px] absolute left-0 top-0 bottom-0 -z-10"><img
-                            class="w-full object-cover h-full " src="@text" width="752" height="456" alt="@Question"></figure>
-                </face>
             </basis>
+
+
+
+
+                <figure class="w-5/12 h-[464px] absolute left-0 top-0 bottom-0 -z-10">
+                    <img class="w-full object-cover h-full " src="[##cms.cms.cdn##]/images/image-not-found-752X456.jpg##]" data-src="[##cms.cms.cdn##]/[##db.bannerimage.text##]" width="752" height="456" alt="banner"></figure>
             <div
                 class="-z-10 absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-gradient-to-l from-white from-60% to-80% to-transparent ">
             </div>
@@ -578,7 +585,7 @@
                 </layout>
                 <face rowtype="odd" filter="TypeID in(250)"  >
                     <article class="w-full  flex justify-between items-center" >
-                        <span class="w-5/12 leading-[300px] bg-clip-text bg-cover text-transparent text-[300px] font-MontserratAlternatesBold bg-mask-1">0@RowNumber</span>
+                        <span class="w-5/12 leading-[300px] bg-clip-text bg-cover text-transparent text-[300px] font-MontserratAlternatesBold bg-mask-@RowNumber">0@RowNumber</span>
 
                         <div class="w-7/12 ">
                             <h2 class="text-2xl font-yekanbakhsemiboldFA text-txtneutral-900 leading-8 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-6 before:h-6 before:rounded-xl before:inline-block mb-6 "><span class="mr-10">@text</span></h2>
@@ -605,7 +612,7 @@
 
                         </div>
 
-                        <span class="w-5/12 leading-[300px] bg-clip-text bg-cover text-transparent text-[300px] font-MontserratAlternatesBold bg-mask-2">0@RowNumber</span>
+                        <span class="w-5/12 leading-[300px] bg-clip-text bg-cover text-transparent text-[300px] font-MontserratAlternatesBold bg-mask-@RowNumber">0@RowNumber</span>
 
 
                     </article>

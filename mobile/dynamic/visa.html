@@ -10,7 +10,6 @@
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.sid##]">
     <member name="visa_benefits" type="view" postsql="select * from [db.visa_benefits] where TypeID in(250)" />
 </basis>
-
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.bid##]">
     <member name="herotext" type="view" />
     <member name="bannerimage" type="view" postsql="select text from [db.bannerimage] where TypeID in(159)" />
@@ -23,17 +22,16 @@
     <member name="landing" type="view" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.vid##]">
-    <member name="visa-type" type="list" link="article.bc" propertyid="7244,7249" size="624X224" typeid="159"
+    <member name="visa-type" type="list" link="article.bc" propertyid="7244,7249"  typeid="159"
         perpage="50" order="ord"></member>
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.oid##]">
-    <member name="other-services" type="list" link="article.bc" propertyid="7244,7249" size="464X160" typeid="159"
+    <member name="other-services" type="list" link="article.bc" propertyid="7244,7249"  typeid="159"
         perpage="50" order="ord"></member>
 </basis>
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.getid##]">
     <member name="get-visa-levels" type="view" postsql="select * from [db.get-visa-levels] where TypeID in(250)" />
 </basis>
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -62,9 +60,6 @@
 
 <body class="bg-neutral-50">
     <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"></basis>
-
-
-
     <main class="mt-3 ">
         <div class=" mb-3 clear-both h-10 rounded-2xl flex justify-between items-center px-2"><svg
                 class=" block w-6 h-[25px] leading-10 my-2" width="25" height="24" viewBox="0 0 25 24" fill="none"
@@ -130,46 +125,8 @@
                 class="w-[95%] -mt-8 absolute -bottom-4 left-0 right-0 mx-auto rounded-[40px] flex justify-evenly gap-x-3">
                 <div id="sharebutton"
                     class="group/sharebutton share-container float-left w-28 h-10 relative z-[999] transition-all duration-500 ">
-                    <div id="sharebutton-content" onclick="ShareSocialMediaMob(event, 'sharebutton')"
-                        class="w-28 h-10 rounded-[28px] bg-white drop-shadow-xl cursor-pointer transition-all duration-500 z-20 ">
-                        <div
-                            class="bg-activation-sharebtn bg-primary w-6 h-6 rounded-full drop-shadow-md absolute top-0 bottom-0 left-0 my-auto mx-1 -z-10 ">
-                        </div>
-                        <div class="flex justify-between items-center h-10"><span
-                                class="text-share-box text-txtneutral-500 w-[calc(100%-23px)] text-center block text-xs font-yekanbakhregularFA">اشتراک
-                                گذاری </span><svg width="32" height="32"
-                                class="group-hover/sharebutton:fill-white scale-75 ">
-                                <use href="./images/sprite-icons.svg#sharebutton"></use>
-                            </svg></div>
-                    </div>
-                    <ul
-                        class="socialmedia-box-share invisible opacity-0 w-full flex flex-col gap-y-2 items-center drop-shadow-none bg-white pt-10 border border-primary absolute top-0 left-0 right-0 -z-50 rounded-[28px] transition-all duration-500 ">
-                        <li class=""><a class="flex justify-center items-center cursor-pointer"
-                                href="https://telegram.me/share/url?url=[##cms.request.full-url##]&text=''"
-                                target="_blank" aria-label="telegram"><svg width="24" height="24">
-                                    <use href="./images/sprite-icons.svg#sharebox-telegram"></use>
-                                </svg></a></li>
-                        <li class=""><a class="flex justify-center items-center cursor-pointer"
-                                href="whatsapp://send?text=[##cms.request.full-url##]" target="_blank"
-                                aria-label="whatsapp"><svg width="24" height="24">
-                                    <use href="./images/sprite-icons.svg#sharebox-whatsapp"></use>
-                                </svg></a></li>
-                        <li class=""><a class="flex justify-center items-center cursor-pointer"
-                                href="mailto:?subject=Check%20this%20out&body=I%20found%20this%20interesting%20and%20wanted%20to%20share%20it%20with%20you:%20[##cms.request.full-url##]"
-                                target="_blank" aria-label="email"><svg width="24" height="24">
-                                    <use href="./images/sprite-icons.svg#sharebox-email"></use>
-                                </svg></a></li>
-                        <li class=""><a class="flex justify-center items-center cursor-pointer"
-                                href="https://twitter.com/home?status=[##cms.request.full-url##]" target="_blank"
-                                aria-label="twitter"><svg width="24" height="24">
-                                    <use href="./images/sprite-icons.svg#sharebox-twitter"></use>
-                                </svg></a></li>
-                        <li class=""><a class="flex justify-center items-center cursor-pointer"
-                                href="https://www.facebook.com/sharer/sharer.php?u=[##cms.request.full-url##]"
-                                target="_blank" aria-label="facebook"><svg width="24" height="24">
-                                    <use href="./images/sprite-icons.svg#sharebox-facebook"></use>
-                                </svg></a></li>
-                    </ul>
+                    <div id="sharebutton-content" onclick="ShareSocialMediaMob(event, 'sharebutton')" class="w-28 h-10 rounded-[28px] bg-white drop-shadow-xl cursor-pointer transition-all duration-500 z-20 "><div class="bg-activation-sharebtn bg-primary w-6 h-6 rounded-full drop-shadow-md absolute top-0 bottom-0 left-0 my-auto mx-1 -z-10 "></div><div class="flex justify-between items-center h-10"><span class="text-share-box text-txtneutral-500 w-[calc(100%-23px)] text-center block text-xs font-yekanbakhregularFA">اشتراک گذاری </span><svg width="32" height="32" class="group-hover/sharebutton:fill-white scale-75 "><use href="./images/sprite-icons.svg#sharebutton"></use></svg></div></div>
+                    <ul class="socialmedia-box-share invisible opacity-0 w-full flex flex-col gap-y-2 items-center drop-shadow-none bg-white pt-10 border border-primary absolute top-0 left-0 right-0 -z-50 rounded-[28px] transition-all duration-500 "><li class=""><a class="flex justify-center items-center cursor-pointer" href="https://telegram.me/share/url?url=[##cms.request.full-url##]&text=''" target="_blank" aria-label="telegram"><svg width="24" height="24"><use href="./images/sprite-icons.svg#sharebox-telegram"></use></svg></a></li><li class=""><a class="flex justify-center items-center cursor-pointer" href="whatsapp://send?text=[##cms.request.full-url##]" target="_blank" aria-label="whatsapp"><svg width="24" height="24"><use href="./images/sprite-icons.svg#sharebox-whatsapp"></use></svg></a></li><li class=""><a class="flex justify-center items-center cursor-pointer" href="mailto:?subject=Check%20this%20out&body=I%20found%20this%20interesting%20and%20wanted%20to%20share%20it%20with%20you:%20[##cms.request.full-url##]" target="_blank" aria-label="email"><svg width="24" height="24"><use href="./images/sprite-icons.svg#sharebox-email"></use></svg></a></li><li class=""><a class="flex justify-center items-center cursor-pointer" href="https://twitter.com/home?status=[##cms.request.full-url##]" target="_blank" aria-label="twitter"><svg width="24" height="24"><use href="./images/sprite-icons.svg#sharebox-twitter"></use></svg></a></li><li class=""><a class="flex justify-center items-center cursor-pointer" href="https://www.facebook.com/sharer/sharer.php?u=[##cms.request.full-url##]" target="_blank" aria-label="facebook"><svg width="24" height="24"><use href="./images/sprite-icons.svg#sharebox-facebook"></use></svg></a></li></ul>
                 </div>
                 <div onclick="openVisaForm(this , 'visa-form')"
                     class="group/visa-form float-left w-28 h-10 relative z-50 transition-all duration-500 ">
@@ -227,7 +184,7 @@
         <basis core="list" datamembername="db.visa_benefits">
             <layout>
                 <section
-                    class="flex justify-start gap-8 max-w-5xl mx-auto flex-wrap my-8 max-xl:justify-center max-xl:gap-y-4">
+                    class="flex justify-center gap-8 max-w-5xl mx-auto flex-wrap my-8 ">
                     @child </section>
             </layout>
             <face>
@@ -255,18 +212,10 @@
                 </article>
             </face>
         </basis>
-
-
-
-
-
-
         <basis core="list" datamembername="db.visa-type">
             <layout>
-                <section id="all-visa-type" class="w-full mx-auto bg-neutralcolor-50  my-3">
+                <section id="all-visa-type" class="w-full mx-auto bg-neutralcolor-50 my-3">
                     <div class=" text-center relative ">
-
-
                         <div
                             class="min-h-12 relative bg-gradient-to-r from-0 via-70% to-100% to-[#FFA200]/70 via-[#FFA200]/20 from-white clear-both flex justify-between">
                             <div>
@@ -275,9 +224,7 @@
                                 <h2
                                     class="text-secondary leading-[48px] font-yekanbakhlightFA text-sm inline-block w-fit">
                                     انواع <span class="font-yekanbakhboldFA">ویزا موقت
-
-                                        <span>[##db.herotitle.text##]</span>
-                                    </span></h2>
+                                        <span>[##db.herotitle.text##]</span></span></h2>
                             </div>
                         </div>
                         <div class="mt-3 max-w-5xl mx-auto w-[95%]">@child </div>
@@ -285,419 +232,292 @@
                 </section>
             </layout>
             <face rowtype="odd" filter="link is null">
-                <article class="w-full mb-20 group/visa-article-card h-[224px] ">
-                    <a href="/article.bc?id=@id" class="flex justify-between ">
+                <article class="w-full mb-4 group/visa-article-card h-[224px] "><a href="/article.bc?id=@id"
+                        class="flex justify-between ">
                         <div class="w-6/12 ">
                             <h2
-                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
+                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-4 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
                                 <span class="mr-5">@title</span></h2>
                             <div
-                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-5">
-                                @prp_7244 </div>
-
-                            <span class="
-                                                                    group-hover/visa-article-card:border-primary group-hover/visa-article-card:bg-primary-50  w-fit transition-all duration-300
-                                                                    text-primary cursor-pointer float-left h-10
-                                                                    text-sm font-danabold  border border-white  rounded-2xl  px-2
-                            
-                                                                flex gap-x-2 py-2 
-                                                                    
-                                                                    ">مشاهده بیشتر
-
-                                <span class="group-hover/visa-article-card:w-[22px] group-hover/visa-article-card:h-[22px] rounded-full bg-white hidden group-hover/visa-article-card:flex justify-center items-center  
-                                                                    transition-all duration-300
-                                                                     ">
-                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-6">
+                                @prp_7244 </div><span
+                                class=" border-primary bg-primary-50 transition-all duration-300 text-primary cursor-pointer h-10 text-sm font-danabold border w-full rounded-[100px] px-2 flex justify-center items-center mt-2 gap-x-2 py-2 ">مشاهده
+                                بیشتر <span
+                                    class="w-[22px] h-[22px] rounded-full bg-white flex justify-center items-center transition-all duration-300 "><svg
+                                        width="7" height="12" viewBox="0 0 7 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 1L1.43945 5.56055L6 10.1211" stroke="#005FF0" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </span>
-
+                                    </svg></span></span>
                         </div>
                         <div class="w-[624px] max-xl:w-5/12">
-                            <figure>
-                                <img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
-                                    data-src="[##cms.cms.cdn##]/@00624X00224prp"
+                            <figure><img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
+                                    data-src="[##cms.cms.cdn##]/@type_159"
                                     src="[##cms.cms.cdn##]/images/image-not-found-624X224.jpg" width="624" height="224"
-                                    alt="@title">
-                            </figure>
+                                    alt="@title"></figure>
                         </div>
-                    </a>
-                </article>
+                    </a></article>
             </face>
             <face rowtype="odd">
-                <article class="w-full mb-20 group/visa-article-card h-[224px] ">
-                    <a href="@link" class="flex justify-between ">
+                <article class="w-full mb-4 group/visa-article-card h-[224px] "><a href="@link"
+                        class="flex justify-between ">
                         <div class="w-6/12 ">
                             <h2
-                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
+                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-4 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
                                 <span class="mr-5">@title</span></h2>
-
                             <div
-                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-5">
-                                @prp_7244
-                            </div>
-
-                            <span class="
-                                                                    group-hover/visa-article-card:border-primary group-hover/visa-article-card:bg-primary-50  w-fit transition-all duration-300
-                                                                    text-primary cursor-pointer float-left h-10
-                                                                    text-sm font-danabold  border border-white  rounded-2xl  px-2
-                            
-                                                                flex gap-x-2 py-2 
-                                                                    
-                                                                    ">مشاهده بیشتر
-
-                                <span class="group-hover/visa-article-card:w-[22px] group-hover/visa-article-card:h-[22px] rounded-full bg-white hidden group-hover/visa-article-card:flex justify-center items-center  
-                                                                    transition-all duration-300
-                                                                     ">
-                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-6">
+                                @prp_7244 </div><span
+                                class=" border-primary bg-primary-50 transition-all duration-300 text-primary cursor-pointer h-10 text-sm font-danabold border w-full rounded-[100px] px-2 flex justify-center items-center mt-2 gap-x-2 py-2 ">مشاهده
+                                بیشتر <span
+                                    class="w-[22px] h-[22px] rounded-full bg-white flex justify-center items-center transition-all duration-300 "><svg
+                                        width="7" height="12" viewBox="0 0 7 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 1L1.43945 5.56055L6 10.1211" stroke="#005FF0" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </span>
-
+                                    </svg></span></span>
                         </div>
                         <div class="w-[624px] max-xl:w-5/12">
-                            <figure>
-                                <img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
-                                    data-src="[##cms.cms.cdn##]/@00624X00224prp"
+                            <figure><img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
+                                    data-src="[##cms.cms.cdn##]/@type_159"
                                     src="[##cms.cms.cdn##]/images/image-not-found-624X224.jpg" width="624" height="224"
-                                    alt="@title">
-                            </figure>
+                                    alt="@title"></figure>
                         </div>
-                    </a>
-                </article>
+                    </a></article>
             </face>
             <face rowtype="even" filter="link is null">
-                <article class="w-full mb-20 group/visa-article-card h-[224px] ">
-                    <a href="/article.bc?id=@id" class="flex justify-between ">
+                <article class="w-full mb-4 group/visa-article-card h-[224px] "><a href="/article.bc?id=@id"
+                        class="flex justify-between ">
                         <div class="w-[624px] max-xl:w-5/12">
-                            <figure>
-                                <img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
-                                    data-src="[##cms.cms.cdn##]/@00624X00224prp"
-                                    src="[##cms.cms.cdn##]/images/image-not-found-624X224.jpg" alt="@title">
-                            </figure>
+                            <figure><img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
+                                    data-src="[##cms.cms.cdn##]/@type_159"
+                                    src="[##cms.cms.cdn##]/images/image-not-found-624X224.jpg" alt="@title"></figure>
                         </div>
-
                         <div class="w-6/12 ">
                             <h2
-                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
+                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-4 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
                                 <span class="mr-5">@title</span></h2>
-
                             <div
-                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-5">
-                                @prp_7244
-                            </div>
-
-                            <span class="
-                                                                    group-hover/visa-article-card:border-primary group-hover/visa-article-card:bg-primary-50  w-fit transition-all duration-300
-                                                                    text-primary cursor-pointer float-left h-10
-                                                                    text-sm font-danabold  border border-white  rounded-2xl  px-2
-                            
-                                                                flex gap-x-2 py-2 
-                                                                    
-                                                                    ">مشاهده بیشتر
-
-                                <span class="group-hover/visa-article-card:w-[22px] group-hover/visa-article-card:h-[22px] rounded-full bg-white hidden group-hover/visa-article-card:flex justify-center items-center  
-                                                                    transition-all duration-300
-                                                                     ">
-                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-6">
+                                @prp_7244 </div><span
+                                class=" border-primary bg-primary-50 transition-all duration-300 text-primary cursor-pointer h-10 text-sm font-danabold border w-full rounded-[100px] px-2 flex justify-center items-center mt-2 gap-x-2 py-2 ">مشاهده
+                                بیشتر <span
+                                    class="w-[22px] h-[22px] rounded-full bg-white flex justify-center items-center transition-all duration-300 "><svg
+                                        width="7" height="12" viewBox="0 0 7 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 1L1.43945 5.56055L6 10.1211" stroke="#005FF0" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </span>
-
+                                    </svg></span></span>
                         </div>
-
-                    </a>
-                </article>
+                    </a></article>
             </face>
             <face rowtype="even">
-                <article class="w-full mb-20 group/visa-article-card h-[224px] ">
-                    <a href="@link" class="flex justify-between ">
+                <article class="w-full mb-4 group/visa-article-card h-[224px] "><a href="@link"
+                        class="flex justify-between ">
                         <div class="w-[624px] max-xl:w-5/12">
-                            <figure>
-                                <img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
-                                    data-src="[##cms.cms.cdn##]/@00624X00224prp"
-                                    src="[##cms.cms.cdn##]/images/image-not-found-624X224.jpg" alt="@title">
-                            </figure>
+                            <figure><img class="w-[624px] h-[224px] rounded-2xl object-cover max-xl:w-full"
+                                    data-src="[##cms.cms.cdn##]/@type_159"
+                                    src="[##cms.cms.cdn##]/images/image-not-found-624X224.jpg" alt="@title"></figure>
                         </div>
-
                         <div class="w-6/12 ">
                             <h2
-                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
+                                class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-9 h-9 border-b border-neutralcolor-800 before:leading-9 text-right before:absolute before:mt-4 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-3 ">
                                 <span class="mr-5">@title</span></h2>
-
                             <div
-                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-5">
-                                @prp_7244
-                            </div>
-
-                            <span class="
-                                                                    group-hover/visa-article-card:border-primary group-hover/visa-article-card:bg-primary-50  w-fit transition-all duration-300
-                                                                    text-primary cursor-pointer float-left h-10
-                                                                    text-sm font-danabold  border border-white  rounded-2xl  px-2
-                            
-                                                                flex gap-x-2 py-2 
-                                                                    
-                                                                    ">مشاهده بیشتر
-
-                                <span class="group-hover/visa-article-card:w-[22px] group-hover/visa-article-card:h-[22px] rounded-full bg-white hidden group-hover/visa-article-card:flex justify-center items-center  
-                                                                    transition-all duration-300
-                                                                     ">
-                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-6">
+                                @prp_7244 </div><span
+                                class=" border-primary bg-primary-50 transition-all duration-300 text-primary cursor-pointer h-10 text-sm font-danabold border w-full rounded-[100px] px-2 flex justify-center items-center mt-2 gap-x-2 py-2 ">مشاهده
+                                بیشتر <span
+                                    class="w-[22px] h-[22px] rounded-full bg-white flex justify-center items-center transition-all duration-300 "><svg
+                                        width="7" height="12" viewBox="0 0 7 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 1L1.43945 5.56055L6 10.1211" stroke="#005FF0" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </span>
-
+                                    </svg></span></span>
                         </div>
-
-                    </a>
-                </article>
+                    </a></article>
             </face>
         </basis>
-
         <basis core="list" datamembername="db.other-services">
             <layout>
-                <section
-                    class="max-w-5xl mx-auto max-xl:w-[95%] my-10 border border-neutralcolor-800 rounded-2xl p-5 relative ">
-                    <h2
-                        class="w-[264px] mx-auto bg-white text-center font-yekanbakhboldFA text-xl text-black leading-10 absolute left-0 right-0 -top-5 after:content-[''] after:w-1 after:h-1 after:rounded-full after:bg-neutralcolor-800 after:inline-block after:absolute after:top-5 after:left-0 after:bottom-5 after:-mt-[2.5px] before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-neutralcolor-800 before:inline-block before:absolute before:top-5 before:right-0 before:bottom-5 before:-mt-[2.5px] ">
-                        سایر خدمات</h2>
-                    <div class="py-6 px-28 flex justify-between flex-wrap gap-y-5 max-xl:px-6">
-                        @child
+                <section class="w-full bg-white pt-1">
+                    <div
+                        class="max-w-5xl mx-auto max-xl:w-[95%] my-10 border border-neutralcolor-800 rounded-2xl p-5 relative">
+                        <h2
+                            class="w-[264px] mx-auto bg-white text-center font-yekanbakhsemiboldFA text-sm text-black leading-10 absolute left-0 right-0 -top-5 after:content-[''] after:w-1 after:h-1 after:rounded-full after:bg-neutralcolor-800 after:inline-block after:absolute after:top-5 after:left-0 after:bottom-5 after:-mt-[2.5px] before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-neutralcolor-800 before:inline-block before:absolute before:top-5 before:right-0 before:bottom-5 before:-mt-[2.5px] ">
+                            سایر خدمات</h2>
+                        <div class=" flex justify-between flex-wrap gap-2">@child </div>
                     </div>
                 </section>
             </layout>
             <face filter="link is null">
-                <article class="relative w-[464px] h-[160px] overflow-hidden rounded-lg shadow-lg group max-xl:w-[48%]">
-                    <figure class="relative w-[464px] h-[160px] max-xl:w-full">
-                        <img src="@00464X00160prp" alt="@title" class="w-full h-full object-cover">
-
+                <article class="relative w-[136px] h-[88px] overflow-hidden rounded-lg shadow-lg group max-xl:w-[48%]">
+                    <figure class="relative w-[136px] h-[88px] max-xl:w-full"><img  data-src="[##cms.cms.cdn##]/@type_159"
+                        src="[##cms.cms.cdn##]/images/image-not-found-136X88.jpg" width="136" height="88"
+                         alt="@title"
+                            class="w-full h-full object-cover">
                         <h2
-                            class="z-[3] absolute bottom-0 left-0 right-0 mx-auto
-                                        text-txtneutral-900 font-yekanbakhregularFA text-center  text-2xl  group-hover:animate-bounce-text transition-all duration-500 my-5">
+                            class="z-[3] absolute bottom-0 left-0 right-0 mx-auto text-txtneutral-900 font-yekanbakhregularFA text-center text-xs group-hover:animate-bounce-text transition-all duration-500 my-2">
                             @title</h2>
                         <div
-                            class="z-[2] absolute -left-5 -right-5 -bottom-8 h-[94px] w-[515px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80  transition-all duration-100 ease-linear group-hover:scale-[350%]">
+                            class="z-[2] absolute -left-5 -right-5 -bottom-4 h-12 w-[144px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80 transition-all duration-100 ease-linear group-hover:scale-[350%]">
                         </div>
                         <div
-                            class="z-[1] absolute -left-5 -right-5 -bottom-5 h-[94px] w-[515px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80 transition-all duration-1000 ease-in-out ">
+                            class="z-[1] absolute -left-5 -right-5 -bottom-2 h-12 w-[144px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80 transition-all duration-1000 ease-in-out ">
                         </div>
-
                     </figure>
                 </article>
             </face>
             <face>
-                <article class="relative w-[464px] h-[160px] overflow-hidden rounded-lg shadow-lg group max-xl:w-[48%]">
-                    <figure class="relative w-[464px] h-[160px] max-xl:w-full">
-                        <img src="@00464X00160prp" alt="@title" class="w-full h-full object-cover">
-
+                <article class="relative w-[136px] h-[88px] overflow-hidden rounded-lg shadow-lg group max-xl:w-[48%]">
+                    <figure class="relative w-[136px] h-[88px] max-xl:w-full"><img data-src="[##cms.cms.cdn##]/@type_159"
+                        src="[##cms.cms.cdn##]/images/image-not-found-136X88.jpg" width="136" height="88" alt="@title"
+                            class="w-full h-full object-cover">
                         <h2
-                            class="z-[3] absolute bottom-0 left-0 right-0 mx-auto
-                                        text-txtneutral-900 font-yekanbakhregularFA text-center  text-2xl  group-hover:animate-bounce-text transition-all duration-500 my-5">
+                            class="z-[3] absolute bottom-0 left-0 right-0 mx-auto text-txtneutral-900 font-yekanbakhregularFA text-center text-xs group-hover:animate-bounce-text transition-all duration-500 my-2">
                             @title</h2>
                         <div
-                            class="z-[2] absolute -left-5 -right-5 -bottom-8 h-[94px] w-[515px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80  transition-all duration-100 ease-linear group-hover:scale-[350%]">
+                            class="z-[2] absolute -left-5 -right-5 -bottom-4 h-12 w-[144px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80 transition-all duration-100 ease-linear group-hover:scale-[350%]">
                         </div>
                         <div
-                            class="z-[1] absolute -left-5 -right-5 -bottom-5 h-[94px] w-[515px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80 transition-all duration-1000 ease-in-out ">
+                            class="z-[1] absolute -left-5 -right-5 -bottom-2 h-12 w-[144px] max-xl:w-[120%] max-xl:mx-auto rounded-[50%] bg-neutral-50 bg-opacity-80 transition-all duration-1000 ease-in-out ">
                         </div>
-
                     </figure>
                 </article>
             </face>
         </basis>
-
 
 
 
         <basis core="list" datamembername="db.get-visa-levels">
             <layout>
-                <section id="get-visa" class="max-w-5xl mx-auto text-center relative mt-12 max-xl:w-[95%]">
-                    <h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative
-                                                    before:content-[' '] before:w-20 before:h-20 
-                                                    before:bg-secondary before:opacity-20 before:rounded-full
-                                                    before:block before:absolute before:-right-10 before:-top-4">مراحل
-                        <span class="font-yekanbakhboldFA">اخذ ویزای
-                            <span>
-                                [##db.herotitle.text##]
-                            </span>
-                        </span>
-
-                    </h2>
-
-                    <div class="my-12 divide-y ">
-                        @child
+                <section id="get-visa" class=" text-center relative mt-12 ">
+                    <div
+                    class="min-h-12 relative bg-gradient-to-r from-0 via-70% to-100% to-[#FFA200]/70 via-[#FFA200]/20 from-white clear-both flex justify-between">
+                    <div>
+                        <div class="min-h-12 h-12 w-6 bg-white/50 rounded-l-full inline-block float-right ml-4">
+                        </div>
+                        <h2
+                            class="text-secondary leading-[48px] font-yekanbakhlightFA text-sm inline-block w-fit">
+                            مراحل <span class="font-yekanbakhboldFA">اخذ ویزای <span>[##db.herotitle.text##]</span></span></h2>
                     </div>
+                </div>
 
+
+                    <div class="max-w-5xl mx-auto max-xl:w-[95%]">@child </div>
                 </section>
             </layout>
-            <face rowtype="odd" filter="TypeID in(250)">
-                <article class="w-full  flex justify-between items-center">
-                    <span
-                        class="w-5/12 leading-[300px] bg-clip-text bg-cover text-transparent text-[300px] font-MontserratAlternatesBold bg-mask-1">0@RowNumber</span>
+            <face filter="TypeID in(250)">
+                <article class="w-full flex flex-col justify-between items-center my-4">
 
-                    <div class="w-7/12 ">
+                    <div class="flex items-center w-full gap-x-3">
+                        <span class="leading-[100px] bg-clip-text bg-cover text-transparent text-[100px] font-MontserratAlternatesBold bg-mask-@RowNumber">
+                            0@RowNumber
+                        </span>
+
                         <h2
-                            class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-8 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-6 ">
+                            class="border-b border-neutralcolor-800 text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-10 text-right before:absolute before:mt-3 
+                            before:ml-5 before:content-[''] before:leading-10 before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block">
                             <span class="mr-5">@text</span></h2>
-
-                        <div
-                            class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-5">
-                            @largetext
-                        </div>
-
-
-
                     </div>
-                </article>
-            </face>
-            <face rowtype="even" filter="TypeID in(250)">
-                <article class="w-full  flex justify-between items-center">
-                    <div class="w-7/12 ">
-                        <h2
-                            class="text-base font-yekanbakhsemiboldFA text-txtneutral-900 leading-8 text-right before:absolute before:mt-1 before:ml-5 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block mb-6 ">
-                            <span class="mr-5">@text</span></h2>
-
+                    <div class="w-full ">
                         <div
-                            class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-5">
-                            @largetext
-                        </div>
-
-
-
+                            class="text-justify text-sm text-txtneutral-900 font-IRANYekanRegularMobileFA line-clamp-5 leading-6">
+                            @largetext </div>
                     </div>
-
-                    <span
-                        class="w-5/12 leading-[300px] bg-clip-text bg-cover text-transparent text-[300px] font-MontserratAlternatesBold bg-mask-2">0@RowNumber</span>
-
-
                 </article>
             </face>
         </basis>
 
 
-        <section id="visa-docs" class="max-w-5xl mx-auto text-center relative mt-12 max-xl:w-[95%]">
-            <h2 class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative
-                                            before:content-[' '] before:w-20 before:h-20 
-                                            before:bg-secondary before:opacity-20 before:rounded-full
-                                            before:block before:absolute before:-right-10 before:-top-4">مدارک
-                <span class="font-yekanbakhboldFA">لازم برای مهاجرت به
-                    <span>[##db.herotitle.text##]</span>
-                </span>
-            </h2>
-            <div class="my-12 ">
+
+
+
+        <section id="visa-docs" class=" text-center relative mt-12">
+
+        <div
+            class="min-h-12 relative bg-gradient-to-r from-0 via-70% to-100% to-[#FFA200]/70 via-[#FFA200]/20 from-white clear-both flex justify-between">
+            <div class="min-h-12 h-12 w-6 bg-white/50 rounded-l-full inline-block float-right ml-4"></div>
+            <div class="flex justify-start flex-wrap mx-auto w-[95%]">
+                <h2 class="text-secondary leading-[48px] font-yekanbakhlightFA text-sm inline-block w-fit">مدارک <span
+                        class="font-yekanbakhboldFA">لازم برای مهاجرت به <span>[##db.herotitle.text##]</span></span></h2>
+            </div>
+        </div>
+            
+            <div class="my-4  max-w-5xl mx-auto max-xl:w-[95%]">
                 <basis core="list" datamembername="db.visa-docs">
-
-
                     <face filter="TypeID in(159)">
                         <div class="flex justify-between flex-col items-center ">
-                            <figure class="w-[360px] h-[400px] overflow-hidden rounded-2xl">
-                                <img class="w-[360px] h-[400px] object-cover " src="@text" width="360" height="400"
-                                    alt="@Question">
-                            </figure>
-
+                            <figure class="w-[320px] h-[136px] overflow-hidden rounded-2xl"><img
+                                    class="w-[320px] h-[136px] object-cover max-sm:w-[95%] mx-auto" src="@text" width="320" height="136"
+                                    alt="@Question"></figure>
                     </face>
                 </basis>
                 <basis core="list" datamembername="db.visa-docs">
                     <face filter="TypeID in(129)">
-
                         <div
-                            class="w-[calc(100%-400px)] border border-neutralcolor-400  py-4 px-12 rounded-3xl divide-y ">
-                            <div class="text-base text-justify text-black mb-6">
-                                @largetext
-
-                            </div>
-
+                            class="w-full py-3 rounded-3xl mt-4">
+                            <div class="text-sm text-justify text-black">@largetext </div>
                     </face>
                 </basis>
-
                 <basis core="list" datamembername="db.visa-docs">
                     <layout>
-                        <ul class="pt-3 docs">
-                            @child
-                        </ul>
-
+                        <ul class="pt-3 docs divide-y flex flex-col">@child </ul>
                     </layout>
                     <face filter="TypeID in(250)">
-                        <li>
-                            <div
-                                class="flex justify-between px-3 items-center mb-3 h-12 transition-all duration-500 cursor-pointer">
-                                <h2 class="text-base font-yekanbakhregularFA text-txtneutral-900  text-right 
-                            before:absolute before:mt-1 before:ml-10 before:content-['']
-                             before:bg-primary-900 before:w-4 before:h-4 
-                             before:rounded-xl before:inline-block transition-all duration-500">
-                                    <span class="mr-7 transition-all duration-500">
-                                        @text
-                                    </span>
-                                </h2>
-                                <svg class="arrow-visa-documents transition-all duration-500" width="24" height="25"
-                                    viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12.196 9.63037L15.9104 14.0878C16.3447 14.6088 15.9741 15.3999 15.2959 15.3999L8.71194 15.3999C8.03367 15.3999 7.66314 14.6088 8.09736 14.0878L11.8119 9.63037C11.9118 9.51043 12.096 9.51043 12.196 9.63037Z"
-                                        fill="#667085" />
-                                </svg>
-                            </div>
-                            <div
-                                class=" border border-neutralcolor-400 rounded-lg text-sm text-justify font-yekanbakhregularFA text-txtneutral-900 invisible w-full h-0 transition-all duration-500 p-0 opacity-0">
-                                @largetext
+                        <li >
+                            <div class="bg-primary-50 rounded-lg p-2 my-2">
+                                <div
+                                    class="flex justify-between items-center h-10 transition-all duration-500 cursor-pointer">
+                                    <h2
+                                        class="text-sm font-yekanbakhregularFA text-txtneutral-900 text-right before:absolute before:mt-1 before:ml-10 before:content-[''] before:bg-primary-900 before:w-2 before:h-2 before:rounded-xl before:inline-block transition-all duration-500">
+                                        <span class="mr-7 transition-all duration-500">@text </span></h2><svg
+                                        class="arrow-visa-documents transition-all duration-500" width="24" height="25"
+                                        viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.196 9.63037L15.9104 14.0878C16.3447 14.6088 15.9741 15.3999 15.2959 15.3999L8.71194 15.3999C8.03367 15.3999 7.66314 14.6088 8.09736 14.0878L11.8119 9.63037C11.9118 9.51043 12.096 9.51043 12.196 9.63037Z"
+                                            fill="#667085" />
+                                    </svg>
+                                </div>
+                                <div
+                                    class=" bg-white border border-white rounded-lg text-sm text-justify font-yekanbakhregularFA text-txtneutral-900 invisible w-full h-0 transition-all duration-500 p-0 opacity-0">
+                                    @largetext </div>
                             </div>
                         </li>
                     </face>
                 </basis>
             </div>
-            </div>
-            </div>
 
+
+
+            </div>
+            </div>
             <basis core="list" datamembername="db.landing">
                 <layout>
-                    <div class="text-right mt-12 mb-4">
-                        @child
-                    </div>
+                    <div class="text-right mt-3 mb-4">@child </div>
                 </layout>
                 <face filter="TypeID in(150)">
-                    <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
-                    font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px]
-                    before:content-[''] before:w-2 before:h-2 before:rounded-full 
-                    before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
-                    ">@text</h2>
-                    <hr class="w-2/3 my-3">
+                    <h2
+                        class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-sm leading-10 px-2 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">
+                        @text</h2>
+                    <hr class="w-full my-1">
                 </face>
                 <face filter="TypeID in(129)">
                     <div
-                        class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900">
-                        @largetext
-                    </div>
+                        class="bg-white rounded-2xl py-3 px-3 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">
+                        @largetext </div>
                 </face>
                 <face filter="TypeID in(250)">
-                    <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
-                    font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px]
-                    before:content-[''] before:w-2 before:h-2 before:rounded-full 
-                    before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
-                    ">@text</h2>
-                    <hr class="w-2/3 my-3">
+                    <h2
+                        class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-sm leading-10 px-2 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">
+                        @text</h2>
+                    <hr class="w-full my-1">
                     <div
-                        class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900">
-                        @largetext
-                    </div>
+                        class="bg-white rounded-2xl py-3 px-3 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">
+                        @largetext </div>
                 </face>
             </basis>
         </section>
-
-
-
-
-
         <div class="clear-both"></div>
         <basis core="list" datamembername="db.faq_visa">
             <layout>

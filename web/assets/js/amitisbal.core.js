@@ -152,6 +152,21 @@ document.addEventListener("DOMContentLoaded", function () {
           loop: true
       });
     }
+
+    if(document.getElementById("suggestiontour-mob")){
+      var specialSwiper = new Swiper("#suggestiontour-mob", {
+          slidesPerView: 'auto',
+          speed: 1000,
+          spaceBetween: 20,
+          centeredSlides: true,
+          grabCursor: true,
+          autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+          },
+          loop: true
+      });
+    }
   }
 // default - mobile - sliders
 
@@ -594,46 +609,7 @@ if (window.innerWidth > 1024) {
   }
   
   
-  document.addEventListener("DOMContentLoaded", function () {
-      const items = document.querySelectorAll("ul.docs > li");
-  
-      items.forEach((item) => {
-          const header = item.querySelector(".flex");
-          const content = item.querySelector("div.border");
-          const arrow = item.querySelector(".arrow-visa-documents");
-          const title = item.querySelector("h2 span");
-          const svgPath = item.querySelector(".arrow-visa-documents path");
-          const h2Element = item.querySelector("h2");
-  
-          header.addEventListener("click", function () {
-              const isActive = item.classList.contains("active-question");
-              
-              // بستن همه موارد
-              items.forEach((el) => {
-                  el.classList.remove("active-question");
-                  el.querySelector("div.border").classList.add("invisible",  "h-0", "p-0", "opacity-0");
-                  el.querySelector("div.border").classList.remove("visible",  "h-fit", "py-4", "px-8", "opacity-100");
-                  el.querySelector(".arrow-visa-documents").classList.remove("rotate-180");
-                  el.querySelector("h2 span").classList.remove("text-primary");
-                  el.querySelector(".flex").classList.remove("bg-primary-50");
-                  el.querySelector(".arrow-visa-documents path").classList.remove("fill-primary");
-                  el.querySelector("h2").classList.add("before:bg-primary-900");
-                  el.querySelector("h2").classList.remove("before:!bg-primary");
-              });
-              
-              if (!isActive) {
-                  item.classList.add("active-question");
-                  content.classList.remove("invisible",  "h-0", "p-0", "opacity-0");
-                  content.classList.add("visible", "h-fit", "py-4", "px-8", "opacity-100");
-                  arrow.classList.add("rotate-180");
-                  title.classList.add("text-primary");
-                  header.classList.add("bg-primary-50");
-                  svgPath.classList.add("fill-primary");
-                  h2Element.classList.add("before:!bg-primary");
-              }
-          });
-      });
-  });
+
   
   
   if(document.getElementById("banner-blog")){
@@ -701,25 +677,7 @@ if (window.innerWidth > 1024) {
   });
   
   
-  const fabButton = document.getElementById("fabButton");
-  const fabMenu = document.getElementById("fabMenu");
-  
-  if(fabButton && fabMenu){
-      // باز و بسته کردن منو با کلیک روی دکمه
-      fabButton.addEventListener("click", (event) => {
-          event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک روی دکمه
-          fabMenu.classList.toggle("scale-0");
-          fabMenu.classList.toggle("opacity-0");
-      });
-      
-      // بستن منو با کلیک خارج از آن
-      document.addEventListener("click", (event) => {
-          if (!fabMenu.contains(event.target) && !fabButton.contains(event.target)) {
-              fabMenu.classList.add("scale-0");
-              fabMenu.classList.add("opacity-0");
-          }
-      });
-  }
+
     
   
   if(document.querySelector(".partners-company-slider")){
@@ -768,243 +726,7 @@ if (window.innerWidth > 1024) {
   
   
   
-  // calendar
-  
-  
-  const weekDaysFa = ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
-  const weekDaysEn = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  
-  function getWeekDay(gy, gm, gd) {
-    let date = new Date(gy, gm - 1, gd);
-    return [weekDaysEn[date.getDay()], weekDaysFa[date.getDay()]];
-  }
-  
-  
-  
-  
-  const monthsFa = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-  const monthsEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  
-  // تابع تشخیص کبیسه بودن برای شمسی و میلادی
-  function isLeap(year, type) {
-    if (type === 'grg') return (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
-    return ((year % 33) === 1 || (year % 33) === 5 || (year % 33) === 9 || (year % 33) === 13 || (year % 33) === 17 || (year % 33) === 22 || (year % 33) === 26 || (year % 33) === 30);
-  }
-  
-  function toShamsi(gy, gm, gd) {
-    let g_d_m = [0, 31, (isLeap(gy, 'grg') ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    let gy_day_no = (gy - 1600) * 365 + Math.floor((gy - 1600 + 3) / 4) - Math.floor((gy - 1600 + 99) / 100) + Math.floor((gy - 1600 + 399) / 400);
-    for (let i = 1; i < gm; i++) gy_day_no += g_d_m[i];
-    gy_day_no += gd - 1;
-  
-    let j_day_no = gy_day_no - 79;
-    let j_np = Math.floor(j_day_no / 12053);
-    j_day_no %= 12053;
-  
-    let jy = 979 + 33 * j_np + 4 * Math.floor(j_day_no / 1461);
-    j_day_no %= 1461;
-  
-    if (j_day_no >= 366) {
-      jy += Math.floor((j_day_no - 1) / 365);
-      j_day_no = (j_day_no - 1) % 365;
-    }
-  
-    let jm = (j_day_no < 186) ? 1 + Math.floor(j_day_no / 31) : 7 + Math.floor((j_day_no - 186) / 30);
-    let jd = (j_day_no < 186) ? 1 + (j_day_no % 31) : 1 + ((j_day_no - 186) % 30);
-  
-    return [jy, jm, jd, monthsFa[jm - 1]];
-  }
-  
-  function toGregorian(jy, jm, jd) {
-    jy -= 979;
-    let days = (jm <= 6) ? (jm - 1) * 31 + jd - 1 : 186 + (jm - 7) * 30 + jd - 1;
-    let g_day_no = 365 * jy + Math.floor(jy / 33) * 8 + Math.floor((jy % 33 + 3) / 4) + days + 79;
-  
-    let gy = 1600 + 400 * Math.floor(g_day_no / 146097);
-    g_day_no %= 146097;
-  
-    if (g_day_no >= 36525) {
-      g_day_no--;
-      gy += 100 * Math.floor(g_day_no / 36524);
-      g_day_no %= 36524;
-      if (g_day_no >= 365) g_day_no++;
-    }
-  
-    gy += 4 * Math.floor(g_day_no / 1461);
-    g_day_no %= 1461;
-  
-    if (g_day_no >= 366) {
-      gy += Math.floor((g_day_no - 1) / 365);
-      g_day_no = (g_day_no - 1) % 365;
-    }
-  
-    let gm = 0, gd = g_day_no + 1;
-    let g_days_in_month = [31, (isLeap(gy, 'grg') ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
-    while (gm < 12 && gd > g_days_in_month[gm]) gd -= g_days_in_month[gm++];
-  
-    return [gy, gm + 1, gd, monthsEn[gm]];
-  }
-  
-  
-  // function convert() {
-  //   let type = document.querySelector('input[name="calendar"]:checked').value;
-  //   let year = parseInt(document.getElementById('year').value);
-  //   let month = parseInt(document.getElementById('month').value);
-  //   let day = parseInt(document.getElementById('day').value);
-  
-  //   if (!year || !month || !day) {
-  //     alert('لطفاً تمام فیلدها را پر کنید.');
-  //     return;
-  //   }
-  
-  //   let result, weekDay;
-  //   if (type === 'shamsi') {
-  //     result = toGregorian(year, month, day);
-  //     weekDay = getWeekDay(result[0], result[1], result[2]);
-  //   } else {
-  //     result = toShamsi(year, month, day);
-  //     weekDay = getWeekDay(year, month, day);
-  //   }
-  
-  //   document.getElementById('result1').innerText = `${result[0]}`
-  //   document.getElementById('result2').innerText = `${result[0]} ${result[3]}`
-  //   document.getElementById('result3').innerText = `${result[0]} ${result[3]} (${result[1]})`
-  //   document.getElementById('result4').innerText = `${result[0]} ${result[3]} (${result[1]}) ${result[2].toString().padStart(2, '0')} `;
-  //   document.getElementById('result5').innerText = `${result[0]} ${result[3]} (${result[1]}) ${result[2].toString().padStart(2, '0')} - ${weekDay[1]}`;
-  //   document.getElementById('result6').innerText = `${weekDay[1]}`;
-  // }
-  
-  
-  
-  // function convert() {
-  //     let type = document.querySelector('input[name="calendar"]:checked').value;
-  //     let year = parseInt(document.getElementById('year').value);
-  //     let month = parseInt(document.getElementById('month').value);
-  //     let day = parseInt(document.getElementById('day').value);
-    
-  //     if (!year || !month || !day) {
-  //       alert('لطفاً تمام فیلدها را پر کنید.');
-  //       return;
-  //     }
-    
-  //     let result, weekDay;
-    
-  //     if (type === 'shamsi') {
-  //       result = toGregorian(year, month, day);
-  //       weekDay = getWeekDay(result[0], result[1], result[2]);
-  //       document.getElementById('result').innerText = `${weekDay[0]}, ${result[3]} ${result[2]} (${result[1]}) ${result[0]}`;
-  //     } else {
-  //       result = toShamsi(year, month, day);
-  //       weekDay = getWeekDay(year, month, day);
-  //       document.getElementById('result').innerText = `${weekDay[1]} ${result[2]} ${result[3]} (${result[1]}) ${result[0]}`;
-  //     }
-  //   }
-  
-  
-  
-  function convert() {
-      let type = document.querySelector('input[name="calendar"]:checked').value;
-      let year = parseInt(document.getElementById('year').value);
-      let month = parseInt(document.getElementById('month').value);
-      let day = parseInt(document.getElementById('day').value);
-    
-      if (!year || !month || !day) {
-        alert('لطفاً تمام فیلدها را پر کنید.');
-        return;
-      }
-    
-      let resultGrg, resultShm, weekDayGrg, weekDayShm;
-    
-      if (type === 'shamsi') {
-        resultGrg = toGregorian(year, month, day);
-        weekDayGrg = getWeekDay(resultGrg[0], resultGrg[1], resultGrg[2])[0];
-        resultShm = [year, month, day, monthsFa[month - 1]];
-        weekDayShm = getWeekDay(resultGrg[0], resultGrg[1], resultGrg[2])[1];
-      } else {
-        resultShm = toShamsi(year, month, day);
-        weekDayShm = getWeekDay(year, month, day)[1];
-        resultGrg = [year, month, day, monthsEn[month - 1]];
-        weekDayGrg = getWeekDay(year, month, day)[0];
-      }
-    
-      document.getElementById('result').innerHTML = `
-        <div class="text-primary-900 font-yekanbakhsemiboldFA text-base">${weekDayGrg} , ${resultGrg[3]} (${resultGrg[1]}) , ${resultGrg[2]}  , ${resultGrg[0]}</div>
-        <hr class="border-neutralcolor-800 block w-full  
-        
-        relative
-        after:content-[''] 
-        after:w-1 after:h-1 after:rounded-full after:bg-neutralcolor-800 after:inline-block 
-        after:absolute after:top-0 after:left-0 after:bottom-0 after:-mt-[2.5px] before:content-[''] 
-        before:w-1 before:h-1 before:rounded-full before:bg-neutralcolor-800 
-        before:inline-block before:absolute before:top-0 before:right-0 before:bottom-0 
-        before:-mt-[2.5px]
-        
-        ">
-        <div class="text-primary-900 font-yekanbakhsemiboldFA text-base">${weekDayShm} , ${resultShm[2]} , ${resultShm[3]} (${resultShm[1]}) , ${resultShm[0]}</div>
-      `;
-    }
-    
-    
-  function fillOptions(select, start, end) {
-    select.innerHTML = '';
-    for (let i = start; i >= end; i--) {
-      select.innerHTML += `<option>${i}</option>`;
-    }
-  }
-  
-  function updateYears() {
-    let type = document.querySelector('input[name="calendar"]:checked').value;
-    let yearSelect = document.getElementById('year');
-    fillOptions(yearSelect, type === 'shamsi' ? 1500 : 2100, type === 'shamsi' ? 1300 : 1900);
-  }
-  
-  function updateMonths() {
-    let type = document.querySelector('input[name="calendar"]:checked').value;
-    let monthSelect = document.getElementById('month');
-    let months = (type === 'shamsi') ? monthsFa : monthsEn; // بررسی نوع تقویم
-    monthSelect.innerHTML = months.map((m, i) => `<option value="${i + 1}">${m}</option>`).join('');
-  }
-  
-  function updateDays() {
-    let daySelect = document.getElementById('day');
-    let month = parseInt(document.getElementById('month').value);
-    let year = parseInt(document.getElementById('year').value);
-    let type = document.querySelector('input[name="calendar"]:checked').value;
-  
-    let days = (month <= 6) ? 31 : (month <= 11 ? 30 : (type === 'shamsi' ? (isLeap(year, 'hsh') ? 30 : 29) : (isLeap(year, 'grg') ? 29 : 28)));
-    fillOptions(daySelect, days, 1);
-  }
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    if(document.getElementById("date-convertor")){
-      updateYears();
-      updateMonths();
-      updateDays();
-    }
-  });
-  
-  
-  // date-convertor
-  
-  if(document.getElementById("date-convertor")){
-      const labels = document.querySelectorAll('label[name="calendar-label"]');
-      
-      labels.forEach(label => {
-          label.addEventListener('click', () => {
-              labels.forEach(l => l.classList.remove('bg-secondary', 'bg-white', 'text-white'));
-              label.classList.add('bg-secondary' , 'text-white');
-              labels.forEach(l => {
-                  if (l !== label) {
-                      l.classList.add('bg-white');
-                  }
-              });
-          });
-      });
-  }
-  
-  
-  // calendar
+
   
   
   // article-list
@@ -1720,4 +1442,294 @@ async function RenderFormvisaForm() {
   var e5=document.querySelector( "#visa-request-form .age-visa input" );
   e5.setAttribute("placeholder", "سن");
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll("ul.docs > li");
+
+  items.forEach((item) => {
+      const header = item.querySelector(".flex");
+      const content = item.querySelector("div.border");
+      const arrow = item.querySelector(".arrow-visa-documents");
+      const title = item.querySelector("h2 span");
+      const svgPath = item.querySelector(".arrow-visa-documents path");
+      const h2Element = item.querySelector("h2");
+
+      header.addEventListener("click", function () {
+          const isActive = item.classList.contains("active-question");
+          
+          // بستن همه موارد
+          items.forEach((el) => {
+              el.classList.remove("active-question");
+
+              if(window.innerWidth < 1024){
+                el.querySelector("div.border").classList.add("invisible",  "h-0", "p-0", "opacity-0");
+                el.querySelector("div.border").classList.remove("visible",  "h-fit", "py-3", "px-3", "opacity-100");
+
+              }else{
+
+                el.querySelector("div.border").classList.add("invisible",  "h-0", "p-0", "opacity-0");
+                el.querySelector("div.border").classList.remove("visible",  "h-fit", "py-4", "px-8", "opacity-100");
+
+              }
+              el.querySelector(".arrow-visa-documents").classList.remove("rotate-180");
+              el.querySelector("h2 span").classList.remove("text-primary");
+              el.querySelector(".flex").classList.remove("bg-primary-50");
+              el.querySelector(".arrow-visa-documents path").classList.remove("fill-primary");
+              el.querySelector("h2").classList.add("before:bg-primary-900");
+              el.querySelector("h2").classList.remove("before:!bg-primary");
+          });
+          
+          if (!isActive) {
+              item.classList.add("active-question");
+
+              if(window.innerWidth < 1024){
+                content.classList.remove("invisible",  "h-0", "p-0", "opacity-0");
+                content.classList.add("visible", "h-fit", "py-3", "px-3", "opacity-100");
+              }else{
+                content.classList.remove("invisible",  "h-0", "p-0", "opacity-0");
+                content.classList.add("visible", "h-fit", "py-4", "px-8", "opacity-100");
+              }
+              
+              arrow.classList.add("rotate-180");
+              title.classList.add("text-primary");
+              header.classList.add("bg-primary-50");
+              svgPath.classList.add("fill-primary");
+              h2Element.classList.add("before:!bg-primary");
+          }
+      });
+  });
+});
+
 // visa-list _ visa
+
+
+  // calendar
+  
+  
+  const weekDaysFa = ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
+  const weekDaysEn = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  
+  function getWeekDay(gy, gm, gd) {
+    let date = new Date(gy, gm - 1, gd);
+    return [weekDaysEn[date.getDay()], weekDaysFa[date.getDay()]];
+  }
+  
+  
+  
+  
+  const monthsFa = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+  const monthsEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  
+  // تابع تشخیص کبیسه بودن برای شمسی و میلادی
+  function isLeap(year, type) {
+    if (type === 'grg') return (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
+    return ((year % 33) === 1 || (year % 33) === 5 || (year % 33) === 9 || (year % 33) === 13 || (year % 33) === 17 || (year % 33) === 22 || (year % 33) === 26 || (year % 33) === 30);
+  }
+  
+  function toShamsi(gy, gm, gd) {
+    let g_d_m = [0, 31, (isLeap(gy, 'grg') ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let gy_day_no = (gy - 1600) * 365 + Math.floor((gy - 1600 + 3) / 4) - Math.floor((gy - 1600 + 99) / 100) + Math.floor((gy - 1600 + 399) / 400);
+    for (let i = 1; i < gm; i++) gy_day_no += g_d_m[i];
+    gy_day_no += gd - 1;
+  
+    let j_day_no = gy_day_no - 79;
+    let j_np = Math.floor(j_day_no / 12053);
+    j_day_no %= 12053;
+  
+    let jy = 979 + 33 * j_np + 4 * Math.floor(j_day_no / 1461);
+    j_day_no %= 1461;
+  
+    if (j_day_no >= 366) {
+      jy += Math.floor((j_day_no - 1) / 365);
+      j_day_no = (j_day_no - 1) % 365;
+    }
+  
+    let jm = (j_day_no < 186) ? 1 + Math.floor(j_day_no / 31) : 7 + Math.floor((j_day_no - 186) / 30);
+    let jd = (j_day_no < 186) ? 1 + (j_day_no % 31) : 1 + ((j_day_no - 186) % 30);
+  
+    return [jy, jm, jd, monthsFa[jm - 1]];
+  }
+  
+  function toGregorian(jy, jm, jd) {
+    jy -= 979;
+    let days = (jm <= 6) ? (jm - 1) * 31 + jd - 1 : 186 + (jm - 7) * 30 + jd - 1;
+    let g_day_no = 365 * jy + Math.floor(jy / 33) * 8 + Math.floor((jy % 33 + 3) / 4) + days + 79;
+  
+    let gy = 1600 + 400 * Math.floor(g_day_no / 146097);
+    g_day_no %= 146097;
+  
+    if (g_day_no >= 36525) {
+      g_day_no--;
+      gy += 100 * Math.floor(g_day_no / 36524);
+      g_day_no %= 36524;
+      if (g_day_no >= 365) g_day_no++;
+    }
+  
+    gy += 4 * Math.floor(g_day_no / 1461);
+    g_day_no %= 1461;
+  
+    if (g_day_no >= 366) {
+      gy += Math.floor((g_day_no - 1) / 365);
+      g_day_no = (g_day_no - 1) % 365;
+    }
+  
+    let gm = 0, gd = g_day_no + 1;
+    let g_days_in_month = [31, (isLeap(gy, 'grg') ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    
+    while (gm < 12 && gd > g_days_in_month[gm]) gd -= g_days_in_month[gm++];
+  
+    return [gy, gm + 1, gd, monthsEn[gm]];
+  }
+  
+  
+
+  
+  
+  
+  function convert() {
+      let type = document.querySelector('input[name="calendar"]:checked').value;
+      let year = parseInt(document.getElementById('year').value);
+      let month = parseInt(document.getElementById('month').value);
+      let day = parseInt(document.getElementById('day').value);
+    
+      if (!year || !month || !day) {
+        alert('لطفاً تمام فیلدها را پر کنید.');
+        return;
+      }
+    
+      let resultGrg, resultShm, weekDayGrg, weekDayShm;
+    
+      if (type === 'shamsi') {
+        resultGrg = toGregorian(year, month, day);
+        weekDayGrg = getWeekDay(resultGrg[0], resultGrg[1], resultGrg[2])[0];
+        resultShm = [year, month, day, monthsFa[month - 1]];
+        weekDayShm = getWeekDay(resultGrg[0], resultGrg[1], resultGrg[2])[1];
+      } else {
+        resultShm = toShamsi(year, month, day);
+        weekDayShm = getWeekDay(year, month, day)[1];
+        resultGrg = [year, month, day, monthsEn[month - 1]];
+        weekDayGrg = getWeekDay(year, month, day)[0];
+      }
+    
+
+
+      if(window.innerWidth > 1024){
+        document.getElementById('result').innerHTML = `
+          <div class="text-primary-900 font-yekanbakhsemiboldFA text-base">${weekDayGrg} , ${resultGrg[3]} (${resultGrg[1]}) , ${resultGrg[2]}  , ${resultGrg[0]}</div>
+          <hr class="border-neutralcolor-800 block w-full  
+          
+          relative
+          after:content-[''] 
+          after:w-1 after:h-1 after:rounded-full after:bg-neutralcolor-800 after:inline-block 
+          after:absolute after:top-0 after:left-0 after:bottom-0 after:-mt-[2.5px] before:content-[''] 
+          before:w-1 before:h-1 before:rounded-full before:bg-neutralcolor-800 
+          before:inline-block before:absolute before:top-0 before:right-0 before:bottom-0 
+          before:-mt-[2.5px]
+          
+          ">
+          <div class="text-primary-900 font-yekanbakhsemiboldFA text-base">${weekDayShm} , ${resultShm[2]} , ${resultShm[3]} (${resultShm[1]}) , ${resultShm[0]}</div>
+        `;
+      }else{
+        document.getElementById('result').innerHTML = `
+          <div class="text-primary-900 font-yekanbakhsemiboldFA text-xs">${weekDayGrg} , ${resultGrg[3]} (${resultGrg[1]}) , ${resultGrg[2]}  , ${resultGrg[0]}</div>
+          <hr class="border-neutralcolor-800 block w-full  
+          
+          relative
+          after:content-[''] 
+          after:w-1 after:h-1 after:rounded-full after:bg-neutralcolor-800 after:inline-block 
+          after:absolute after:top-0 after:left-0 after:bottom-0 after:-mt-[2.5px] before:content-[''] 
+          before:w-1 before:h-1 before:rounded-full before:bg-neutralcolor-800 
+          before:inline-block before:absolute before:top-0 before:right-0 before:bottom-0 
+          before:-mt-[2.5px]
+          
+          ">
+          <div class="text-primary-900 font-yekanbakhsemiboldFA text-xs">${weekDayShm} , ${resultShm[2]} , ${resultShm[3]} (${resultShm[1]}) , ${resultShm[0]}</div>
+        `;
+      }
+    }
+    
+    
+  function fillOptions(select, start, end) {
+    select.innerHTML = '';
+    for (let i = start; i >= end; i--) {
+      select.innerHTML += `<option>${i}</option>`;
+    }
+  }
+  
+  function updateYears() {
+    let type = document.querySelector('input[name="calendar"]:checked').value;
+    let yearSelect = document.getElementById('year');
+    fillOptions(yearSelect, type === 'shamsi' ? 1500 : 2100, type === 'shamsi' ? 1300 : 1900);
+  }
+  
+  function updateMonths() {
+    let type = document.querySelector('input[name="calendar"]:checked').value;
+    let monthSelect = document.getElementById('month');
+    let months = (type === 'shamsi') ? monthsFa : monthsEn; // بررسی نوع تقویم
+    monthSelect.innerHTML = months.map((m, i) => `<option value="${i + 1}">${m}</option>`).join('');
+  }
+  
+  function updateDays() {
+    let daySelect = document.getElementById('day');
+    let month = parseInt(document.getElementById('month').value);
+    let year = parseInt(document.getElementById('year').value);
+    let type = document.querySelector('input[name="calendar"]:checked').value;
+  
+    let days = (month <= 6) ? 31 : (month <= 11 ? 30 : (type === 'shamsi' ? (isLeap(year, 'hsh') ? 30 : 29) : (isLeap(year, 'grg') ? 29 : 28)));
+    fillOptions(daySelect, days, 1);
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    if(document.getElementById("date-convertor")){
+      updateYears();
+      updateMonths();
+      updateDays();
+    }
+  });
+  
+  
+  // date-convertor
+  
+  if(document.getElementById("date-convertor")){
+      const labels = document.querySelectorAll('label[name="calendar-label"]');
+      
+      labels.forEach(label => {
+          label.addEventListener('click', () => {
+              labels.forEach(l => l.classList.remove('bg-secondary', 'bg-white', 'text-white'));
+              label.classList.add('bg-secondary' , 'text-white');
+              labels.forEach(l => {
+                  if (l !== label) {
+                      l.classList.add('bg-white');
+                  }
+              });
+          });
+      });
+  }
+  
+  
+  // calendar
+
+  // date convertor and magazine share button
+
+  const fabButton = document.getElementById("fabButton");
+  const fabMenu = document.getElementById("fabMenu");
+  
+  if(fabButton && fabMenu){
+      // باز و بسته کردن منو با کلیک روی دکمه
+      fabButton.addEventListener("click", (event) => {
+          event.stopPropagation(); // جلوگیری از بسته شدن هنگام کلیک روی دکمه
+          fabMenu.classList.toggle("scale-0");
+          fabMenu.classList.toggle("opacity-0");
+      });
+      
+      // بستن منو با کلیک خارج از آن
+      document.addEventListener("click", (event) => {
+          if (!fabMenu.contains(event.target) && !fabButton.contains(event.target)) {
+              fabMenu.classList.add("scale-0");
+              fabMenu.classList.add("opacity-0");
+          }
+      });
+  }
+
+    // date convertor and magazine share button

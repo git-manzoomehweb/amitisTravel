@@ -714,3 +714,141 @@ ul , .hide-srollbar{
   }
   
 /* visa-list */
+
+/* secure payment */
+
+/* .mask-banner-slider{-webkit-mask-image:url(../images/slider-mask-shape.svg);mask-image:url(../images/slider-mask-shape.svg);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:100%;height:560px;-webkit-mask-size:100% 100%;mask-size:100% 100%} */
+ .clipped-tag-page{width:100%;height:574px;background-color:var(--primary-950);background-size:cover;-webkit-clip-path:url(#tag-clip-path);clip-path:url(#tag-clip-path)}
+.clamped-text::after{content:"";display:inline-block;width:60%}
+.card:nth-last-child(1),.card:nth-last-child(2):nth-child(odd){margin-left:auto}
+.clipped-section{width:100%;height:1203px;background-size:cover;background-color:var(--primary-950);clip-path:url(#section1)}
+.clipped-section-form {
+    width: 100%;
+    height: 200px;
+    background-color: var(--shade-0);
+    background-size: cover;
+    clip-path: url(#sectionform);
+}
+.clipped-airline-section1{width:100%;height:208px;background-color:var(--primary-950);background-image:url(../images/airplane-pattern.png);background-size:cover;clip-path:url(#airline-section1)}
+.clipped-airline-section2{width:100%;height:415px;background-color:var(--primary-950);background-image:url(../images/earth-pattern.png);background-size:cover;clip-path:url(#airline-section2)}
+
+
+
+
+.payment__container {
+    width: 95% !important;
+    margin: 0 auto !important;
+  }
+.payment__container .data-bc-btn{
+    /* width:calc(100% - 75px); */
+    width: 100%;
+    margin:0 auto;
+    display:block;
+    border-radius: 8px !important ;
+    height: 48px !important;
+    font-size: 14px !important;
+    font-family: 'Yekan_Bakh_SemiBold_fa' !important;
+  }
+  
+  .payment__container [data-bc-answer-title-container]{
+    display:none!important
+  }
+  
+  .payment__container [data-bc-schema-direction="rtl"] [data-bc-part-container],.payment__container [data-bc-schema-direction="rtl"] [data-bc-btn-container]{
+    float:none!important;
+    margin:0 auto!important
+  }
+  
+  .payment__container [data-bc-answer-container]{
+    float:none!important;
+    display:inline-block;
+    width:100%!important
+  }
+  
+  .payment__container [data-bc-schema-direction="rtl"] [data-bc-title-container] , .payment__container [data-bc-title-container]{
+    float:none!important;
+    /* margin:5px auto!important; */
+    color:var(--primary-950)!important;
+    /* width:calc(100% - 75px)!important */
+    font-size: 12px !important;
+  }
+  
+  .payment__container [data-bc-answer-container] input[type="text"],
+  .payment__container [data-bc-answer-container] input[type="password"],
+  .payment__container [data-bc-answer-container] input[type="time"],
+  .payment__container [data-bc-answer-container] input[type="color"],
+  .payment__container [data-bc-answer-container] input[type="file"],
+  .payment__container [data-bc-answer-container] select {    height:48px!important;
+    font-size:16px!important
+  }
+  
+  #captchaContainer .captcha-flex{
+    width:100%!important
+  }
+  
+  .payment__container  .captcha>[data-bc-title-container]{
+    /* width:calc(100% - 75px)!important; */
+    width:100% !important;
+    margin:0 auto!important
+  }
+  
+
+  .payment__container  img.inline-block.rounded-xl{
+    height: 48px !important;
+  }
+  
+
+  .payment__container  .svg.inline-block.cursor-pointer.mt-1.ml-1.mr-1{
+    height: 48px !important;
+  }
+
+
+ .payment__container [data-bc-part] {
+    float: none !important ;
+    display: initial !important ;
+    vertical-align: inherit !important;
+    margin-bottom: 0 !important;
+}
+
+.payment__container .unit {
+    margin-left: 0 !important;
+}
+
+.payment__container svg.inline-block.cursor-pointer.mt-1.ml-1.mr-1 {
+    height: 48px !important;
+}
+
+@media (max-width: 1024px) {
+    .payment__container  [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+        width: 100% !important;
+        margin: 0 !important;
+        display: flex !important;
+;
+    }
+}
+
+
+.payment__container  [data-bc-answer-container] input[type="text"], 
+.payment__container  [data-bc-answer-container] input[type="password"],
+ .payment__container  [data-bc-answer-container] input[type="time"], 
+ .payment__container  [data-bc-answer-container] input[type="file"],
+  .payment__container  [data-bc-answer-container] select, 
+  .payment__container  [data-bc-answer-container] textarea {
+
+    border: 1px solid var(--neutral-800) !important;
+    background-color: white !important;
+    border-radius: 8px !important;
+}
+.payment__container  .captcha-flex{
+    border: 1px solid var(--neutral-800) !important;
+    background-color: white !important;
+    border-radius: 8px !important;
+}
+.payment__container  [data-bc-answer-container] input[type="text"].contactUsInput{background: white !important;border: none !important;border-color: white !important;}
+
+.payment__container  [data-bc-schema-info-part="2"] [data-bc-part-related-cell] {
+    width: calc(50% - 10px) !important;
+}
+
+/* .contactUsInput{background: white !important;border: none !important;border-color: white !important;} */
+/* secure payment */

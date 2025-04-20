@@ -1,21 +1,7 @@
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
-    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
-</basis>
-
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.iid##]">
-    <member name="internal-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328" 
-    perpage="8" size="152x104" order="ord"/>
-</basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.eid##]">
-    <member name="external-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328" 
-    perpage="8" size="152x104" order="ord"/>
-</basis>
-
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
-    <member name="seotext" type="view" />
-</basis>
-
-
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]"><member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.iid##]"><member name="internal-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328,3087666" perpage="8" size="152x104" order="ord"/></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.eid##]"><member name="external-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328,3087666" perpage="8" size="152x104" order="ord"/></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]"><member name="seotext" type="view" /></basis>
 
 <!DOCTYPE html>
 <html lang="fa">
@@ -46,22 +32,14 @@
 
     <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
 </head>
-
 <body class="font-yekanbakhregularFA bg-neutralcolor-50">
-
     <basis core="call" file="header.inc" ></basis>
-
-
     <main class="w-full relative " >
-
-
         <svg class="absolute h-0 w-0 ">
             <clipPath id="airline-section1" clipPathUnits="objectBoundingBox"><path d="M0,0.814 C0,0.814,0.295,1,0.5,1 C0.705,1,1,0.814,1,0.814 V0 L0,0 L0,0.814"></path></clipPath>
           </svg>
-          
           <div class="clipped-airline-section1 z-[2] relative bg-blend-luminosity bg-left">
-            <div class="py-6 max-w-7xl mx-auto w-full">
-
+            <div class="py-6 max-w-7xl mx-auto w-[95%]">
                 <ul class="flex h-[56px] items-end gap-x-3 justify-start font-yekanbakhregularFA text-base leading-[56px]  "
                     itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
@@ -116,177 +94,137 @@
                 </ul>
                 <h1 class="text-white text-[80px] font-yekanbakhboldFA leading-[200px]">ایرلاین ها</h1>
             </div>
-
           </div>
-
-
-
-
           <basis core="list" datamembername="db.internal-airlines">
             <layout>     
                     <div class="clipped-airline-section2 -mt-32 z-[1] relative">
-                      <div class="max-w-7xl mx-auto pt-44">
+                      <div class="max-w-7xl mx-auto w-[95%] pt-44">
                           <h2 class="text-center text-[32px] font-yekanbakhsemiboldFA text-primary-900">ایرلاین های پرطرفدار داخلی</h2>
                           <svg class="mx-auto mt-4" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0" stroke-width="2" stroke-linecap="round"/>
                               <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0" stroke-width="2" stroke-linecap="round"/>
                               </svg>
-                              <div class="flex justify-start flex-wrap gap-8 my-6">
+                              <div class="flex justify-start flex-wrap gap-8 my-12 max-xl:gap-x-0">
                                 @child
                               </div>
                       </div>
                     </div>
             </layout>
             <face filter="link is null">
-                <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
-                    <a href="airline.bc?id=@id">
-                        <figure>
-                            <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="@00152X00104prp" width="152" height="104" alt="@title">
-                        </figure>
-                        
-                            <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
-                             group-hover/airlinecard:h-12
-                              group-hover/airlinecard:absolute 
-                              group-hover/airlinecard:bottom-4 
-                              group-hover/airlinecard:right-4 
-                              
-                              transition-all duration-500">
-                                <img src="@00152X00104prp" width="152" height="104" alt="@title">
+                <div class="w-fit max-xl:w-1/3 flex justify-center items-center ">
+                    <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
+                        <a href="airline.bc?id=@id">
+                            <figure>
+                                <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" width="152" height="104" alt="@title">
                             </figure>
-                            <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
-                        
-                    </a>
-                </article>
+                            
+                                <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
+                                 group-hover/airlinecard:h-20
+                                  group-hover/airlinecard:absolute 
+                                  group-hover/airlinecard:bottom-4 
+                                  group-hover/airlinecard:right-4 
+                                  
+                                  transition-all duration-500">
+                                    <img src="[##cms.cms.cdn##]/@00152X00104prp" class="object-contain w-[152px] h-[104px]" width="152" height="104" alt="@title">
+                                </figure>
+                                <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
+                            
+                        </a>
+                    </article>
+                </div>
             </face>
             <face>
-                <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
-                    <a href="@link">
-                        <figure>
-                            <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] 
-                            object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible
-                             transition-all duration-500 "
-                              src="@type_159" width="152" height="104" alt="@title">
-                        </figure>
-                        
-                            <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
-                             group-hover/airlinecard:h-12
-                              group-hover/airlinecard:absolute 
-                              group-hover/airlinecard:bottom-4 
-                              group-hover/airlinecard:right-4 
-                              
-                              transition-all duration-500">
-                                <img src="@00152X00104prp" width="152" height="104" alt="@title">
+                <div class="w-fit max-xl:w-1/3 flex justify-center items-center ">
+                    <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
+                        <a href="@link">
+                            <figure>
+                                <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" width="152" height="104" alt="@title">
                             </figure>
-                            <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
-                        
-                    </a>
-                </article>
+                            
+                                <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
+                                 group-hover/airlinecard:h-20
+                                  group-hover/airlinecard:absolute 
+                                  group-hover/airlinecard:bottom-4 
+                                  group-hover/airlinecard:right-4 
+                                  
+                                  transition-all duration-500">
+                                    <img src="[##cms.cms.cdn##]/@00152X00104prp" class="object-contain w-[152px] h-[104px]" width="152" height="104" alt="@title">
+                                </figure>
+                                <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
+                        </a>
+                    </article>
+                </div>
             </face>
           </basis>
-
-
-
           <basis core="list" datamembername="db.external-airlines">
             <layout> 
-                <div class="bg-primary-950 -mt-36 -z[5] relative h-[796px] bg-earth-pattern bg-cover bg-center">
-                    <div class="max-w-7xl mx-auto pt-44">
+                <div class="bg-primary-950 -mt-36 max-xl:-mt-52 -z[5] relative h-[796px] max-xl:h-[950px] bg-earth-pattern bg-cover bg-center">
+                    <div class="max-w-7xl mx-auto w-[95%] pt-44 max-xl:pt-56">
                         <h2 class="text-center text-[32px] font-yekanbakhsemiboldFA text-white">ایرلاین های پرطرفدار خارجی</h2>
                         <svg class="mx-auto mt-4" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#CCC" stroke-width="2" stroke-linecap="round"/>
                             <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
                             </svg>
-        
-        
-                            <div class="flex justify-start flex-wrap gap-8 my-6">
+                            <div class="flex justify-start flex-wrap gap-8 my-12 max-xl:gap-x-0">
                                 @child
                             </div>
                     </div>
                   </div>
             </layout>
             <face filter="link is null">
-                <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
-                    <a href="airline.bc?id=@id">
-                        <figure>
-                            <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="@type_159" width="152" height="104" alt="@title">
-                        </figure>
-                        
-                            <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
-                             group-hover/airlinecard:h-12
-                              group-hover/airlinecard:absolute 
-                              group-hover/airlinecard:bottom-4 
-                              group-hover/airlinecard:right-4 
-                              
-                              transition-all duration-500">
-                                <img src="@00152X00104prp" width="152" height="104" alt="@title">
+                <div class="w-fit max-xl:w-1/3 flex justify-center items-center ">
+                    <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
+                        <a href="airline.bc?id=@id">
+                            <figure>
+                                <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" width="152" height="104" alt="@title">
                             </figure>
-                            <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
-                        
-                    </a>
-                </article>
+                            
+                                <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
+                                 group-hover/airlinecard:h-20
+                                  group-hover/airlinecard:absolute 
+                                  group-hover/airlinecard:bottom-4 
+                                  group-hover/airlinecard:right-4 
+                                  
+                                  transition-all duration-500">
+                                    <img src="[##cms.cms.cdn##]/@00152X00104prp" class="object-contain w-[152px] h-[104px]" width="152" height="104" alt="@title">
+                                </figure>
+                                <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
+                            
+                        </a>
+                    </article>
+                </div>
             </face>
             <face>
-                <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
-                    <a href="@link">
-                        <figure>
-                            <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="@00152X00104prp" width="152" height="104" alt="@title">
-                        </figure>
-                        
-                            <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
-                             group-hover/airlinecard:h-12
-                              group-hover/airlinecard:absolute 
-                              group-hover/airlinecard:bottom-4 
-                              group-hover/airlinecard:right-4 
-                              
-                              transition-all duration-500">
-                                <img src="@00152X00104prp" width="152" height="104" alt="@title">
+                <div class="w-fit max-xl:w-1/3 flex justify-center items-center ">
+                    <article class="w-[296px] h-[168px] drop-shadow-md bg-white rounded-2xl group/airlinecard">
+                        <a href="@link">
+                            <figure>
+                                <img class="group-hover/airlinecard:w-[216px] group-hover/airlinecard:h-[80px] object-contain mx-auto my-2 invisible h-0 w-0  group-hover/airlinecard:visible transition-all duration-500 " src="[##cms.cms.cdn##]/images/@prp_3087666" width="152" height="104" alt="@title">
                             </figure>
-                            <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
-                        
-                    </a>
-                </article>
+                            
+                                <figure class="-mt-10 w-[152px] h-[104px] mx-auto group-hover/airlinecard:grayscale group-hover/airlinecard:w-14
+                                 group-hover/airlinecard:h-20
+                                  group-hover/airlinecard:absolute 
+                                  group-hover/airlinecard:bottom-4 
+                                  group-hover/airlinecard:right-4 
+                                  
+                                  transition-all duration-500">
+                                    <img src="[##cms.cms.cdn##]/@00152X00104prp" class="object-contain w-[152px] h-[104px]" width="152" height="104" alt="@title">
+                                </figure>
+                                <h2 class="text-2xl mx-auto text-center font-yekanbakhsemiboldFA text-txtneutral-900 my-6 w-10/12 group-hover/airlinecard:mr-auto group-hover/airlinecard:ml-0 transition-all duration-500">@title</h2>
+                            
+                        </a>
+                    </article>
+                </div>
             </face>
           </basis>
-
-
-
-                            <!-- SEO -->
-                            <section class="max-w-7xl mx-auto w-full pt-6 mt-32">
-
-                                <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
-                                font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] 
-                                before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
-                                " >تور آنتالیا</h2>
-                                <hr class="w-2/3 my-3">
-                                <div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">
-                                    برای ورود به کشورها نیاز به کسب اجازه ورود یا اخذ ویزا است. اجازه ورود کشورهای مختلف و اخذ ویزا دارای شرایط متفاوت است. اما در اکثر کشورهای اروپایی و آمریکایی یکی از ابتدایی ترین اقدامات تعیین وقت سفارت می باشد. تعیین وقت سفارت راهکاری است که سفارت ها برای برقراری بیشتر نظم و جلوگیری از اتلاف وقت مسافران در نظر گرفته¬اند. وقت سفارت راه جلوگیری از ازدحام و در راستای تکریم مراجعه کنندگان است، بدون تعیین وقت قبی امکان ارائه درخواست روادید امکان پذیر نمی باشد.
-                                </div>
-                                <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
-                                font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] 
-                                before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
-                                " >تور آنتالیا</h2>
-                                <hr class="w-2/3 my-3">
-                                <div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">
-                                    برای ورود به کشورها نیاز به کسب اجازه ورود یا اخذ ویزا است. اجازه ورود کشورهای مختلف و اخذ ویزا دارای شرایط متفاوت است. اما در اکثر کشورهای اروپایی و آمریکایی یکی از ابتدایی ترین اقدامات تعیین وقت سفارت می باشد. تعیین وقت سفارت راهکاری است که سفارت ها برای برقراری بیشتر نظم و جلوگیری از اتلاف وقت مسافران در نظر گرفته¬اند. وقت سفارت راه جلوگیری از ازدحام و در راستای تکریم مراجعه کنندگان است، بدون تعیین وقت قبی امکان ارائه درخواست روادید امکان پذیر نمی باشد.
-                                </div>
-                                <h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full 
-                                font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] 
-                                before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle
-                                " >تور آنتالیا</h2>
-                                <hr class="w-2/3 my-3">
-                                <div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">
-                                    برای ورود به کشورها نیاز به کسب اجازه ورود یا اخذ ویزا است. اجازه ورود کشورهای مختلف و اخذ ویزا دارای شرایط متفاوت است. اما در اکثر کشورهای اروپایی و آمریکایی یکی از ابتدایی ترین اقدامات تعیین وقت سفارت می باشد. تعیین وقت سفارت راهکاری است که سفارت ها برای برقراری بیشتر نظم و جلوگیری از اتلاف وقت مسافران در نظر گرفته¬اند. وقت سفارت راه جلوگیری از ازدحام و در راستای تکریم مراجعه کنندگان است، بدون تعیین وقت قبی امکان ارائه درخواست روادید امکان پذیر نمی باشد.
-                                </div>
-                    
-                    
-                            </section>
-
-
-
+          <basis core="list" datamembername="db.seotext">
+            <layout><section class="max-w-7xl mx-auto w-[95%] pt-6 mt-32">@child </section></layout>
+            <face filter="TypeID in(150)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle " >@text</h2><hr class="w-2/3 my-3"></face>
+            <face filter="TypeID in(129)"><div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">@largetext </div></face>
+            <face filter="TypeID in(250)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle " >@text</h2><hr class="w-2/3 my-3"><div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">@largetext </div></face>
+        </basis>
     </main>
-
     <basis core="call" file="footer.inc" ></basis>
-
-
 </body>
-
 </html>
