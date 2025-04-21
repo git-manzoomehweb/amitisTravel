@@ -1,24 +1,58 @@
-<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]"><member name="navigation" type="tree" request="navigationcat" /><member name="dateconvert" type="view"/></basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.tid##]"><member name="suggestiontour" type="list" link="tour.bc" size="88X88" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491, 3087492, 3087493, 3087494, 3087497, 3087501, 3087502 ,3087561,3087562,3087563 " typeid="159" perpage="4" order="ord"></member></basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member name="navigation" type="tree" request="navigationcat" />
+    </basis>
+
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
+    <member name="article-view" type="view" />
+</basis>
+
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="article">
+    <member type="list" name="bannerimage" format="4" order="ord" postsql="SELECT * FROM [db.bannerimage] LIMIT 1"></member>
+</basis>
+
+
+
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
+    <member name="tags" type="view" postsql="select * from [db.tags] where prpID in(3087604)" />
+</basis>
+
 <!DOCTYPE html>
 <html lang="fa">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
     <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
     <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
-    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
-    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
-    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="pwa.inc" />
-    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="style.inc" />
-    <link rel="stylesheet" href="[##cms.cms.cdn##]/_css/swiper-bundle.min.css">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+
+    <link rel="preload" as="image" imageSrcSet="[##db.bannerimage.largeIMG##]" fetchpriority="high" />
+
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
 </head>
 
-<body class="font-yekanbakhregularFA">
-    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="header.inc" ></basis>
-    <main class="w-full relative" >
-        
+<body class="font-yekanbakhregularFA bg-white ">
+    <basis core="call" file="header.inc" ></basis>
+
+
+    <main class="w-full relative bg-view-article-pattern bg-cover">
+
+
         <div class="flex justify-between items-center w-[95%] mx-auto">
             <div class="clear-both h-10 rounded-2xl flex justify-between items-center px-2 my-3 w-[calc(100%-50px)] ">
                 <svg
@@ -115,21 +149,59 @@
                 </div>
             </div>
         </div>
-        
-        <section class="bg-primary-950 max-w-5xl mx-auto clear-both rounded-2xl h-[256px] px-3 pt-5 bg-tringle-pattern">
-            <h1 class="text-white font-yekanbakhboldFA text-2xl leading-10 mt-1">تبدیل تاریخ</h1>
-            <h2 class="text-secondary text-sm font-yekanbakhregularFA leading-10">تبدیل تاریخ شمسی به میلادی و بالعکس</h2>
-        </section>
-        
-        
-        
-        
-        <div id="date-convertor" class="max-w-5xl mx-auto w-[95%] -mt-28" ><div class="flex justify-center gap-x-4 mx-3"><label name="calendar-label" class="flex justify-center items-center h-12 rounded-lg bg-secondary w-[49%] font-yekanbakhsemiboldFA text-sm text-center text-white"><input class="appearance-none hidden" type="radio" name="calendar" value="shamsi" checked onclick="updateYears();updateMonths();">شمسی به میلادی</label><label name="calendar-label" class="flex justify-center items-center h-12 rounded-lg bg-white w-[49%] font-yekanbakhsemiboldFA text-sm text-center "><input class="appearance-none hidden" type="radio" name="calendar" value="gregorian" onclick="updateYears();updateMonths();">میلادی به شمسی</label></div><div class="w-[90%] mx-auto bg-white rounded-3xl relative my-8 border border-t-0 border-x-2 border-b-8 border-neutralcolor-500"><img class="w-[90%] mx-auto absolute -top-[7px] left-0 right-0 z-10 " src="[##cms.cms.cdn##]/images/notebook-gutter.png" width="914" height="47" alt="notebook"><div class="bg-secondary h-7 w-full rounded-t-3xl absolute top-0 left-0 right-0"></div><div class=" flex flex-col justify-between w-[95%] mx-auto py-8"><div class="flex flex-col w-full px-6"><div class="py-3 flex justify-center items-center w-11/12 mx-auto"><span class="font-yekanbakhregularFA text-xs text-primary-900 ml-3 inline-block" >روز</span><select class="w-20 bg-primary-50 outline-none border-none text-primary font-yekanbakhregularFA text-xs px-2 py-1 rounded-lg " id="day" onchange="convert()" ></select></div><hr class="border-neutralcolor-800"><div class="py-3 flex justify-center items-center w-11/12 mx-auto"><span class="font-yekanbakhregularFA text-xs text-primary-900 ml-3 inline-block" >ماه</span><select class="w-20 bg-primary-50 outline-none border-none text-primary font-yekanbakhregularFA text-xs px-2 py-1 rounded-lg " id="month" onchange="updateDays();convert()"></select></div><hr class="border-neutralcolor-800"><div class="py-3 flex justify-center items-center w-11/12 mx-auto"><span class="font-yekanbakhregularFA text-xs text-primary-900 ml-3 inline-block" >سال</span><select class="w-20 bg-primary-50 outline-none border-none text-primary font-yekanbakhregularFA text-xs px-2 py-1 rounded-lg " id="year" onchange="updateDays();convert()"></select></div></div><div id="result" class="w-11/12 border border-neutralcolor-200 rounded-2xl py-6 px-3 gap-y-6 flex flex-col justify-center items-center mx-auto"></div></div></div></div>
-        <basis core="list" datamembername="db.dateconvert"><layout><section class="max-w-5xl mx-auto w-full pt-6 mt-6">@child </section></layout><face filter="TypeID in(150)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-base leading-[34px] p-2 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle " >@text</h2><hr class="w-full"></face><face filter="TypeID in(129)"><div class="bg-white p-4 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">@largetext </div></face><face filter="TypeID in(250)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-base leading-[34px] p-2 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle">@text</h2><hr class="w-full"><div class="bg-white p-4 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">@largetext </div></face></basis>
-        <basis core="list" datamembername="db.suggestiontour"><layout><section class="max-w-5xl w-full text-center relative mt-4 mb-12"><div class="min-h-12 relative bg-gradient-to-r from-0 via-70% to-100% to-[#FFA200]/70 via-[#FFA200]/20 from-white clear-both flex justify-between"><div><div class="min-h-12 h-12 w-6 bg-white/50 rounded-l-full inline-block float-right ml-4"></div><h2 class="text-secondary leading-[48px] font-yekanbakhlightFA text-sm inline-block w-fit">تورهای <span class="font-yekanbakhsemiboldFA">پیشنهادی آمیتیس</span></h2></div></div><div id="suggestiontour-mob" class="my-5 mx-auto w-full swiper"><div class="swiper-wrapper">@child </div></div></section></layout><face filter="link is null"><article class="!w-[239px] h-[104px] swiper-slide rounded-xl border border-neutralcolor-700"><a href="/tour.bc?id=@id" class="p-[7px] flex justify-between gap-x-2"><figure><img class="w-[88px] h-[88px] rounded-lg object-cover" data-src="[##cms.cms.cdn##]/@00088X00088prp" src="[##cms.cms.cdn##]/images/image-not-found-88X88.jpg" width="88" height="88" alt="@title"></figure><div class="flex flex-col justify-between text-right w-[calc(100%-100px)]"><h2 class="line-clamp-1 text-txtneutral-900 text-sm font-yekanbakhsemiboldFA ">@title</h2><div><span class="font-yekanbakhregularFA text-txtneutral-500 text-xs ">شروع قیمت از</span><div class="text-primary font-yekanbakhsemiboldFA text-sm">@prp_8181</div></div></div></a></article></face><face><article class="!w-[239px] h-[104px] swiper-slide rounded-xl border border-neutralcolor-700"><a href="@link" class="p-[7px] flex justify-between gap-x-2"><figure><img class="w-[88px] h-[88px] rounded-lg object-cover" data-src="[##cms.cms.cdn##]/@00088X00088prp" src="[##cms.cms.cdn##]/images/image-not-found-88X88.jpg" width="88" height="88" alt="@title"></figure><div class="flex flex-col justify-between text-right w-[calc(100%-100px)]"><h2 class="line-clamp-1 text-txtneutral-900 text-sm font-yekanbakhsemiboldFA ">@title</h2><div><span class="font-yekanbakhregularFA text-txtneutral-500 text-xs ">شروع قیمت از</span><div class="text-primary font-yekanbakhsemiboldFA text-sm">@prp_8181</div></div></div></a></article></face></basis>
-    </main>
-    <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js "></script>
-    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="footer.inc" ></basis>
-</body>
 
+        
+        <section class="max-w-7xl mx-auto w-full ">
+            <figure class="w-full h-[560px] border-b-[16px] border-b-neutralcolor-600 rounded-b-[263.5px] rounded-t-lg overflow-hidden">
+                <img class="w-full h-full object-cover" src="[##db.bannerimage.text##]" width="1280" height="544"  alt="بنر ایرلاین">
+                <basis core="list" datamembername="db.article-view">
+                    <layout>
+                        <figcaption>
+                            @child 
+                        </figcaption>
+                    </layout>
+                    <face filter="TypeID in(150)">
+                        <h1 class="sr-only">
+                            @text
+                        </h1>
+                    </face>
+                </basis>
+
+            </figure>
+        </section>
+
+
+
+        <basis core="list" datamembername="db.article-view"><layout>
+            <section class="w-full mt-4">@child </section></layout>
+            
+            <face filter="TypeID in(150)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-base leading-10 p-2 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">@text</h2><hr class="w-full"></face>
+            <face filter="TypeID in(129)"><div class="bg-white py-3 px-3 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">@largetext </div></face>
+            <face filter="TypeID in(250)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-base leading-10 p-2 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">@text</h2><hr class="w-full">
+                <div class="bg-white py-3 px-3 text-justify font-IRANYekanRegularMobileFA text-sm leading-6 text-txtneutral-900">@largetext </div></face>
+            </basis>
+
+
+
+        <basis core="list" datamembername="db.tags">
+            <layout>
+                <div class="bg-white  mt-6 mb-20 clear-both h-12 rounded-2xl flex items-center justify-start px-3 gap-x-3 ">
+                    <svg class="block" width="24" height="25">
+                        <use xlink:href="../assets/images/sprite-icons.svg#label-keyword"></use>
+                    </svg>@child </div>
+            </layout>
+            <face>                                        
+                <a href="tag.bc?q=@text"
+                 class="border border-neutralcolor-800 text-txtneutral-500 bg-white 
+                 font-yekanbakhregularFA text-sm leading-[22px] rounded-xl py-1 px-4 ">@text</a>
+            </face>
+        </basis>
+
+
+            
+    </main>
+
+    <basis core="call" file="footer.inc" ></basis>
+
+</body>
 </html>

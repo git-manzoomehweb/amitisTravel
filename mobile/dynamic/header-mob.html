@@ -307,19 +307,7 @@
         </a>
         <div class="w-1/5 flex justify-center flex-col items-center relative ">
             <basis core="call" file="authentication/modal"></basis>
-            
-            <basis core="group" if="'[##db.checkrkey.checked##]'='true'">
-                <svg onclick="showProfileContainer()" class="inline-block bmi-active-btn" width="24" height="24">
-                        <use href="./images/sprite-icons.svg#active-profile-tick-bold-icon-mobile"></use>
-                </svg>
-            </basis>
-
-            <basis core="group" if="'[##db.checkrkey.checked##]'='false'">
-                <svg onclick="showLoginContainer()" class="inline-block bmi-simple-btn" width="24" height="24">
-                        <use href="./images/sprite-icons.svg#simple-profile-bold-icon-mobile"></use>
-                </svg> 
-            </basis>
-
+        
             <span class="tab-text">پروفایل</span>
     
         </div>
