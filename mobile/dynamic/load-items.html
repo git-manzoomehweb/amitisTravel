@@ -75,7 +75,115 @@
         </face>
     </basis>
 </basis>
-<basis core="group" if="'[##cms.query.typeid##]'='hotel'"><basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]"><member name="scalar" type="scalar" typeid="150" /></basis><basis core="print" datamembername="db.scalar"><face><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] border-b border-neutralcolor-700 w-full font-yekanbakhsemiboldFA text-base leading-10 py-2 px-5 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">@column1 </h2></face></basis><basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]"><member name="articlesload" type="list" link="hotel.bc" propertyid="7244,177402,177404,177405" size="88X88" typeid="159" perpage="50" order="ord"></member></basis><basis core="list" datamembername="db.articlesload"><layout><div class="flex justify-start flex-wrap gap-y-3">@child </div></layout><else-layout><div class="w-full"><figure class="flex justify-center items-center"><img src="[##cms.cms.cdn##]/images/empty-list-image-mob.png" width="168" height="148" alt="404"></figure><h2 class="font-IRANYekanRegularMobileFA text-sm text-center text-txtneutral-900">متاسفانه در حال حاضر برای <span>[##db.scalar.column1##]</span>، هتل فعالی وجود ندارد!</h2><a href="/" class="bg-primary mx-auto text-sm h-12 rounded-lg text-white my-4 flex justify-center items-center gap-x-2 w-[90%]">بازگشت به صفحه اصلی <svg width="25" height="24"><use href="./images/sprite-icons.svg#arrow-left-white"></use></svg></a></div></else-layout><face filter="link is null"><div class="max-sm:w-full max-[935px]:w-1/2 max-lg:w-1/3 flex justify-center items-center hotelCard" data-stars="@prp_177404"><article class="w-[304px] h-[144px] rounded-2xl border border-neutralcolor-700"><a href="hotel.bc?id=@id" class="p-[7px] block"><div class="flex justify-between gap-x-3 "><figure><img class="w-24 h-24 rounded-l-[4px] rounded-r-xl object-cover" src="[##cms.cms.cdn##]/@00088X00088prp" width="88" height="88" alt="@title"></figure><div class="flex flex-col justify-between w-[calc(100%-100px)]"><h2 class="line-clamp-1 text-txtneutral-900 text-sm font-yekanbakhregularFA leading-10">@title</h2></div></div><div class="h-6 flex justify-between items-center my-2 w-full mx-auto gap-x-1"><div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center gap-x-2 w-[calc(100%-140px)] px-1"><svg class="inline-block" width="16" height="16"><use href="/images/sprite-icons.svg#location-hotel-icon"></use></svg><div class="text-primary-900 text-xs font-yekanbakhregularFA ml-37 leading-6 line-clamp-1">@prp_177405</div></div><div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex justify-evenly items-center gap-x-2 w-[76px]"><div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6">@prp_177404 ستاره</div><svg class="inline-block " width="16" height="16"><use href="/images/sprite-icons.svg#star-hotel-icon"></use></svg></div><div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center w-12"><div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6 w-[calc(100%-24px)]">@prp_177402</div><img class="inline-block w-6" src="[##cms.cms.cdn##]/images/booking-logo.png" width="24" height="24" alt="@prp_177402 booking rate"></div></div></a></article></div></face><face><div class="max-sm:w-full max-[935px]:w-1/2 max-lg:w-1/3 flex justify-center items-center hotelCard" data-stars="@prp_177404"><article class="w-[304px] h-[144px] rounded-2xl border border-neutralcolor-700"><a href="@link" class="p-[7px] block"><div class="flex justify-between gap-x-3 "><figure><img class="w-24 h-24 rounded-l-[4px] rounded-r-xl object-cover" src="[##cms.cms.cdn##]/@00088X00088prp" width="88" height="88" alt="@title"></figure><div class="flex flex-col justify-between w-[calc(100%-100px)]"><h2 class="line-clamp-1 text-txtneutral-900 text-sm font-yekanbakhregularFA leading-10">@title</h2></div></div><div class="h-6 flex justify-between items-center my-2 w-full mx-auto gap-x-1"><div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center gap-x-2 w-[calc(100%-140px)] px-1"><svg class="inline-block" width="16" height="16"><use href="/images/sprite-icons.svg#location-hotel-icon"></use></svg><div class="text-primary-900 text-xs font-yekanbakhregularFA ml-37 leading-6 line-clamp-1">@prp_177405</div></div><div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex justify-evenly items-center gap-x-2 w-[76px]"><div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6">@prp_177404 ستاره</div><svg class="inline-block " width="16" height="16"><use href="/images/sprite-icons.svg#star-hotel-icon"></use></svg></div><div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center w-12"><div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6 w-[calc(100%-24px)]">@prp_177402</div><img class="inline-block w-6" src="[##cms.cms.cdn##]/images/booking-logo.png" width="24" height="24" alt="@prp_177402 booking rate"></div></div></a></article></div></face></basis></basis>
+<basis core="group" if="'[##cms.query.typeid##]'='hotel'">
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+    <member name="scalar" type="scalar" typeid="150" /></basis>
+    <basis core="print" datamembername="db.scalar"><face>
+        <h2
+            class="bg-neutralcolor-100 text-primary-900 rounded-[4px] border-b border-neutralcolor-700 w-full font-yekanbakhsemiboldFA text-base leading-10 py-2 px-5 h-12 before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">
+            @column1 </h2>
+        </face>
+        </basis>
+        <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+            <member name="articlesload" type="list" link="hotel.bc" propertyid="7244,177402,177404,177405" size="88X88"
+                typeid="159" perpage="50" order="ord"></member>
+        </basis>
+        <basis core="list" datamembername="db.articlesload">
+            <layout>
+                <div class="flex justify-start flex-wrap gap-y-3">@child </div>
+            </layout><else-layout>
+                <div class="w-full">
+                    <figure class="flex justify-center items-center"><img
+                            src="[##cms.cms.cdn##]/images/empty-list-image-mob.png" width="168" height="148" alt="404"></figure>
+                    <h2 class="font-IRANYekanRegularMobileFA text-sm text-center text-txtneutral-900">متاسفانه در حال حاضر برای
+                        <span>[##db.scalar.column1##]</span>، هتل فعالی وجود ندارد!</h2><a href="/"
+                        class="bg-primary mx-auto text-sm h-12 rounded-lg text-white my-4 flex justify-center items-center gap-x-2 w-[90%]">بازگشت
+                        به صفحه اصلی <svg width="25" height="24">
+                            <use href="./images/sprite-icons.svg#arrow-left-white"></use>
+                        </svg></a>
+                </div>
+            </else-layout>
+            <face filter="link is null">
+                <div class="max-sm:w-full max-[935px]:w-1/2 max-lg:w-1/3 flex justify-center items-center hotelCard"
+                    data-stars="@prp_177404">
+                    <article class="w-[304px] h-[144px] rounded-2xl border border-neutralcolor-700"><a href="hotel.bc?id=@id"
+                            class="p-[7px] block">
+                            <div class="flex justify-between gap-x-3 ">
+                                <figure><img class="w-24 h-24 rounded-l-[4px] rounded-r-xl object-cover"
+                                        src="[##cms.cms.cdn##]/@00088X00088prp" width="88" height="88" alt="@title"></figure>
+                                <div class="flex flex-col justify-between w-[calc(100%-100px)]">
+                                    <h2 class="line-clamp-1 text-txtneutral-900 text-sm font-yekanbakhregularFA leading-10">
+                                        @title</h2>
+                                </div>
+                            </div>
+                            <div class="h-6 flex justify-between items-center my-2 w-full mx-auto gap-x-1">
+                                <div
+                                    class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center gap-x-2 w-[calc(100%-140px)] px-1">
+                                    <svg class="inline-block" width="16" height="16">
+                                        <use href="/images/sprite-icons.svg#location-hotel-icon"></use>
+                                    </svg>
+                                    <div class="text-primary-900 text-xs font-yekanbakhregularFA ml-37 leading-6 line-clamp-1">
+                                        @prp_177405</div>
+                                </div>
+                                <div
+                                    class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex justify-evenly items-center gap-x-2 w-[76px]">
+                                    <div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6">@prp_177404 ستاره
+                                    </div><svg class="inline-block " width="16" height="16">
+                                        <use href="/images/sprite-icons.svg#star-hotel-icon"></use>
+                                    </svg>
+                                </div>
+                                <div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center w-12">
+                                    <div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6 w-[calc(100%-24px)]">
+                                        @prp_177402</div><img class="inline-block w-6"
+                                        src="[##cms.cms.cdn##]/images/booking-logo.png" width="24" height="24"
+                                        alt="@prp_177402 booking rate">
+                                </div>
+                            </div>
+                        </a></article>
+                </div>
+            </face>
+            <face>
+                <div class="max-sm:w-full max-[935px]:w-1/2 max-lg:w-1/3 flex justify-center items-center hotelCard"
+                    data-stars="@prp_177404">
+                    <article class="w-[304px] h-[144px] rounded-2xl border border-neutralcolor-700"><a href="@link"
+                            class="p-[7px] block">
+                            <div class="flex justify-between gap-x-3 ">
+                                <figure><img class="w-24 h-24 rounded-l-[4px] rounded-r-xl object-cover"
+                                        src="[##cms.cms.cdn##]/@00088X00088prp" width="88" height="88" alt="@title"></figure>
+                                <div class="flex flex-col justify-between w-[calc(100%-100px)]">
+                                    <h2 class="line-clamp-1 text-txtneutral-900 text-sm font-yekanbakhregularFA leading-10">
+                                        @title</h2>
+                                </div>
+                            </div>
+                            <div class="h-6 flex justify-between items-center my-2 w-full mx-auto gap-x-1">
+                                <div
+                                    class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center gap-x-2 w-[calc(100%-140px)] px-1">
+                                    <svg class="inline-block" width="16" height="16">
+                                        <use href="/images/sprite-icons.svg#location-hotel-icon"></use>
+                                    </svg>
+                                    <div class="text-primary-900 text-xs font-yekanbakhregularFA ml-37 leading-6 line-clamp-1">
+                                        @prp_177405</div>
+                                </div>
+                                <div
+                                    class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex justify-evenly items-center gap-x-2 w-[76px]">
+                                    <div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6">@prp_177404 ستاره
+                                    </div><svg class="inline-block " width="16" height="16">
+                                        <use href="/images/sprite-icons.svg#star-hotel-icon"></use>
+                                    </svg>
+                                </div>
+                                <div class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex items-center w-12">
+                                    <div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6 w-[calc(100%-24px)]">
+                                        @prp_177402</div><img class="inline-block w-6"
+                                        src="[##cms.cms.cdn##]/images/booking-logo.png" width="24" height="24"
+                                        alt="@prp_177402 booking rate">
+                                </div>
+                            </div>
+                        </a></article>
+                </div>
+            </face>
+        </basis>
+        
+        </basis>
 <basis core="group" if="'[##cms.query.typeid##]'='visa'">
 
     <basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">

@@ -110,6 +110,7 @@ module.exports = {
         'tour-texture': "url('../images/pattern-tour-mob.png')",
         'footer-mob-texture': "url('../images/footer-pattern-logo-amitis.png')",
         'pattern-tringle-mob': "url('../images/pattern-tringle.svg')",
+        'tag-pattern-tringle-mob': "url('../images/bg-tringle-pattern-mob.png')",
 
         'top-film-frame': "url('../images/top-film-frame-mob.png')",
         'bottom-film-frame': "url('../images/bottom-film-frame-mob.png')",
@@ -118,6 +119,9 @@ module.exports = {
         'mask-1': "url('../images/01-mask-image.jpg')",
         'mask-2': "url('../images/02-mask-image.jpg')",
         'mask-3': "url('../images/03-mask-image.jpg')",
+
+
+        'airplane-wing': "url('../images/airplan_wing.png')",
         
 
       },
@@ -127,6 +131,7 @@ module.exports = {
         'floatingcallclose' : '0px 0px 4px rgba(0, 0, 0, 0.25)',
       },
       boxShadow: {
+        'tourview-box1': '0px 0px 4px rgba(0, 17, 69, 0.23)',
         'tourcardvertically': '0px 0px 2px rgba(0, 0, 0, 0.25)',
         'floatingcall': '0px 0px 20px #3276F0',
       },

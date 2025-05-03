@@ -1941,3 +1941,13 @@ starFilters.forEach(el => {
 
     
     // blog
+
+    // hotel
+    function openGallery() {
+      document.getElementById('galleryModal').classList.remove('hidden');
+    }
+  
+    function closeGallery() {
+      document.getElementById('galleryModal').classList.add('hidden');
+    }
+    // hotel

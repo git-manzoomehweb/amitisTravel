@@ -630,97 +630,384 @@ const renderTourDateModal = (element, className) => {
 
 }
 // hotel inventory
+// const renderHotels = async (element, type) => {
+//     try {
+//         if (element) {
+//             console.log(element);
+//             console.log(element.hotelinfo[0]);
+//             let output = "";
+//             let index = 0;
+//             let imageSection;
+//             let textSection;
+            
+//             // برای هر هتل درون داده ها
+//             for (const item of element.hotelinfo[0].hotels) {
+//                 console.log(
+//                     document.querySelector(".layout__body__container").dataset,
+//                     document.querySelector(".layout__body__container").dataset.noimgsign
+//                 );
+                
+//                 let img = `/common/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
+
+//                 if (document.querySelector(".layout__body__container").dataset.noimgsign.length > 0) {
+//                     img = `/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
+//                 }
+
+//                 // اینجا بخش تصویر را اضافه میکنیم
+//                 imageSection += `
+//                     <figure class="${index !== 0 ? '-mr-24' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative">
+//                         <img class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
+//                              src="${img}"
+//                              data-pageName="${document.querySelector(".layout__body__container").dataset.pagenameinventory}"
+//                              data-id="${item.hotel.hotelid}" width="216" height="160" alt="" />
+//                         <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
+//                             <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block">location</span>
+//                             <svg class="inline-block" width="19" height="18">
+//                                 <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
+//                             </svg>
+//                         </figcaption>
+//                     </figure>
+//                 `;
+
+//                 // اینجا بخش متنی شامل نام هتل و سایر اطلاعات اضافه می‌شود
+//                 textSection += `
+//                     <div class="min-w-[48%] inline-block my-4 float-left">
+//                         <div class="h-12 bg-neutralcolor-50 rounded-[4px] w-fit flex flex-row-reverse items-center px-2 gap-x-3 float-left">
+//                             <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star === '' ? 0 : item.hotel.star}">
+//                                 ${await renderHotelRate(item.hotel)}
+//                             </div>
+//                             <span class="relative cursor-pointer group flex justify-center items-center">
+//                                 <span class="text-xs font-yekanbakhregularFA text-txtneutral-900 underline uppercase 
+//                                           group-hover:text-primary
+//                                           tourInventory__details__item__service flex justify-center items-center gap-x-1" data-value="${item.hotel.service.vid}">
+//                                     ${await renderSummaryServiceHotel(item.hotel, element.booking)}
+//                                 </span>
+//                                 <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16" height="17">
+//                                     <use href="./images/sprite-icons.svg#circle-info-tour-detail"></use>
+//                                 </svg>
+//                                 <div class="absolute -left-5 bottom-full mb-3 bg-white border border-neutralcolor-800 rounded-lg px-6 py-2 text-xs text-primary-900 font-yekanbakhregularFA opacity-0 invisible 
+//                                           group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-10">
+//                                     ${await renderServiceHotel(item.hotel, element.booking)}
+//                                     <div class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800"></div>
+//                                 </div>
+//                             </span>
+//                             <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
+//                                 ${item.hotel.hotelname}
+//                             </span>
+//                         </div>
+//                     </div>
+//                 `;
+
+                
+//                 index++;
+//             }
+//             // ترکیب بخش‌ها و اضافه کردن به خروجی
+//             output += `
+//                 <div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
+//                     <div class="p-3 tourInventory__details__item__info" data-index="${index}">
+//                         <div class="inline-block float-right">
+//                             <div class="flex flex-row-reverse float-right">
+//                                 ${imageSection}
+//                             </div>
+//                         </div>
+//                         ${textSection}
+//                     </div>
+//                 </div>
+//             `;
+
+//             return output;
+
+//         }
+
+//     } catch (err) {
+//         console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+//     }
+// }
+
 const renderHotels = async (element, type) => {
     try {
-        if (element) {
+        if (!element || !element.hotelinfo || !element.hotelinfo[0].hotels) return "";
 
-            console.log(element);
-            console.log(element.hotelinfo[0]);
-            let output = "";
-            let index = 0;
-            for (const item of element.hotelinfo[0].hotels) {
-                console.log(
-                    document.querySelector(".layout__body__container").dataset,
-                    document.querySelector(".layout__body__container").dataset.noimgsign
-                )
-                let img =`/common/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
+        let imageSection = "";
+        let textSection = "";
 
-                if(document.querySelector(".layout__body__container").dataset.noimgsign.length>0){
-                    img = `/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`
-                }
+        const container = document.querySelector(".layout__body__container");
+        const pageName = container.dataset.pagenameinventory;
+        const noImg = container.dataset.noimgsign || "default.jpg";
+        const baseImgPath = noImg.length > 0 ? "/images/" : "/common/images/";
+        const fallbackImg = baseImgPath + noImg;
+
+        const hotels = element.hotelinfo[0].hotels;
+        
+        for (let index = 0; index < hotels.length; index++) {
 
 
-                output += `<div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
-    <div class="p-3 tourInventory__details__item__info " data-index="${index}">
-        <div class="inline-block float-right">
-            <div class=" flex flex-row-reverse float-right ">
-                <figure
-                    class="${index !== 0 ? ' -mr-24 ' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative">
-                    <img class=" tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden " src="${img}"
-                        data-pageName="${document.querySelector(".layout__body__container").dataset.pagenameinventory}"
-                        data-id="${item.hotel.hotelid}" width="216" height="160" alt="" />
-                    <figcaption
-                        class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
-                        <span
-                            class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block">location
-                        </span><svg class="inline-block" width="19" height="18">
-                            <use href="./images/sprite-icons.svg#location-hotel-tour-detail">
-                            </use>
+            console.log(
+                
+                element.hotelinfo[0].hotels.map((h, i) => ({
+                index: i,
+                hotelname: h.hotel.hotelname,
+                image: h.hotel.image
+              })));
+
+              
+
+
+            const hotel = hotels[index].hotel;
+
+            const hotelImg = hotel.image && hotel.image.length > 0 ? hotel.image : fallbackImg;
+
+            const cleanHotelName = (() => {
+                const div = document.createElement("div");
+                div.innerHTML = hotel.hotelname;
+                return div.textContent || div.innerText || "";
+            })();
+
+            // تنظیم order برای تصاویر
+            const imageOrder = index === 0 ? "order-2" : "order-1";  // تصویر اول بالاتر از بقیه
+
+            imageSection += `
+                <figure data-index="${index}" class="${index > 0 ? '-mr-24' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative ${imageOrder}">
+                    <img class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
+                         src="${hotelImg}" 
+                         data-pageName="${pageName}" 
+                         data-id="${hotel.hotelid}" width="216" height="160" alt="${cleanHotelName}" />
+                    <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
+                        <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap">${cleanHotelName}</span>
+                        <svg class="inline-block" width="19" height="18">
+                            <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
                         </svg>
                     </figcaption>
                 </figure>
-            </div>
-        </div>
-        <div class=" w-[48%] inline-block my-4 float-left">
-            <div
-                class="h-12 bg-neutralcolor-50 rounded-[4px] w-fit flex flex-row-reverse items-center px-2 gap-x-3 float-left">
+            `;
 
-                                                                             <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star == '' ? 0 : item.hotel.star}">
-                                                                ${await renderHotelRate(item.hotel)}
-                                                            </div>
-
-                <span class=" relative inline-block cursor-pointer group">
-                    <span class="text-xs font-yekanbakhregularFA text-txtneutral-900 underline uppercase 
-                                          group-hover:text-primary
-                                          tourInventory__details__item__service" data-value="${item.hotel.service.vid}">
-                         ${await renderServiceHotel(item.hotel, element.booking)}
-                    </span>
-                    <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16"
-                        height="17">
-                        <use href="./images/sprite-icons.svg#circle-info-tour-detail">
-                        </use>
-                    </svg>
-                    <div
-                        class="absolute -left-5  
-                                          bottom-full mb-3 bg-white border border-neutralcolor-800 rounded-lg px-6 py-2 text-xs  text-primary-900 font-yekanbakhregularFA opacity-0 invisible 
-                                          group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-10">
-                        به همراه سه وعده غذا، نوشیدنی و میان وعده
-                        <div
-                            class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800">
+            textSection += `
+                <div class="min-w-[48%] inline-block my-4 float-left">
+                    <div class="h-12 bg-neutralcolor-50 rounded-[4px] w-fit flex flex-row-reverse items-center px-2 gap-x-3 float-left">
+                        <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${hotel.star || 0}">
+                            ${await renderHotelRate(hotel)}
                         </div>
+                        <span class="relative cursor-pointer group flex justify-center items-center">
+                            <span class="text-xs font-yekanbakhregularFA text-txtneutral-900 underline uppercase 
+                                      group-hover:text-primary
+                                      tourInventory__details__item__service flex justify-center items-center gap-x-1" data-value="${hotel.service.vid}">
+                                ${await renderSummaryServiceHotel(hotel, element.booking)}
+                            </span>
+                            <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16" height="17">
+                                <use href="./images/sprite-icons.svg#circle-info-tour-detail"></use>
+                            </svg>
+                            <div class="absolute -left-5 bottom-full mb-3 bg-white border border-neutralcolor-800 rounded-lg px-6 py-2 text-xs text-primary-900 font-yekanbakhregularFA opacity-0 invisible 
+                                      group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-10">
+                                ${await renderServiceHotel(hotel, element.booking)}
+                                <div class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800"></div>
+                            </div>
+                        </span>
+                        <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
+                            ${cleanHotelName}
+                        </span>
                     </div>
-                </span>
-                <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
-                    ${item.hotel.hotelname}
-                </span>
-            </div>
-        </div>
-    </div>
-</div>`;
-                index++;
-            }
-
-            return output;
-
+                </div>
+            `;
         }
 
+        // فقط یک بار کارت ساخته می‌شود
+        const output = `
+            <div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
+                <div class="p-3 tourInventory__details__item__info">
+                    <div class="inline-block float-right">
+                        <div class="flex flex-row-reverse flex-wrap gap-y-4">
+                            ${imageSection}
+                        </div>
+                    </div>
+                    ${textSection}
+                </div>
+            </div>
+        `;
+
+        return output;
+
     } catch (err) {
-        console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+        console.error('renderHotels=' + (err.lineNumber || "-") + ',' + err.message);
+        return "";
     }
+};
 
 
 
-}
+
+
+
+// const renderHotels = async (element, type) => {
+//     try {
+//         if (element) {
+
+//             console.log(element);
+//             console.log(element.hotelinfo[0]);
+//             let output = "";
+//             let index = 0;
+//             for (const item of element.hotelinfo[0].hotels) {
+//                 console.log(
+//                     document.querySelector(".layout__body__container").dataset,
+//                     document.querySelector(".layout__body__container").dataset.noimgsign
+//                 )
+//                 let img =`/common/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
+
+//                 if(document.querySelector(".layout__body__container").dataset.noimgsign.length>0){
+//                     img = `/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`
+//                 }
+
+
+//                 output += `<div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
+//     <div class="p-3 tourInventory__details__item__info " data-index="${index}">
+//         <div class="inline-block float-right">
+//             <div class=" flex flex-row-reverse float-right ">`
+
+//                         for (const item of element.hotelinfo[0].hotels) {
+
+//                 `<figure
+//                     class="${index !== 0 ? ' -mr-24 ' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative">
+//                     <img class=" tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden " src="${img}"
+//                         data-pageName="${document.querySelector(".layout__body__container").dataset.pagenameinventory}"
+//                         data-id="${item.hotel.hotelid}" width="216" height="160" alt="" />
+//                     <figcaption
+//                         class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
+//                         <span
+//                             class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block">location
+//                         </span><svg class="inline-block" width="19" height="18">
+//                             <use href="./images/sprite-icons.svg#location-hotel-tour-detail">
+//                             </use>
+//                         </svg>
+//                     </figcaption>
+//                 </figure>`
+
+//                         }
+//             `</div>
+//         </div>
+//         <div class=" min-w-[48%] inline-block my-4 float-left">
+//             <div
+//                 class="h-12 bg-neutralcolor-50 rounded-[4px] w-fit flex flex-row-reverse items-center px-2 gap-x-3 float-left">
+
+//                                                                              <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star == '' ? 0 : item.hotel.star}">
+//                                                                 ${await renderHotelRate(item.hotel)}
+//                                                             </div>
+
+//                 <span class=" relative cursor-pointer group flex justify-center items-center">
+//                     <span class="text-xs font-yekanbakhregularFA text-txtneutral-900 underline uppercase 
+//                                           group-hover:text-primary
+//                                           tourInventory__details__item__service flex justify-center items-center gap-x-1" data-value="${item.hotel.service.vid}">
+//                          ${await renderSummaryServiceHotel(item.hotel, element.booking)}
+//                     </span>
+//                     <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16"
+//                         height="17">
+//                         <use href="./images/sprite-icons.svg#circle-info-tour-detail">
+//                         </use>
+//                     </svg>
+//                     <div
+//                         class="absolute -left-5  
+//                                           bottom-full mb-3 bg-white border border-neutralcolor-800 rounded-lg px-6 py-2 text-xs  text-primary-900 font-yekanbakhregularFA opacity-0 invisible 
+//                                           group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-10">
+//                                           ${await renderServiceHotel(item.hotel, element.booking)}
+//                         <div
+//                             class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800">
+//                         </div>
+//                     </div>
+//                 </span>
+//                 <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
+//                     ${item.hotel.hotelname}
+//                 </span>
+//             </div>
+//         </div>
+//     </div>
+// </div>`;
+//                 index++;
+//             }
+
+//             return output;
+
+//         }
+
+//     } catch (err) {
+//         console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+//     }
+
+
+
+// }
+
+
+// const renderHotels = async (element, type) => {
+//     try {
+//         if (element) {
+//             console.log(element);
+//             console.log(element.hotelinfo[0]);
+
+//             let output = "";
+//             let index = 0;
+
+//             // تصویر پیش‌فرض
+//             const layoutContainer = document.querySelector(".layout__body__container");
+//             let img = `/common/images/${layoutContainer.dataset.noimgsign}`;
+//             if (layoutContainer.dataset.noimgsign.length > 0) {
+//                 img = `/images/${layoutContainer.dataset.noimgsign}`;
+//             }
+
+//             // شروع کارت کلی
+//             output += `<div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px] p-4">`;
+
+//             // عنوان کلی یا هر چیزی مرتبط با hotelinfo[0] (مثلاً نام مقصد یا تاریخ)
+//             output += `<h2 class="text-xl font-yekanbakhsemibold text-primary-900 mb-4">لیست هتل‌ها</h2>`;
+
+//             // حلقه روی هتل‌ها
+//             for (const item of element.hotelinfo[0].hotels) {
+//                 output += `
+//                 <div class="border-b border-neutralcolor-200 py-3 flex flex-row-reverse gap-4 items-start">
+//                     <figure class="relative w-[216px] h-[160px]">
+//                         <img class="rounded-xl w-full h-full object-cover"
+//                              src="${img}"
+//                              data-pageName="${layoutContainer.dataset.pagenameinventory}"
+//                              data-id="${item.hotel.hotelid}" alt="" />
+//                         <figcaption class="absolute bottom-2 left-2 bg-primary text-white rounded-full px-2 py-1 text-xs flex items-center gap-1">
+//                             <span class="hidden group-hover:inline-block">location</span>
+//                             <svg class="inline-block" width="19" height="18">
+//                                 <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
+//                             </svg>
+//                         </figcaption>
+//                     </figure>
+                    
+//                     <div class="flex-1">
+//                         <div class="flex items-center gap-x-3 mb-1">
+//                             <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star || 0}">
+//                                 ${await renderHotelRate(item.hotel)}
+//                             </div>
+//                             <span class="text-primary-900 text-xl font-yekanbakhsemibold">${item.hotel.hotelname}</span>
+//                         </div>
+//                         <div class="text-sm font-yekanbakhregularFA text-txtneutral-900 flex items-center gap-1">
+//                             <span class="underline" data-value="${item.hotel.service.vid}">
+//                                 ${await renderSummaryServiceHotel(item.hotel, element.booking)}
+//                             </span>
+//                             <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16" height="17">
+//                                 <use href="./images/sprite-icons.svg#circle-info-tour-detail"></use>
+//                             </svg>
+//                         </div>
+//                         <div class="text-xs text-primary-900 mt-2">
+//                             ${await renderServiceHotel(item.hotel, element.booking)}
+//                         </div>
+//                     </div>
+//                 </div>
+//                 `;
+//                 index++;
+//             }
+
+//             // پایان کارت کلی
+//             output += `</div>`;
+
+//             return output;
+//         }
+//     } catch (err) {
+//         console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+//     }
+// };
+
 
 const renderPriceInfo = async (element, type) => {
     try {
@@ -786,22 +1073,17 @@ const renderHotelRate = async (element) => {
             let output = "";
             let i = 0;
             for (; i < element.star == '' ? 0 : element.star;) {
-                output += `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M17.5999 14.79C17.5409 14.434 17.6599 14.071 17.9189 13.82L21.6589 10.28C21.9669 9.991 22.0799 9.551 21.9489 9.15C21.8099 8.75 21.4589 8.46 21.0389 8.4L16.0689 7.679C15.7099 7.624 15.3989 7.397 15.2389 7.07L13.0199 2.6C12.8469 2.264 12.5159 2.039 12.1399 2H11.7189L11.5489 2.07L11.4399 2.11C11.3799 2.145 11.3259 2.188 11.2789 2.24L11.1889 2.31C11.1079 2.388 11.0409 2.48 10.9889 2.58L8.79888 7.07C8.62888 7.41 8.29688 7.64 7.91888 7.679L2.94888 8.4C2.53588 8.465 2.19388 8.754 2.05988 9.15C1.92188 9.547 2.02688 9.987 2.32888 10.28L5.93988 13.78C6.19888 14.035 6.31788 14.4 6.25888 14.759L5.36888 19.679C5.27188 20.274 5.66688 20.838 6.25888 20.95C6.50188 20.989 6.74988 20.95 6.96888 20.84L11.3989 18.519C11.4829 18.473 11.5749 18.443 11.6689 18.429H11.9399C12.1149 18.434 12.2859 18.478 12.4399 18.56L16.8689 20.87C17.2419 21.07 17.6969 21.04 18.0389 20.79C18.3879 20.549 18.5639 20.127 18.4889 19.71L17.5999 14.79Z"
-                                                                        fill="#FFBF1C" />
-                                                                </svg>`
+                output += `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.15327 2.33977L10.3266 4.68643C10.4866 5.0131 10.9133 5.32643 11.2733 5.38643L13.3999 5.73977C14.7599 5.96643 15.0799 6.9531 14.0999 7.92643L12.4466 9.57977C12.1666 9.85977 12.0133 10.3998 12.0999 10.7864L12.5733 12.8331C12.9466 14.4531 12.0866 15.0798 10.6533 14.2331L8.65994 13.0531C8.29994 12.8398 7.70661 12.8398 7.33994 13.0531L5.34661 14.2331C3.91994 15.0798 3.05327 14.4464 3.42661 12.8331L3.89994 10.7864C3.98661 10.3998 3.83327 9.85977 3.55327 9.57977L1.89994 7.92643C0.926606 6.9531 1.23994 5.96643 2.59994 5.73977L4.72661 5.38643C5.07994 5.32643 5.50661 5.0131 5.66661 4.68643L6.83994 2.33977C7.47994 1.06643 8.51994 1.06643 9.15327 2.33977Z" fill="#FACC15"/>
+</svg>
+`
                 i++;
             }
             let j = 0;
             for (; j < 5 - parseInt(element.star == '' ? 0 : element.star);) {
-                output += `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M17.5999 14.79C17.5409 14.434 17.6599 14.071 17.9189 13.82L21.6589 10.28C21.9669 9.991 22.0799 9.551 21.9489 9.15C21.8099 8.75 21.4589 8.46 21.0389 8.4L16.0689 7.679C15.7099 7.624 15.3989 7.397 15.2389 7.07L13.0199 2.6C12.8469 2.264 12.5159 2.039 12.1399 2H11.7189L11.5489 2.07L11.4399 2.11C11.3799 2.145 11.3259 2.188 11.2789 2.24L11.1889 2.31C11.1079 2.388 11.0409 2.48 10.9889 2.58L8.79888 7.07C8.62888 7.41 8.29688 7.64 7.91888 7.679L2.94888 8.4C2.53588 8.465 2.19388 8.754 2.05988 9.15C1.92188 9.547 2.02688 9.987 2.32888 10.28L5.93988 13.78C6.19888 14.035 6.31788 14.4 6.25888 14.759L5.36888 19.679C5.27188 20.274 5.66688 20.838 6.25888 20.95C6.50188 20.989 6.74988 20.95 6.96888 20.84L11.3989 18.519C11.4829 18.473 11.5749 18.443 11.6689 18.429H11.9399C12.1149 18.434 12.2859 18.478 12.4399 18.56L16.8689 20.87C17.2419 21.07 17.6969 21.04 18.0389 20.79C18.3879 20.549 18.5639 20.127 18.4889 19.71L17.5999 14.79Z"
-                                                                        fill="#E2E2E2" />
-                                                                </svg>`
+                output += `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.15327 2.33977L10.3266 4.68643C10.4866 5.0131 10.9133 5.32643 11.2733 5.38643L13.3999 5.73977C14.7599 5.96643 15.0799 6.9531 14.0999 7.92643L12.4466 9.57977C12.1666 9.85977 12.0133 10.3998 12.0999 10.7864L12.5733 12.8331C12.9466 14.4531 12.0866 15.0798 10.6533 14.2331L8.65994 13.0531C8.29994 12.8398 7.70661 12.8398 7.33994 13.0531L5.34661 14.2331C3.91994 15.0798 3.05327 14.4464 3.42661 12.8331L3.89994 10.7864C3.98661 10.3998 3.83327 9.85977 3.55327 9.57977L1.89994 7.92643C0.926606 6.9531 1.23994 5.96643 2.59994 5.73977L4.72661 5.38643C5.07994 5.32643 5.50661 5.0131 5.66661 4.68643L6.83994 2.33977C7.47994 1.06643 8.51994 1.06643 9.15327 2.33977Z" fill="#DAE4ED"/>
+</svg>`
                 j++;
             }
             return output
@@ -821,7 +1103,7 @@ const renderHotelBooking = async (element) => {
         console.error('renderHotelBooking=' + err.lineNumber + ',' + err.message);
     }
 }
-const renderServiceHotel = async (element, booking) => {
+const renderSummaryServiceHotel = async (element, booking) => {
     try {
 
         if (element) {
@@ -950,7 +1232,94 @@ const renderServiceHotel = async (element, booking) => {
                     break;
 
             }
-            return `${img}<span>${sevice}</span><span>${title}</span>${await renderHotelBooking(booking)}`
+            // return `${img}<span class="text-xs font-yekanbakhregular leading-5">${sevice}</span><span class="hidden">${await renderHotelBooking(booking)}</span>`
+            return `<span class="text-xs font-yekanbakhregular leading-5">${sevice}</span><span class="hidden">${await renderHotelBooking(booking)}</span>`
+        }
+    } catch (err) {
+        console.error('renderServiceHotel=' + err.lineNumber + ',' + err.message);
+    }
+}
+const renderServiceHotel = async (element, booking) => {
+    try {
+
+        if (element) {
+            switch (parseInt(element.service.vid)) {
+                case 0:
+                    sevice = "-";
+                    title = "";
+                    break;
+                case 1654:
+                    sevice = "O.R";
+                    if (page_lang === 'fa') {
+                        title = "بدون وعده غذایی";
+                    } else if (page_lang === 'en') {
+                        title = "No meal";
+                    } else if (page_lang === 'ar') {
+                        title = "لا وجبة";
+                    }
+                    break;
+                case 1655:
+                    sevice = "B.B";
+                    if (page_lang === 'fa') {
+                        title = "همراه یک وعده صبحانه در روز";
+                    } else if (page_lang === 'en') {
+                        title = "No meal";
+                    } else if (page_lang === 'ar') {
+                        title = "مع وجبة إفطار واحدة في اليوم";
+                    }
+                    break;
+                case 1656:
+                    sevice = "H.B";
+                    if (page_lang === 'fa') {
+                        title = "همراه دو وعده غذایی صبحانه و شام ";
+                    } else if (page_lang === 'en') {
+                        title = "with two meals, breakfast and dinner";
+                    } else if (page_lang === 'ar') {
+                        title = "مع وجبتين، الإفطار والعشاء";
+                    }
+                    break;
+                case 1657:
+                    sevice = "F.B";
+                    if (page_lang === 'fa') {
+                        title = "همراه سه وعده غذایی صبحانه و ناهار و شام";
+                    } else if (page_lang === 'en') {
+                        title = "With three meals, breakfast, lunch and dinner";
+                    } else if (page_lang === 'ar') {
+                        title = "مع ثلاث وجبات، الإفطار والغداء والعشاء";
+                    }
+                    break;
+                case 1658:
+                    sevice = "ALL";
+                    if (page_lang === 'fa') {
+                        title = "تمام وعده های غذایی و امکانات هتل";
+                    } else if (page_lang === 'en') {
+                        title = "All meals and hotel facilities";
+                    } else if (page_lang === 'ar') {
+                        title = "جميع الوجبات ومرافق الفندق";
+                    }
+                    break;
+                case 1659:
+                    sevice = "U.ALL";
+                    if (page_lang === 'fa') {
+                        title = "تمام وعده های غذایی و امکانات هتل در هر زمان از اقامت بدون محدودیت";
+                    } else if (page_lang === 'en') {
+                        title = "All meals and hotel facilities at any time of the stay without restrictions";
+                    } else if (page_lang === 'ar') {
+                        title = "جميع الوجبات ومرافق الفندق في أي وقت من فترة الإقامة دون قيود";
+                    }
+                    break;
+                case 1660:
+                    sevice = "Maximum All Inclusive";
+                    if (page_lang === 'fa') {
+                        title = "تمام وعده های غذایی و امکانات هتل در هر زمان از اقامت بدون محدودیت";
+                    } else if (page_lang === 'en') {
+                        title = "All meals and hotel facilities at any time of the stay without restrictions";
+                    } else if (page_lang === 'ar') {
+                        title = "جميع الوجبات ومرافق الفندق في أي وقت من فترة الإقامة دون قيود";
+                    }
+                    break;
+            }
+            return `<span>${title}</span>`
         }
     } catch (err) {
         console.error('renderServiceHotel=' + err.lineNumber + ',' + err.message);
@@ -1015,29 +1384,44 @@ const renderInventoryView = async (element, day, from, to) => {
 const onProcessedHotelsImg = async (args) => {
     try {
         const response = args.response;
-        if (response.status == 200) {
+        if (response.status === 200) {
             const responseJson = await response.json();
-            if (responseJson) {
-                document.querySelectorAll(".tourInventory__details__item__img").forEach(e => {
-                    const pageName = e.dataset.pagename;
-                    for (const item of responseJson) {
-                        if (parseInt(e.dataset.id) == parseInt(item.usedforid)) {
-                            e.setAttribute("src", `/${item.originalImage}`);
-                            const htmlImg = e.closest("figure").innerHTML;
-                            e.closest("figure").innerHTML = `<a href="/${pageName}?id=${e.dataset.id}">${htmlImg}</a>`
-                        }
+            if (!responseJson) return;
+
+            document.querySelectorAll(".tourInventory__details__item__img").forEach(img => {
+                const pageName = img.dataset.pagename;
+                const hotelId = parseInt(img.dataset.id);
+
+                const matched = responseJson.find(item => parseInt(item.usedforid) === hotelId);
+                if (!matched) return;
+
+                // آپدیت تصویر
+                img.src = `/${matched.originalImage}`;
+
+                // اگر والد مستقیم تصویر لینک نیست، wrap کنیم
+                if (img.parentElement.tagName.toLowerCase() !== "a") {
+                    const figure = img.closest("figure");
+                    const figcaption = figure.querySelector("figcaption");
+
+                    // ایجاد لینک
+                    const a = document.createElement("a");
+                    a.href = `/${pageName}?id=${hotelId}`;
+                    a.appendChild(img); // منتقل کردن img
+                    if (figcaption) {
+                        a.appendChild(figcaption); // منتقل کردن figcaption
                     }
 
-
-
-                });
-
-            }
+                    // پاک کردن محتوا و افزودن a
+                    figure.innerHTML = "";
+                    figure.appendChild(a);
+                }
+            });
         }
     } catch (err) {
-        console.error('onProcessedHotelsImg=' + err.lineNumber + ',' + err.message);
+        console.error('onProcessedHotelsImg=' + (err.lineNumber || "-") + ',' + err.message);
     }
-}
+};
+
 // booking tour form
 const onsubmitTourForm = async (element, event) => {
     try {

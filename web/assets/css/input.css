@@ -414,10 +414,14 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
           }
 
         
- .clamped-text::after{content:"";display:inline-block;width:60%}.card:nth-last-child(1),.card:nth-last-child(2):nth-child(odd){margin-left:auto}.clipped-section{width:100%;height:1203px;background-size:cover;background-color:var(--primary-950);clip-path:url(#section1)}.clipped-section-form{width:100%;height:1066px;background-color:var(--primary-950);
+ .clamped-text::after{content:"";display:inline-block;width:60%}.card:nth-last-child(1),.card:nth-last-child(2):nth-child(odd){margin-left:auto}
+ 
+ .clipped-section{width:100%;height:1203px;background-size:cover;background-color:var(--primary-950);clip-path:url(#section1)}
+ .clipped-section-form{width:100%;height:1066px;background-color:var(--primary-950);
     background-size:cover;background-image:url(../images/pattern-tringle.svg);clip-path:url(#sectionform)}
     
-    .clipped-airline-section1{width:100%;height:696px;background-color:var(--primary-950);background-image:url(../images/airplane-pattern.png);background-size:cover;clip-path:url(#airline-section1)}.clipped-airline-section2{width:100%;height:780px;background-color:var(--shade-0);background-size:cover;clip-path:url(#airline-section1)}.hasNot-login-icon{display:none!important}.LoginInformation:hover .btnstyle>span{transform-origin:center;transform:scale(1.25);display:inline-block}.user-profile-container>button>span{display:none!important}.user-profile-btn::before{content:'به حساب کاربری وارد شده اید';color:var(--success-500);font-size:10px}.main-login-container #login-title .login-icon{display:none!important}.main-login-container>.login-left-part{display:none!important}.main-login-container>.login-right-part{width:60%;float:none;margin:2em auto;clear:both}
+.clipped-airline-section1{width:100%;height:696px;background-color:var(--primary-950);background-image:url(../images/airplane-pattern.png);background-size:cover;clip-path:url(#airline-section1)}
+.clipped-airline-section2{width:100%;height:780px;background-color:var(--shade-0);background-size:cover;clip-path:url(#airline-section1)}.hasNot-login-icon{display:none!important}.LoginInformation:hover .btnstyle>span{transform-origin:center;transform:scale(1.25);display:inline-block}.user-profile-container>button>span{display:none!important}.user-profile-btn::before{content:'به حساب کاربری وارد شده اید';color:var(--success-500);font-size:10px}.main-login-container #login-title .login-icon{display:none!important}.main-login-container>.login-left-part{display:none!important}.main-login-container>.login-right-part{width:60%;float:none;margin:2em auto;clear:both}
     
     .main-login-container.rtl-lang .login-closed{text-align:left}.main-login-container{font-family:"Yekan_Bakh_Regular_fa"!important;text-align:center}.main-login-container.rtl-lang{text-align:center!important}.main-login-container #login-title{display:flex;align-items:center;align-content:center;flex-direction:column}
     
