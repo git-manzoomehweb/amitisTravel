@@ -597,27 +597,8 @@ const onProcessedAirlinesDestinationsImg = async (args) => {
     }
 }
 
-const onrenderedInventoryView = async () => {
-    try {
-        let ids = [];
-        document.querySelectorAll(".tourInventory__details__item__img").forEach(e => {
-            if (e.dataset.id !== "") {
-                ids.push(e.dataset.id)
-            }
 
-        });
-        if (ids.length > 0) {
-            $bc.setSource("db.hotelGallery", {
-                ids: ids,
-                run: true,
-            });
-        }
 
-    } catch (err) {
-        console.error('onrenderedInventoryView=' + err.lineNumber + ',' + err.message);
-    }
-
-}
 const renderTourDateModal = (element, className) => {
     try {
         document.querySelector(".tour__date__modal__container").classList.remove(`${className}`);
@@ -771,7 +752,8 @@ const renderHotels = async (element, type) => {
                     <img class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
                          src="${hotelImg}" 
                          data-pageName="${pageName}" 
-                         data-id="${hotel.hotelid}" width="216" height="160" alt="${cleanHotelName}" />
+                         data-id="${hotel.hotelid}" width="216" height="160" alt="${cleanHotelName}" ></img>
+
                     <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
                         <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap">${cleanHotelName}</span>
                         <svg class="inline-block" width="19" height="18">
@@ -812,7 +794,6 @@ const renderHotels = async (element, type) => {
 
         // فقط یک بار کارت ساخته می‌شود
         const output = `
-            <div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
                 <div class="p-3 tourInventory__details__item__info">
                     <div class="inline-block float-right">
                         <div class="flex flex-row-reverse flex-wrap gap-y-4">
@@ -821,7 +802,6 @@ const renderHotels = async (element, type) => {
                     </div>
                     ${textSection}
                 </div>
-            </div>
         `;
 
         return output;
@@ -831,9 +811,90 @@ const renderHotels = async (element, type) => {
         return "";
     }
 };
+const onrenderedInventoryView = async () => {
+    try {
+        let ids = [];
+        document.querySelectorAll(".tourInventory__details__item__img").forEach(e => {
+            if (e.dataset.id !== "") {
+                ids.push(e.dataset.id)
+            }
+
+        });
+        console.log(ids);
+        if (ids.length > 0) {
+            $bc.setSource("db.hotelGallery", {
+                ids: ids,
+                run: true,
+            });
+        }
+
+    } catch (err) {
+        console.error('onrenderedInventoryView=' + err.lineNumber + ',' + err.message);
+    }
+
+}
+const onProcessedHotelsImg = async (args) => {
+    console.log(args);
+    try {
+        const response = args.response;
+        if (response.status === 200) {
+            const responseJson = await response.json();
+            if (!responseJson) return;
+
+            document.querySelectorAll(".tourInventory__details__item__img").forEach(img => {
+                const pageName = img.dataset.pagename;
+                const hotelId = parseInt(img.dataset.id);
+            
+                console.log(`Checking hotelId: ${hotelId}`);
+            
+                const matched = responseJson.find(item => parseInt(item.usedforid) === hotelId);
+            
+                if (!matched) {
+                    console.warn(`No matched image for hotelId ${hotelId}`);
+                    return;
+                }
+            
+                console.log(`Matched image for ${hotelId}:`, matched);
+            
+                // آپدیت تصویر
+                img.src = `/${matched.originalImage}`;
+            
+                // اگر والد مستقیم تصویر لینک نیست، wrap کنیم
+                if (img.parentElement.tagName.toLowerCase() !== "a") {
+                    const figure = img.closest("figure");
+                    const figcaption = figure ? figure.querySelector("figcaption") : null;
+
+                    const imgClone = img.cloneNode(true);
+const a = document.createElement("a");
+a.href = `/${pageName}?id=${hotelId}`;
+a.appendChild(imgClone);
+if (figcaption) a.appendChild(figcaption.cloneNode(true));
+
+figure.innerHTML = "";
+figure.appendChild(a);
+            
+                    // const a = document.createElement("a");
+                    // a.href = `/${pageName}?id=${hotelId}`;
 
 
 
+                    // a.appendChild(img);
+                    // if (figcaption) a.appendChild(figcaption);
+            
+                    // if (figure) {
+                    //     figure.innerHTML = "";
+                    //     figure.appendChild(a);
+                    // }
+                }
+            });
+
+            
+
+        }
+    } catch (err) {
+        console.error('onProcessedHotelsImg=' + (err.lineNumber || "-") + ',' + err.message);
+    }
+};
 
 
 
@@ -1381,46 +1442,7 @@ const renderInventoryView = async (element, day, from, to) => {
         console.error('renderInventoryView=' + err.lineNumber + ',' + err.message);
     }
 }
-const onProcessedHotelsImg = async (args) => {
-    try {
-        const response = args.response;
-        if (response.status === 200) {
-            const responseJson = await response.json();
-            if (!responseJson) return;
 
-            document.querySelectorAll(".tourInventory__details__item__img").forEach(img => {
-                const pageName = img.dataset.pagename;
-                const hotelId = parseInt(img.dataset.id);
-
-                const matched = responseJson.find(item => parseInt(item.usedforid) === hotelId);
-                if (!matched) return;
-
-                // آپدیت تصویر
-                img.src = `/${matched.originalImage}`;
-
-                // اگر والد مستقیم تصویر لینک نیست، wrap کنیم
-                if (img.parentElement.tagName.toLowerCase() !== "a") {
-                    const figure = img.closest("figure");
-                    const figcaption = figure.querySelector("figcaption");
-
-                    // ایجاد لینک
-                    const a = document.createElement("a");
-                    a.href = `/${pageName}?id=${hotelId}`;
-                    a.appendChild(img); // منتقل کردن img
-                    if (figcaption) {
-                        a.appendChild(figcaption); // منتقل کردن figcaption
-                    }
-
-                    // پاک کردن محتوا و افزودن a
-                    figure.innerHTML = "";
-                    figure.appendChild(a);
-                }
-            });
-        }
-    } catch (err) {
-        console.error('onProcessedHotelsImg=' + (err.lineNumber || "-") + ',' + err.message);
-    }
-};
 
 // booking tour form
 const onsubmitTourForm = async (element, event) => {
