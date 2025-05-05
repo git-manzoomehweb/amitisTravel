@@ -1,14 +1,45 @@
+// function showDescription(el, descClass) {
+//     const parentContainer = el.closest('.price-type'); 
+//     const descBox = parentContainer.closest(".hotel-card").querySelector(`.${descClass}`); 
+//     const svgIcon = el.querySelector('svg'); 
+//     if (descBox) {
+//         descBox.classList.toggle('hidden'); 
+//         if (svgIcon) {
+//             svgIcon.classList.toggle('rotate-180'); 
+//         }
+//     }
+// }
+
 function showDescription(el, descClass) {
     const parentContainer = el.closest('.price-type'); 
     const descBox = parentContainer.closest(".hotel-card").querySelector(`.${descClass}`); 
     const svgIcon = el.querySelector('svg'); 
-    if (descBox) {
+    
+    if (descBox && descBox.textContent.trim() !== '') {
         descBox.classList.toggle('hidden'); 
         if (svgIcon) {
             svgIcon.classList.toggle('rotate-180'); 
         }
     }
 }
+
+
+// function CleanShowDescription() {
+//             // اجرای بررسی بعد از رندر
+//             document.querySelectorAll('[onclick^="showDescription"]').forEach(span => {
+//                 const descClassMatch = span.getAttribute('onclick').match(/'([^']+)'/);
+//                 if (descClassMatch) {
+//                     const descClass = descClassMatch[1];
+//                     const parentContainer = span.closest('.price-type') || span.closest('.hotel-card');
+//                     const descBox = parentContainer?.querySelector(`.${descClass}`);
+//                     if (!descBox || descBox.textContent.trim() === '') {
+//                         const svg = span.querySelector('svg');
+//                         if (svg) svg.remove();
+//                     }
+//                 }
+//             });
+// };
+
 
 function openTabInfo(element, tabId) {
     document.querySelectorAll('.my-6 ul li').forEach(li => {
@@ -744,24 +775,37 @@ const renderHotels = async (element, type) => {
                 return div.textContent || div.innerText || "";
             })();
 
+            const escapeHtml = (unsafe) => {
+                return (unsafe || "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            };
+
             // تنظیم order برای تصاویر
             const imageOrder = index === 0 ? "order-2" : "order-1";  // تصویر اول بالاتر از بقیه
 
             imageSection += `
-                <figure data-index="${index}" class="${index > 0 ? '-mr-24' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative ${imageOrder}">
-                    <img class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
-                         src="${hotelImg}" 
-                         data-pageName="${pageName}" 
-                         data-id="${hotel.hotelid}" width="216" height="160" alt="${cleanHotelName}" ></img>
-
-                    <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
-                        <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap">${cleanHotelName}</span>
-                        <svg class="inline-block" width="19" height="18">
-                            <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
-                        </svg>
-                    </figcaption>
-                </figure>
-            `;
+            <figure data-index="${index}" class="${index > 0 ? '-mr-24' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative ${imageOrder}">
+                <img 
+                    class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
+                    src="${hotelImg}" 
+                    data-pageName="${pageName}" 
+                    data-id="${hotel.hotelid}" 
+                    width="216" 
+                    height="160" 
+                    alt="${escapeHtml(cleanHotelName)}" />
+                <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
+                    <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap">${escapeHtml(cleanHotelName)}</span>
+                    <svg class="inline-block" width="19" height="18">
+                        <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
+                    </svg>
+                </figcaption>
+            </figure>
+        `;
+        
 
             textSection += `
                 <div class="min-w-[48%] inline-block my-4 float-left">
@@ -785,7 +829,7 @@ const renderHotels = async (element, type) => {
                             </div>
                         </span>
                         <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
-                            ${cleanHotelName}
+                            ${escapeHtml(cleanHotelName)}
                         </span>
                     </div>
                 </div>
@@ -804,6 +848,11 @@ const renderHotels = async (element, type) => {
                 </div>
         `;
 
+
+
+
+
+
         return output;
 
     } catch (err) {
@@ -811,6 +860,12 @@ const renderHotels = async (element, type) => {
         return "";
     }
 };
+
+
+
+
+
+
 const onrenderedInventoryView = async () => {
     try {
         let ids = [];
@@ -1072,62 +1127,173 @@ figure.appendChild(a);
 
 const renderPriceInfo = async (element, type) => {
     try {
-        if (element) {
-            if (type == 'doublecost') {
-                let output = "";
-                for (const item of element.priceinfo.doublecost) {
-                    output += `<div class="tourInventory__details__item__double">
-                                <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.doublecost.doublecostf)}</span>
-                                ${item.doublecost.doubleunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.doublecost.doubleunit}</span>`}</div>`
-                }
+        if (!element) return '';
 
+        const renderPriceBoxes = (prices, key, wrapperClass) => {
+            let output = "";
 
-                return output;
-            } else if (type == 'singlecost') {
-                let output = "";
-                for (const item of element.priceinfo.singlecost) {
-                    console.log(item.singlecost.singleunit)
-                    output += `<div class="tourInventory__details__item__single">
-                                <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.singlecost.singlecostf)}</span>
-                                ${item.singlecost.singleunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.singlecost.singleunit}</span>`}</div>`
-                }
+            const getValue = (item, prop) => {
+                return item[key]?.[`${key}${prop}`] ?? item[`${key}${prop}`] ?? '';
+            };
 
+            if (prices.length === 1) {
+                const item = prices[0];
+                output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+                    <div class="${wrapperClass}">
+                        <span class="tourInventory__details__item__price sm:text-xl font-bold">
+                            ${new Intl.NumberFormat().format(getValue(item, 'f'))}
+                        </span>
+                        ${getValue(item, 'unit')?.length === 0 ? `` : `
+                            <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+                                ${getValue(item, 'unit')}
+                            </span>`}
+                    </div>
+                </div>`;
+            } else {
+                prices.forEach((item, index) => {
+                    output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+                        <div class="${wrapperClass} flex items-center justify-center gap-2">
+                            <span class="tourInventory__details__item__price sm:text-xl font-bold">
+                                ${new Intl.NumberFormat().format(getValue(item, 'f'))}
+                            </span>
+                            ${getValue(item, 'unit')?.length === 0 ? `` : `
+                                <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+                                    ${getValue(item, 'unit')}
+                                </span>`}
+                        </div>
+                    </div>`;
 
-                return output;
-            } else if (type == 'childwithbed') {
-                let output = "";
-                for (const item of element.priceinfo.childwithbed) {
-                    output += `<div class="tourInventory__details__item__wBed">
-                                <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.childwithbed.childwithbedf)}</span>
-                                ${item.childwithbed.childwithbedunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.childwithbed.childwithbedunit}</span>`}</div>`
-
-                }
-
-
-                return output;
-            } else if (type == 'childwithoutbed') {
-                let output = "";
-                for (const item of element.priceinfo.childwithoutbed) {
-                    output += `<div class="tourInventory__details__item__woBed">
-                                <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.childwithoutbed.childwithoutbedf)}</span>
-                                ${item.childwithoutbed.childwithoutbedunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.childwithoutbed.childwithoutbedunit}</span>`}</div>`
-                }
-
-
-                return output;
+                    if (index < prices.length - 1) {
+                        output += `<div class="relative w-full flex justify-center items-center -my-2">
+                            <hr class="w-full" />
+                            <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
+                            <hr class="w-full" />
+                        </div>`;
+                    }
+                });
             }
 
+            return output;
+        };
 
-
+        switch (type) {
+            case 'doublecost':
+                return renderPriceBoxes(element.priceinfo.doublecost, 'doublecost', 'tourInventory__details__item__double');
+            case 'singlecost':
+                return renderPriceBoxes(element.priceinfo.singlecost, 'singlecost', 'tourInventory__details__item__single');
+            case 'childwithbed':
+                return renderPriceBoxes(element.priceinfo.childwithbed, 'childwithbed', 'tourInventory__details__item__wBed');
+            case 'childwithoutbed':
+                return renderPriceBoxes(element.priceinfo.childwithoutbed, 'childwithoutbed', 'tourInventory__details__item__woBed');
+            default:
+                return '';
         }
 
     } catch (err) {
         console.error('renderPriceInfo=' + err.lineNumber + ',' + err.message);
+        return '';
     }
+};
 
 
 
-}
+// const renderPriceInfo = async (element, type) => {
+//     try {
+//         if (element) {
+//             if (type == 'doublecost') {
+//                 let output = "";
+//                 const prices = element.priceinfo.doublecost;
+            
+//                 if (prices.length === 1) {
+//                     const item = prices[0];
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                         <div class="tourInventory__details__item__double">
+//                             <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.doublecost.doublecostf)}</span>
+//                             ${item.doublecost.doubleunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.doublecost.doubleunit}</span>`}
+//                         </div>
+//                     </div>`;
+//                 } else {
+//                     prices.forEach((item, index) => {
+//                         output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                             <div class="tourInventory__details__item__double flex items-center justify-center gap-2">
+//                                 <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.doublecost.doublecostf)}</span>
+//                                 ${item.doublecost.doubleunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.doublecost.doubleunit}</span>`}
+//                             </div>
+//                         </div>`;
+            
+//                         // اضافه کردن + بین آیتم‌ها (نه بعد از آخرین آیتم)
+//                         if (index < prices.length - 1) {
+//                             output += `<div class="relative w-full flex justify-center items-center -my-2">
+//                                 <hr class="w-full" />
+//                                 <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
+//                                 <hr class="w-full" />
+//                             </div>`;
+//                         }
+//                     });
+//                 }
+//                 return output;
+//             }
+//             else if (type == 'singlecost') {
+//                 let output = "";
+//                 for (const item of element.priceinfo.singlecost) {
+//                     console.log(item.singlecost.singleunit)
+//                     output += `<div
+//     class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//     <div class="tourInventory__details__item__single">
+//         <span class="tourInventory__details__item__price sm:text-xl font-bold">${new
+//             Intl.NumberFormat().format(item.singlecost.singlecostf)}</span>
+//         ${item.singlecost.singleunit.length == 0 ? `` : `<span
+//             class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.singlecost.singleunit}</span>`}
+//     </div>
+// </div>`
+//                 }
+
+
+//                 return output;
+//             } else if (type == 'childwithbed') {
+//                 let output = "";
+//                 for (const item of element.priceinfo.childwithbed) {
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//     <div class="tourInventory__details__item__wBed">
+//         <span class="tourInventory__details__item__price sm:text-xl font-bold">${new
+//             Intl.NumberFormat().format(item.childwithbed.childwithbedf)}</span>
+//         ${item.childwithbed.childwithbedunit.length == 0 ? `` : `<span
+//             class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.childwithbed.childwithbedunit}</span>`}
+//     </div>
+// </div>`
+
+//                 }
+
+
+//                 return output;
+//             } else if (type == 'childwithoutbed') {
+//                 let output = "";
+//                 for (const item of element.priceinfo.childwithoutbed) {
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//     <div class="tourInventory__details__item__woBed">
+//         <span class="tourInventory__details__item__price sm:text-xl font-bold">${new
+//             Intl.NumberFormat().format(item.childwithoutbed.childwithoutbedf)}</span>
+//         ${item.childwithoutbed.childwithoutbedunit.length == 0 ? `` : `<span
+//             class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.childwithoutbed.childwithoutbedunit}</span>`}
+//     </div>
+// </div>`
+//                 }
+
+
+//                 return output;
+//             }
+
+
+
+//         }
+
+//     } catch (err) {
+//         console.error('renderPriceInfo=' + err.lineNumber + ',' + err.message);
+//     }
+
+
+
+// }
 const renderHotelRate = async (element) => {
     try {
         if (element) {
@@ -2413,8 +2579,25 @@ function jalali_to_gregorian(jy, jm, jd) {
 
 const renderDescriptionHotelCost = async (element) => {
     try {
+        // if (!element || !element.description[0] || !element.description[0] || !element.description[0].descriptionf) {
+        //     return '';
+        // }
 
+        let descriptionPrice = element.description[0].descriptionf;
+
+        let description = `<div class="bg-neutral-50 w-full min-h-[80px] rounded-[4px] 
+                              flex justify-center items-center
+                              my-2 leading-[48px] text-primary-900 text-center text-base px-4">
+                                ${descriptionPrice}
+                            </div>`;
+
+
+        console.log(description);                    
+
+        return description;
     } catch (err) {
         console.error('renderDescriptionHotelCost=' + err.lineNumber + ',' + err.message);
+        return '';
     }
 }
+
