@@ -10,10 +10,6 @@
 //     }
 // }
 
-
-
-  
-
 function showDescription(el, descClass) {
     const parentContainer = el.closest('.price-type'); 
     const descBox = parentContainer.closest(".hotel-card").querySelector(`.${descClass}`); 
@@ -27,74 +23,22 @@ function showDescription(el, descClass) {
     }
 }
 
-function CleanShowDescription() {
-            // اجرای بررسی بعد از رندر
-            document.querySelectorAll('[onclick^="showDescription"]').forEach(span => {
-                const descClassMatch = span.getAttribute('onclick').match(/'([^']+)'/);
-                if (descClassMatch) {
-                    const descClass = descClassMatch[1];
-                    const parentContainer = span.closest('.price-type') || span.closest('.hotel-card');
-                    const descBox = parentContainer?.querySelector(`.${descClass}`);
-                    if (!descBox || descBox.textContent.trim() === '') {
-                        const svg = span.querySelector('svg');
-                        if (svg) svg.remove();
-                    }
-                }
-            });
-};
 
-
-
-
-async function showDescriptionHTML(data) {
-    const text = data?.description[0].descriptionf.trim() || '';
-    if(text.length == 0){
-        return '';
-    }else if (text.length > 0 && text.length < 8) {
-        console.log(text.length)
-        console.log("showwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-        console.log(text)
-        // اگر متن خیلی کوتاه بود، خود متن رو برگردون
-        return text;
-    } else {
-        // اگر متن طولانی بود، متن «نمایش» با آیکون رو برگردون
-        return `
-                            <span onclick="showDescription(this,'description-hotel')">
-
-            نمایش
-            <svg class="inline-block" width="24" height="24">
-                <use href="./images/sprite-icons.svg#arrow-down-tour-detail"></use>
-            </svg>
-                                        </span>
-
-        `;
-    }
-}
-
-
-const renderDescriptionHotelCost = async (element) => {
-    try {
-        // if (!element || !element.description[0] || !element.description[0] || !element.description[0].descriptionf) {
-        //     return '';
-        // }
-
-        let descriptionPrice = element.description[0].descriptionf;
-
-        let description = `<div class="bg-neutral-50 w-full min-h-[80px] rounded-[4px] 
-                              flex justify-center items-center
-                              my-2 leading-[48px] text-primary-900 text-center text-base px-4">
-                                ${descriptionPrice}
-                            </div>`;
-
-
-        console.log(description);                    
-
-        return description;
-    } catch (err) {
-        console.error('renderDescriptionHotelCost=' + err.lineNumber + ',' + err.message);
-        return '';
-    }
-}
+// function CleanShowDescription() {
+//             // اجرای بررسی بعد از رندر
+//             document.querySelectorAll('[onclick^="showDescription"]').forEach(span => {
+//                 const descClassMatch = span.getAttribute('onclick').match(/'([^']+)'/);
+//                 if (descClassMatch) {
+//                     const descClass = descClassMatch[1];
+//                     const parentContainer = span.closest('.price-type') || span.closest('.hotel-card');
+//                     const descBox = parentContainer?.querySelector(`.${descClass}`);
+//                     if (!descBox || descBox.textContent.trim() === '') {
+//                         const svg = span.querySelector('svg');
+//                         if (svg) svg.remove();
+//                     }
+//                 }
+//             });
+// };
 
 
 function openTabInfo(element, tabId) {
@@ -128,11 +72,11 @@ function openPlan(element, target) {
   document.querySelectorAll('.plan-days').forEach((el) => {
     el.querySelector(".txt-day-content").classList.remove("!flex");
     el.classList.remove("border-primary-100");
-    el.querySelector("figure").classList.remove("!blur-none", "!w-[184px]" , "!h-[184px]");
+    el.querySelector("figure").classList.remove("blur-none", "!w-[184px]" , "!h-[184px]");
   });
   element.classList.add("border-primary-100");
   element.querySelector(".txt-day-content").classList.add("!flex");
-  element.querySelector("figure").classList.add("!blur-none", "!w-[184px]" , "!h-[184px]");
+  element.querySelector("figure").classList.add("blur-none", "!w-[184px]" , "!h-[184px]");
 }
 
 
@@ -232,182 +176,60 @@ const callbackSourceExecutionPlanTypesView = async (args) => {
         console.error('callbackSourceExecutionPlanTypesView=' + err.lineNumber + ',' + err.message);
     }
 };
-
-
-
-// const onrenderedExecutionOrigins = async () => {
-//     try {
-//         if (document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log(document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item"))
-//             let origin = document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".details__city").textContent;
-//             document.querySelector(".tourExecution__container__origins").querySelector(".origins__city").textContent = origin
-//             document.getElementById("destination-departure-tour").textContent = origin ; 
-//             // document.getElementById("origin-departure-tour").textContent = origin ;
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__origins").querySelectorAll(".transportation__img").forEach(e => {
-//                 if (e.dataset.id !== "") {
-//                     ids.push(e.dataset.id)
-//                 }
-//             })
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesOriginsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-
-//     } catch (err) {
-//         console.error('onrenderedExecutionOrigins=' + err.lineNumber + ',' + err.message);
-//     }
-// }
-// const onrenderedExecutionDestinations = async () => {
-//     try {
-//         if (document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log(document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item"))
-//             let destination = document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".details__city").textContent;
-//             document.querySelector(".tourExecution__container__destinations").querySelector(".destinations__city").textContent = destination
-//             document.getElementById("origin-departure-tour").textContent = destination ; 
-//             // document.getElementById("destination-departure-tour").textContent = destination ; 
-
-
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__destinations").querySelectorAll(".transportation__img").forEach(e => {
-//                 ids.push(e.dataset.id)
-//             })
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesDestinationsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-//     } catch (err) {
-//         console.error('onrenderedExecutionDestinations=' + err.lineNumber + ',' + err.message);
-//     }
-
-// }
-
-
-
-
 const onrenderedExecutionOrigins = async () => {
+    console.log("ttttttttttttttt onrenderedExecutionOrigins ttttttttttttttttttt")
     try {
-        const originElement = document.querySelector(".tourExecution__container__origins .execution__details__path__item .details__city");
-        if (originElement) {
-            let origin = originElement.textContent;
-            console.log(origin)
-            document.querySelector(".tourExecution__container__origins .origins__city").textContent = origin;
-            document.getElementById("destination-departure-tour").textContent = origin; // اصلاح ID برای مبدأ
-
+        if (document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0]) {
+            console.log("ttttttttttttttt onrenderedExecutionOrigins ttttttttttttttttttt2")
+            document.querySelector(".tourExecution__container__origins").querySelector(".origins__city").textContent = document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".details__city").textContent;
+            console.log("ttttttttttttttt onrenderedExecutionOrigins ttttttttttttttttttt3")
             let ids = [];
             document.querySelector(".tourExecution__container__origins").querySelectorAll(".transportation__img").forEach(e => {
+                console.log("ttttttttttttttt onrenderedExecutionOrigins ttttttttttttttttttt4")
                 if (e.dataset.id !== "") {
-                    ids.push(e.dataset.id);
+                    ids.push(e.dataset.id)
                 }
-            });
+            })
             if (ids.length > 0) {
-                $bc.setSource("db.airlinesOriginsGallery", { ids: ids, run: true });
+                $bc.setSource("db.airlinesOriginsGallery", {
+                    ids: ids,
+                    run: true
+                });
             }
         }
+
     } catch (err) {
         console.error('onrenderedExecutionOrigins=' + err.lineNumber + ',' + err.message);
     }
 }
-
 const onrenderedExecutionDestinations = async () => {
+    console.log("ddddddddddddddd onrenderedExecutionDestinations dddddddddddddddd")
     try {
-        const destinationElement = document.querySelector(".tourExecution__container__destinations .execution__details__path__item .details__city");
-        if (destinationElement) {
-            let destination = destinationElement.textContent;
-            console.log( destination)
+        if (document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0]) {
+            console.log("ddddddddddddddd onrenderedExecutionDestinations dddddddddddddddd2");
 
-            document.querySelector(".tourExecution__container__destinations .destinations__city").textContent = destination;
-            document.getElementById("origin-departure-tour").textContent = destination; // اصلاح ID برای مقصد
+            document.querySelector(".tourExecution__container__destinations").querySelector(".destinations__city").textContent = document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".details__city").textContent;
+            console.log("ddddddddddddddd onrenderedExecutionDestinations dddddddddddddddd3")
 
             let ids = [];
             document.querySelector(".tourExecution__container__destinations").querySelectorAll(".transportation__img").forEach(e => {
-                ids.push(e.dataset.id);
-            });
+                console.log("ddddddddddddddd onrenderedExecutionDestinations dddddddddddddddd4")
+                ids.push(e.dataset.id)
+            })
             if (ids.length > 0) {
-                $bc.setSource("db.airlinesDestinationsGallery", { ids: ids, run: true });
+                console.log("ddddddddddddddd onrenderedExecutionDestinations dddddddddddddddd5")
+
+                $bc.setSource("db.airlinesDestinationsGallery", {
+                    ids: ids,
+                    run: true
+                });
             }
         }
     } catch (err) {
         console.error('onrenderedExecutionDestinations=' + err.lineNumber + ',' + err.message);
     }
+
 }
-
-
-// const onrenderedExecutionOrigins = async () => {
-//     console.log("onrenderedExecutionOrigins");
-//     try {
-//         if (document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log("found origins path item");
-//             originCityName = document.querySelector(".tourExecution__container__origins")
-//                 .querySelectorAll(".execution__details__path__item")[0]
-//                 .querySelector(".details__city").textContent;
-//             // نمایش نام شهر مبدأ در کارت
-//             document.querySelector(".tourExecution__container__origins")
-//                 .querySelector(".origins__city").textContent = originCityName;
-
-//             console.log("originCityName:", originCityName);
-
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__origins")
-//                 .querySelectorAll(".transportation__img").forEach(e => {
-//                     if (e.dataset.id !== "") {
-//                         ids.push(e.dataset.id);
-//                     }
-//                 });
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesOriginsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-//     } catch (err) {
-//         console.error('onrenderedExecutionOrigins=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
-
-// const onrenderedExecutionDestinations = async () => {
-//     console.log("onrenderedExecutionDestinations");
-//     try {
-//         if (document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log("found destinations path item");
-
-//             returnCityName = document.querySelector(".tourExecution__container__destinations")
-//                 .querySelectorAll(".execution__details__path__item")[0]
-//                 .querySelector(".details__city").textContent;
-//             // نمایش نام شهر مقصد در کارت
-//             document.querySelector(".tourExecution__container__destinations")
-//                 .querySelector(".destinations__city").textContent = returnCityName;
-
-//             console.log("returnCityName:", returnCityName);
-
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__destinations")
-//                 .querySelectorAll(".transportation__img").forEach(e => {
-//                     ids.push(e.dataset.id);
-//                 });
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesDestinationsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-//     } catch (err) {
-//         console.error('onrenderedExecutionDestinations=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
-
-
-
 const onrenderedDates = async () => {
     try {
         if (document.querySelector(".date__details ul")) {
@@ -819,7 +641,100 @@ const renderTourDateModal = (element, className) => {
     }
 
 }
+// hotel inventory
+// const renderHotels = async (element, type) => {
+//     try {
+//         if (element) {
+//             console.log(element);
+//             console.log(element.hotelinfo[0]);
+//             let output = "";
+//             let index = 0;
+//             let imageSection;
+//             let textSection;
+            
+//             // برای هر هتل درون داده ها
+//             for (const item of element.hotelinfo[0].hotels) {
+//                 console.log(
+//                     document.querySelector(".layout__body__container").dataset,
+//                     document.querySelector(".layout__body__container").dataset.noimgsign
+//                 );
+                
+//                 let img = `/common/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
 
+//                 if (document.querySelector(".layout__body__container").dataset.noimgsign.length > 0) {
+//                     img = `/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
+//                 }
+
+//                 // اینجا بخش تصویر را اضافه میکنیم
+//                 imageSection += `
+//                     <figure class="${index !== 0 ? '-mr-24' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative">
+//                         <img class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
+//                              src="${img}"
+//                              data-pageName="${document.querySelector(".layout__body__container").dataset.pagenameinventory}"
+//                              data-id="${item.hotel.hotelid}" width="216" height="160" alt="" />
+//                         <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
+//                             <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block">location</span>
+//                             <svg class="inline-block" width="19" height="18">
+//                                 <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
+//                             </svg>
+//                         </figcaption>
+//                     </figure>
+//                 `;
+
+//                 // اینجا بخش متنی شامل نام هتل و سایر اطلاعات اضافه می‌شود
+//                 textSection += `
+//                     <div class="min-w-[48%] inline-block my-4 float-left">
+//                         <div class="h-12 bg-neutralcolor-50 rounded-[4px] w-fit flex flex-row-reverse items-center px-2 gap-x-3 float-left">
+//                             <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star === '' ? 0 : item.hotel.star}">
+//                                 ${await renderHotelRate(item.hotel)}
+//                             </div>
+//                             <span class="relative cursor-pointer group flex justify-center items-center">
+//                                 <span class="text-xs font-yekanbakhregularFA text-txtneutral-900 underline uppercase 
+//                                           group-hover:text-primary
+//                                           tourInventory__details__item__service flex justify-center items-center gap-x-1" data-value="${item.hotel.service.vid}">
+//                                     ${await renderSummaryServiceHotel(item.hotel, element.booking)}
+//                                 </span>
+//                                 <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16" height="17">
+//                                     <use href="./images/sprite-icons.svg#circle-info-tour-detail"></use>
+//                                 </svg>
+//                                 <div class="absolute -left-5 bottom-full mb-3 bg-white border border-neutralcolor-800 rounded-lg px-6 py-2 text-xs text-primary-900 font-yekanbakhregularFA opacity-0 invisible 
+//                                           group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-10">
+//                                     ${await renderServiceHotel(item.hotel, element.booking)}
+//                                     <div class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800"></div>
+//                                 </div>
+//                             </span>
+//                             <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
+//                                 ${item.hotel.hotelname}
+//                             </span>
+//                         </div>
+//                     </div>
+//                 `;
+
+                
+//                 index++;
+//             }
+//             // ترکیب بخش‌ها و اضافه کردن به خروجی
+//             output += `
+//                 <div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
+//                     <div class="p-3 tourInventory__details__item__info" data-index="${index}">
+//                         <div class="inline-block float-right">
+//                             <div class="flex flex-row-reverse float-right">
+//                                 ${imageSection}
+//                             </div>
+//                         </div>
+//                         ${textSection}
+//                     </div>
+//                 </div>
+//             `;
+
+//             return output;
+
+//         }
+
+//     } catch (err) {
+//         console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+//     }
+// }
 
 const renderHotels = async (element, type) => {
     try {
@@ -883,7 +798,7 @@ const renderHotels = async (element, type) => {
                     height="160" 
                     alt="${escapeHtml(cleanHotelName)}" />
                 <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
-                    <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap ">${escapeHtml(cleanHotelName)}</span>
+                    <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap">${escapeHtml(cleanHotelName)}</span>
                     <svg class="inline-block" width="19" height="18">
                         <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
                     </svg>
@@ -913,7 +828,7 @@ const renderHotels = async (element, type) => {
                                 <div class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800"></div>
                             </div>
                         </span>
-                        <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px] showhotel">
+                        <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
                             ${escapeHtml(cleanHotelName)}
                         </span>
                     </div>
@@ -945,6 +860,11 @@ const renderHotels = async (element, type) => {
         return "";
     }
 };
+
+
+
+
+
 
 const onrenderedInventoryView = async () => {
     try {
@@ -1032,6 +952,179 @@ figure.appendChild(a);
 };
 
 
+
+// const renderHotels = async (element, type) => {
+//     try {
+//         if (element) {
+
+//             console.log(element);
+//             console.log(element.hotelinfo[0]);
+//             let output = "";
+//             let index = 0;
+//             for (const item of element.hotelinfo[0].hotels) {
+//                 console.log(
+//                     document.querySelector(".layout__body__container").dataset,
+//                     document.querySelector(".layout__body__container").dataset.noimgsign
+//                 )
+//                 let img =`/common/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`;
+
+//                 if(document.querySelector(".layout__body__container").dataset.noimgsign.length>0){
+//                     img = `/images/${document.querySelector(".layout__body__container").dataset.noimgsign}`
+//                 }
+
+
+//                 output += `<div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px]">
+//     <div class="p-3 tourInventory__details__item__info " data-index="${index}">
+//         <div class="inline-block float-right">
+//             <div class=" flex flex-row-reverse float-right ">`
+
+//                         for (const item of element.hotelinfo[0].hotels) {
+
+//                 `<figure
+//                     class="${index !== 0 ? ' -mr-24 ' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative">
+//                     <img class=" tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden " src="${img}"
+//                         data-pageName="${document.querySelector(".layout__body__container").dataset.pagenameinventory}"
+//                         data-id="${item.hotel.hotelid}" width="216" height="160" alt="" />
+//                     <figcaption
+//                         class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
+//                         <span
+//                             class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block">location
+//                         </span><svg class="inline-block" width="19" height="18">
+//                             <use href="./images/sprite-icons.svg#location-hotel-tour-detail">
+//                             </use>
+//                         </svg>
+//                     </figcaption>
+//                 </figure>`
+
+//                         }
+//             `</div>
+//         </div>
+//         <div class=" min-w-[48%] inline-block my-4 float-left">
+//             <div
+//                 class="h-12 bg-neutralcolor-50 rounded-[4px] w-fit flex flex-row-reverse items-center px-2 gap-x-3 float-left">
+
+//                                                                              <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star == '' ? 0 : item.hotel.star}">
+//                                                                 ${await renderHotelRate(item.hotel)}
+//                                                             </div>
+
+//                 <span class=" relative cursor-pointer group flex justify-center items-center">
+//                     <span class="text-xs font-yekanbakhregularFA text-txtneutral-900 underline uppercase 
+//                                           group-hover:text-primary
+//                                           tourInventory__details__item__service flex justify-center items-center gap-x-1" data-value="${item.hotel.service.vid}">
+//                          ${await renderSummaryServiceHotel(item.hotel, element.booking)}
+//                     </span>
+//                     <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16"
+//                         height="17">
+//                         <use href="./images/sprite-icons.svg#circle-info-tour-detail">
+//                         </use>
+//                     </svg>
+//                     <div
+//                         class="absolute -left-5  
+//                                           bottom-full mb-3 bg-white border border-neutralcolor-800 rounded-lg px-6 py-2 text-xs  text-primary-900 font-yekanbakhregularFA opacity-0 invisible 
+//                                           group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-10">
+//                                           ${await renderServiceHotel(item.hotel, element.booking)}
+//                         <div
+//                             class="absolute left-10 bottom-[-8px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white before:content-[''] before:absolute before:block before:z-[-1] before:top-[-7px] before:left-[-8px] before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-t-8 before:border-transparent before:border-t-neutralcolor-800">
+//                         </div>
+//                     </div>
+//                 </span>
+//                 <span class="text-primary-900 text-xl font-yekanbakhsemibold leading-[31px]">
+//                     ${item.hotel.hotelname}
+//                 </span>
+//             </div>
+//         </div>
+//     </div>
+// </div>`;
+//                 index++;
+//             }
+
+//             return output;
+
+//         }
+
+//     } catch (err) {
+//         console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+//     }
+
+
+
+// }
+
+
+// const renderHotels = async (element, type) => {
+//     try {
+//         if (element) {
+//             console.log(element);
+//             console.log(element.hotelinfo[0]);
+
+//             let output = "";
+//             let index = 0;
+
+//             // تصویر پیش‌فرض
+//             const layoutContainer = document.querySelector(".layout__body__container");
+//             let img = `/common/images/${layoutContainer.dataset.noimgsign}`;
+//             if (layoutContainer.dataset.noimgsign.length > 0) {
+//                 img = `/images/${layoutContainer.dataset.noimgsign}`;
+//             }
+
+//             // شروع کارت کلی
+//             output += `<div class="tourInventory__details__item w-full border border-neutralcolor-800 rounded-2xl bg-white my-3 min-h-[344px] p-4">`;
+
+//             // عنوان کلی یا هر چیزی مرتبط با hotelinfo[0] (مثلاً نام مقصد یا تاریخ)
+//             output += `<h2 class="text-xl font-yekanbakhsemibold text-primary-900 mb-4">لیست هتل‌ها</h2>`;
+
+//             // حلقه روی هتل‌ها
+//             for (const item of element.hotelinfo[0].hotels) {
+//                 output += `
+//                 <div class="border-b border-neutralcolor-200 py-3 flex flex-row-reverse gap-4 items-start">
+//                     <figure class="relative w-[216px] h-[160px]">
+//                         <img class="rounded-xl w-full h-full object-cover"
+//                              src="${img}"
+//                              data-pageName="${layoutContainer.dataset.pagenameinventory}"
+//                              data-id="${item.hotel.hotelid}" alt="" />
+//                         <figcaption class="absolute bottom-2 left-2 bg-primary text-white rounded-full px-2 py-1 text-xs flex items-center gap-1">
+//                             <span class="hidden group-hover:inline-block">location</span>
+//                             <svg class="inline-block" width="19" height="18">
+//                                 <use href="./images/sprite-icons.svg#location-hotel-tour-detail"></use>
+//                             </svg>
+//                         </figcaption>
+//                     </figure>
+                    
+//                     <div class="flex-1">
+//                         <div class="flex items-center gap-x-3 mb-1">
+//                             <div class="tourInventory__details__item__rate flex gap-0.5" data-value="${item.hotel.star || 0}">
+//                                 ${await renderHotelRate(item.hotel)}
+//                             </div>
+//                             <span class="text-primary-900 text-xl font-yekanbakhsemibold">${item.hotel.hotelname}</span>
+//                         </div>
+//                         <div class="text-sm font-yekanbakhregularFA text-txtneutral-900 flex items-center gap-1">
+//                             <span class="underline" data-value="${item.hotel.service.vid}">
+//                                 ${await renderSummaryServiceHotel(item.hotel, element.booking)}
+//                             </span>
+//                             <svg class="inline-block mr-2 group-hover:fill-secondary group-hover:stroke-secondary" width="16" height="17">
+//                                 <use href="./images/sprite-icons.svg#circle-info-tour-detail"></use>
+//                             </svg>
+//                         </div>
+//                         <div class="text-xs text-primary-900 mt-2">
+//                             ${await renderServiceHotel(item.hotel, element.booking)}
+//                         </div>
+//                     </div>
+//                 </div>
+//                 `;
+//                 index++;
+//             }
+
+//             // پایان کارت کلی
+//             output += `</div>`;
+
+//             return output;
+//         }
+//     } catch (err) {
+//         console.error('renderHotels=' + err.lineNumber + ',' + err.message);
+//     }
+// };
+
+
 const renderPriceInfo = async (element, type) => {
     try {
         if (!element) return '';
@@ -1046,7 +1139,7 @@ const renderPriceInfo = async (element, type) => {
             if (prices.length === 1) {
                 const item = prices[0];
                 output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
-                    <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
+                    <div class="${wrapperClass}">
                         <span class="tourInventory__details__item__price sm:text-xl font-bold">
                             ${new Intl.NumberFormat().format(getValue(item, 'f'))}
                         </span>
@@ -1059,7 +1152,7 @@ const renderPriceInfo = async (element, type) => {
             } else {
                 prices.forEach((item, index) => {
                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
-                        <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
+                        <div class="${wrapperClass} flex items-center justify-center gap-2">
                             <span class="tourInventory__details__item__price sm:text-xl font-bold">
                                 ${new Intl.NumberFormat().format(getValue(item, 'f'))}
                             </span>
@@ -1102,6 +1195,105 @@ const renderPriceInfo = async (element, type) => {
     }
 };
 
+
+
+// const renderPriceInfo = async (element, type) => {
+//     try {
+//         if (element) {
+//             if (type == 'doublecost') {
+//                 let output = "";
+//                 const prices = element.priceinfo.doublecost;
+            
+//                 if (prices.length === 1) {
+//                     const item = prices[0];
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                         <div class="tourInventory__details__item__double">
+//                             <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.doublecost.doublecostf)}</span>
+//                             ${item.doublecost.doubleunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.doublecost.doubleunit}</span>`}
+//                         </div>
+//                     </div>`;
+//                 } else {
+//                     prices.forEach((item, index) => {
+//                         output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                             <div class="tourInventory__details__item__double flex items-center justify-center gap-2">
+//                                 <span class="tourInventory__details__item__price sm:text-xl font-bold">${new Intl.NumberFormat().format(item.doublecost.doublecostf)}</span>
+//                                 ${item.doublecost.doubleunit.length == 0 ? `` : `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.doublecost.doubleunit}</span>`}
+//                             </div>
+//                         </div>`;
+            
+//                         // اضافه کردن + بین آیتم‌ها (نه بعد از آخرین آیتم)
+//                         if (index < prices.length - 1) {
+//                             output += `<div class="relative w-full flex justify-center items-center -my-2">
+//                                 <hr class="w-full" />
+//                                 <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
+//                                 <hr class="w-full" />
+//                             </div>`;
+//                         }
+//                     });
+//                 }
+//                 return output;
+//             }
+//             else if (type == 'singlecost') {
+//                 let output = "";
+//                 for (const item of element.priceinfo.singlecost) {
+//                     console.log(item.singlecost.singleunit)
+//                     output += `<div
+//     class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//     <div class="tourInventory__details__item__single">
+//         <span class="tourInventory__details__item__price sm:text-xl font-bold">${new
+//             Intl.NumberFormat().format(item.singlecost.singlecostf)}</span>
+//         ${item.singlecost.singleunit.length == 0 ? `` : `<span
+//             class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.singlecost.singleunit}</span>`}
+//     </div>
+// </div>`
+//                 }
+
+
+//                 return output;
+//             } else if (type == 'childwithbed') {
+//                 let output = "";
+//                 for (const item of element.priceinfo.childwithbed) {
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//     <div class="tourInventory__details__item__wBed">
+//         <span class="tourInventory__details__item__price sm:text-xl font-bold">${new
+//             Intl.NumberFormat().format(item.childwithbed.childwithbedf)}</span>
+//         ${item.childwithbed.childwithbedunit.length == 0 ? `` : `<span
+//             class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.childwithbed.childwithbedunit}</span>`}
+//     </div>
+// </div>`
+
+//                 }
+
+
+//                 return output;
+//             } else if (type == 'childwithoutbed') {
+//                 let output = "";
+//                 for (const item of element.priceinfo.childwithoutbed) {
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//     <div class="tourInventory__details__item__woBed">
+//         <span class="tourInventory__details__item__price sm:text-xl font-bold">${new
+//             Intl.NumberFormat().format(item.childwithoutbed.childwithoutbedf)}</span>
+//         ${item.childwithoutbed.childwithoutbedunit.length == 0 ? `` : `<span
+//             class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${item.childwithoutbed.childwithoutbedunit}</span>`}
+//     </div>
+// </div>`
+//                 }
+
+
+//                 return output;
+//             }
+
+
+
+//         }
+
+//     } catch (err) {
+//         console.error('renderPriceInfo=' + err.lineNumber + ',' + err.message);
+//     }
+
+
+
+// }
 const renderHotelRate = async (element) => {
     try {
         if (element) {
@@ -1428,12 +1620,9 @@ const onsubmitTourForm = async (element, event) => {
             body: `usedforid=${element.querySelector(".usedforid").value}&mid=${element.querySelector(".mid").value}&title=${element.querySelector(".title").value}&comment=${element.querySelector(".comment").value}&captchaid=${element.querySelector(".captchaid").value}&captcha=${element.querySelector(".captcha").value}&jsoninfo={"phone":"${element.querySelector(".phone").value}"}`
         }).then(response => response.text()).then(text => {
             element.querySelector("button").classList.remove("button--loading");
-            element.querySelector(".message__action__container").classList.remove('hidden');
             element.querySelector(".message__action__container").innerHTML = text;
             setTimeout(function () {
                 element.querySelector(".message__action__container").innerHTML = "";
-                element.querySelector(".message__action__container").classList.add('hidden');
-
             }, 3000);
 
         }).catch(error => console.error(error))
@@ -1444,7 +1633,7 @@ const onsubmitTourForm = async (element, event) => {
 }
 
 const renderTourForm = async (element) => {
-    switch (parseInt(element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service").dataset.value)) {
+    switch (parseInt(element.closest(".tourInventory__details__item__info").querySelector(".tourInventory__details__item__service").dataset.value)) {
         case 0:
             sevice = "-";
             break;
@@ -1497,8 +1686,8 @@ const renderTourForm = async (element) => {
     }
 
     $bc.setSource("db.tourForm", {
-        hotelName: element.closest(".tourInventory__details__item").querySelector(".showhotel").textContent,
-        hotelRate: element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__rate").dataset.value,
+        hotelName: element.closest(".tourInventory__details__item__info").querySelector(".showhotel").textContent,
+        hotelRate: element.closest(".tourInventory__details__item__info").querySelector(".tourInventory__details__item__rate").dataset.value,
         hotelService: sevice,
         tourName: document.querySelector(".tour__name__container").textContent,
         doubleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__price").textContent,
@@ -1555,11 +1744,8 @@ let FormwoBedU ;
 
 const renderTourInstallmentForm = async (element) => {
 
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element)
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element.closest(".tourInventory__details__item"))
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service"))
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service").dataset.value)
-    switch (parseInt(element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service").dataset.value)) {
+
+    switch (parseInt(element.closest(".tourInventory__details__item__info").querySelector(".tourInventory__details__item__service").dataset.value)) {
         case 0:
             sevice = "-";
             break;
@@ -1591,8 +1777,8 @@ const renderTourInstallmentForm = async (element) => {
     });
 
     $bc.setSource("db.tourFormInstallmentplan", {
-        hotelName: element.closest(".tourInventory__details__item").querySelector(".showhotel").textContent,
-        hotelRate: element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__rate").dataset.value,
+        hotelName: element.closest(".tourInventory__details__item__info").querySelector(".showhotel").textContent,
+        hotelRate: element.closest(".tourInventory__details__item__info").querySelector(".tourInventory__details__item__rate").dataset.value,
         hotelService: sevice,
         tourName: document.querySelector(".tour__name__container").textContent,
         doubleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__price").textContent,
@@ -1607,8 +1793,8 @@ const renderTourInstallmentForm = async (element) => {
     });
 
 
-    FormhotelName = element.closest(".tourInventory__details__item").querySelector(".showhotel").textContent,
-    FormhotelRate = element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__rate").dataset.value,
+    FormhotelName = element.closest(".tourInventory__details__item__info").querySelector(".showhotel").textContent,
+    FormhotelRate = element.closest(".tourInventory__details__item__info").querySelector(".tourInventory__details__item__rate").dataset.value,
     FormhotelService = sevice,
     FormtourName = document.querySelector(".tour__name__container").textContent,
     FormdoubleP = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__price").textContent,
@@ -1698,65 +1884,17 @@ const renderReserveTourInstallmentForm = async (element) => {
 
 } 
 
-// const renderCaptchaCode = async (element, event) => {
-//     try {
-//         const url = `tour-captcha.bc?rand=${Date.now()}`; 
-//         fetch(url, {
-//             method: 'GET',
-//             cache: 'no-store', 
-//         })
-//         .then(response => response.text())
-//         .then(text => {
-//             element.closest("form").querySelector(".captcha__content").innerHTML = text;
-//         })
-//         .catch(error => console.error(error));
-//     } catch (err) {
-//         console.error('renderCaptchaCode=' + err.lineNumber + ',' + err.message);
-//     }
-// }
-
 const renderCaptchaCode = async (element, event) => {
     try {
-        const url = `tour-captcha.bc?rand=${Date.now()}`; // جلوگیری از کش شدن
-
-        const response = await fetch(url, {
-            method: 'GET',
-            cache: 'no-store'
-        });
-
-        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-
-        const text = await response.text();
-
-        const form = element.closest("form");
-        const captchaContainer = form.querySelector(".captcha__content");
-
-        // جایگزینی محتوای HTML شامل کپچا و فیلدهای پنهان مثل captchaid
-        captchaContainer.innerHTML = text;
-
-        // اختیاری: بررسی اینکه captchaid جدید واقعاً اضافه شده
-        // const newCaptchaId = captchaContainer.querySelector("input[name='captchaid']")?.value;
-        // if (!newCaptchaId) {
-        //     console.warn('captchaid جدید پیدا نشد!');
-        // }
+        fetch(`tour-captcha.bc`, {
+            method: `get`,
+        }).then(response => response.text()).then(text => {
+            element.closest("form").querySelector(".captcha__content").innerHTML = text;
+        }).catch(error => console.error(error))
     } catch (err) {
-        console.error('renderCaptchaCode=' + err.message);
+        console.error('renderCaptchaCode=' + err.lineNumber + ',' + err.message);
     }
 }
-
-
-
-// const renderCaptchaCode = async (element, event) => {
-//     try {
-//         fetch(`tour-captcha.bc`, {
-//             method: `get`,
-//         }).then(response => response.text()).then(text => {
-//             element.closest("form").querySelector(".captcha__content").innerHTML = text;
-//         }).catch(error => console.error(error))
-//     } catch (err) {
-//         console.error('renderCaptchaCode=' + err.lineNumber + ',' + err.message);
-//     }
-// }
 const onrenderedFormSchema = async () => {
     try {
 
@@ -1775,58 +1913,24 @@ const toggleCount = (element, type, limit, passenger) => {
         console.error('toggleCount=' + err.lineNumber + ',' + err.message);
     }
 }
-// const onrenderedSchmaTourBookingForm = async (args) => {
-//     try {
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".adult-count").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".adult__count__container").textContent;
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".child-count").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".child__count__container").textContent;
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".infant-count").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".infant__count__container").textContent;
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel__name__container").textContent;
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel-service").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel__service__container").textContent;
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel-rate").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel__rate__container").textContent;
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".tour-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".tour__name__container").textContent;
-   
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".first-last-name input").placeholder="نام و نام خانوادگی";
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".phone input").placeholder="شماره تماس";
-//         document.querySelector(".tour__booking__form__modal__container").querySelector(".message input").placeholder="توضیحات";
-
-//     } catch (err) {
-//         console.error('onrenderedSchmaTourBookingForm=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
 const onrenderedSchmaTourBookingForm = async (args) => {
     try {
-        const container = document.querySelector(".tour__booking__form__modal__container");
-        if (!container) return;
-
-        const setValue = (targetSelector, sourceSelector) => {
-            const target = container.querySelector(targetSelector)?.querySelector("input");
-            const source = container.querySelector(sourceSelector)?.textContent?.trim();
-            if (target) target.value = source || "";
-        };
-
-        setValue(".adult-count", ".adult__count__container");
-        setValue(".child-count", ".child__count__container");
-        setValue(".infant-count", ".infant__count__container");
-        setValue(".hotel-name", ".hotel__name__container");
-        setValue(".hotel-service", ".hotel__service__container");
-        setValue(".hotel-rate", ".hotel__rate__container");
-        setValue(".tour-name", ".tour__name__container");
-
-        const setPlaceholder = (selector, text) => {
-            const input = container.querySelector(selector)?.querySelector("input");
-            if (input) input.placeholder = text;
-        };
-
-        setPlaceholder(".first-last-name", "نام و نام خانوادگی");
-        setPlaceholder(".phone", "شماره تماس");
-        setPlaceholder(".message", "توضیحات");
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".adult-count").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".adult__count__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".child-count").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".child__count__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".infant-count").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".infant__count__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel__name__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel-service").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel__service__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel-rate").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".hotel__rate__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".tour-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container").querySelector(".tour__name__container").textContent;
+   
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".first-last-name input").placeholder="نام و نام خانوادگی";
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".phone input").placeholder="شماره تماس";
+        document.querySelector(".tour__booking__form__modal__container").querySelector(".message input").placeholder="توضیحات";
 
     } catch (err) {
-        console.error('onrenderedSchmaTourBookingForm=' + err.message);
+        console.error('onrenderedSchmaTourBookingForm=' + err.lineNumber + ',' + err.message);
     }
 };
-
 const callbackSourceTourBookingForm = async (args) => {
     try {
         document.querySelector(".tour__booking__form__modal__container").querySelector("button").classList.add("button--loading");
@@ -1848,7 +1952,6 @@ const OnProcessedTourBookingForm = async (args) => {
         document.querySelector(".tour__booking__form__modal__container").querySelector("button").classList.remove("button--loading");
         if (errorid == "6") {
             if (page_lang === 'fa') {
-                                document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").classList.remove('hidden');
                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "درخواست شما با موفقیت ثبت شد";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "Your request has been successfully registered";
@@ -1858,7 +1961,6 @@ const OnProcessedTourBookingForm = async (args) => {
 
         } else {
             if (page_lang === 'fa') {
-                                document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").classList.remove('hidden');
                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "An error occurred, please try again";
@@ -1868,7 +1970,6 @@ const OnProcessedTourBookingForm = async (args) => {
 
         }
         setTimeout(function () {
-                            document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").classList.add('hidden');
             document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "";
             setTimeout(function () {
                 document.querySelector(".tour__booking__form__modal__container").classList.add('hidden');
@@ -2018,18 +2119,6 @@ const closeModalContainer = (element, event, closed, className, type) => {
     }
 
 }
-
-
-function toggleShowDropDownTour(el, targetClass , parentclass) {
-    const parentDiv = el.closest(`.${parentclass}`);
-    const target = parentDiv.querySelector(`.${targetClass}`);
-    const targetarrow = parentDiv.querySelector('.dropdown-arrow-icon');
-    if (target) {
-      target.classList.toggle('hidden');
-      targetarrow.classList.toggle('rotate-180');
-    }
-  }
-
 if (document.querySelectorAll(".tourItinerary__item")[0]) {
     var itineraryDayIndex = 1;
     if (document.querySelectorAll(".tourItinerary__item")[0].querySelector(".tourItinerary__path")) {
@@ -2346,111 +2435,49 @@ if (gallery) {
 
 const onrenderedSchmaTourBookingFormIns = async (args) => {
     try {
-        const form = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container");
-        const modal = document.querySelector("#white-modal");
 
-        if (!form || !modal) {
-            console.warn("فرم یا مودال پیدا نشد.");
-            return;
-        }
+        document.querySelector(".first-last-name input").placeholder="نام و نام خانوادگی";
+        document.querySelector(".phone input").placeholder="شماره تماس";
+        document.querySelector(".message input").placeholder="توضیحات";
 
-        const safeSet = (selector, prop, value) => {
-            const el = form.querySelector(selector);
-            if (el && el[prop] !== undefined) {
-                el[prop] = value;
-                console.log(el);
-            } else {
-                console.warn(`❌ المنت ${selector} پیدا نشد یا خاصیت ${prop} وجود ندارد.`);
-            }
-        };
-
-        safeSet(".first-last-name input", "placeholder", "نام و نام خانوادگی");
-        safeSet(".phone input", "placeholder", "شماره تماس");
-        safeSet(".message input", "placeholder", "توضیحات");
-
-        safeSet(".adult-count input", "value", adultCountF);
-        safeSet(".child-count input", "value", childbedCountF);
-        safeSet(".infant-count input", "value", infantCountF + childwobedCountF);
-
-        safeSet(".hotel-name input", "value", form.querySelector(".hotel__name__container")?.textContent || "");
-        safeSet(".hotel-service input", "value", form.querySelector(".hotel__service__container")?.textContent || "");
-        safeSet(".hotel-rate input", "value", form.querySelector(".hotel__rate__container")?.textContent || "");
-        safeSet(".tour-name input", "value", form.querySelector(".tour__name__container")?.textContent || "");
-
-        safeSet(".total-amountF input", "value", modal.querySelector(".total-amount")?.innerText || "");
-        safeSet(".total-advanceF input", "value", modal.querySelector(".Total-amount-facilities")?.innerText || "");
-        safeSet(".amount-facilitiesF input", "value", modal.querySelector(".Total-advance-payment")?.innerText || "");
-        safeSet(".amount-eachF input", "value", modal.querySelector(".amount-each-installment")?.innerText || "");
-
-    } catch (err) {
-        console.error('onrenderedSchmatourBookingFormIns=', err);
-    }
-};
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".adult-count").querySelector("input").value = adultCountF,
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".child-count").querySelector("input").value = childbedCountF,
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".infant-count").querySelector("input").value = infantCountF + childwobedCountF
 
 
-// const onrenderedSchmaTourBookingFormIns = async (args) => {
-//     try {
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".first-last-name input"));
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".first-last-name input").placeholder="نام و نام خانوادگی";
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".phone input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".phone input").placeholder="شماره تماس";
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".message input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".message input").placeholder="توضیحات";
-
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".adult-count").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".adult-count").querySelector("input").value = adultCountF,
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".child-count").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".child-count").querySelector("input").value = childbedCountF,
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".infant-count").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".infant-count").querySelector("input").value = infantCountF + childwobedCountF
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-name").querySelector("input"))
-        
-        
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel__name__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-service").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-service").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel__service__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-rate").querySelector("input"))
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".hotel-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".hotel__name__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".hotel-service").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".hotel__service__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".hotel-rate").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".hotel__rate__container").textContent;
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".tour-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".tour__name__container").textContent;
+       
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".total-amountF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".total-amount").innerText;
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".total-advanceF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".Total-amount-facilities").innerText;
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".amount-facilitiesF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".Total-advance-payment").innerText;
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".amount-eachF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".amount-each-installment").innerText;
 
 
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-rate").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel__rate__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".tour-name").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".tour-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".tour__name__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-amountF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-amountF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".total-amount").innerText;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-advanceF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-advanceF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".Total-amount-facilities").innerText;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-facilitiesF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-facilitiesF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".Total-advance-payment").innerText;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-eachF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-eachF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".amount-each-installment").innerText;
-        
-
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".first-last-name input").placeholder="نام و نام خانوادگی";
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".phone input").placeholder="شماره تماس";
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message input").placeholder="توضیحات";
 
     
-//     } catch (err) {
-//         console.error('onrenderedSchmatourBookingFormIns=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
+    } catch (err) {
+        console.error('onrenderedSchmatourBookingFormIns=' + err.lineNumber + ',' + err.message);
+    }
+};
 const callbackSourceTourBookingFormIns = async (args) => {
     try {
-        const container = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container");
-        container.querySelector("button").classList.add("button--loading");
-
-        const captchaInput = container.querySelector("input[name='captcha']");
-        const captchaIdInput = container.querySelector("input[name='captchaid']");
-
+        document.querySelector(".tour__booking__form__modal__container_Ins").querySelector("button").classList.add("button--loading");
         $bc.setSource("db.tourBookingFormIns", {
             value: JSON.stringify(args.source?.rows[0]),
-            captcha: captchaInput ? captchaInput.value : "",     // اگر نبود، مقدار خالی بده
-            captchaid: captchaIdInput ? captchaIdInput.value : "",
+            captcha: document.querySelector(".tour__booking__form__modal__container_Ins").querySelector("input[name='captcha']").value,
+            captchaid: document.querySelector(".tour__booking__form__modal__container_Ins").querySelector("input[name='captchaid']").value,
             run: true
         });
     } catch (err) {
         console.error('callbackSourcetourBookingFormIns=' + err.lineNumber + ',' + err.message);
     }
 };
-
 const OnProcessedTourBookingFormIns = async (args) => {
     try {
         var response = args.response;
@@ -2459,7 +2486,6 @@ const OnProcessedTourBookingFormIns = async (args) => {
         document.querySelector(".tour__booking__form__modal__container_Ins").querySelector("button").classList.remove("button--loading");
         if (errorid == "6") {
             if (page_lang === 'fa') {
-                document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").classList.remove('hidden');
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "درخواست شما با موفقیت ثبت شد";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "Your request has been successfully registered";
@@ -2469,7 +2495,6 @@ const OnProcessedTourBookingFormIns = async (args) => {
 
         } else {
             if (page_lang === 'fa') {
-                document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").classList.remove('hidden');
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "An error occurred, please try again";
@@ -2479,7 +2504,6 @@ const OnProcessedTourBookingFormIns = async (args) => {
 
         }
         setTimeout(function () {
-            document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").classList.add('hidden');
             document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "";
             setTimeout(function () {
                 document.querySelector(".tour__booking__form__modal__container_Ins").classList.add('hidden');
@@ -2553,5 +2577,27 @@ function jalali_to_gregorian(jy, jm, jd) {
 }
 
 
+const renderDescriptionHotelCost = async (element) => {
+    try {
+        // if (!element || !element.description[0] || !element.description[0] || !element.description[0].descriptionf) {
+        //     return '';
+        // }
 
+        let descriptionPrice = element.description[0].descriptionf;
+
+        let description = `<div class="bg-neutral-50 w-full min-h-[80px] rounded-[4px] 
+                              flex justify-center items-center
+                              my-2 leading-[48px] text-primary-900 text-center text-base px-4">
+                                ${descriptionPrice}
+                            </div>`;
+
+
+        console.log(description);                    
+
+        return description;
+    } catch (err) {
+        console.error('renderDescriptionHotelCost=' + err.lineNumber + ',' + err.message);
+        return '';
+    }
+}
 

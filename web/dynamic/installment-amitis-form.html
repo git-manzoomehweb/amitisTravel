@@ -47,9 +47,13 @@
                         <path d="M11.18 29.4936V26.1299" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
                         <path d="M19.5 29.4941V22.7666" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
                         <path d="M27.82 29.4942V19.3867" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M27.82 9.50586L27.0725 10.3834C22.9287 15.2259 17.3712 18.6546 11.18 20.1984" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M23.0587 9.50586H27.82V14.2509" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M14.625 35.75H24.375C32.5 35.75 35.75 32.5 35.75 24.375V14.625C35.75 6.5 32.5 3.25 24.375 3.25H14.625C6.5 3.25 3.25 6.5 3.25 14.625V24.375C3.25 32.5 6.5 35.75 14.625 35.75Z" stroke="#48A392" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M27.82 9.50586L27.0725 10.3834C22.9287 15.2259 17.3712 18.6546 11.18 20.1984"
+                            stroke="#48A392" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M23.0587 9.50586H27.82V14.2509" stroke="#48A392" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M14.625 35.75H24.375C32.5 35.75 35.75 32.5 35.75 24.375V14.625C35.75 6.5 32.5 3.25 24.375 3.25H14.625C6.5 3.25 3.25 6.5 3.25 14.625V24.375C3.25 32.5 6.5 35.75 14.625 35.75Z"
+                            stroke="#48A392" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <h2 class="text-base font-danaregular text-primary-400">محاسبه گر اقساط مانیسا</h2>
                 </div>
@@ -60,16 +64,22 @@
                     <form action="">
                         <label class="font-danaregular text-base mt-5 mb-2 block" for="amount">مبلغ وام</label>
                         <div class="w-full rounded-xl bg-primary-50 h-76px leading-76px flex justify-between px-2">
-                            <span class="text-32px font-danamedium cursor-pointer hover:text-primary-500 w-12 h-76px text-center" onclick="increase(130)">+</span>
+                            <span
+                                class="text-32px font-danamedium cursor-pointer hover:text-primary-500 w-12 h-76px text-center"
+                                onclick="increase(130)">+</span>
                             <div>
-                                <input id="amount" class="bg-transparent w-14 font-danaregular text-base text-center" type="text" value="10" placeholder="100" oninput="updateLoanAmount(this.value)">
+                                <input id="amount" class="bg-transparent w-14 font-danaregular text-base text-center"
+                                    type="text" value="10" placeholder="100" oninput="updateLoanAmount(this.value)">
                                 <span class="font-danaregular text-base ">میلیون تومان</span>
                             </div>
-                            <span class="text-32px font-danamedium cursor-pointer hover:text-primary-500 w-12 h-76px text-center" onclick="decrease()">-</span>
+                            <span
+                                class="text-32px font-danamedium cursor-pointer hover:text-primary-500 w-12 h-76px text-center"
+                                onclick="decrease()">-</span>
                         </div>
 
                         <div class="relative mt-6">
-                            <input oninput="updateLoanFromRange(this.value)" type="range" min="10" max="130" value="10" class="slider" id="myRange">
+                            <input oninput="updateLoanFromRange(this.value)" type="range" min="10" max="130" value="10"
+                                class="slider" id="myRange">
                             <span class=" absolute left-0 text-neutralcolor-500 top-10 font-danaregular text-sm">10
                                 میلیون تومان </span>
                             <span class=" absolute right-0 text-neutralcolor-500 top-10 font-danaregular text-sm">130
@@ -83,9 +93,11 @@
                             </span>
 
                             <ul class="flex justify-between mt-2 flex-wrap gap-y-2" id="month-list">
-                                <li id="firstsuggest" month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)" class="h-16 rounded-10px bg-primary-400 w-49per text-white text-center leading-64px hover:bg-primary-400 hover:text-white text-base cursor-pointer">
+                                <li id="firstsuggest" month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)"
+                                    class="h-16 rounded-10px bg-primary-400 w-49per text-white text-center leading-64px hover:bg-primary-400 hover:text-white text-base cursor-pointer">
                                     12ماهه</li>
-                                <li onclick="calculateMonth(18 , 0.27 , this)" class="h-16 rounded-10px bg-neutralcolor-100 w-49per text-neutralcolor-900 text-center leading-64px hover:bg-primary-400 hover:text-white text-base cursor-pointer">
+                                <li onclick="calculateMonth(18 , 0.27 , this)"
+                                    class="h-16 rounded-10px bg-neutralcolor-100 w-49per text-neutralcolor-900 text-center leading-64px hover:bg-primary-400 hover:text-white text-base cursor-pointer">
                                     18ماهه</li>
                             </ul>
 
@@ -122,7 +134,8 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div onclick="openSignupInstallmentForm()" class="cursor-pointer h-16 bg-primary-400 rounded-10px mt-5 w-full text-center text-white hover:bg-primary-700 font-danaregular text-base leading-64px">
+                                <div onclick="openSignupInstallmentForm()"
+                                    class="cursor-pointer h-16 bg-primary-400 rounded-10px mt-5 w-full text-center text-white hover:bg-primary-700 font-danaregular text-base leading-64px">
                                     ثبت نام</div>
                             </div>
                         </div>
@@ -147,8 +160,10 @@
                         </face>
                         <face filter="TypeID in(250)">
                             <div id="@valueID" class="w-full">
-                                <h3 class="text-base font-danabold text-neutralcolor-900 my-5 max-w-7xl overflow-hidden">
-                                    <span class="after:h-1 after:w-full after:content-[''] after:bg-primary-500 after:inline-block ruby after:align-middle">
+                                <h3
+                                    class="text-base font-danabold text-neutralcolor-900 my-5 max-w-7xl overflow-hidden">
+                                    <span
+                                        class="after:h-1 after:w-full after:content-[''] after:bg-primary-500 after:inline-block ruby after:align-middle">
                                         @text
                                     </span>
                                 </h3>
@@ -164,18 +179,31 @@
         </div>
 
 
-        <div id="modal-signup-background" class="fixed bg-black/40 backdrop-blur-xl top-0 left-0 right-0 bottom-0 hidden">
-            <section id="signup-form-lachinseir" class="bg-white rounded-10px absolute top-0 bottom-0 left-0 right-0 w-318px m-auto p-4 dir-rtl font-danaregular h-613px overflow-y-auto">
+        <div id="modal-signup-background"
+            class="fixed bg-black/40 backdrop-blur-xl top-0 left-0 right-0 bottom-0 hidden">
+            <section id="signup-form-lachinseir"
+                class="bg-white rounded-10px absolute top-0 bottom-0 left-0 right-0 w-318px m-auto p-4 dir-rtl font-danaregular h-613px overflow-y-auto">
                 <div class="free-form-container form-container mt-7 max-xl:mx-auto  max-xl:pb-4">
-                    <basis core="schema" run="atclient" schemaurl="/schema/domainform/C6BA2175-066E-46AD-9B16-F784D1918F65/9589E691-6ED2-423A-BE23-3C7E2DE375EB/fa/فرم-طرح-مانیسا" displaymode="new" button="[data-btn-upload]" resultsourceid="upload.data" onrendered="RenderForm"></basis>
-                    <basis core="api" if="{##cms.upload.run|(false)##}" run="atclient" url="/schema/domainform/C6BA2175-066E-46AD-9B16-F784D1918F65/fa/editobject" method="post" body="object_edit={##cms.upload.value##}&captcha={##cms.upload.captcha##}&captchaid={##cms.upload.captchaid##}" content-type="application/x-www-form-urlencoded" triggers="cms.upload" onprocessed="OnProcessedEditObject"></basis>
+                    <basis core="schema" run="atclient"
+                        schemaurl="/schema/domainform/C6BA2175-066E-46AD-9B16-F784D1918F65/9589E691-6ED2-423A-BE23-3C7E2DE375EB/fa/فرم-طرح-مانیسا"
+                        displaymode="new" button="[data-btn-upload]" resultsourceid="upload.data"
+                        onrendered="RenderForm"></basis>
+                    <basis core="api" if="{##cms.upload.run|(false)##}" run="atclient"
+                        url="/schema/domainform/C6BA2175-066E-46AD-9B16-F784D1918F65/fa/editobject" method="post"
+                        body="object_edit={##cms.upload.value##}&captcha={##cms.upload.captcha##}&captchaid={##cms.upload.captchaid##}"
+                        content-type="application/x-www-form-urlencoded" triggers="cms.upload"
+                        onprocessed="OnProcessedEditObject"></basis>
                     <div class="free-form-content">
-                        <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh" data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58" data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
-                            <basis core="dbsource" source="trust_login" name="captcha" run="atclient" triggers="captcha.refresh">
+                        <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh"
+                            data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                            data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                            <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                                triggers="captcha.refresh">
                                 <member name="code" type="scalar" request="captcha"></member>
                             </basis>
                             <div class="flex justify-between items-center captcha-submit-container">
-                                <basis datamembername="captcha.code" core="print" run="atclient" onrendered="captchaRendered">
+                                <basis datamembername="captcha.code" core="print" run="atclient"
+                                    onrendered="captchaRendered">
                                     <face>
                                         <script type="text/template">
                                             <div class="flex items-center w-49per">
@@ -190,10 +218,10 @@
                                 </basis>
                             </div>
                             <div
-                            class="text-center bg-primary-400 rounded-10px text-white sendform-btn hover:bg-primary-800 h-10 w-full leading-10 float-right">
-                            <button class="data-body-btn w-full" type="button"
-                                data-btn-upload><span>ارسال</span></button>
-                        </div>
+                                class="text-center bg-primary-400 rounded-10px text-white sendform-btn hover:bg-primary-800 h-10 w-full leading-10 float-right">
+                                <button class="data-body-btn w-full" type="button"
+                                    data-btn-upload><span>ارسال</span></button>
+                            </div>
                         </div>
                         <basis core="callback" run="atclient" method="uploadDocument" triggers="upload.data"></basis>
                         <div class="message-api text-center mt-2"></div>
@@ -205,7 +233,7 @@
     </main>
     <!-- footer start-->
     <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
-<basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
+    <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- footer end-->
 
     <script src="[##cms.cms.cdn##]/js/lachinseir-forms.js"></script>
