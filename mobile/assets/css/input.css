@@ -1094,4 +1094,8 @@ section.main-login-container.rtl-lang {
 
  /* tour.bc */
  .active-tab-info{background-color: var(--primary-50);color: var(--primary);font-family: "Yekan_Bakh_SemiBold_fa";}
+ li:has(input:checked) {
+    background-color: #e0f2fe;
+  }
+  
  /* tour.bc */

@@ -1,0 +1,1414 @@
+<!-- Start API Request -->
+<basis core="api" name="api.executionPlanViewDates"
+    url="https://basisfly.com/api/inventory/packages/execution-plan-view/" method="post" content-type="application/json"
+    run="atclient" body='{
+    "pid": "[##cms.query.id##]",
+    "title": "dates",
+    "dmnid": "[##cms.cms.domainid##]",
+    "ownerid": "[##cms.cms.ownerid##]"
+}'>
+</basis>
+<basis core="api" name="api.executionPlanTypesView"
+    url="https://basisfly.com/api/inventory/packages/execution-plan-view/" method="post" content-type="application/json"
+    run="atclient" body='{
+    "pid": "[##cms.query.id##]",
+    "title": "execution",
+    "dmnid": "[##cms.cms.domainid##]",
+    "ownerid": "[##cms.cms.ownerid##]"
+}'>
+</basis>
+<basis core="callback" run="atclient" triggers="db.execution" method="callbackSourceExecutionPlanTypesView">
+</basis>
+<basis core="api" name="api.inventoryView" url="https://basisfly.com/api/inventory/packages/inventory-view/"
+    method="post" content-type="application/json" run="atclient" triggers="db.inventoryViewSpecificDate" body='{
+    "pid": "[##cms.query.id##]",
+    "from": "{##db.inventoryViewSpecificDate.from|()##}",
+    "to": "{##db.inventoryViewSpecificDate.to|()##}",
+    "day": "{##db.inventoryViewSpecificDate.day|()##}",
+    "pagename": "[##cms.host.pageNameInventory|(Tem1_Hotel.bc)##]",
+    "dmnid": "[##cms.cms.domainid##]",
+    "ownerid": "[##cms.cms.ownerid##]"
+}'>
+</basis>
+<basis core="api" name="api.airlinesOriginsGallery" url="https://data.basiscore.net/en/bc/airlines/id/gallery/json"
+    method="post" body='{
+    "token": "1E45BBAE-3BE7-4B08-8A8E-8DF7B2E0C7D7",
+    "wordid": 94122,
+    "usedforid": [{##db.airlinesOriginsGallery.ids##}]
+} ' content-type="application/json" run="atclient" triggers="db.airlinesOriginsGallery"
+    if="{##db.airlinesOriginsGallery.run|(false)##}" onprocessed="onProcessedAirlinesOriginsImg">
+</basis>
+<basis core="api" name="api.airlinesDestinationsGallery" url="https://data.basiscore.net/en/bc/airlines/id/gallery/json"
+    method="post" body='{
+    "token": "1E45BBAE-3BE7-4B08-8A8E-8DF7B2E0C7D7",
+    "wordid": 94122,
+    "usedforid": [{##db.airlinesDestinationsGallery.ids##}]
+
+} ' content-type="application/json" run="atclient" triggers="db.airlinesDestinationsGallery"
+    if="{##db.airlinesDestinationsGallery.run|(false)##}" onprocessed="onProcessedAirlinesDestinationsImg">
+</basis>
+<basis core="api" name="api.hotelGallery" url="https://data.basiscore.net/en/bc/hotel/id/gallery/json" method="post"
+    body='{
+    "token": "1E45BBAE-3BE7-4B08-8A8E-8DF7B2E0C7D7",
+    "wordid": 94122,
+    "usedforid": [{##db.hotelGallery.ids##}]
+
+} ' content-type="application/json" run="atclient" triggers="db.hotelGallery" if="{##db.hotelGallery.run|(false)##}"
+    onprocessed="onProcessedHotelsImg">
+</basis>
+<!-- End API Request -->
+
+<!-- Start DBsource Requests -->
+
+
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="product">
+    <member type="list" name="media-gallery" format="4" order="ord"></member>
+</basis>
+
+<basis core="dbsource" source="media" name="db" lid="1" usedforid="[##cms.query.id##]" sourcemid="product">
+    <member name="audio" type="list" format="audio" link="article.bc" order="ord" />
+</basis>
+
+<basis core="inlinesource" name="joining">
+    <member name="podcast" lefttblcol="db.audio.ord" righttblcol="db.media-gallery.ord" format="join"
+        jointype="leftjoin" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.adsid|(0)##]">
+    <member name="ads" type="list" link="article.bc" size="304X526" typeid="159" perpage="1" order="ord"></member>
+</basis>
+
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.tagid|(0)##]">
+    <member name="tags" type="view" postsql="select * from [db.tags] where prpID in(3087624)" />
+</basis>
+
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]"><member name="information" type="view" postsql="select * from [db.information] where TypeID in(240) and prpID in(8000)" /></basis>
+
+
+
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+    <member name="companyInfo" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="20" lid="1" usedforid="[##cms.query.id##]">
+    <member name="tour-view" type="view" />
+    <member name="tour-view-travelplan" type="view" postsql="select * from [db.tour-view-travelplan] where Question in('برنامه سفر')" />
+    <member name="tour-related" type="list" blgid="18" propertyid="10000504,8077,8181,8076"
+        typeid="159" link="tour.bc" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist" />
+</basis>
+<basis core="inlinesource" name="db">
+    <member name="tour-joining" lefttblcol="db.tour-related.prp_10000504" righttblcol="db.airline.name" format="join"
+        jointype="leftjoin" />
+</basis>
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="product">
+    <member type="list" name="tour-gallery" format="4" order="ord" />
+    <member type="list" name="tour-gallery-travelplan" format="4" order="ord" postsql="SELECT * FROM [db.tour-gallery-travelplan] where ord not in(1000,1001,100)" />
+    <member type="list" name="hero" format="4" order="ord" postsql="SELECT * FROM [db.hero] where ord in(100)" />
+    <member type="list" name="pdf" format="pdf" />
+</basis>
+
+
+
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member request="json-ld" type="scalar" name="json" />
+</basis>
+
+
+
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member name="navigation" type="tree" request="navigationcat" />
+</basis>
+
+
+
+<basis core="dbsource" source="userbehavior" name="db" usedforid="[##cms.query.id##]"><member name="comment" type="list" order="ord" request="listcomment" /></basis>
+<basis core='dbsource' name='captcha' source='trust_login'><member name='code' type='scalar' request='captcha'></member></basis>
+
+
+<!-- End DBsource Requests -->
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/amitisbapars-mob.ui.css">
+    <link href="[##cms.cms.cdn##]/_css/swiper-bundle.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-neutralcolor-50">
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"></basis>
+
+    <main class="layout__body__container"
+    data-pageNameInventory="[##cms.host.pageNameInventory|(Tem1_Hotel.bc)##]" 
+    data-noImgSign="[##cms.host.noImgSignMob##]"
+    data-lang="fa"
+    >
+
+
+
+    <section class="hero relative -z-10 h-[224px]">
+    <basis core="print" datamembername="db.hero">
+                <face filter="ord in(100)">
+                    <figure class="h-[224px] w-full ">
+                        <img class="h-[224px] object-cover w-full" src="@largeIMG" width="100%" height="224" alt="@name">
+                    </figure>
+                </face>
+            </basis>
+        </section>
+
+            
+
+        <section class="">
+            <div class="bg-white rounded-tr-2xl h-14 flex justify-between px-3 flex-row-reverse -mt-10  relative -z-[5]  w-4/6 float-left py-2">
+
+
+
+                <basis core="print" datamembername="db.tour-view">
+                    <face filter="TypeID in(200) and vocabulary in('درجه-تور')">
+                <div
+                    class="bg-neutralcolor-50 leading-6 rounded-lg h-6 flex justify-evenly items-center gap-x-2 w-[76px]">
+                    <div class="text-primary-900 text-xs font-yekanbakhregularFA leading-6">@text</div>
+                    <svg class="inline-block " width="16" height="16">
+                        <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                    </svg>
+                </div>
+                </face>
+                </basis>
+
+
+
+                <svg class="inline-block " width="24" height="24">
+                    <use href="./images/sprite-icons.svg#video-icon-tour"></use>
+                </svg>
+
+                <svg class="inline-block " width="24" height="24">
+                    <use href="./images/sprite-icons.svg#podcast-icon-tour"></use>
+                </svg>
+
+                <svg id="shareBtn" class="inline-block " width="24" height="24">
+                    <use href="./images/sprite-icons.svg#share-button-tour"></use>
+                </svg>
+            </div>
+
+            <div class="bg-white shadow-tourview-box1 relative z-10 -mt-4 rounded-2xl  pb-2">
+                <div
+                    class="text-txtneutral-500 font-IRANYekanRegularMobileFA text-xs h-12 border-b border-neutralcolor-700 px-5">
+                   
+                            <div class=" clear-both flex justify-between items-center"><svg
+                                    class=" block w-6 h-[25px] leading-10" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.9541 22.75H6.37406C3.63406 22.75 1.41406 20.52 1.41406 17.78V10.37C1.41406 9.00997 2.25406 7.29997 3.33406 6.45997L8.72406 2.25997C10.3441 0.999974 12.9341 0.939974 14.6141 2.11997L20.7941 6.44997C21.9841 7.27997 22.9141 9.05997 22.9141 10.51V17.79C22.9141 20.52 20.6941 22.75 17.9541 22.75ZM9.64406 3.43997L4.25406 7.63997C3.54406 8.19997 2.91406 9.46997 2.91406 10.37V17.78C2.91406 19.69 4.46406 21.25 6.37406 21.25H17.9541C19.8641 21.25 21.4141 19.7 21.4141 17.79V10.51C21.4141 9.54997 20.7241 8.21997 19.9341 7.67997L13.7541 3.34997C12.6141 2.54997 10.7341 2.58997 9.64406 3.43997Z"
+                                        fill="#667085" />
+                                    <path
+                                        d="M12.1641 18.75C11.7541 18.75 11.4141 18.41 11.4141 18V15C11.4141 14.59 11.7541 14.25 12.1641 14.25C12.5741 14.25 12.9141 14.59 12.9141 15V18C12.9141 18.41 12.5741 18.75 12.1641 18.75Z"
+                                        fill="#667085" />
+                                </svg>
+                                <ul class="w-[calc(100%-30px)] flex relative items-center justify-start gap-x-1 overflow-x-auto hide-srollbar font-yekanbakhregularFA text-xs text-neutral-500 mx-2"
+                                    itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                                    <li class="whitespace-nowrap" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
+                                            itemprop="item" href="/" aria-label="home"><span itemprop="name" class="h-6 leading-6">صفحه اصلی</span>
+                                            <meta itemprop="position" content="1">
+                                        </a></li>
+                                    <basis core="print" datamembername="db.navigation">
+                                        <face filter="RowNumber=max(RowNumber) and parentcatid<>110382">
+                                            <li class="text-secondary whitespace-nowrap endlevel flex h-6 items-center" itemprop="itemListElement"
+                                                itemscope="" itemtype="https://schema.org/ListItem"><svg class="inline-block mx-2" width="9"
+                                                    height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#667085" stroke-width="2" stroke-linecap="round" />
+                                                </svg><span itemprop="name" class="h-6 leading-6">@title</span>
+                                                <meta itemprop="position" content="@rownumber" />
+                                            </li>
+                                        </face>
+                                        <face filter="link is null and parentcatid<>110382">
+                                            <li class="whitespace-nowrap" itemprop="itemListElement" itemscope=""
+                                                itemtype="https://schema.org/ListItem"><a itemprop="item" href="/visa-list.bc?catid=@parentcatid"
+                                                    aria-label="@title" class="flex h-6 items-center"><svg class="inline-block mx-2" width="9"
+                                                        height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#667085" stroke-width="2"
+                                                            stroke-linecap="round" />
+                                                    </svg><span itemprop="name" class="h-6 leading-6">@title</span>
+                                                    <meta itemprop="position" content="@rownumber" />
+                                                </a></li>
+                                        </face>
+                                        <face filter="parentcatid<>110382">
+                                            <li class="whitespace-nowrap" itemprop="itemListElement" itemscope=""
+                                                itemtype="https://schema.org/ListItem"><a itemprop="item" href="@link" aria-label="@title"
+                                                    class="flex h-6 items-center"><svg class="inline-block mx-2" width="9" height="14"
+                                                        viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#667085" stroke-width="2"
+                                                            stroke-linecap="round" />
+                                                    </svg><span itemprop="name" class="h-6 leading-6">@title</span>
+                                                    <meta itemprop="position" content="@rownumber" />
+                                                </a></li>
+                                        </face>
+                                    </basis>
+                                </ul>
+                            </div>
+
+
+                </div>
+
+                <div class="w-11/12 mx-auto my-2">
+
+                    <div class="flex justify-between items-center">
+
+                        <basis core="print" datamembername="db.tour-view">
+                            <face filter="TypeID in(150) and vocabulary in('عنوان')">
+
+                        <h1
+                            class="tour__name__container w-[calc(100%-110px)] text-sm to-txtneutral-900 font-yekanbakhsemiboldFA line-clamp-2">
+                            @text
+                        </h1>
+                        </face>
+                        </basis>
+
+
+
+
+
+                        <basis core="print" datamembername="db.pdf">
+                            <else-layout>
+                            <a href="/Tem1_Pdf_Package.bc?id=[##cms.query.id##]" target="_blank">
+                                    <div
+                                        class="group/packagedownload w-[104px] h-10 relative z-50 transition-all duration-500 hover:w-[104px] hover:h-fit ">
+                                        <div class="w-[104px] h-10 rounded-[28px] bg-primary drop-shadow-xl 
+                                                    p-1 cursor-pointer transition-all duration-500 border border-primary z-20
+                                                     group-hover/packagedownload:w-[104px] group-hover/packagedownload:bg-white
+                                                    ">
+                                            <div class="bg-activation-sharebtn bg-white w-6 h-6 rounded-full absolute top-0 bottom-0 left-0 my-auto mx-1 -z-10 
+                
+                                                                    group-hover/packagedownload:bg-primary
+                                                        ">
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-white w-[calc(100%-24px)] leading-8 text-center block text-xs font-yekanbakhregularFA
+                                                            group-hover/packagedownload:text-primary
+                                                            ">
+                                                    دانلود پکیج
+                                                </span>
+                                                <div class="w-6 h-6 flex justify-center items-center">
+                                                    <svg width="24" height="24" class=" scale-75 origin-center -mt-1
+                                                group-hover/packagedownload:fill-white
+                                                group-hover/packagedownload:stroke-white">
+                                                        <use href="./images/sprite-icons.svg#packagedownload"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </a>
+                            </else-layout>
+                            <layout>
+                                @child
+                            </layout>
+                            <face>
+                                <a href="/@largeIMG" target="_blank">
+                                    <div
+                                        class="group/packagedownload w-[104px] h-10 relative z-50 transition-all duration-500 hover:w-[104px] hover:h-fit ">
+                                        <div class="w-[104px] h-10 rounded-[28px] bg-primary drop-shadow-xl 
+                                                    p-1 cursor-pointer transition-all duration-500 border border-primary z-20
+                                                     group-hover/packagedownload:w-[104px] group-hover/packagedownload:bg-white
+                                                    ">
+                                            <div class="bg-activation-sharebtn bg-white w-6 h-6 rounded-full absolute top-0 bottom-0 left-0 my-auto mx-1 -z-10 
+                
+                                                                    group-hover/packagedownload:bg-primary
+                                                        ">
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-white w-[calc(100%-24px)] leading-8 text-center block text-xs font-yekanbakhregularFA
+                                                            group-hover/packagedownload:text-primary
+                                                            ">
+                                                    دانلود پکیج
+                                                </span>
+                                                <div class="w-6 h-6 flex justify-center items-center">
+                                                    <svg width="24" height="24" class=" scale-75 origin-center -mt-1
+                                                group-hover/packagedownload:fill-white
+                                                group-hover/packagedownload:stroke-white">
+                                                        <use href="./images/sprite-icons.svg#packagedownload"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </face>
+                        </basis>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <ul class="w-full ">
+
+                        <basis core="print" datamembername="db.tour-view">
+                            <face filter="TypeID in(128,251) and vocabulary in('مدت-اقامت')">
+                                <li class="flex justify-between items-center my-4">
+                                    <svg class="inline-block min-w-4 min-h-4 w-4 h-4" width="16" height="16">
+                                        <use href="./images/sprite-icons.svg#tour-icon-daynight"></use>
+                                    </svg>
+                                    <span class="text-nowrap text-xs text-txtneutral-500 mx-3 font-yekanbakhregularFA">@Question</span>
+                                    <hr class="w-10/12">
+                                    <span class="text-nowrap text-sm text-txtneutral-900 font-yekanbakhregularFA mr-3">@text</span>
+                                </li>
+                            </face>
+                        </basis>
+
+
+                        <basis core="print" datamembername="db.tour-view">
+                            <face filter="TypeID in(128,251) and vocabulary in('تاریخ-اعتبار')">
+                                <li class="flex justify-between items-center my-4">
+                                    <svg class="inline-block min-w-4 min-h-4 w-4 h-4" width="16" height="16">
+                                        <use href="./images/sprite-icons.svg#tour-icon-calendar"></use>
+                                    </svg>
+                                    <span class="text-nowrap text-xs text-txtneutral-500 mx-3 font-yekanbakhregularFA">@Question</span>
+                                    <hr class="w-10/12">
+                                    <span class="text-nowrap text-sm text-txtneutral-900 font-yekanbakhregularFA mr-3">@text</span>
+                                </li>
+                            </face>
+                        </basis>
+
+
+
+
+                        <basis core="print" datamembername="db.tour-view">
+                            <face filter="TypeID in(128,251) and vocabulary in('ایرلاین')">
+                                <li class="flex justify-between items-center my-4">
+                                    <svg class="inline-block min-w-4 min-h-4 w-4 h-4" width="16" height="16">
+                                        <use href="./images/sprite-icons.svg#tour-icon-airplane"></use>
+                                    </svg>
+                                    <span
+                                        class="text-nowrap text-xs text-txtneutral-500 mx-3 font-yekanbakhregularFA">@Question</span>
+                                    <hr class="w-10/12">
+                                    <span class="text-nowrap text-sm text-txtneutral-900 font-yekanbakhregularFA mr-3"> @text</span>
+                                </li>
+                            </face>
+                        </basis>
+
+
+
+                        <basis core="print" datamembername="db.tour-view">   
+                            <face filter="TypeID in(251) and vocabulary in('شروع-قیمت-ها-از')">
+                                <li class="flex justify-between items-center my-4">
+                                    <svg class="inline-block min-w-4 min-h-4 w-4 h-4" width="16" height="16">
+                                        <use href="./images/sprite-icons.svg#tour-icon-wallet-empty"></use>
+                                    </svg>
+                                    <span class="text-nowrap text-xs text-txtneutral-500 mx-3 font-yekanbakhregularFA">شروع قیمت ها از</span>
+                                    <hr class="w-10/12">
+                                    <span
+                                        class="text-nowrap text-sm text-txtneutral-900 font-yekanbakhsemiboldFA mr-3"> @largetext
+                                        @text</span>
+                                </li>
+                            </face>
+                        </basis>
+
+
+                    </ul>
+
+                    <div
+                    class="dropdownBox tourDate__container w-full mx-auto bg-white rounded-xl border border-neutralcolor-300 mb-6">
+                    <div class="dropdowntitr gap-x-3 p-3 border-b border-e-neutralcolor-300 flex justify-between">
+                        <div class="flex items-center justify-start gap-x-2">
+                            <svg class="scale-75 origin-center " width="24" height="24">
+                                <use href="./images/sprite-icons.svg#dropdown-dates"></use>
+                            </svg>
+                            <h2>
+                                تاریخ تور ها
+                            </h2>
+                        </div>
+                        <svg class="block opendropdow scale-75 origin-center" width="24" height="25">
+                            <use href="./images/sprite-icons.svg#arrow-top"></use>
+                        </svg>
+                    </div>
+                    <basis core="print" datamembername="db.dates" run="atclient" onrendered="onrenderedDates">
+                        <layout>
+                            <script type="text/template">
+                            <ul id="dropdown-dates" class="dropdownCotent date__details dropdown-dates w-[95%] mx-auto h-28 overflow-hidden">
+                                @child
+                            </ul>
+                            <div onclick="showMoreDates(this,'dropdown-dates')"
+                                class="h-10 w-48 mx-auto rounded-[100px] bg-primary-50 text-primary border  gap-x-2 
+                            border-primary-50 hover:border-primary text-base gap-x-1 flex justify-center items-center leading-10 text-center cursor-pointer  mx-4 my-4">
+  
+                            <span class="dropdown-txt text-xs font-yekanbakhregularFA">
+                                مشاهده بیشتر
+                            </span>  
+                            <svg class="rotate-180 dropdown-rotation transition-all duration-100 ease-in-out" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8.5" cy="8" r="8" transform="rotate(90 8.5 8)" fill="white"/>
+                                <path d="M12.1362 8.72754L8.81947 5.41078L5.50271 8.72754" stroke="#005FF0" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        </script>
+                        </layout>
+                        <face>
+                            <script type="text/template">
+                            <li class="my-3 flex justify-center gap-x-1 px-1 items-center py-1 rounded-md cursor-pointer h-10 w-10/12 mx-auto" onclick="renderInventoryView(this,@day@,@start.dateid@,@end.dateid@)">
+                            <input class="w-3 h-3 rounded-[4px] accent-primary" type="radio" id="@start.dateid@" name="tour-date" />
+                            <label for="@start.dateid@" class="text-xs text-black font-yekanbakhregularFA w-full flex justify-center items-center ">
+                                <span class="weekday__detail__dates text-xs ml-2">
+                                    {{ return await renderWeekDayDate($data,'start')}}
+                                </span>
+                                <span class="start__date inline-block" data-date="@start.date@">
+                                    {{ return await renderDayDate($data,'start')}} 
+                                    {{ return await renderMonthDate($data,'start')}} 
+                                    </span>
+                                <span class="mx-2 inline-block">
+                                    <svg width="19" height="6" viewBox="0 0 19 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18 3.5C18.2761 3.5 18.5 3.27614 18.5 3C18.5 2.72386 18.2761 2.5 18 2.5L18 3.5ZM0 3L5 5.88675L5 0.113248L0 3ZM18 2.5L4.5 2.5L4.5 3.5L18 3.5L18 2.5Z" fill="#101828"/>
+                                    </svg>                                        
+                                </span>
+                                <span class="weekday__detail__dates text-xs ml-2">
+                                    {{ return await renderWeekDayDate($data,'end')}}
+                                   </span>
+                                <span class="end__date inline-block" data-date="@end.date@">
+                                    {{ return await renderDayDate($data,'end')}}
+                                     {{ return await renderMonthDate($data,'end')}}
+                                     </span>
+                            </label>
+                        </li>
+                        </script>
+                        </face>
+                    </basis>
+                </div>
+                
+                </div>
+
+
+
+
+
+                </div>
+                
+                    <div class="tourExecution__container w-full hidden my-4">
+                        <!-- tourExecution__container__origins -->
+                        <div class=" execution__details tourExecution__container__origins dropdownBox tourDate__container w-full mx-auto bg-white rounded-xl border border-neutralcolor-300 mb-6">
+                        <div class="dropdowntitr gap-x-3 p-3  flex justify-between items-center">
+                            <div class="flex items-center justify-start gap-x-2">
+                                <svg class="rotate-[270deg]" width="24" height="24">
+                                    <use href="./images/sprite-icons.svg#tour-icon-airplane"></use>
+                                </svg>
+                                <div class="">
+                                    <h2 class="font-yekanbakhsemiboldFA text-sm text-txtneutral-900">
+                                        <span class="origins__city"></span> (شروع تور/ مسیر رفت)
+                                    </h2>
+                                    <div class="block mt-2"><span class="origins__start__day text-sm font-yekanbakhregularFA"></span><span class="origins__start__weekday mr-2 text-sm font-yekanbakhregularFA"></span></div>
+                                </div>
+                            </div>
+                            <svg class="block opendropdow scale-75 origin-center" width="24" height="25">
+                                <use href="./images/sprite-icons.svg#arrow-top"></use>
+                            </svg>
+                        </div>
+                        
+                        
+                        <basis core="print" datamembername="refresh.executionPlanTypesOrigins"
+                        if="{##refresh.executionPlanTypesOrigins##}" run="atclient"
+                        onrendered="onrenderedExecutionOrigins">
+                        <layout>
+                            <script type="text/template">
+                                <div class="execution__details__path execution__details__path__origins flex flex-col min-h-[152px] items-center py-3 relative border-t ">
+                                    <div class="flex flex-col justify-center w-[90%] mx-auto execution__details__path__item">
+                    
+                                    @child
+                                </div>
+                            </div>
+                            </script>
+                            </layout>
+                            <face>
+                                <script type="text/template">
+                    
+                    
+                                        <div class="flex gap-x-1 items-center  execution__details__path__item__details">
+                                            <svg width="16" height="16">
+                                                <use href="./images/sprite-icons.svg#airplane-bold-tour-detail">
+                                                </use>
+                                            </svg>
+                                
+                                            <span class="font-yekanbakhregularFA text-xs text-txtneutral-500 __times__start">@info.departure.time@</span>
+                                
+                                
+                                        </div>
+                                
+                                        <div
+                                            class="flex flex-col min-h-[104px] border-r border-txtneutral-400 border-dashed mr-2 pr-6 py-4 ">
+                                
+                                            <div>
+                                                <div class="flex items-center">
+                                                    <h2 id="origin-departure-tour" class="text-sm text-txtneutral-900 font-yekanbakhsemiboldFA "></h2>
+                                                    <div class="mx-6 ">
+                                                        <svg class="inline-block ml-1" width="16" height="16">
+                                                            <use href="./images/sprite-icons.svg#timer-icon-tour">
+                                                            </use>
+                                                        </svg>
+                                                        <span
+                                                            class="font-yekanbakhregularFA text-[10px] text-txtneutral-500 __times__duration">@info.time@ دقیقه</span>
+                                                    </div>
+                                                </div>
+                                
+                                
+                                                <span class="h-8 leading-8 block font-yekanbakhregularFA text-xs ">فرودگاه
+                                                    مبدا</span>
+                                                <div
+                                                    class="h-8 leading-8 block text-txtneutral-500 font-yekanbakhregularFA text-xs">
+                                                    @info.origin.name@
+                                                </div>
+                                                <span class="h-8 leading-8 block font-yekanbakhregularFA text-xs ">فرودگاه
+                                                    مقصد</span>
+                                                <div
+                                                    class="h-8 leading-8 block text-txtneutral-500 font-yekanbakhregularFA text-xs">
+                                                    @info.destination.name@
+                                                </div>
+                                                <span class="h-8 leading-8 gap-x-2 font-yekanbakhregularFA text-xs  flex">
+                                                    {{ return await renderTransportationImage($data)}}
+                                                    <span class="ml-1">{{ return await renderTransportationName($data)}}</span>
+                                                </span>
+                                
+                                
+                                                <div
+                                                    class="h-8 leading-8 flex gap-x-2 text-txtneutral-500 font-yekanbakhregularFA text-xs">
+                                
+                                                    <div>
+                                                        <svg class="ml-2 inline-block" width="16" height="16">
+                                                            <use
+                                                                href="./images/sprite-icons.svg#bag-outline-tour-detail">
+                                                            </use>
+                                                        </svg>
+                                
+                                                        <span>
+                                                            میزان بار مجاز: @info.luggage@ Kg
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <svg class="ml-2 inline-block" width="16" height="16">
+                                                            <use
+                                                                href="./images/sprite-icons.svg#seat-outline-tour-detail">
+                                                            </use>
+                                                        </svg>
+                                                        <span>
+                                                            کلاس: @info.class@
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                
+                                
+                                        </div>
+                                
+                                        <div class="flex gap-x-1 items-center ">
+                                            <svg width="16" height="16">
+                                                <use href="./images/sprite-icons.svg#location-bold-tour-detail">
+                                                </use>
+                                            </svg>
+                                            <h2 class="text-sm text-txtneutral-900 font-yekanbakhsemiboldFA details__city">@info.city.name@</h2>
+                                
+                                        </div>
+                                
+                                </script>
+                            </face>
+                        </basis>
+                    
+                        
+                        </div>
+                        
+                    
+                        <!-- tourExecution__container__destinations -->
+                        <div class=" execution__details tourExecution__container__destinations dropdownBox tourDate__container w-full mx-auto bg-white rounded-xl border border-neutralcolor-300 mb-6">
+                        <div class="dropdowntitr gap-x-3 p-3  flex justify-between items-center">
+                            <div class="flex items-center justify-start gap-x-2">
+                                <svg class="rotate-[270deg]" width="24" height="24">
+                                    <use href="./images/sprite-icons.svg#tour-icon-airplane"></use>
+                                </svg>
+                                <div class="">
+                                    <h2 class="font-yekanbakhsemiboldFA text-sm text-txtneutral-900">
+                                        <span class="destinations__city"></span> (شروع تور/ مسیر برگشت)
+                                    </h2>
+                                    <div class="block mt-2"><span class="destinations__start__day text-sm font-yekanbakhregularFA"></span><span class="destinations__start__weekday mr-2 text-sm font-yekanbakhregularFA"></span></div>
+                                </div>
+                            </div>
+                            <svg class="block opendropdow scale-75 origin-center" width="24" height="25">
+                                <use href="./images/sprite-icons.svg#arrow-top"></use>
+                            </svg>
+                        </div>
+                        
+                        
+                        
+                        <basis core="print" datamembername="refresh.executionPlanTypesDestinations"
+                            if="{##refresh.executionPlanTypesDestinations##}" run="atclient" onrendered="onrenderedExecutionDestinations">
+                            <layout>
+                                <script type="text/template">
+                    
+                                    <div class="flex flex-col min-h-[152px] items-center py-3 relative border-t execution__details__path execution__details__path__destinations">
+                        
+                        
+                                        <div class="flex flex-col justify-center w-[90%] mx-auto execution__details__path__item" >
+                                            
+                                            @child
+                                    
+                                        </div>
+                                    </div>
+                    
+                                </script>
+                            </layout>
+                            <face>
+                                <script type="text/template">
+                    
+                                    <div class="flex gap-x-1 items-center execution__details__path__item__details">
+                                        <svg width="16" height="16">
+                                            <use href="./images/sprite-icons.svg#airplane-bold-tour-detail">
+                                            </use>
+                                        </svg>
+                            
+                                        <span class="font-yekanbakhregularFA text-xs text-txtneutral-500 __times__start">@info.departure.time@</span>
+                            
+                            
+                                    </div>
+                            
+                                    <div
+                                        class="flex flex-col min-h-[104px] border-r border-txtneutral-400 border-dashed mr-2 pr-6 py-4 ">
+                            
+                                        <div>
+                                            <div class="flex items-center">
+                                                <h2 id="destination-departure-tour" class="text-sm text-txtneutral-900 font-yekanbakhsemiboldFA ">تهران</h2>
+                                                <div class="mx-6 ">
+                                                    <svg class="inline-block ml-1" width="16" height="16">
+                                                        <use href="./images/sprite-icons.svg#timer-icon-tour">
+                                                        </use>
+                                                    </svg>
+                                                    <span
+                                                        class="font-yekanbakhregularFA text-[10px] text-txtneutral-500 __times__duration ">@info.time@ دقیقه</span>
+                                                </div>
+                                            </div>
+                            
+                            
+                                            <span class="h-8 leading-8 block font-yekanbakhregularFA text-xs ">فرودگاه
+                                                مبدا</span>
+                                            <div
+                                                class="h-8 leading-8 block text-txtneutral-500 font-yekanbakhregularFA text-xs">
+                                                @info.origin.name@
+                                            </div>
+                                            <span class="h-8 leading-8 block font-yekanbakhregularFA text-xs ">فرودگاه
+                                                مقصد</span>
+                                            <div
+                                                class="h-8 leading-8 block text-txtneutral-500 font-yekanbakhregularFA text-xs">
+                                                @info.destination.name@
+                                            </div>
+                                            <span class="h-8 leading-8 gap-x-2 font-yekanbakhregularFA text-xs  flex">
+                                                {{ return await renderTransportationImage($data)}}
+                                                <span class="ml-1">{{ return await renderTransportationName($data)}}</span>
+                                            </span>
+                            
+                            
+                                            <div
+                                                class="h-8 leading-8 flex gap-x-2 text-txtneutral-500 font-yekanbakhregularFA text-xs">
+                            
+                                                <div>
+                                                    <svg class="ml-2 inline-block" width="16" height="16">
+                                                        <use
+                                                            href="./images/sprite-icons.svg#bag-outline-tour-detail">
+                                                        </use>
+                                                    </svg>
+                            
+                                                    <span>
+                                                        میزان بار مجاز: @info.luggage@ Kg
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <svg class="ml-2 inline-block" width="16" height="16">
+                                                        <use
+                                                            href="./images/sprite-icons.svg#seat-outline-tour-detail">
+                                                        </use>
+                                                    </svg>
+                                                    <span>
+                                                        کلاس: @info.class@
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                            
+                            
+                                    </div>
+                            
+                                    <div class="flex gap-x-1 items-center ">
+                                        <svg width="16" height="16">
+                                            <use href="./images/sprite-icons.svg#location-bold-tour-detail">
+                                            </use>
+                                        </svg>
+                                        <h2 class="text-sm text-txtneutral-900 font-yekanbakhsemiboldFA details__city">@info.city.name@</h2>
+                            
+                                    </div>
+                    
+                                </script>
+                            </face>
+                        </basis>
+                    
+                        
+                    
+                        </div>
+                        
+                    </div>
+
+
+                    <!-- tour cards -->
+
+
+                    <!-- services -->
+
+                    <div class="my-6">
+                        <ul class="flex gap-y-2 flex-wrap gap-1">
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                            <li class="bg-primary-50 rounded-lg w-[49%] h-[56px] flex items-center gap-x-1 px-2 "><svg
+                                    class="inline-block" width="16" height="16">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg><span class="text-xs">راهنمای فارسی زبان </span></li>
+                        </ul>
+                    </div>
+
+
+
+
+                <basis core="print" datamembername="api.inventoryView" run="atclient" onrendered="onrenderedInventoryView">
+                    <layout>
+                        <script type="text/template">
+                            <section class="flex max-sm:flex-col gap-y-3 my-3 flex-wrap tourInventory__container">
+                                <div class="bg-neutralcolor-100 flex h-12 items-center rounded-[4px] gap-x-2 px-1 border-b ">
+                                    <svg class="scale-75" width="40" height="41">
+                                        <use href="./images/sprite-icons.svg#tour-icon-building"></use>
+                                    </svg>
+                                    <h2 class="text-base text-primary-900 font-yekanbakhsemiboldFA ">قیمت تور بر اساس هتل</h2>
+                                </div>
+                            
+                                            @child
+                            
+                                        </section>
+                                    </script>
+                    </layout>
+                    <face>
+                        <script type="text/template">
+                
+                            <article
+                                class="tourInventory__details tourInventory__details__item bg-white  rounded-3xl  !rounded-tl-none shadow-[0px_0px_2px_#BDCEDE] max-w-[304px] w-[95%] min-h-[152px]  mx-auto overflow-hidden">
+                            <div class="min-h-[152px] relative pb-10 ">
+                                
+                                {{return await renderHotels($data)}}
+
+                
+                                <div onclick="ShowHotelInfo(this)" class="h-10 bg-primary-50 w-full absolute bottom-0 left-0 right-0 cursor-pointer ">
+                                    <div class="h-10 w-[95%] mx-auto flex justify-between items-center gap-x-1">
+                                        <div class="w-full h-full flex justify-center gap-x-1 items-center text-primary font-yekanbakhregularFA text-xs">
+                                            <span>
+                                                مشاهده قیمت
+                                            </span>
+                                            <svg class="rotate-180" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8.5" cy="8" r="8" transform="rotate(90 8.5 8)" fill="white"/>
+                                                <path d="M12.1362 8.72754L8.81947 5.41078L5.50271 8.72754" stroke="#005FF0" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                
+                                        </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+                
+                
+                                
+                                <div class="flex clear-both justify-between flex-wrap gap-3 p-2 tourInventory__details__item__info">
+                                    <div class="h-16 w-[46%] min-w-[136px] rounded-lg overflow-hidden text-center">
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-100 font-IRANYekanRegularMobileFA text-sm ">دوتخته</div>
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-50 font-IRANYekanMobileBoldFA text-sm "> {{ return await renderPriceInfo($data,'doublecost')}}</div>
+                                    </div>
+                                    <div class="h-16 w-[46%] min-w-[136px] rounded-lg overflow-hidden text-center">
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-100 font-IRANYekanRegularMobileFA text-sm ">یک تخته</div>
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-50 font-IRANYekanMobileBoldFA text-sm ">                        {{ return await renderPriceInfo($data,'singlecost')}}
+                                        </div>
+                                    </div>
+                                    <div class="h-16 w-[46%] min-w-[136px] rounded-lg overflow-hidden text-center">
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-100 font-IRANYekanRegularMobileFA text-sm ">کودک با تخت</div>
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-50 font-IRANYekanMobileBoldFA text-sm ">                        {{ return await renderPriceInfo($data,'childwithbed')}}
+                                        </div>
+                                    </div>
+                                    <div class="h-16 w-[46%] min-w-[136px] rounded-lg overflow-hidden text-center">
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-100 font-IRANYekanRegularMobileFA text-sm ">کودک بدون تخت</div>
+                                        <div class="h-8 leading-8 text-primary-900 bg-primary-50 font-IRANYekanMobileBoldFA text-sm ">                        {{ return await renderPriceInfo($data,'childwithoutbed')}}
+                                        </div>
+                                    </div>
+                                </div>
+                
+                
+                                <div class="w-[95%] mx-auto">
+                                    <div class="w-28 text-xs my-3 bg-neutralcolor-50 text-primary gap-x-2 flex justify-center items-center rounded-lg h-10 leading-10">
+                                        <svg width="16" height="16">
+                                            <use href="./images/sprite-icons.svg#description-icon-mob"></use>
+                                        </svg>
+                                        <span>
+                                            توضیحات
+                                        </span>
+                                    </div>
+                                    <div class="w-full my-3 text-xs font-yekanbakhregularFA bg-neutralcolor-50 text-primary-900 text-center px-2 rounded-lg min-h-10 leading-10">
+                    
+                                        <span>
+                                            {{ return await renderDescriptionHotelCost($data)}}
+
+                                        </span>
+                                    </div>
+                                </div>
+                                    <div class="flex justify-between gap-x-2 px-1 w-[95%] mx-auto mb-5">
+                
+                                        <button  onclick="renderTourForm(this)"
+                                            class="h-12 rounded-lg w-[152px] text-center font-yekanbakhsemiboldFA leading-[48px] bg-primary text-sm text-white hover:bg-primary-800">
+                                            رزرو تور
+                                        </button>
+                                        <button onclick="renderTourInstallmentForm(this)"
+                                        class="h-12 rounded-lg w-28 text-center text-xs font-yekanbakhregularFA leading-[48px] border border-success-500 bg-success-100 text-success-500 hover:bg-success-500 hover:text-white ">
+                                        شرایط اقساط
+                                    </button>
+                                    </div>
+                
+                            </article>
+                
+                        </script>
+                    </face>
+                </basis>
+        
+                </section>
+
+
+                
+                <section class="mx-auto w-full my-12">
+
+                    <div class="bg-neutralcolor-100 flex h-12 items-center rounded-[4px] gap-x-2 px-1 border-b ">
+                        <svg class="scale-75" width="40" height="41">
+                            <use href="./images/sprite-icons.svg#travel-role"></use>
+                        </svg>
+                        <h2 class="text-base text-primary-900 font-yekanbakhsemiboldFA ">شرایط و مقررات کلی سفر</h2>
+                    </div>
+
+
+                    <div class="my-3">
+                        <ul class="flex flex-row-reverse justify-evenly items-center gap-x-1 leading-[48px] bg-white drop-shadow-lg my-3 h-12 overflow-x-scroll scroll-hidden 
+                             ">
+                            <li onclick="openTabInfo(this , 'required-documents-tour' )"
+                                class="cursor-pointer text-nowrap leading-8 text-center px-2 text-xs rounded-lg font-yekanbakhregularFA text-primary-900 min-w-[25%] ">
+                                مدارک مورد نیاز
+                            </li>
+                            <span class="h-6 w-[1px] block bg-neutralcolor-700"></span>
+                            <li onclick="openTabInfo(this , 'tour-description' )"
+                                class="cursor-pointer text-nowrap leading-8 text-center px-2 text-xs rounded-lg font-yekanbakhregularFA text-primary-900 min-w-[25%] ">
+                                توضیحات تور
+                            </li>
+                            <span class="h-6 w-[1px] block bg-neutralcolor-700"></span>
+                            <li onclick="openTabInfo(this , 'service-tour'  )"
+                                class="cursor-pointer text-nowrap leading-8 text-center px-2 text-xs rounded-lg font-yekanbakhregularFA text-primary-900 min-w-[25%] active-tab-info">
+
+                                خدمات تور
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear-both"></div>
+                    <div class="my-2">
+                        <div id="service-tour" class=" p-4 bg-white block">
+                            <h2 class="text-txtneutral-900 text-sm font-yekanbakhboldFA mb-2">خدمات تور:</h2>
+                            <div class="text-justify text-sm font-yekanbakhregularFA">
+                                بلیط رفت و برگشت با هواپیمایی فری برد (پرواز مستقیم به آنتالیا) - 6 شب و 7 روز اقامت در
+                                هتل با خدمات کامل- ترانسفر فرودگاهی - راهنمای فارسی زبان - بیمه مسافرتی با پوشش کرونا
+                                (زیر 60 سال)
+                            </div>
+                        </div>
+                        <div id="tour-description" class=" p-4 bg-white hidden">
+                            <h2 class="text-txtneutral-900 text-sm font-yekanbakhboldFA mb-2">توضیحات :</h2>
+                            <div class="text-justify text-sm font-yekanbakhregularFA">
+                                <ul class="list-disc mr-4">
+                                    <li>
+                                        نرخ کودک بدون تخت 17.990.000 تومان و نت می باشد.
+                                    </li>
+                                    <li>
+                                        نرخ کودک کمتر از 2 سال 1.990.000 تومان و نت می باشد.
+                                    </li>
+                                    <li>
+                                        کنترل اعتبار پاسپورت به عهده ی آژانس درخواست کننده می باشد .
+                                    </li>
+                                    <li>
+                                        جهت دریافت ساین و رزرو آنلاین با همکاران ما در ارتباط باشید .
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="required-documents-tour" class=" p-4 bg-white hidden">
+                            <h2 class="text-txtneutral-900 text-sm font-yekanbakhboldFA mb-2">مدارک مورد نیاز تور:</h2>
+                            <div class="text-justify text-sm font-yekanbakhregularFA">
+                                <ul class="list-disc mr-4">
+                                    <li>
+                                        مسئولیت کنترل پاسپورت و ممنوعیت خروج از کشور بر عهده مسافر است.(حداقل اعتبار
+                                        پاسپورت 7 ماه) </li>
+                                    <li>
+                                        پرداخت هزینه عوارض خروج از کشور به عهده مسافر است. این هزینه باید یک روز قبل از
+                                        خروج پرداخت شود. </li>
+                                    <li>
+                                        هتل&zwnj;ها گارانتی بوده و در صورت کنسلی هزینه&zwnj;ای عودت داده نمی&zwnj;شود.
+                                    </li>
+                                    <li>
+                                        پرداخت 100 درصد نرخ تور در هنگام ثبت نام الزامی است..
+                                    </li>
+                                    <li>به دلیل محدودیت فضای بار در وسایل نقلیه از همراه داشتن کوله یا چمدان با ظرفیت
+                                        بیشتر از بیست کیلوگرم خودداری فرمایید.</li>
+                                    <li>برنامه&zwnj;های اعلام شده با توجه به شرایط آب و هوایی و سایر عوامل محیطی یا فنی
+                                        با صلاح&zwnj;دید تیم سرپرستی قابل جابه&zwnj;جایی است.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+                <section class=" ">
+
+                    <div class="max-w-7xl mx-auto w-full ">
+                        <div class="bg-neutralcolor-50 flex h-12 items-center rounded-[4px] gap-x-2 px-3  border-b">
+                            <svg width="32" height="32" class="scale-75 origin-center">
+                                <use href="./images/sprite-icons.svg#travel-plan"></use>
+                            </svg>
+                            <h2 class="text-base text-primary-900 font-yekanbakhboldFA ">برنامه سفر
+                            </h2>
+                        </div>
+
+                        <div class="my-5 flex justify-between items-center h-16 w-[95%] mx-auto">
+                            <div onclick="openPlan(this , '1-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            1
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '2-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            2
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '3-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            3
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '4-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            4
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '5-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            5
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '6-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            6
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '7-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            7
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <svg class="-mx-5 relative z-[1]" width="110" height="23" viewBox="0 0 110 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 Q 55 18 110 0 L 110 23 Q 55 5 0 23 Z" fill="#FFA200" />
+                            </svg>
+                            <div onclick="openPlan(this , '8-day')" class="relative group cursor-pointer plan-days">
+                                <div class="border-b-8 rounded-full border-white hover:border-primary-100">
+                                    <figure
+                                        class="relative z-[2] w-[30px] h-[30px] hover:w-[62px] hover:h-[62px] hover:blur-none transition-all duration-300 ease-in-out rounded-full overflow-hidden blur-sm">
+                                        <img class="w-full h-full object-cover "
+                                            src="[##cms.cms.cdn##]/images/non-upload/banner-pap (1).png" width="" height=""
+                                            alt="">
+                                    </figure>
+                                </div>
+
+                                <div
+                                    class="absolute left-0 right-0 mx-auto
+                                txt-day-content hidden
+                                group-hover:flex justify-center items-center bg-transparent border-4 drop-shadow-sm border-white -bottom-5 z-10 w-[35px] h-[35px] rounded-full">
+
+                                    <span class=" w-[32px] h-[32px] rounded-full drop-shadow-sm bg-white  font-yekanbakhsemiboldFA text-xs text-primary text-center leading-4
+                                    flex flex-col justify-center items-center
+                                    ">
+                                        روز
+                                        <span class="block">
+                                            8
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="1-day" class="w-10/12 mx-auto my-3 ">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز اول :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="2-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز دوم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="3-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز سوم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="4-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز چهارم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="5-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز پنجم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="6-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز ششم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="7-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز هفتم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+                        <div id="8-day" class="w-10/12 mx-auto my-4 hidden">
+                            <span class="text-primary text-base font-IRANYekanMobileBoldFA leading-6">
+                                روز هشتم :
+                            </span>
+                            <div class="font-IRANYekanRegularMobileFA text-sm to-txtneutral-900 leading-6 text-justify">
+                                پرواز به آنتالیا و با ورود به شانگهای و گذر از خیابان نانجینگ به هتل رفته و اتاق‌ها را
+                                تحویل می‌گیریم.
+                                باقی روز را تایم آزاد جهت استراحت و یا خرید خواهیم داشت.
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </section>
+
+            </div>
+        </section>
+
+
+
+
+                <!-- tour form section -->
+                <div>
+                    <basis core="call" if="{##db.tourForm.run|(false)##}" triggers="db.tourForm" run="atclient"
+                        file="/tour-book.bc" hotelName="{##db.tourForm.hotelName##}" method="post"
+                        hotelRate="{##db.tourForm.hotelRate##}" hotelService="{##db.tourForm.hotelService##}"
+                        tourName="{##db.tourForm.tourName##}" doubleP="{##db.tourForm.doubleP##}"
+                        singleP="{##db.tourForm.singleP##}" wBedP="{##db.tourForm.wBedP##}" woBedP="{##db.tourForm.woBedP##}"
+                        doubleU="{##db.tourForm.doubleU##}" singleU="{##db.tourForm.singleU##}" wBedU="{##db.tourForm.wBedU##}"
+                        woBedU="{##db.tourForm.woBedU|()##}" startDate="{##db.tourForm.startDate##}"
+                        endDate="{##db.tourForm.endDate##}" weekdayStartDate="{##db.tourForm.weekdayStartDate##}"
+                        weekdayEndDate="{##db.tourForm.weekdayEndDate##}" departureName="{##db.tourForm.departureName##}"
+                        destinationName="{##db.tourForm.destinationName##}" startTime="{##db.tourForm.startTime##}"
+                        endTime="{##db.tourForm.endTime##}"></basis>
+                </div>
+                <!-- tour-installment form section -->
+                <div>
+                    <basis core="call" if="{##db.tourFormInstallment.run|(false)##}" triggers="db.tourFormInstallment"
+                        run="atclient" file="/tour-bookInstallment.bc" hotelName="{##db.tourFormInstallment.hotelName##}"
+                        method="post" hotelRate="{##db.tourFormInstallment.hotelRate##}"
+                        hotelService="{##db.tourFormInstallment.hotelService##}"
+                        tourName="{##db.tourFormInstallment.tourName##}" doubleP="{##db.tourFormInstallment.doubleP##}"
+                        singleP="{##db.tourFormInstallment.singleP##}" wBedP="{##db.tourFormInstallment.wBedP##}"
+                        woBedP="{##db.tourFormInstallment.woBedP##}" doubleU="{##db.tourFormInstallment.doubleU##}"
+                        singleU="{##db.tourFormInstallment.singleU##}" wBedU="{##db.tourFormInstallment.wBedU##}"
+                        woBedU="{##db.tourFormInstallment.woBedU|()##}" adultCount="{##db.tourFormInstallment.adultCount|(2)##}"
+                        childCount="{##db.tourFormInstallment.childCount|(0)##}"
+                        infantCount="{##db.tourFormInstallment.infantCount|(0)##}"
+                        startDate="{##db.tourFormInstallment.startDate##}" endDate="{##db.tourFormInstallment.endDate##}"
+                        weekdayStartDate="{##db.tourFormInstallment.weekdayStartDate##}"
+                        weekdayEndDate="{##db.tourFormInstallment.weekdayEndDate##}"
+                        departureName="{##db.tourFormInstallment.departureName##}"
+                        destinationName="{##db.tourFormInstallment.destinationName##}"
+                        startTime="{##db.tourFormInstallment.startTime##}" endTime="{##db.tourFormInstallment.endTime##}"
+                        totalAmountINS="{##db.tourFormInstallment.totalAmountINS##}"
+                        totalAmountFacilityINS="{##db.tourFormInstallment.totalAmountFacilityINS##}"
+                        totalAdvancePaymentINS="{##db.tourFormInstallment.totalAdvancePaymentINS##}"
+                        amountEachInstallmentINS="{##db.tourFormInstallment.amountEachInstallmentINS##}"></basis>
+                </div>
+                <div id="load-form-lachin">
+                    <basis core="call" if="{##db.tourFormInstallmentplan.run|(false)##}" triggers="db.tourFormInstallmentplan"
+                        run="atclient" file="/installmentbook-plan.bc" hotelName="{##db.tourFormInstallmentplan.hotelName##}"
+                        method="post" hotelRate="{##db.tourFormInstallmentplan.hotelRate##}"
+                        hotelService="{##db.tourFormInstallmentplan.hotelService##}"
+                        tourName="{##db.tourFormInstallmentplan.tourName##}" doubleP="{##db.tourFormInstallmentplan.doubleP##}"
+                        singleP="{##db.tourFormInstallmentplan.singleP##}" wBedP="{##db.tourFormInstallmentplan.wBedP##}"
+                        woBedP="{##db.tourFormInstallmentplan.woBedP##}" doubleU="{##db.tourFormInstallmentplan.doubleU##}"
+                        singleU="{##db.tourFormInstallmentplan.singleU##}" wBedU="{##db.tourFormInstallmentplan.wBedU##}"
+                        woBedU="{##db.tourFormInstallmentplan.woBedU|()##}">
+                    </basis>
+                </div>
+    </main>
+
+
+
+    <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js" type="text/javascript"></script>
+    <script src="[##cms.cms.cdn##]/js/wavesurfer.min.js"></script>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"></basis>
+    <script src="[##cms.cms.cdn##]/js/tour.function.amitisbalpars-mob.js" type="text/javascript"></script>
+    <script type="application/ld+json">[##db.json.Column1##]</script>
+</body>
+
+</html>
