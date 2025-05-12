@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
 
+<!-- installment -->
+
+<symbol id="active-plan-check" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M19.2308 8.89008C19.724 9.90003 20 11.0297 20 12.2221C20 16.5177 16.4183 19.9999 12 19.9999C7.58172 19.9999 4 16.5177 4 12.2221C4 7.92657 7.58172 4.44434 12 4.44434C12.6354 4.44434 13.2535 4.51636 13.8462 4.65246" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M9.0293 11.817L11.2693 14.2222L18.6293 4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+
+<symbol id="deactive-plan-check" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M19.2308 8.89008C19.724 9.90003 20 11.0297 20 12.2221C20 16.5177 16.4183 19.9999 12 19.9999C7.58172 19.9999 4 16.5177 4 12.2221C4 7.92657 7.58172 4.44434 12 4.44434C12.6354 4.44434 13.2535 4.51636 13.8462 4.65246" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
+<path d="M9.0293 11.817L11.2693 14.2222L18.6293 4" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+<!-- installment -->
 
 <!-- tour detail mobile -->
 

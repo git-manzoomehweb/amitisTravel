@@ -1099,3 +1099,46 @@ section.main-login-container.rtl-lang {
   }
   
  /* tour.bc */
+
+
+ /* installment */
+ .redial-gradient-installment{
+    border-radius: 2em;
+    margin: 2em auto;
+    width: 290px;
+    height: 290px;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(50% 50% at 50% 50%, #003EB3 0%, #001145 100%);
+ }
+
+ input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right,#005FF0 0%,#F3F3F3 100%);
+    outline: none;
+    transition: background 450ms ease-in;
+    direction: ltr
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #005FF0;
+    cursor: pointer
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #005FF0;
+    cursor: pointer
+}
+ /* installment */

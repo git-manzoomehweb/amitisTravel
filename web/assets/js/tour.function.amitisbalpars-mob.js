@@ -35,68 +35,48 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
 
 
 function showDescription(el, descClass) {
-    const parentContainer = el.closest('.price-type'); 
-    const descBox = parentContainer.closest(".hotel-card").querySelector(`.${descClass}`); 
-    const svgIcon = el.querySelector('svg'); 
+    const descBox = el.closest(".hotel-card").querySelector(`.${descClass}`); 
     
     if (descBox && descBox.textContent.trim() !== '') {
         descBox.classList.toggle('hidden'); 
+    }
+}
+function ShowHotelInfo(el, descClass) {
+    const descBox = el.closest(".hotel-card").querySelector(`.${descClass}`); 
+        const svgIcon = el.querySelector('svg'); 
+
+    
+    if (descBox && descBox.textContent.trim() !== '') {
+        descBox.classList.toggle('hidden');
         if (svgIcon) {
             svgIcon.classList.toggle('rotate-180'); 
-        }
+        } 
     }
 }
 
-function CleanShowDescription() {
-            // اجرای بررسی بعد از رندر
-            document.querySelectorAll('[onclick^="showDescription"]').forEach(span => {
-                const descClassMatch = span.getAttribute('onclick').match(/'([^']+)'/);
-                if (descClassMatch) {
-                    const descClass = descClassMatch[1];
-                    const parentContainer = span.closest('.price-type') || span.closest('.hotel-card');
-                    const descBox = parentContainer?.querySelector(`.${descClass}`);
-                    if (!descBox || descBox.textContent.trim() === '') {
-                        const svg = span.querySelector('svg');
-                        if (svg) svg.remove();
-                    }
-                }
-            });
-};
-
-
-
-
-async function showDescriptionHTML(data) {
-    const text = data?.description[0].descriptionf.trim() || '';
-    if(text.length == 0){
-        return '';
-    }else if (text.length > 0 && text.length < 8) {
-        console.log(text.length)
-        console.log("showwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-        console.log(text)
-        // اگر متن خیلی کوتاه بود، خود متن رو برگردون
-        return text;
-    } else {
-        // اگر متن طولانی بود، متن «نمایش» با آیکون رو برگردون
-        return `
-                            <span onclick="showDescription(this,'description-hotel')">
-
-            نمایش
-            <svg class="inline-block" width="24" height="24">
-                <use href="./images/sprite-icons.svg#arrow-down-tour-detail"></use>
-            </svg>
-                                        </span>
-
-        `;
-    }
-}
 
 
 const renderDescriptionHotelCost = async (element) => {
     try {
-
-        let descriptionPrice = element.description[0].descriptionf;               
-        return descriptionPrice;
+        let descriptionPrice = `<div onclick="showDescription(this,'description-hotel')" class="w-28 text-xs my-3 bg-neutralcolor-50 text-primary gap-x-2 flex justify-center items-center rounded-lg h-10 leading-10">
+                                        <svg width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <use href="./images/sprite-icons.svg#description-icon-mob"></use>
+                                        </svg>
+                                        <span>
+                                            توضیحات
+                                        </span>
+                                    </div>
+                                    <div class="description-hotel w-full my-3 text-xs font-yekanbakhregularFA bg-neutralcolor-50 text-primary-900 text-center px-2 rounded-lg min-h-10 leading-10 hidden">
+                    
+                                        <span>
+                                            ${element.description[0].descriptionf}
+                                        </span>
+                                    </div>`;
+        if(element.description[0].descriptionf){
+            return descriptionPrice;
+        }else{
+            return '';
+        }
     } catch (err) {
         console.error('renderDescriptionHotelCost=' + err.lineNumber + ',' + err.message);
         return '';
@@ -761,7 +741,7 @@ const renderHotels = async (element, type) => {
                                 <svg class="inline-block" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
                                 </svg>
-                                <span class="uppercase">${await renderHotelLocation(hotel)}</span>
+                                <span class="uppercase">${await renderHotelLocation(element)}</span>
                             </div>
                             <div class="w-[1px] h-[21px] bg-neutralcolor-700"></div>
                             <div class="w-[40%] flex items-center gap-1">
@@ -876,11 +856,11 @@ const renderPriceInfo = async (element, type) => {
                 const item = prices[0];
                 output += `
                     <div class="${wrapperClass}">
-                        <span class="tourInventory__details__item__price text-primary-900 text-sm">
+                        <span class="tourInventory__details__item__price text-primary-900 text-sm h-8 leading-8">
                             ${new Intl.NumberFormat().format(getValue(item, 'f'))}
                         </span>
                         ${getValue(item, 'unit')?.length === 0 ? `` : `
-                            <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+                            <span class="tourInventory__details__item__unit text-sm mr-1 h-8 leading-8">
                                 ${getValue(item, 'unit')}
                             </span>`}
                     </div>
@@ -889,23 +869,15 @@ const renderPriceInfo = async (element, type) => {
                 prices.forEach((item, index) => {
                     output += `
                         <div class="${wrapperClass}">
-                            <span class="tourInventory__details__item__price text-primary-900 text-sm">
+                            <span class="tourInventory__details__item__price text-primary-900 text-sm h-8 leading-8">
                                 ${new Intl.NumberFormat().format(getValue(item, 'f'))}
                             </span>
                             ${getValue(item, 'unit')?.length === 0 ? `` : `
-                                <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+                                <span class="tourInventory__details__item__unit text-sm mr-1 h-8 leading-8">
                                     ${getValue(item, 'unit')}
                                 </span>`}
                         </div>
                     `;
-
-                    if (index < prices.length - 1) {
-                        output += `<div class="relative w-full flex justify-center items-center -my-2">
-                            <hr class="w-full" />
-                            <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
-                            <hr class="w-full" />
-                        </div>`;
-                    }
                 });
             }
 
@@ -959,23 +931,18 @@ const renderHotelRate = async (element) => {
 
 
 
-const renderHotelLocation = async (element) => {
+const renderHotelLocation = async (data) => {
     try {
-        if (element) {
-            console.log("locationnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", element);
-            let output = "";
-            return output
-        }
+    const text = data?.location[0].locationf.trim() || '';
+    if(text.length == 0){
+        return '';
+    }else if (text.length > 0 && text.length < 8) {
+        return text;
+    }
     } catch (err) {
         console.error('renderHotelLocation=' + err.lineNumber + ',' + err.message);
     }
 }
-
-
-
-
-
-
 
 
 const renderHotelBooking = async (element) => {
