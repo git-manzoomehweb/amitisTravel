@@ -16,6 +16,28 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
   });
 
 
+  function toggleBoxData(el, targetSelector, iconSelector , rotationdeg) {
+    const parent = el.closest('.dropdownBox'); // یا هر کانتینر مناسبی که مطمئن باشی
+    if (!parent) return;
+
+
+
+    const target = parent.querySelector(`.${targetSelector}`);
+    const icon = parent.querySelector(`.${iconSelector}`);
+    console.log(parent);
+    console.log(target);
+    if (target) {
+        target.classList.toggle('!hidden');
+    }
+
+    if (icon) {
+        icon.classList.toggle(rotationdeg);
+        icon.classList.toggle('transition-transform');
+        icon.classList.toggle('duration-300'); // برای انیمیشن روان
+    }
+}
+
+
   function showMoreDates(element , dropdownid){
     var btnText = element.querySelector(".dropdown-txt").innerText;
     var rotateicon = element.querySelector(".dropdown-rotation");
@@ -85,11 +107,11 @@ const renderDescriptionHotelCost = async (element) => {
 
 
 function openTabInfo(element, tabId) {
-    document.querySelectorAll('.my-6 ul li').forEach(li => {
-        li.classList.remove('active-tab-travel-data');
+    document.querySelectorAll('.Regulations ul li').forEach(li => {
+        li.classList.remove('active-tab-info');
     });
 
-    element.classList.add('active-tab-travel-data');
+    element.classList.add('active-tab-info');
 
     document.querySelectorAll('[id^="service-tour"], [id^="tour-description"], [id^="required-documents-tour"]').forEach(tab => {
         tab.classList.add('hidden');
@@ -115,11 +137,11 @@ function openPlan(element, target) {
   document.querySelectorAll('.plan-days').forEach((el) => {
     el.querySelector(".txt-day-content").classList.remove("!flex");
     el.classList.remove("border-primary-100");
-    el.querySelector("figure").classList.remove("!blur-none", "!w-[184px]" , "!h-[184px]");
+    el.querySelector("figure").classList.remove("!blur-none", "!w-[62px]" , "!h-[62px]");
   });
   element.classList.add("border-primary-100");
   element.querySelector(".txt-day-content").classList.add("!flex");
-  element.querySelector("figure").classList.add("!blur-none", "!w-[184px]" , "!h-[184px]");
+  element.querySelector("figure").classList.add("!blur-none", "!w-[62px]" , "!h-[62px]");
 }
 
 
@@ -2089,7 +2111,7 @@ if (gallery) {
 
 const onrenderedSchmaTourBookingFormIns = async (args) => {
     try {
-        const form = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container");
+        const form = document.querySelector(".tour__booking__form__modal__container_Ins");
         const modal = document.querySelector("#white-modal");
 
         if (!form || !modal) {
@@ -2239,3 +2261,20 @@ function jalali_to_gregorian(jy, jm, jd) {
     }
     return [gy, gm, gd];
 }
+
+
+function setupSimpleAudioToggle(element,audioId) {
+    console.log("clicked!")
+    const audio = document.getElementById(audioId);
+    if (audio) {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    } else {
+        console.warn(`Audio element with id "${audioId}" not found.`);
+    }
+}
+
+

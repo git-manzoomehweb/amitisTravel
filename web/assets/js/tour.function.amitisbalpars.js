@@ -1555,10 +1555,6 @@ let FormwoBedU ;
 
 const renderTourInstallmentForm = async (element) => {
 
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element)
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element.closest(".tourInventory__details__item"))
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service"))
-    console.log("renderTourInstallmentForm :::::::::::::::::::::" , element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service").dataset.value)
     switch (parseInt(element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__service").dataset.value)) {
         case 0:
             sevice = "-";
@@ -1623,6 +1619,10 @@ const renderTourInstallmentForm = async (element) => {
     // adultCount:adultCountF,
     // childCount:childbedCountF,
     // infantCount:infantCountF,
+
+
+
+    console.log(FormhotelName,FormhotelRate,FormhotelService,FormtourName,FormdoubleP,FormsingleP,FormwBedP,FormwoBedP,FormdoubleU,FormsingleU,FormwBedU,FormwoBedU)
    
 } 
 const renderReserveTourInstallmentForm = async (element) => {

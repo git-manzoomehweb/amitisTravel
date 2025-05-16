@@ -1,8 +1,18 @@
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374294"><member name="installment_info" type="view" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374305"><member name="installment_levels" type="view" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374306"><member name="installment_order" type="view" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374307"><member name="installment_docs" type="view" postsql="select * from [db.installment_docs] where TypeID in(250)" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307288"><member name="faqcontent" type="view" postsql="select * from [db.faqcontent] where TypeID in(250)" /></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374294">
+    <member name="installment_info" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374305">
+    <member name="installment_levels" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374306">
+    <member name="installment_order" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374307">
+    <member name="installment_docs" type="view" postsql="select * from [db.installment_docs] where TypeID in(250)" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307288">
+    <member name="faqcontent" type="view" postsql="select * from [db.faqcontent] where TypeID in(250)" />
+</basis>
 
 <!DOCTYPE html>
 <html lang="fa">
@@ -14,8 +24,17 @@
     <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
     <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
     <!-- Title & Description -->
-    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
-    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
     <!-- pwa metatags -->
     <basis core="call" file="pwa.inc" />
     <basis core="call" file="style.inc" />
@@ -23,11 +42,12 @@
     <link rel="stylesheet" href="[##cms.cms.cdn##]/_css/swiper-bundle.min.css">
 
 </head>
+
 <body>
     <!-- Header start-->
     <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
 
-    <main >
+    <main>
 
 
         <div class="max-w-7xl mx-auto w-full pt-16">
@@ -35,51 +55,37 @@
                 <div class=" w-[90%] mx-auto">
                     <div class="float-right mt-5">
                         <h1 class="text-white font-yekanbakhboldFA text-[80px] leading-[203%] ">شرایط اقساط آمیتیس</h1>
-                        <h2 class="text-secondary text-2xl font-yekanbakhsemiboldFA leading-10 my-4">جیبتو خالی نکن ، قسطی سفر کن !</h2>
+                        <h2 class="text-secondary text-2xl font-yekanbakhsemiboldFA leading-10 my-4">جیبتو خالی نکن ،
+                            قسطی سفر کن !</h2>
                     </div>
                     <div class="float-left -mt-14">
-                        <img src="[##cms.cms.cdn##]/images/installment-image.png" width="320" height="440" alt="installment">
+                        <img src="[##cms.cms.cdn##]/images/installment-image.png" width="320" height="440"
+                            alt="installment">
                     </div>
                 </div>
             </div>
-    
-            <div id="modal-plan-installment" class="font-danaregular -mt-[600px]">
-                <section 
-                    class="tour__booking__form__modal__container modal__container  
-                      w-full h-full  dir-rtl">
-                    <div class=" w-full  m-auto  p-4 overflow-y-auto h-full ">
-            
-    
-                        <input type="hidden" name="doubleP" id="inphidden-doubleP" value="[##cms.form.doubleP##]">
-                        <input type="hidden" name="singleP" id="inphidden-singleP" value="[##cms.form.singleP##]">
-                        <input type="hidden" name="wBedP" id="inphidden-wBedP" value="[##cms.form.wBedP##]">
-                        <input type="hidden" name="woBedP" id="inphidden-woBedP" value="[##cms.form.woBedP##]">
-            
-    
-    
-    
-                    </div>
-                </section>
-            </div>
-    
-    
-            <div class="flex justify-between items-stretch w-[95%] mx-auto">
-    
+
+
+            <div class="flex justify-between items-stretch w-[95%] mx-auto -mt-[600px]">
+
                 <div class="  w-7/12 p-3 mt-3">
                     <div class="font-yekanbakhboldFA text-white  text-base flex items-center my-4">
                         طرح اقساط
                     </div>
                     <ul class=" columns-2">
                         <li class=" bg-white rounded-xl">
-                            <div >
+                            <div>
                                 <div>
-                                    <span class="text-primary-950 text-2xl  block leading-10 text-center font-yekanbakhsemiboldFA pt-3">طرح
+                                    <span
+                                        class="text-primary-950 text-2xl  block leading-10 text-center font-yekanbakhsemiboldFA pt-3">طرح
                                         اقساط با چک صیادی</span>
-                                        <hr class="border-primary-950 w-8/12 mx-auto my-2">
-                                    <span class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح تا
+                                    <hr class="border-primary-950 w-8/12 mx-auto my-2">
+                                    <span
+                                        class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح
+                                        تا
                                         سقف 100 میلون تومان با چک صیادی</span>
                                 </div>
-    
+
                                 <div class="h-16 plan-container cursor-pointer relative mt-[14px]"
                                     onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 100 , 4 , 0.2)">
                                     <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
@@ -91,22 +97,25 @@
                             </div>
                         </li>
                         <li class=" bg-white rounded-xl">
-                            <div >
+                            <div>
                                 <div>
-                                    <span class="text-primary-950 text-2xl block leading-10 text-center font-yekanbakhsemiboldFA pt-3">طرح
+                                    <span
+                                        class="text-primary-950 text-2xl block leading-10 text-center font-yekanbakhsemiboldFA pt-3">طرح
                                         اقساط آمیتیس</span>
-                                        <hr class="border-primary-950 w-8/12 mx-auto my-2">
-                                    <span class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح تا
+                                    <hr class="border-primary-950 w-8/12 mx-auto my-2">
+                                    <span
+                                        class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح
+                                        تا
                                         سقف 100 میلون تومان</span>
                                 </div>
-    
+
                                 <div class="h-16 plan-container cursor-pointer relative mt-[14px]"
-                                    onclick="selectPlanInstallment(this ,'manisa' , 'manisaplan' , 130 , 12 , 0.21)">
-                                    <input type="radio" id="manisa" name="plan" value="manisa"
+                                    onclick="selectPlanInstallment(this ,'amitis' , 'amitisplan' , 130 , 12 , 0.21)">
+                                    <input type="radio" id="amitis" name="plan" value="amitis"
                                         class="plan-radio w-0 h-0 inline  m-0 p-0 appearance-none">
                                     <label
                                         class="absolute left-0 right-0 top-0 bottom-0 w-full bg-neutralcolor-700 text-txtneutral-500 text-2xl h-16 leading-[64px] rounded-lg block font-yekanbakhsemiboldFA text-center"
-                                        for="manisa">انتخاب</label>
+                                        for="amitis">انتخاب</label>
                                 </div>
                             </div>
                         </li>
@@ -116,13 +125,14 @@
                     <div class="font-yekanbakhboldFA text-white  text-base flex items-center my-4">
                         تعداد مسافران
                     </div>
-    
+
                     <ul class="columns-2">
-                        <li >
+                        <li>
                             <div class="w-full bg-white p-3 rounded-xl ">
                                 <div class="w-full text-center">
                                     <span class="text-primary-950 text-base font-yekanbakhsemiboldFA ">بزرگسال</span>
-                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA ">(12 سال به بالا)</span>
+                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA ">(12 سال به
+                                        بالا)</span>
                                 </div>
                                 <div class="w-full text-center h-10 bg-neutralcolor-100 rounded-md px-8">
                                     <select onChange="calculateInstallments(this)"
@@ -142,12 +152,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li >
+                        <li>
                             <div class="w-full bg-white p-3 rounded-xl mt-3">
                                 <div class="text-center">
                                     <span class="text-primary-950 text-base font-yekanbakhsemiboldFA ">کودک با
                                         تخت</span>
-                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA">(6 تا 12 سال)</span>
+                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA">(6 تا 12
+                                        سال)</span>
                                 </div>
                                 <div class="w-full text-center h-10 bg-neutralcolor-100 rounded-md px-8">
                                     <select onChange="calculateInstallments(this)"
@@ -168,12 +179,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li >
+                        <li>
                             <div class="w-full bg-white p-3 rounded-xl ">
                                 <div class="text-center">
                                     <span class="text-primary-950 text-base font-yekanbakhsemiboldFA ">کودک بدون
                                         تخت</span>
-                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA">(2 تا 6 سال)</span>
+                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA">(2 تا 6
+                                        سال)</span>
                                 </div>
                                 <div class="w-full text-center h-10 bg-neutralcolor-100 rounded-md px-8">
                                     <select onChange="calculateInstallments(this)"
@@ -194,11 +206,12 @@
                                 </div>
                             </div>
                         </li>
-                        <li >
+                        <li>
                             <div class="w-full bg-white p-3 rounded-xl mt-3">
                                 <div class="text-center">
                                     <span class="text-primary-950 text-base font-yekanbakhsemiboldFA ">نوزاد</span>
-                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA">(زیر 2 سال)</span>
+                                    <span class="text-txtneutral-500 text-base font-yekanbakhregularFA">(زیر 2
+                                        سال)</span>
                                 </div>
                                 <div class="w-full text-center h-10 bg-neutralcolor-100 rounded-md px-8">
                                     <select onChange="calculateInstallments(this)"
@@ -222,111 +235,123 @@
                     </ul>
                 </div>
             </div>
-    
-    
+
+
             <div class="my-4">
                 <span class="text-white text-lg font-yekanbakhsemiboldFA text-center block ">
-                    محاسبه گر اقساط چک صیادی
+                    محاسبه گر اقساط
                 </span>
-                <svg class="mx-auto mt-4" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#CCC" stroke-width="2" stroke-linecap="round"></path>
-                    <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#FFF" stroke-width="2" stroke-linecap="round"></path>
-                    </svg>
-    
-            </div> 
-    
+                <svg class="mx-auto mt-4" width="14" height="20" viewBox="0 0 14 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#CCC" stroke-width="2"
+                        stroke-linecap="round"></path>
+                    <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#FFF" stroke-width="2"
+                        stroke-linecap="round"></path>
+                </svg>
+
+            </div>
+
             <div class="bg-white rounded-xl w-11/12 mt-3 py-3 px-5 flex gap-x-10 mx-auto drop-shadow-lg">
                 <section class="w-7/12">
-    
+
                     <div class="w-full">
                         <form action="">
                             <div class=" flex justify-between items-center mt-12">
-                                <label class="font-yekanbakhsemiboldFA text-primary-950 text-base block" for="amount">میزان مبلغ درخواستی</label>
-    
+                                <label class="font-yekanbakhsemiboldFA text-primary-950 text-base block"
+                                    for="amount">میزان مبلغ درخواستی</label>
+
                                 <div class="flex items-center justify-start">
                                     <input id="amount"
-                                    class="bg-transparent font-yekanbakhboldFA text-[32px] text-left pl-3 text-primary" type="text"
-                                    value="10" placeholder="100" >
+                                        class="bg-transparent font-yekanbakhboldFA text-[32px] text-left pl-3 text-primary"
+                                        type="text" value="10" placeholder="100">
                                     <span class="text-sm text-primary font-yekanbakhregularFA">
                                         تومان
                                     </span>
-    
+
                                 </div>
                             </div>
-    
-    
-    
+
+
+
                             <div class="relative mt-6 flex justify-between gap-x-3 items-center">
-                                <span class="text-txtneutral-500 top-7 font-yekanbakhregularFA text-base w-48">10
+                                <span class="text-txtneutral-500 top-7 font-yekanbakhregularFA text-base w-48">100
                                     میلیون تومان </span>
                                 <input oninput="updateLoanFromRange(this.value)" type="range" min="10" max="100"
                                     value="10" class="slider w-8/12" id="myRange">
-    
-                                    
+
+
                                 <span class="text-txtneutral-500 top-7 font-yekanbakhregularFA text-base w-48">
-                                    <span id="limit-range">100</span>
+                                    <span id="limit-range">10</span>
                                     میلیون تومان</span>
                             </div>
-    
-    
+
+
                             <div class="mt-12 relative">
                                 <span class="text-sm font-danaregular my-4 inline-block">
                                     مدت باز پرداخت
                                 </span>
-    
+
                                 <div id="month-list" class="swiper planitems w-[90%] mx-auto">
                                     <div class="swiper-wrapper !h-14">
                                         <div class="swiper-slide !w-52">
                                             <div month="4" rate="0.2" onclick="calculateMonth(4 , 0.2 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg bg-primary w-full text-white text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 4ماهه
-                                        </div>
+                                            </div>
                                         </div>
                                         <div class="swiper-slide !w-52">
                                             <div onclick="calculateMonth(6 , 0.3 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 6ماهه
-                                        </div>
+                                            </div>
                                         </div>
                                         <div class="swiper-slide !w-52">
                                             <div onclick="calculateMonth(8 , 0.4 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 8ماهه
-                                        </div>
+                                            </div>
                                         </div>
                                         <div class="swiper-slide !w-52">
                                             <div onclick="calculateMonth(10 , 0.5 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 10ماهه
+                                            </div>
                                         </div>
-                                        </div>
-                                        <div class="swiper-slide !w-52" style="display: none;" >
-                                            <div month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)" 
-                                                class="manisaplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                        <div class="swiper-slide !w-52" style="display: none;">
+                                            <div month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 12ماهه
+                                            </div>
                                         </div>
-                                        </div>
-                                        <div class="swiper-slide !w-52" style="display: none;" >
-                                            <div month="18" rate="0.27" onclick="calculateMonth(18 , 0.27 , this)" 
-                                                class="manisaplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                        <div class="swiper-slide !w-52" style="display: none;">
+                                            <div month="18" rate="0.27" onclick="calculateMonth(18 , 0.27 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 18ماهه
-                                        </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
-                                <button class="swiper-button-next-plan w-10 h-10  absolute top-[74%]  -left-[6px] z-10 transform -translate-y-1/2 bg-gray-300 text-black px-2 py-1 rounded-lg flex justify-center items-center content-center"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
-                                    <path d="M8 1L2.34307 6.65693L7.99992 12.3138" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
-                                </svg></button>
-                                <button class="swiper-button-prev-plan w-10 h-10  absolute top-[74%] -right-[6px] z-10 transform -translate-y-1/2 bg-gray-300 text-black px-2 py-1 rounded-lg flex justify-center items-center content-center"><svg class="rotate-180" xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
-                                    <path d="M8 1L2.34307 6.65693L7.99992 12.3138" stroke="#667085" stroke-width="2" stroke-linecap="round"/>
+
+
+                                <button
+                                    class="swiper-button-next-plan w-10 h-10  absolute top-[74%]  -left-[6px] z-10 transform -translate-y-1/2 bg-gray-300 text-black px-2 py-1 rounded-lg flex justify-center items-center content-center"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14"
+                                        fill="none">
+                                        <path d="M8 1L2.34307 6.65693L7.99992 12.3138" stroke="#667085" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg></button>
+                                <button
+                                    class="swiper-button-prev-plan w-10 h-10  absolute top-[74%] -right-[6px] z-10 transform -translate-y-1/2 bg-gray-300 text-black px-2 py-1 rounded-lg flex justify-center items-center content-center"><svg
+                                        class="rotate-180" xmlns="http://www.w3.org/2000/svg" width="9" height="14"
+                                        viewBox="0 0 9 14" fill="none">
+                                        <path d="M8 1L2.34307 6.65693L7.99992 12.3138" stroke="#667085" stroke-width="2"
+                                            stroke-linecap="round" />
                                     </svg></button>
                             </div>
                         </form>
-    
-    
-    
+
+
+
                     </div>
                 </section>
                 <div class="w-5/12   py-2 mt-5 px-3">
@@ -337,7 +362,7 @@
                                 <span class="total-amount">
                                     0
                                 </span>
-    
+
                                 <span class="text-sm">تومان</span>
                             </div>
                         </li>
@@ -347,7 +372,7 @@
                                 <span class="Total-amount-facilities">
                                     0
                                 </span>
-    
+
                                 <span class="text-sm">تومان</span>
                             </div>
                         </li>
@@ -357,7 +382,7 @@
                                 <span class="Total-advance-payment">
                                     0
                                 </span>
-    
+
                                 <span class="text-sm">تومان</span>
                             </div>
                         </li>
@@ -367,80 +392,109 @@
                                 <span class="amount-each-installment text-2xl font-yekanbakhsemiboldFA ">
                                     0
                                 </span>
-    
+
                                 <span class="text-sm">تومان</span>
                             </div>
                         </li>
                     </ul>
-    
+                    <button class="cursor-pointer bg-primary rounded-lg mt-5 w-full text-center text-white
+ hover:bg-primary-700 font-yekanbakhsemiboldFA text-base leading-[56px]" onclick="openSignupInstallmentForm();">
+                        ثبت نام
+                    </button>
+
                 </div>
             </div>
-    
-    
-    
-    
-    
-    
+
+
+            
+            <div id="modal-signup-background" class="fixed bg-black/40 backdrop-blur-xl top-0 left-0 right-0 bottom-0 hidden z-[999]">
+                
+                <basis core="call" if="{##db.installmentsignup.run|(false)##}" triggers="db.installmentsignup" run="atclient"
+                    file="/installment-signup.bc" 
+                    method="post"
+                    plan="{##db.installmentsignup.plan##}" 
+                    count="{##db.installmentsignup.count##}" 
+                    loanamount="{##db.installmentsignup.loanamount##}" 
+                    amountfacilities="{##db.installmentsignup.amountfacilities##}" 
+                    amounteach="{##db.installmentsignup.amounteach##}" 
+                    adultcount="{##db.installmentsignup.adultcount##}" 
+                    childbed="{##db.installmentsignup.childbed##}" 
+                    childwobed="{##db.installmentsignup.childwobed##}" 
+                    infantcount="{##db.installmentsignup.infantcount##}" ></basis>
+
+            </div>
+
+
+
+
+
+
             <section class="flex items-center max-w-[1072px] mx-auto w-full my-14">
-            <basis core="print" datamembername="db.installment_info">      
-                <face filter="TypeID in(150 , 129)">
-                    <!-- <figure class="border-8 border-primary rounded-2xl w-[408px] h-[296px] overflow-hidden">
+                <basis core="print" datamembername="db.installment_info">
+                    <face filter="TypeID in(150 , 129)">
+                        <!-- <figure class="border-8 border-primary rounded-2xl w-[408px] h-[296px] overflow-hidden">
                         <img class="w-[408px] h-[296px] object-cover drop-shadow-md" src="[##cms.cms.cdn##]/images/02-mask-image.jpg" width="408" height="296" alt="دریافت وام">
                     </figure> -->
-                </face>
-            </basis>
-            <basis core="print" datamembername="db.installment_info">
-                <layout>
-                    <div class="w-[calc(100%-424px)] bg-primary  text-white py-6 rounded-l-3xl min-h-[248px] ">
-                        @child
-                    </div>
-                </layout>
-                <face filter="TypeID in(150 , 129)">
+                    </face>
+                </basis>
+                <basis core="print" datamembername="db.installment_info">
+                    <layout>
+                        <div class="w-[calc(100%-424px)] bg-primary  text-white py-6 rounded-l-3xl min-h-[248px] ">
+                            @child
+                        </div>
+                    </layout>
+                    <face filter="TypeID in(150 , 129)">
                         <h2 class="my-3 w-10/12 mx-auto font-yekanbakhboldFA text-2xl">@text</h2>
                         <div class="text-justify w-10/12 mx-auto font-yekanbakhregularFA text-lg leading-8">
                             @largetext
                         </div>
-                </face>
-            </basis>
-        </section>
-    
-    
-    
-            <div class="font-yekanbakhregularFA text-black text-center bg-secondarycomplementary-100 rounded-2xl px-4 py-6">
-                برای دیدن مراحل و مدارک مورد نیاز برای <span class="font-yekanbakhsemiboldFA">وام سفر آمیتیس</span> ، در بخش تعیین نوع اقساط، گزینه طرح وام سفر را فعال کنید.
+                    </face>
+                </basis>
+            </section>
+
+
+
+            <div
+                class="font-yekanbakhregularFA text-black text-center bg-secondarycomplementary-100 rounded-2xl px-4 py-6">
+                برای دیدن مراحل و مدارک مورد نیاز برای <span class="font-yekanbakhsemiboldFA">وام سفر آمیتیس</span> ، در
+                بخش تعیین نوع اقساط، گزینه طرح وام سفر را فعال کنید.
             </div>
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
             <section class="my-16">
                 <h2 class="text-primary-950 text-[32px] font-yekanbakhsemiboldFA text-center mb-10 ">
                     مراحل خرید تور اقساطی (چک صیادی)
                 </h2>
-                <svg class="mx-auto" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0" stroke-width="2" stroke-linecap="round"></path>
-                    <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0" stroke-width="2" stroke-linecap="round"></path>
+                <svg class="mx-auto" width="14" height="20" viewBox="0 0 14 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0" stroke-width="2"
+                        stroke-linecap="round"></path>
+                    <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0" stroke-width="2"
+                        stroke-linecap="round"></path>
                 </svg>
-    
+
                 <figure class="mx-auto w-[1032px] my-16">
                     <img src="[##cms.cms.cdn##]/images/installment-steps.jpg" width=" " height="" alt="">
                 </figure>
             </section>
-    
-    
+
+
             <basis core="print" datamembername="db.installment_levels">
                 <layout>
                     <section class="my-16 relative">
                         <figure class="mx-auto max-w-7xl w-full ">
-                            <img src="[##cms.cms.cdn##]/images/Banner of speech.png" width="1280" height="248" alt="call">
+                            <img src="[##cms.cms.cdn##]/images/Banner of speech.png" width="1280" height="248"
+                                alt="call">
                         </figure>
                         <div class="w-5/12 mx-auto absolute top-12 left-0 right-0 ">
                             @child
                         </div>
-                        <a href="tel:1747" class="group absolute bottom-4 left-4" >
+                        <a href="tel:1747" class="group absolute bottom-4 left-4">
                             <span class="
                                                                 group-hover:border-primary group-hover:bg-primary-50  w-fit transition-all duration-300
                                                                 text-primary cursor-pointer float-left h-10
@@ -449,13 +503,14 @@
                                                             flex gap-x-2 py-2 
                                                                 
                                                                 ">تماس با پشتیبانی
-                    
+
                                 <span class="group-hover:w-[22px] group-hover:h-[22px] rounded-full bg-white hidden group-hover:flex justify-center items-center  
                                                                 transition-all duration-300
                                                                  ">
-                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 1L1.43945 5.56055L6 10.1211" stroke="#005FF0" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 1L1.43945 5.56055L6 10.1211" stroke="#005FF0" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </span>
                             </span>
@@ -468,116 +523,123 @@
                         @largetext
                     </div>
                 </face>
-    
+
             </basis>
-            
-    
-    
+
+
+
             <basis core="print" datamembername="db.installment_docs">
                 <layout>
                     <section class="my-16">
                         <h2 class="text-primary-950 text-[32px] font-yekanbakhsemiboldFA text-center mb-10 ">
                             مدارک مورد نیاز برای تور اقساطی (چک صیادی)
                         </h2>
-                        <svg class="mx-auto" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0" stroke-width="2" stroke-linecap="round"></path>
-                            <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0" stroke-width="2" stroke-linecap="round"></path>
+                        <svg class="mx-auto" width="14" height="20" viewBox="0 0 14 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0"
+                                stroke-width="2" stroke-linecap="round"></path>
+                            <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0"
+                                stroke-width="2" stroke-linecap="round"></path>
                         </svg>
-            
-            
+
+
                         <div class="max-w-7xl w-full relative h-[272px] flex items-center mt-6">
-                            <div class="w-[112px] h-[112px] bg-primary-950 absolute top-0 right-0 rounded-tr-[56px]"></div>
-                            <div class="w-[112px] h-[112px] bg-primary-950 absolute top-0 left-0 rounded-tl-[56px]"></div>
-                            <div class="w-[112px] h-[112px] bg-primary-950 absolute bottom-0 right-0 rounded-br-[56px]"></div>
-                            <div class="w-[112px] h-[112px] bg-primary-950 absolute bottom-0 left-0 rounded-bl-[56px]"></div>
-                        
-                        
-                        
+                            <div class="w-[112px] h-[112px] bg-primary-950 absolute top-0 right-0 rounded-tr-[56px]">
+                            </div>
+                            <div class="w-[112px] h-[112px] bg-primary-950 absolute top-0 left-0 rounded-tl-[56px]">
+                            </div>
+                            <div class="w-[112px] h-[112px] bg-primary-950 absolute bottom-0 right-0 rounded-br-[56px]">
+                            </div>
+                            <div class="w-[112px] h-[112px] bg-primary-950 absolute bottom-0 left-0 rounded-bl-[56px]">
+                            </div>
+
+
+
                             <div class="w-[1220px] mx-auto  flex justify-between items-center relative z-10 gap-x-3">
-    
+
                                 @child
-    
-                        
-                        
-                        
-            
+
+
+
+
+
                             </div>
                         </div>
-            
+
                     </section>
                 </layout>
-                <face filter="TypeID in(250) and RowNumber in(1)" >
+                <face filter="TypeID in(250) and RowNumber in(1)">
                     <article
-                    class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden   flex justify-end items-center ">
-                    <span
-                        class="w-[calc(100%-210px)] absolute -right-3 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
+                        class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden   flex justify-end items-center ">
+                        <span class="w-[calc(100%-210px)] absolute -right-3 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
                                         [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]
                                         group-hover:[text-shadow:_-2px_-2px_0_#F59E0B,_2px_-2px_0_#F59E0B,_-2px_2px_0_#F59E0B,_2px_2px_0_#F59E0B]
                                         flex justify-center flex-col">@RowNumber
-                    </span>
-                    <div class="w-[210px] float-left">
-                        <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">@text</h2>
-                        <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
-                    </div>
-                </article>
+                        </span>
+                        <div class="w-[210px] float-left">
+                            <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">
+                                @text</h2>
+                            <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
+                        </div>
+                    </article>
                 </face>
-                <face filter="TypeID in(250) and RowNumber in(2)" >
+                <face filter="TypeID in(250) and RowNumber in(2)">
                     <article
-                    class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden flex justify-end items-center ">
-                    <span
-                        class="w-[calc(100%-210px)] absolute -right-12 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
+                        class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden flex justify-end items-center ">
+                        <span class="w-[calc(100%-210px)] absolute -right-12 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
             [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]
             group-hover:[text-shadow:_-2px_-2px_0_#F59E0B,_2px_-2px_0_#F59E0B,_-2px_2px_0_#F59E0B,_2px_2px_0_#F59E0B]
             flex justify-center flex-col">@RowNumber
-                    </span>
-                    <div class="w-[210px] float-left my-auto">
-                        <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">@text</h2>
-                        <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
-                    </div>
-                </article>
+                        </span>
+                        <div class="w-[210px] float-left my-auto">
+                            <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">
+                                @text</h2>
+                            <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
+                        </div>
+                    </article>
                 </face>
-                <face filter="TypeID in(250) and RowNumber in(3)" >
-    
+                <face filter="TypeID in(250) and RowNumber in(3)">
+
                     <article
-                    class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden  flex justify-end items-center  ">
-                    <span
-                        class="w-[calc(100%-210px)] absolute -right-14 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
+                        class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden  flex justify-end items-center  ">
+                        <span class="w-[calc(100%-210px)] absolute -right-14 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
             [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]
             group-hover:[text-shadow:_-2px_-2px_0_#F59E0B,_2px_-2px_0_#F59E0B,_-2px_2px_0_#F59E0B,_2px_2px_0_#F59E0B]
             flex justify-center flex-col">@RowNumber
-                    </span>
-                    <div class="w-[210px] float-left my-auto">
-                        <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">@text</h2>
-                        <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
-                    </div>
-                </article>
+                        </span>
+                        <div class="w-[210px] float-left my-auto">
+                            <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">
+                                @text</h2>
+                            <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
+                        </div>
+                    </article>
                 </face>
-                <face filter="TypeID in(250) and RowNumber in(4)" >
+                <face filter="TypeID in(250) and RowNumber in(4)">
                     <article
-                    class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden  flex justify-end items-center  ">
-                    <span
-                        class="w-[calc(100%-210px)] absolute -right-16 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
+                        class="w-1/4 group relative drop-shadow-xl bg-neutralcolor-50 border-white border-4 rounded-[56px] h-[240px]  overflow-hidden  flex justify-end items-center  ">
+                        <span class="w-[calc(100%-210px)] absolute -right-16 my-auto top-0 bottom-0  font-MontserratAlternatesBold text-[200px] text-neutral-50 font-bold inline-block 
             [text-shadow:_-2px_-2px_0_black,_2px_-2px_0_black,_-2px_2px_0_black,_2px_2px_0_black]
             group-hover:[text-shadow:_-2px_-2px_0_#F59E0B,_2px_-2px_0_#F59E0B,_-2px_2px_0_#F59E0B,_2px_2px_0_#F59E0B]
             flex justify-center flex-col">@RowNumber
-                    </span>
-                    <div class="w-[210px] float-left my-auto">
-                        <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">@text</h2>
-                        <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
-                    </div>
-                </article>
+                        </span>
+                        <div class="w-[210px] float-left my-auto">
+                            <h2 class="text-primary text-base font-yekanbakhsemiboldFA mb-5 group-hover:text-secondary">
+                                @text</h2>
+                            <div class="text-txtneutral-900 text-sm font-yekanbakhregularFA">@largetext</div>
+                        </div>
+                    </article>
                 </face>
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
             </basis>
-            
+
         </div>
-        
+
 
 
 
@@ -588,9 +650,12 @@
                         <h2 class="text-primary-950 text-[32px] font-yekanbakhsemiboldFA text-center mb-10 ">
                             سوالات متداول
                         </h2>
-                        <svg class="mx-auto" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0" stroke-width="2" stroke-linecap="round"></path>
-                            <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0" stroke-width="2" stroke-linecap="round"></path>
+                        <svg class="mx-auto" width="14" height="20" viewBox="0 0 14 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.7" d="M1.32812 12.3281L7 18L12.3287 12.6713" stroke="#005FF0"
+                                stroke-width="2" stroke-linecap="round"></path>
+                            <path opacity="0.5" d="M1.32812 5.32812L7 11L12.3287 5.67127" stroke="#005FF0"
+                                stroke-width="2" stroke-linecap="round"></path>
                         </svg>
                         <ul class="mt-12">@child </ul>
                     </div>
@@ -610,8 +675,9 @@
                             <h2
                                 class="w-[calc(100%-65px)] block text-right font-yekanbakhsemiboldFA text-base text-txtneutral-500 ">
                                 @text </h2>
-                            <div class="w-[25.6px] h-[25px] rounded-[4px] flex justify-center items-center bg-white "><svg
-                                    width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div class="w-[25.6px] h-[25px] rounded-[4px] flex justify-center items-center bg-white ">
+                                <svg width="24" height="26" viewBox="0 0 24 26" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M11.803 15.9485L8.00978 11.0932C7.59944 10.568 7.97368 9.80068 8.6402 9.80068L15.3598 9.80068C16.0263 9.80068 16.4006 10.568 15.9902 11.0932L12.197 15.9485C12.0969 16.0766 11.9031 16.0766 11.803 15.9485Z"
                                         fill="#667085" />
@@ -630,17 +696,18 @@
 
     </main>
 
-    
-    
-    
+
+
+
+
+
+
     <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js "></script>
     <!-- footer start-->
     <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- footer end-->
 
     <script>
-
-
         var planswiper = new Swiper(".planitems", {
             slidesPerView: 'auto',
             spaceBetween: 10,
@@ -649,22 +716,21 @@
                 prevEl: '.swiper-button-prev-plan',
             },
         });
-        
+
         function calculateMonth(month, rate, element) {
             // حذف کلاس active از همه آیتم‌ها
             document.querySelectorAll('.plan-item').forEach(item => {
                 item.classList.remove('active');
             });
-        
+
             // اضافه کردن کلاس active به آیتم انتخاب شده
             element.classList.add('active');
         }
-        
-        
-        
-        
-        
-            // TOUR INSTALLMENT
+
+
+        // TOUR INSTALLMENT
+        let planselected = 'check-sayyadi';
+
         var limitrange = 100;
         var rangeInput = document.getElementById('myRange');
         var amountInput = document.getElementById('amount');
@@ -673,72 +739,34 @@
         var loanMonths = 4;
         var interestRate = 0.2;
         var totalprice = 0;
-        
-        
-            var adultCountF = 2;
-            var childbedCountF = 0;
-            var childwobedCountF = 0;
-            var infantCountF = 0;
-        
-        
-            // function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
-        
-        
-            //     loanMonths = lm;
-            //     interestRate = ir;
-        
-            //     document.querySelectorAll(".plan-radio").forEach(element => {
-            //         element.addEventListener("click", function (ele) {
-            //             document.querySelectorAll(".plan-container").forEach(div => {
-            //                 div.querySelector("label").classList.remove("bg-primary");
-            //                 div.querySelector("label").classList.remove("text-white");
-            //                 div.querySelector("label").classList.add("text-txtneutral-500");
-            //                 div.querySelector("label").classList.add("bg-neutralcolor-700");
-            //             });
-            //         });
-            //     });
-        
-        
-            //     el.querySelector("label").classList.add("bg-primary");
-            //     el.querySelector("label").classList.remove("bg-neutralcolor-700");
-            //     el.querySelector("label").classList.add("text-white");
-            //     el.querySelector("label").classList.remove("text-txtneutral-500");
-        
-            //     limitrange = limitinstallment;
-            //     rangeInput.setAttribute("max", limitrange);
-            //     document.getElementById("limit-range").innerText = limitrange;
-        
-            //     document.getElementById("month-list").querySelectorAll("li").forEach(element => {
-            //         element.classList.add("hidden");
-            //     });
-        
-            //     document.querySelectorAll(`.${monthplan}`).forEach(element => {
-            //         element.classList.remove("hidden");
-            //     });
-        
-            //     planswiper.update();
-            //     updateRangeBackground();
-            //     calculateInstallments();
-            // }
-        
-            function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
+
+
+        var adultCountF = 2;
+        var childbedCountF = 0;
+        var childwobedCountF = 0;
+        var infantCountF = 0;
+
+
+
+        function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
+            planselected = plan;
             loanMonths = lm;
             interestRate = ir;
-        
+
             // تغییر رنگ دکمه انتخاب شده
             document.querySelectorAll(".plan-container label").forEach(label => {
                 label.classList.remove("bg-primary", "text-white");
                 label.classList.add("bg-neutralcolor-700", "text-txtneutral-500");
             });
-        
+
             el.querySelector("label").classList.add("bg-primary", "text-white");
             el.querySelector("label").classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
-        
+
             // مخفی کردن همه swiper-slide ها
             document.querySelectorAll(".swiper-slide").forEach(slide => {
                 slide.style.display = "none";
             });
-        
+
             // نمایش آیتم‌های مربوط به پلن انتخاب‌شده
             document.querySelectorAll(`.${monthplan}`).forEach(item => {
                 let slide = item.closest(".swiper-slide");
@@ -746,150 +774,145 @@
                     slide.style.display = "block";
                 }
             });
-        
+
             // آپدیت Swiper.js برای اعمال تغییرات
             setTimeout(() => {
                 planswiper.update();
             }, 100);
         }
-        
-        
-        
-        
-        
-        
-            function updateRangeBackground() {
-                const value = rangeInput.value;
-                const min = rangeInput.min;
-                const max = rangeInput.max;
-                const percentage = ((value - min) / (max - min)) * 100;
-                rangeInput.style.background = `linear-gradient(to right, #005FF0 ${percentage}%, #F3F3F3 ${percentage}%)`;
-                amountInput.value = ((value) * 1000000).toLocaleString();
-            }
-        
-            function updateLoanAmount(amount) {
-                loanAmount = amount;
-                document.getElementById('myRange').value = amount;
-                updateRangeBackground();
-                calculateInstallments();
-            }
-        
-            function updateLoanFromRange(amount) {
-                loanAmount = amount;
-                document.getElementById('amount').value = amount;
-                updateRangeBackground();
-                calculateInstallments();
-            }
-        
-            function increase(element) {
-        
-                loanAmount = Math.min(parseInt(loanAmount) + 1, limitrange);
-                document.getElementById('amount').value = loanAmount;
-                document.getElementById('myRange').value = loanAmount;
-                calculateInstallments();
-                updateRangeBackground();
-            }
-        
-            function decrease() {
-                loanAmount = Math.max(parseInt(loanAmount) - 1, 10);
-                document.getElementById('amount').value = loanAmount;
-                document.getElementById('myRange').value = loanAmount;
-                calculateInstallments();
-                updateRangeBackground();
-            }
-        
-            function calculateMonth(months, interestrate, element) {
-        
-                const allTabs = document.querySelectorAll('#month-list .swiper-slide > div ');
-                allTabs.forEach(function (tab) {
-                    tab.classList.remove('bg-primary');
-                    tab.classList.add('bg-neutralcolor-100');
-        
-                    tab.classList.add('text-neutralcolor-900');
-                    tab.classList.remove('text-white');
-                });
-        
-                element.classList.remove('text-neutralcolor-900');
-                element.classList.add('text-white');
-        
-                element.classList.remove('bg-neutralcolor-100');
-                element.classList.add('bg-primary');
-        
-                loanMonths = months;
-                interestRate = interestrate;
-                calculateInstallments();
-            }
-        
-        
-            function calculateInstallments() {
-        
-            var inpHDNdoublePbef = document.getElementById("inphidden-doubleP").value;
-            var inpHDNdoubleP = parseFloat(inpHDNdoublePbef.replaceAll(",", ""));
-            
-            var inpHDNsinglePbef = document.getElementById("inphidden-singleP").value;
-            var inpHDNsingleP = parseFloat(inpHDNsinglePbef.replaceAll(",", ""));
-            
-            var inpHDNwBedPbef = document.getElementById("inphidden-wBedP").value;
-            var inpHDNwBedP = parseFloat(inpHDNwBedPbef.replaceAll(",", ""));
-            
-            var inpHDNwoBedPbef = document.getElementById("inphidden-woBedP").value;
-            var inpHDNwoBedP = parseFloat(inpHDNwoBedPbef.replaceAll(",", ""));
-               
-            if(inpHDNdoubleP == 0){
-                document.getElementById("adult-installment").disabled = true;
-            }
-            if(inpHDNsingleP == 0){
-                document.getElementById("adult-installment").disabled = true;
-            }
-            if(inpHDNwBedP == 0){
-                document.getElementById("child-installment").disabled = true;
-                document.getElementById("child-bed-installment").disabled = true;
-            }
-            if(inpHDNwoBedP == 0){
-                document.getElementById("infant-installment").disabled = true;
-            }
-        
-                adultCountF = document.getElementById("adult-installment").value;
-                childbedCountF = document.getElementById("child-bed-installment").value;
-                childwobedCountF = document.getElementById("child-installment").value;
-                infantCountF = document.getElementById("infant-installment").value;
-        
-                if(adultCountF == 1){
-                    totalprice = (adultCountF * parseFloat(inpHDNsingleP)) + (childwobedCountF * parseFloat(inpHDNwoBedP)) + (infantCountF * parseFloat(inpHDNwoBedP)) + (childbedCountF * parseFloat(inpHDNwBedP));
-                }else{
-                    totalprice = (adultCountF * parseFloat(inpHDNdoubleP)) + (childwobedCountF * parseFloat(inpHDNwoBedP)) + (infantCountF * parseFloat(inpHDNwoBedP)) + (childbedCountF * parseFloat(inpHDNwBedP));
-                }
-        
-                var totalAdvancePayment = 0;
-                const totalAmount = loanAmount * 1000000;
-                // totalprice = totalprice * 1000000;
-                if (totalprice > totalAmount) {
-                    totalAdvancePayment = totalprice - totalAmount;
-                }
-        
-                const totalAmountWithFacilities = (totalAmount + (totalAmount * interestRate) + totalAdvancePayment);
-                const totalAmountafterFacilitiesMinus = (totalAmount + (totalAmount * interestRate));
-                const installmentAmount = totalAmountafterFacilitiesMinus / loanMonths;
-                // installmentAmountceil = Math.ceil(installmentAmount);
-                // installmentAmountceil = installmentAmount;
-                document.querySelector('.total-amount').textContent = totalprice.toLocaleString();
-                document.querySelector('.Total-amount-facilities').textContent = totalAmountWithFacilities.toLocaleString();
-                document.querySelector('.Total-advance-payment').textContent = totalAdvancePayment.toLocaleString();
-                document.querySelector('.amount-each-installment').textContent = parseInt(installmentAmount).toLocaleString();
-            }
-        
+
+
+
+
+
+
+        function updateRangeBackground() {
+            const value = rangeInput.value;
+            const min = rangeInput.min;
+            const max = rangeInput.max;
+            const percentage = ((value - min) / (max - min)) * 100;
+            rangeInput.style.background = `linear-gradient(to right, #005FF0 ${percentage}%, #F3F3F3 ${percentage}%)`;
+            amountInput.value = ((value) * 1000000).toLocaleString();
+        }
+
+        function updateLoanAmount(amount) {
+            loanAmount = amount;
+            document.getElementById('myRange').value = amount;
             updateRangeBackground();
             calculateInstallments();
-        
-        
-            function closeModalContainerForm(event) {
-                // بررسی اینکه آیا کلیک روی پس‌زمینه مودال انجام شده است یا خیر
-                if (event.target === event.currentTarget) {
-                    event.currentTarget.classList.add('hidden');
-                }
+        }
+
+        function updateLoanFromRange(amount) {
+            loanAmount = amount;
+            document.getElementById('amount').value = amount;
+            updateRangeBackground();
+            calculateInstallments();
+        }
+
+        function increase(element) {
+
+            loanAmount = Math.min(parseInt(loanAmount) + 1, limitrange);
+            document.getElementById('amount').value = loanAmount;
+            document.getElementById('myRange').value = loanAmount;
+            calculateInstallments();
+            updateRangeBackground();
+        }
+
+        function decrease() {
+            loanAmount = Math.max(parseInt(loanAmount) - 1, 10);
+            document.getElementById('amount').value = loanAmount;
+            document.getElementById('myRange').value = loanAmount;
+            calculateInstallments();
+            updateRangeBackground();
+        }
+
+        function calculateMonth(months, interestrate, element) {
+
+            const allTabs = document.querySelectorAll('#month-list .swiper-slide > div ');
+            allTabs.forEach(function (tab) {
+                tab.classList.remove('bg-primary');
+                tab.classList.add('bg-neutralcolor-100');
+
+                tab.classList.add('text-neutralcolor-900');
+                tab.classList.remove('text-white');
+            });
+
+            element.classList.remove('text-neutralcolor-900');
+            element.classList.add('text-white');
+
+            element.classList.remove('bg-neutralcolor-100');
+            element.classList.add('bg-primary');
+
+            loanMonths = months;
+            interestRate = interestrate;
+            calculateInstallments();
+        }
+
+
+function calculateInstallments() {
+    adultCountF = document.getElementById("adult-installment").value;
+    childbedCountF = document.getElementById("child-bed-installment").value;
+    childwobedCountF = document.getElementById("child-installment").value;
+    infantCountF = document.getElementById("infant-installment").value;
+
+    const totalAmount = loanAmount * 1000000;
+    const totalAdvancePayment = 0;
+
+    const totalAmountWithFacilities = (totalAmount + (totalAmount * interestRate) + totalAdvancePayment);
+    const totalAmountafterFacilitiesMinus = (totalAmount + (totalAmount * interestRate));
+    const installmentAmountLocal = totalAmountafterFacilitiesMinus / loanMonths;
+
+    // برای دسترسی در دیگر توابع
+    window.totalprice = totalAmountWithFacilities;
+    window.installmentAmount = installmentAmountLocal;
+
+    document.querySelector('.total-amount').textContent = totalAmount.toLocaleString();
+    document.querySelector('.Total-amount-facilities').textContent = totalAmountWithFacilities.toLocaleString();
+    document.querySelector('.Total-advance-payment').textContent = totalAdvancePayment.toLocaleString();
+    document.querySelector('.amount-each-installment').textContent = parseInt(installmentAmountLocal).toLocaleString();
+}
+
+
+        updateRangeBackground();
+        calculateInstallments();
+
+
+        function closeModalContainerForm(event) {
+            // بررسی اینکه آیا کلیک روی پس‌زمینه مودال انجام شده است یا خیر
+            if (event.target === event.currentTarget) {
+                event.currentTarget.classList.add('hidden');
             }
-        
-        </script>
+        }
+
+
+        async function openSignupInstallmentForm() {
+         document.getElementById('modal-signup-background').classList.remove("hidden")
+
+
+        $bc.setSource("db.installmentsignup", {
+        plan : planselected,
+        count :loanMonths ,
+        loanamount : loanMonths,
+        amountfacilities : totalprice,
+        amounteach : installmentAmount,
+        adultcount : adultCountF,
+        childbed : childbedCountF,
+        childwobed : childwobedCountF,
+        infantcount : infantCountF,
+        run: true,
+    });
+}
+
+
+
+
+
+
+
+
+
+
+    </script>
 
 </body>
 

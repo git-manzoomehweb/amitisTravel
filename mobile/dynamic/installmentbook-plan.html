@@ -419,10 +419,20 @@ var totalprice = 0;
     interestRate = ir;
 
     // تغییر رنگ دکمه انتخاب شده
+    document.querySelectorAll(".plan-container .active-check").forEach(ele => {
+        ele.classList.add("hidden");
+    });
+    document.querySelectorAll(".plan-container .deactive-check").forEach(ele => {
+        ele.classList.remove("hidden");
+    });
     document.querySelectorAll(".plan-container label").forEach(label => {
         label.classList.remove("bg-primary", "text-white");
         label.classList.add("bg-neutralcolor-700", "text-txtneutral-500");
     });
+
+    console.log(el.querySelector(".deactive-check"))
+    el.querySelector(".deactive-check").classList.add("hidden");
+    el.querySelector(".active-check").classList.remove("hidden");
 
     el.querySelector("label").classList.add("bg-primary", "text-white");
     el.querySelector("label").classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
