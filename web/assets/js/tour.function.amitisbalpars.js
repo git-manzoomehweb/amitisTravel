@@ -298,8 +298,8 @@ const onrenderedExecutionOrigins = async () => {
             let origin = originElement.textContent;
             console.log(origin)
             document.querySelector(".tourExecution__container__origins .origins__city").textContent = origin;
-            document.getElementById("destination-departure-tour").textContent = origin; // اصلاح ID برای مبدأ
-
+            // document.getElementById("destination-departure-tour").textContent = origin; // اصلاح ID برای مبدأ
+document.getElementById("origin-departure-tour").textContent = origin;
             let ids = [];
             document.querySelector(".tourExecution__container__origins").querySelectorAll(".transportation__img").forEach(e => {
                 if (e.dataset.id !== "") {
@@ -323,7 +323,8 @@ const onrenderedExecutionDestinations = async () => {
             console.log( destination)
 
             document.querySelector(".tourExecution__container__destinations .destinations__city").textContent = destination;
-            document.getElementById("origin-departure-tour").textContent = destination; // اصلاح ID برای مقصد
+            // document.getElementById("origin-departure-tour").textContent = destination; // اصلاح ID برای مقصد
+            document.getElementById("destination-departure-tour").textContent = destination; // اصلاح ID برای مبدأ
 
             let ids = [];
             document.querySelector(".tourExecution__container__destinations").querySelectorAll(".transportation__img").forEach(e => {
