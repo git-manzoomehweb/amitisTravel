@@ -29,7 +29,38 @@
 </head>
 <body class="font-yekanbakhregularFA !bg-white ">
     <basis core="call" file="header.inc" ></basis>
-    <aside class=" border border-neutralcolor-500 transition-all duration-500 w-72 h-[416px] fixed top-0 bottom-0 my-auto z-50 left-0 right-auto bg-white rounded-r-3xl"><span id="handle-resize" class="border border-neutralcolor-500 border-l-0 group cursor-pointer rounded-r-full h-[148px] bg-white flex justify-center items-center absolute w-[51px] top-0 bottom-0 -right-[3.1rem] my-auto"><svg id="sidebar-controll" class="transition-all duration-300" width="24" height="38" viewBox="0 0 24 38" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="group-hover:stroke-secondary" d="M20.75 3.5L5 19.25L20.75 35" stroke="#BDCEDE" stroke-width="6" stroke-linecap="round" /></svg></span><ul class="mr-3 flex flex-col justify-evenly h-full"><li class="rounded-r-3xl h-[75px] grayscale"><a class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] " href="#all-visa-type"><svg width="24" height="25" class="mr-4" ><use xlink:href="./images/sprite-icons.svg#visa-type-icon"></use></svg><span>انواع ویزا</span></a></li><li class="rounded-r-3xl h-[75px] grayscale"><a class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] " href="#get-visa"><svg width="24" height="25" class="mr-4" ><use xlink:href="./images/sprite-icons.svg#getting-visa-level-icon"></use></svg><span>مراحل اخذ ویزا</span></a></li><li class="rounded-r-3xl h-[75px] grayscale"><a class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] " href="#visa-docs"><svg width="24" height="25" class="mr-4" ><use xlink:href="./images/sprite-icons.svg#visa-documents-icon"></use></svg><span>مدارک لازم برای مهاجرت</span></a></li><li class="rounded-r-3xl h-[75px] grayscale"><a class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] " href="#box-faq-list"><svg width="24" height="25" class="mr-4" ><use xlink:href="./images/sprite-icons.svg#faq-box-icon"></use></svg><span>سوالات متداول</span></a></li></ul></aside>
+    <aside
+        class="border border-neutralcolor-500 transition-all duration-500 w-72 h-[416px] fixed top-0 bottom-0 my-auto z-50 left-0 right-auto bg-white rounded-r-3xl collapsed w-[100px]">
+                <span id="handle-resize"
+            class="border border-neutralcolor-500 border-l-0 group cursor-pointer rounded-r-full h-[148px] bg-white flex justify-center items-center absolute w-[51px] top-0 bottom-0 -right-[3.1rem] my-auto"><svg
+                id="sidebar-controll" class="transition-all duration-300 rotate-180" width="24" height="38" viewBox="0 0 24 38"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="group-hover:stroke-secondary" d="M20.75 3.5L5 19.25L20.75 35" stroke="#BDCEDE" stroke-width="6"
+                    stroke-linecap="round" />
+            </svg></span>
+        <ul class="mr-3 flex flex-col justify-evenly h-full">
+            <li class="rounded-r-3xl h-[75px] grayscale"><a
+                    class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] "
+                    href="#all-visa-type"><svg width="24" height="25" class="mr-4">
+                        <use xlink:href="./images/sprite-icons.svg#visa-type-icon"></use>
+                    </svg><span>انواع ویزا</span></a></li>
+            <li class="rounded-r-3xl h-[75px] grayscale"><a
+                    class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] "
+                    href="#get-visa"><svg width="24" height="25" class="mr-4">
+                        <use xlink:href="./images/sprite-icons.svg#getting-visa-level-icon"></use>
+                    </svg><span>مراحل اخذ ویزا</span></a></li>
+            <li class="rounded-r-3xl h-[75px] grayscale"><a
+                    class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] "
+                    href="#visa-docs"><svg width="24" height="25" class="mr-4">
+                        <use xlink:href="./images/sprite-icons.svg#visa-documents-icon"></use>
+                    </svg><span>مدارک لازم برای مهاجرت</span></a></li>
+            <li class="rounded-r-3xl h-[75px] grayscale"><a
+                    class="w-[95%] mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xl flex items-center gap-x-2 h-[75px] "
+                    href="#box-faq-list"><svg width="24" height="25" class="mr-4">
+                        <use xlink:href="./images/sprite-icons.svg#faq-box-icon"></use>
+                    </svg><span>سوالات متداول</span></a></li>
+        </ul>
+    </aside>
     <main class="w-full relative">
         <basis core="print" datamembername="db.information"><face filter="TypeID in(240) and prpID in(8000) and valueID in(333510600)"><div class=" fixed -left-[15em] hover:left-0 top-24 z-50 bg-primary h-[88px] rounded-r-2xl hover:bg-primary-800 w-[307px] drop-shadow-support-7-24 hover:drop-shadow-hvr-support-7-24 transition-all duration-500 "><a href="tel:@text" class="h-full w-full flex justify-center gap-x-3 items-center"><svg class="-mr-[1em] ml-[1em]" width="32" height="32"><use xlink:href="./images/sprite-icons.svg#telephone-icon"></use></svg><div><span class="font-yekanbakhbold text-2xl text-white block text-center">مشاوره تلفنی</span><span class="font-yekanbakhregularFA text-sm text-white block text-center">هر روز هفته از ساعت 9 صبح تا 18</span></div></a></div></face></basis>
         <div id="scrollToTop" onclick="goTop(this)" class="cursor-pointer inline-block w-fit fixed left-0 top-auto bottom-24 right-10 z-50 mt-auto mb-0 transition-all duration-300 "><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M39.9998 6.6665C21.6332 6.6665 6.6665 21.6332 6.6665 39.9998C6.6665 58.3665 21.6332 73.3332 39.9998 73.3332C58.3665 73.3332 73.3332 58.3665 73.3332 39.9998C73.3332 21.6332 58.3665 6.6665 39.9998 6.6665ZM53.5332 45.9665C53.0332 46.4665 52.3998 46.6998 51.7665 46.6998C51.1332 46.6998 50.4998 46.4665 49.9998 45.9665L39.9998 35.9665L29.9998 45.9665C29.0332 46.9332 27.4332 46.9332 26.4665 45.9665C25.4998 44.9998 25.4998 43.3998 26.4665 42.4332L38.2332 30.6665C39.1998 29.6998 40.7998 29.6998 41.7665 30.6665L53.5332 42.4332C54.4998 43.4332 54.4998 44.9998 53.5332 45.9665Z" fill="#005FF0"/></svg></div>
