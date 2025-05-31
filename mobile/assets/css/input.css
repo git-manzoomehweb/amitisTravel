@@ -178,6 +178,9 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl;position: relative; 
 
 
 
+
+
+
 .clipped-overflow-handler {
     width: 100%;
     height: 24px;
@@ -193,6 +196,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl;position: relative; 
 
 
 /* searchbox */
+
 .search-box-container .max-xl\:top-\[65px\] {
     top: 30px;
 }
@@ -255,7 +259,7 @@ svg.module-icon-active,svg.module-icon-deactive{
     height: 64px !important;
     scale: 0.6;
 }
-.reservation-item{display:flex;justify-content:start;flex-wrap:wrap;width:95%;margin:0 auto;gap:1em}
+.reservation-item{display:flex;justify-content:center;flex-wrap:wrap;width:95%;margin:0 auto;gap:1em}
 .reserve-btn{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:4px;width:64px !important;height:64px !important;background:var(--primary-50);border-radius:8px}
 svg.module-icon-active{display: none !important;}
 .active-module svg.module-icon-active{display: inline-block !important;}
@@ -716,6 +720,12 @@ label.float-right.w-full.cursor-pointer {
                     position: static !important;
                 }
     
+
+
+                .add-routs.w-1\/2.h-full.text-xl.cursor-pointer.text-primary.hover\:text-secondary.bg-inherit {
+  width: 100% !important;
+  transform: scale(1) !important;
+}
 /* searchbox */
 
 /* default banner slider  */

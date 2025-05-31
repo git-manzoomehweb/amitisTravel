@@ -687,6 +687,10 @@ video {
   bottom: -1.25rem;
 }
 
+.-left-2 {
+  left: -0.5rem;
+}
+
 .-left-5 {
   left: -1.25rem;
 }
@@ -695,16 +699,16 @@ video {
   left: -6px;
 }
 
-.-right-12 {
-  right: -3rem;
+.-right-10 {
+  right: -2.5rem;
 }
 
 .-right-14 {
   right: -3.5rem;
 }
 
-.-right-16 {
-  right: -4rem;
+.-right-2 {
+  right: -0.5rem;
 }
 
 .-right-3 {
@@ -715,8 +719,16 @@ video {
   right: -1.25rem;
 }
 
+.-right-8 {
+  right: -2rem;
+}
+
 .-right-\[6px\] {
   right: -6px;
+}
+
+.-top-2 {
+  top: -0.5rem;
 }
 
 .-top-20 {
@@ -769,6 +781,10 @@ video {
 
 .bottom-5 {
   bottom: 1.25rem;
+}
+
+.bottom-\[3px\] {
+  bottom: 3px;
 }
 
 .bottom-\[70px\] {
@@ -885,54 +901,6 @@ video {
 
 .top-full {
   top: 100%;
-}
-
-.-right-4 {
-  right: -1rem;
-}
-
-.-right-8 {
-  right: -2rem;
-}
-
-.-right-10 {
-  right: -2.5rem;
-}
-
-.-top-0 {
-  top: -0px;
-}
-
-.-top-2 {
-  top: -0.5rem;
-}
-
-.-right-0 {
-  right: -0px;
-}
-
-.-right-2 {
-  right: -0.5rem;
-}
-
-.-left-0 {
-  left: -0px;
-}
-
-.-left-2 {
-  left: -0.5rem;
-}
-
-.-bottom-0 {
-  bottom: -0px;
-}
-
-.-bottom-\[3px\] {
-  bottom: -3px;
-}
-
-.bottom-\[3px\] {
-  bottom: 3px;
 }
 
 .-z-10 {
@@ -1845,6 +1813,10 @@ video {
   height: 61px;
 }
 
+.h-\[69px\] {
+  height: 69px;
+}
+
 .h-\[72px\] {
   height: 72px;
 }
@@ -1884,10 +1856,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[69px\] {
-  height: 69px;
 }
 
 .max-h-24 {
@@ -2102,6 +2070,10 @@ video {
   width: 10rem;
 }
 
+.w-44 {
+  width: 11rem;
+}
+
 .w-48 {
   width: 12rem;
 }
@@ -2208,10 +2180,6 @@ video {
 
 .w-\[200px\] {
   width: 200px;
-}
-
-.w-\[210px\] {
-  width: 210px;
 }
 
 .w-\[216px\] {
@@ -2469,30 +2437,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-44 {
-  width: 11rem;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[24\] {
-  width: 24;
-}
-
-.w-\[250\] {
-  width: 250;
-}
-
-.w-\[250px\] {
-  width: 250px;
-}
-
-.w-\[288\] {
-  width: 288;
 }
 
 .min-w-24 {
@@ -3102,20 +3046,20 @@ video {
   border-top-left-radius: 0px !important;
 }
 
-.rounded-bl-\[56px\] {
-  border-bottom-left-radius: 56px;
+.rounded-bl-3xl {
+  border-bottom-left-radius: 1.5rem;
 }
 
-.rounded-br-\[56px\] {
-  border-bottom-right-radius: 56px;
+.rounded-br-3xl {
+  border-bottom-right-radius: 1.5rem;
+}
+
+.rounded-tl-3xl {
+  border-top-left-radius: 1.5rem;
 }
 
 .rounded-tl-\[32px\] {
   border-top-left-radius: 32px;
-}
-
-.rounded-tl-\[56px\] {
-  border-top-left-radius: 56px;
 }
 
 .rounded-tl-\[80px\] {
@@ -3130,32 +3074,16 @@ video {
   border-top-right-radius: 1rem;
 }
 
-.rounded-tr-\[4px\] {
-  border-top-right-radius: 4px;
-}
-
-.rounded-tr-\[56px\] {
-  border-top-right-radius: 56px;
-}
-
-.rounded-tr-lg {
-  border-top-right-radius: 0.5rem;
-}
-
 .rounded-tr-3xl {
   border-top-right-radius: 1.5rem;
 }
 
-.rounded-bl-3xl {
-  border-bottom-left-radius: 1.5rem;
+.rounded-tr-\[4px\] {
+  border-top-right-radius: 4px;
 }
 
-.rounded-br-3xl {
-  border-bottom-right-radius: 1.5rem;
-}
-
-.rounded-tl-3xl {
-  border-top-left-radius: 1.5rem;
+.rounded-tr-lg {
+  border-top-right-radius: 0.5rem;
 }
 
 .border {
@@ -3588,6 +3516,11 @@ video {
 .via-\[\#f9fbfc96\] {
   --tw-gradient-to: rgb(249 251 252 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #f9fbfc96 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-white\/35 {
+  --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(255 255 255 / 0.35) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .via-white\/55 {
@@ -4041,8 +3974,8 @@ video {
   font-size: 10px;
 }
 
-.text-\[200px\] {
-  font-size: 200px;
+.text-\[120px\] {
+  font-size: 120px;
 }
 
 .text-\[32px\] {
@@ -4076,10 +4009,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[120px\] {
-  font-size: 120px;
 }
 
 .font-bold {
@@ -4158,12 +4087,12 @@ video {
   line-height: 56px;
 }
 
-.leading-normal {
-  line-height: 1.5;
-}
-
 .leading-\[69px\] {
   line-height: 69px;
+}
+
+.leading-normal {
+  line-height: 1.5;
 }
 
 .-tracking-wide {
@@ -4884,7 +4813,7 @@ svg.module-icon-active,svg.module-icon-deactive{
 
 .reservation-item{
   display:flex;
-  justify-content:start;
+  justify-content:center;
   flex-wrap:wrap;
   width:95%;
   margin:0 auto;
@@ -5488,6 +5417,11 @@ button.calendar-apply-date {
 
 .calendar-date-info svg{
   position: static !important;
+}
+
+.add-routs.w-1\/2.h-full.text-xl.cursor-pointer.text-primary.hover\:text-secondary.bg-inherit {
+  width: 100% !important;
+  transform: scale(1) !important;
 }
 
 /* searchbox */

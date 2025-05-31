@@ -421,7 +421,10 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
     background-size:cover;background-image:url(../images/pattern-tringle.svg);clip-path:url(#sectionform)}
     
 .clipped-airline-section1{width:100%;height:696px;background-color:var(--primary-950);background-image:url(../images/airplane-pattern.png);background-size:cover;clip-path:url(#airline-section1)}
-.clipped-airline-section2{width:100%;height:780px;background-color:var(--shade-0);background-size:cover;clip-path:url(#airline-section1)}.hasNot-login-icon{display:none!important}.LoginInformation:hover .btnstyle>span{transform-origin:center;transform:scale(1.25);display:inline-block}.user-profile-container>button>span{display:none!important}.user-profile-btn::before{content:'به حساب کاربری وارد شده اید';color:var(--success-500);font-size:10px}.main-login-container #login-title .login-icon{display:none!important}.main-login-container>.login-left-part{display:none!important}.main-login-container>.login-right-part{width:60%;float:none;margin:2em auto;clear:both}
+.clipped-airline-section2{width:100%;height:780px;background-color:var(--shade-0);background-size:cover;clip-path:url(#airline-section1)}
+
+
+.hasNot-login-icon{display:none!important}.LoginInformation:hover .btnstyle>span{transform-origin:center;transform:scale(1.25);display:inline-block}.user-profile-container>button>span{display:none!important}.user-profile-btn::before{content:'به حساب کاربری وارد شده اید';color:var(--success-500);font-size:10px}.main-login-container #login-title .login-icon{display:none!important}.main-login-container>.login-left-part{display:none!important}.main-login-container>.login-right-part{width:60%;float:none;margin:2em auto;clear:both}
     
     .main-login-container.rtl-lang .login-closed{text-align:left}.main-login-container{font-family:"Yekan_Bakh_Regular_fa"!important;text-align:center}.main-login-container.rtl-lang{text-align:center!important}.main-login-container #login-title{display:flex;align-items:center;align-content:center;flex-direction:column}
     
@@ -439,6 +442,8 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
         background-repeat: no-repeat;
       }
     .main-operationUser-container button,.login-btn,.main-login-container{box-shadow:0 2px 5px rgba(0,0,0,.15);border-radius:12px}.main-login-container{width:650px;min-height:480px}.main-operationUser-container input[type="password"],.main-login-container input[type="password"],.main-login-container input[type="text"]{}span.module-icon.inline-block{display:block!important}svg.module-icon-active,svg.module-icon-deactive{width:64px!important;height:64px!important}.search-box-container .reserve-btn:not(.active-module) .module-icon .module-icon-deactive{display:block}.reservation-item{height:112px!important;display:flex;justify-content:center;align-items:center;column-gap:3em}.search-nav{width:100%;height:112px!important;border-bottom:1px solid var(--neutral-500)}.search-box-container .reserve-btn{position:relative;;height:112px!important;display:flex;flex-direction:column;justify-content:center;align-content:space-around;align-items:center;font-size:16px;font-family:'Yekan_Bakh_SemiBold_fa';color:var(--txtneutral-500);margin:0}#r-flight,#r-hotel,#r-flighthotel,#r-tour,#r-insurance,#r-cip,#r-visa{width:97%!important;margin:0 auto}ul.flighttype-items .clr{display:none;width:0;height:0}ul.flighttype-items{display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;align-content:center;height:38px!important;line-height:38px!important;margin:1em auto;}
+    
+    
     .reserve-search>button{background:var(--secondary)!important;
         font-family:'Yekan_Bakh_SemiBold_fa'!important;font-size:18px!important;color:white;height:64px}
         
