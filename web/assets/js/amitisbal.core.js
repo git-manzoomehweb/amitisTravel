@@ -870,6 +870,15 @@ function ToggleFAQMob(element) {
   let wavesurfer; // متغیر جهانی
 
   document.addEventListener("DOMContentLoaded", function () {
+
+    const element = document.getElementById("podcastandvideo");
+    if (element && element.innerHTML.trim() === "") {
+      console.log("podcast empty1");
+      element.remove();
+      console.log("podcast empty2");
+    }
+    
+    console.log("podcast empty3");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const waveContainer = document.getElementById("waveform");
     const audioElement = document.getElementById("audioSource");
@@ -985,6 +994,10 @@ function ToggleFAQMob(element) {
         }
       });
     }
+
+
+    
+
   });
 
 

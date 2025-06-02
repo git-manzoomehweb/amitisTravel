@@ -1,20 +1,20 @@
 <basis core='dbsource' name='captcha' source='trust_login'><member name='code' type='scalar' request='captcha'></member></basis>
-<basis core="dbsource" source="userbehavior" name="db" usedforid="[##cms.query.aid##]"><member name="comment" type="list" order="ord" request="listcomment" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.tagid##]"><member name="tags" type="view" postsql="select * from [db.tags] where prpID in(3087624)" /></basis>
-<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]"><member name="scalar" type="scalar" typeid="150" /></basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]"><member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" /></basis>
+<basis core="dbsource" source="userbehavior" name="db" usedforid="[##cms.query.aid|(0)##]"><member name="comment" type="list" order="ord" request="listcomment" /></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.tagid|(0)##]"><member name="tags" type="view" postsql="select * from [db.tags] where prpID in(3087624)" /></basis>
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid|(0)##]"><member name="scalar" type="scalar" typeid="150" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid|(0)##]"><member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid|(0)##]" /></basis>
 
 
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]"><member name="bannerimage" type="tree" request="cat" parentid="" postsql="select * from [db.bannerimage] where catid=[##cms.query.catid##]" /></basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]"><member name="listtours" type="list" link="tour.bc" size="96X96" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490 ,3087561,3087562,3087563 " typeid="159" perpage="20" pageno="[##cms.query.pagenum|(1)##]" order="ord"></member><member name="paging" type="list" request="paging" count="4" parentname="listtours"></member></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid|(0)##]"><member name="bannerimage" type="tree" request="cat" parentid="" postsql="select * from [db.bannerimage] where catid=[##cms.query.catid|(0)##]" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid|(0)##]"><member name="listtours" type="list" link="tour.bc" size="96X96" propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490 ,3087561,3087562,3087563 " typeid="159" perpage="20" pageno="[##cms.query.pagenum|(1)##]" order="ord"></member><member name="paging" type="list" request="paging" count="4" parentname="listtours"></member></basis>
 <basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]"><member name="airline" type="list" request="spelist"></member></basis>
 <basis core="inlinesource" name="joining"><member name="listtourpage" lefttblcol="db.listtours.prp_10000504" righttblcol="list.airline.name" format="join" jointype="leftjoin"></member></basis>
-<basis core="dbsource" source="media" name="db" lid="1" usedforid="[##cms.query.vid##]" sourcemid="article"><member name="audio" type="list" format="audio" link="article.bc" order="ord" /></basis>
+<basis core="dbsource" source="media" name="db" lid="1" usedforid="[##cms.query.vid|(0)##]" sourcemid="article"><member name="audio" type="list" format="audio" link="article.bc" order="ord" /></basis>
 <basis core="inlinesource" name="joining"><member name="podcast" lefttblcol="db.audio.ord" righttblcol="db.media-gallery.ord" format="join" jointype="leftjoin" /></basis>
-<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.vid##]" sourcemid="article"><member type="list" name="media-gallery" format="4" order="ord"></member></basis>
- <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.nid##]"><member name="important_content" type="view" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.fid##]"><member name="faq_tours" type="view" postsql="select * from [db.faq_tours] where TypeID in(250)" /></basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]"><member name="seotext" type="view" /></basis>
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.vid|(0)##]" sourcemid="article"><member type="list" name="media-gallery" format="4" order="ord"></member></basis>
+ <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.nid|(0)##]"><member name="important_content" type="view" /></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.fid|(0)##]"><member name="faq_tours" type="view" postsql="select * from [db.faq_tours] where TypeID in(250)" /></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid|(0)##]"><member name="seotext" type="view" /></basis>
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -39,7 +39,45 @@
         <div class="clear-both"></div>
         <ul class=" sticky z-50 top-[56px] left-0 right-0 border-b border-primary-50 flex justify-between w-full overflow-x-auto h-10 leading-10 bg-white divide-x divide-x-reverse mt-8"><li class="px-1 leading-10"><a class="mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xs flex items-center gap-x-1 whitespace-nowrap leading-10" href="#box-tours"><svg width="24" height="25" class="scale-75"><use href="./images/sprite-icons.svg#tour-flag-icon"></use></svg><span>تورها</span></a></li><li class="px-1 leading-10"><a class="mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xs flex items-center gap-x-1 whitespace-nowrap leading-10" href="#box-faq-form"><svg width="24" height="25" class="scale-75"><use href="./images/sprite-icons.svg#faq-form-icon"></use></svg><span>پرسش و پاسخ</span></a></li><li class="px-1 leading-10"><a class="mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xs flex items-center gap-x-1 whitespace-nowrap leading-10" href="#box-passengers-video"><svg width="24" height="25" class="scale-75"><use href="./images/sprite-icons.svg#passengers-video-icon"></use></svg><span>ویدئو مسافران</span></a></li><li class="px-1 leading-10"><a class="mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xs flex items-center gap-x-1 whitespace-nowrap leading-10" href="#podcastandvideo"><svg width="24" height="25" class="scale-75"><use href="./images/sprite-icons.svg#video-podcast-icon"></use></svg><span>ویدئو و پادکست</span></a></li><li class="px-1 leading-10"><a class="mx-auto text-primary-700 font-yekanbakhsemiboldFA text-xs flex items-center gap-x-1 whitespace-nowrap leading-10" href="#box-faq-list"><svg width="24" height="25" class="scale-75"><use href="./images/sprite-icons.svg#faq-box-icon"></use></svg><span>سوالات متداول</span></a></li></ul>
         
-        <div id="podcastandvideo" class="flex justify-between gap-x-2 my-12 w-[95%] mx-auto"><basis core="list" datamembername="joining.podcast"><layout><div id="audioBox" class="bg-white rounded-3xl text-center cursor-pointer transition hover:bg-gray-200 w-1/2 h-16 relative overflow-hidden">@child </div></layout><face><img class="w-full h-full absolute top-0 left-0 bottom-0 right-0 object-cover blur-sm" src="[##cms.cms.cdn##]/@db.media-gallery.largeIMG" alt="@db.media-gallery.name"><button id="playPauseBtn" class=" w-full h-full text-white text-2xl flex justify-center items-center shadow-md z-10 relative transition "><img class="w-6 h-6 absolute right-3" src="[##cms.cms.cdn##]/images/headphone-podcast-mob.png" alt="@db.media-gallery.name"></button><div class="flex flex-col justify-center items-center w-8/12 absolute z-[1] top-2 left-3 right-0 mr-auto"><h2 class="text-white text-xs font-IRANYekanRegularMobileFA leading-7 text-center">درباره این تور بشنوید. </h2><div id="waveform" class="w-11/12"></div><audio id="audioSource" src="[##cms.cms.cdn##]/@db.audio.largeIMG"></audio></div><div class="w-full h-full bg-gradient-to-t from-black/50 to-transparent absolute left-0 right-0 bottom-0 "></div></face></basis><basis core="list" datamembername="db.media-gallery"><face filter="ord in(1000)"><button class="openModal bg-white rounded-3xl text-center cursor-pointer transition hover:bg-gray-200 w-1/2 h-16 relative overflow-hidden" data-id="@Table2ID"><img class="w-full h-full absolute top-0 left-0 bottom-0 right-0 object-cover blur-sm" src="[##cms.cms.cdn##]/@largeIMG" width="248" height="96" alt="@name"><div class="z-[1] relative text-white text-xs font-IRANYekanRegularMobileFA leading-6 text-center flex flex-col-reverse justify-center items-center">@name <img class="w-6 h-6" src="[##cms.cms.cdn##]/images/video-icon-mob.png" alt="video-icon"></div><div class="w-full h-full bg-gradient-to-t from-black/50 to-transparent absolute left-0 right-0 bottom-0"></div></button></face></basis></div>
+            <div id="podcastandvideo" class="flex justify-between gap-x-2 my-12 w-[95%] mx-auto">
+                <basis core="list" datamembername="joining.podcast">
+                    <layout>
+                        <div id="audioBox"
+                            class="bg-white rounded-3xl text-center cursor-pointer transition hover:bg-gray-200 w-1/2 h-16 relative overflow-hidden">
+                            @child </div>
+                    </layout>
+                    <face><img class="w-full h-full absolute top-0 left-0 bottom-0 right-0 object-cover blur-sm"
+                            src="[##cms.cms.cdn##]/@db.media-gallery.largeIMG" alt="@db.media-gallery.name"><button
+                            id="playPauseBtn"
+                            class=" w-full h-full text-white text-2xl flex justify-center items-center shadow-md z-10 relative transition "><img
+                                class="w-6 h-6 absolute right-3" src="[##cms.cms.cdn##]/images/headphone-podcast-mob.png"
+                                alt="@db.media-gallery.name"></button>
+                        <div class="flex flex-col justify-center items-center w-8/12 absolute z-[1] top-2 left-3 right-0 mr-auto">
+                            <h2 class="text-white text-xs font-IRANYekanRegularMobileFA leading-7 text-center">درباره این تور
+                                بشنوید. </h2>
+                            <div id="waveform" class="w-11/12"></div><audio id="audioSource"
+                                src="[##cms.cms.cdn##]/@db.audio.largeIMG"></audio>
+                        </div>
+                        <div class="w-full h-full bg-gradient-to-t from-black/50 to-transparent absolute left-0 right-0 bottom-0 ">
+                        </div>
+                    </face>
+                </basis>
+                <basis core="list" datamembername="db.media-gallery">
+                    <face filter="ord in(1000)"><button
+                            class="openModal bg-white rounded-3xl text-center cursor-pointer transition hover:bg-gray-200 w-1/2 h-16 relative overflow-hidden"
+                            data-id="@Table2ID"><img
+                                class="w-full h-full absolute top-0 left-0 bottom-0 right-0 object-cover blur-sm"
+                                src="[##cms.cms.cdn##]/@largeIMG" width="248" height="96" alt="@name">
+                            <div
+                                class="z-[1] relative text-white text-xs font-IRANYekanRegularMobileFA leading-6 text-center flex flex-col-reverse justify-center items-center">
+                                @name <img class="w-6 h-6" src="[##cms.cms.cdn##]/images/video-icon-mob.png" alt="video-icon"></div>
+                            <div
+                                class="w-full h-full bg-gradient-to-t from-black/50 to-transparent absolute left-0 right-0 bottom-0">
+                            </div>
+                        </button>
+                    </face>
+                </basis>
+            </div>
 
         
         <basis core="list" datamembername="db.important_content"><layout><section class="bg-footer-texture bg-cover my-12 "><div class="max-w-5xl w-[90%] mx-auto "><figure class=" flex flex-row-reverse justify-between items-start"><img src="[##cms.cms.cdn##]/images/attention-mob-icon.png" width="70" height="88" alt="نکته"><figcaption class="text-secondary font-yekanbakhboldFA text-2xl">نکته</figcaption></figure><div class=" flex flex-col justify-center -mt-8"><div class="font-IRANYekanRegularMobileFA leading-6 text-sm my-3 text-black text-justify "><span class="float-left block w-1/2 bg-transparent h-5"></span>@child </div></div></div></section></layout><face filter="TypeID in(129)">@largetext </face></basis>
