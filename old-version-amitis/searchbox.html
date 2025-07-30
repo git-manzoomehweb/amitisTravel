@@ -1,0 +1,2533 @@
+<div class="inner-resize">
+    <div class="top-banner">
+        <img src="[##cms.cms.cdn##]/images/top-banner.jpg" alt="top-banner" />
+    </div>
+    <div id="rezerve" class="search-box search-box-container">
+        <div class="select-mj">
+            <ul class="rezervation-items">
+                <li id="Flight" class="reserve-mj-item flight-btn" data-id="r-flight"
+                    onclick="check_searchHistory('flight')"><span>پرواز</span><img
+                        src="[##cms.cms.cdn##]/images/flight-ricon-active.png" width="" height="" alt="flight" /><i
+                        class="fas fa-chevron-down"></i></li>
+                <li id="Hotel" class="reserve-mj-item hotel-btn inactive" data-id="r-hotel"
+                    onclick="check_searchHistory('hotel')"><span>هتل</span><img
+                        src="[##cms.cms.cdn##]/images/hotel-ricon.png" width="" height="" alt="hotel" /><i
+                        class="fas fa-chevron-down"></i></li>
+                <li id="Tour" class="reserve-mj-item tour-btn inactive" data-id="r-tour"
+                    onclick="check_searchHistory('tour')"><span>تور</span><img
+                        src="[##cms.cms.cdn##]/images/tour-ricon.png" width="" height="" alt="tour" /><i
+                        class="fas fa-chevron-down"></i></li>
+                <li id="FlightHotel" class="reserve-mj-item FlightHotel-btn inactive" data-id="r-flighthotel"
+                    onclick="check_searchHistory('flightHotel')"><span>پرواز+هتل</span><img
+                        src="[##cms.cms.cdn##]/images/flighthotel-ricon.png" width="" height="" alt="flighthotel" /><i
+                        class="fas fa-chevron-down"></i></li>
+                <li id="Insurance" class="reserve-mj-item Insurance-btn inactive" data-id="r-insurance"
+                    onclick="check_searchHistory('insurance')"><span>بیمه</span><img
+                        src="[##cms.cms.cdn##]/images/insurance-ricon.png" width="" height="" alt="insurance" /><i
+                        class="fas fa-chevron-down"></i></li>
+                <li id="cip" class="reserve-mj-item cip-btn inactive" data-id="r-cip"
+                    onclick="check_searchHistory('cip')"><span>Cip</span><img
+                        src="[##cms.cms.cdn##]/images/cip-ricon.png" width="27" height="25" alt="cip" /><i
+                        class="fas fa-chevron-down"></i></li>
+                <li id="visa" class="reserve-mj-item visa-btn inactive" data-id="r-visa"
+                    onclick="check_searchHistory('visa')"><span>ویزا</span><img
+                        src="[##cms.cms.cdn##]/images/visa-ricon.png" width="25" height="25" alt="visa" /><i
+                        class="fas fa-chevron-down"></i></li>
+            </ul>
+            <div class="clr"></div>
+        </div>
+        <div id="r-flight">
+            <ul class="select-method">
+                <li id="onewayflight" onclick="document.getElementById('flightSearch').action='/Tem3_Oneway_Search.bc';"
+                    class="r-btn">
+                    <input type="radio" name="1" id="radio1">
+                    <label for="radio1">یک طرفه</label>
+                    <div class="bullet"> </div>
+                </li>
+                <li id="returnFlight"
+                    onclick="document.getElementById('flightSearch').action='/Tem3_Roundtrip_Search.bc';"
+                    class="r-btn active-r-btn">
+                    <input checked type="radio" name="1" id="radio2">
+                    <label for="radio2">رفت و برگشت</label>
+                    <div class="bullet"> </div>
+                </li>
+                <li id="multiflight" class="r-btn" onclick="showMultiCity(this)">
+                    <input id="radio3" type="radio" name="1" />
+                    <label for="radio3">چند مسیره</label>
+                    <div class="bullet"> </div>
+                </li>
+            </ul>
+            <div class="clr"></div>
+            <div class="return frm-box">
+                <form id="flightSearch" class="frm amitflight formflight form-search" method="get"
+                    action="/Tem3_Roundtrip_Search.bc" data-form="flight" onsubmit="form_search_isSubmited(this,event)"
+                    data-flightType="1" rel='nofollow'>
+                    <input type="hidden" value="0" name="select-age" class="select-age-value" />
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                    <div class="Wrapper-DesDep">
+                        <div class="city">
+                            <input type="text" value="" name="" oninput="city_search(this)" data-type='1'
+                                class="country FCD1 departure" autocomplete="off" placeholder="شهر یا فرودگاه مبدا"
+                                onClick="empty(this)" required />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id FCDid1 from" type="hidden" name="from" />
+                            <div class="countryFlight"></div>
+                            <div class="clr"></div>
+                            <div class="outer-searchList">
+                                <div class="searchList">
+                                    <div>
+                                        <ul>
+                                            <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                    class="icon-map"></span><span>تهران - Tehran - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                    class="icon-map"></span><span>استانبول - Istanbul - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                    class="icon-map"></span><span>آنتالیا - Antalya - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                    class="icon-map"></span><span>آلانیا - Alanya - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                    class="icon-map"></span><span>ازمیر - Izmir - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                    class="icon-map"></span><span>کیش - Kish - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                    class="icon-map"></span><span>مشهد - Mashhad - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                    class="icon-map"></span><span>قشم - Qeshm - همه فرودگاه ها</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="fa-exchange" data-index="0">
+                            <div class="inner-exchange"><img src="[##cms.cms.cdn##]/images/arrows.png" alt="arrow" />
+                            </div>
+                        </div>
+                        <div class="city second-city">
+                            <input type="text" value="" name="" oninput="city_search(this)" data-type='1'
+                                class="country FCD2 destination" autocomplete="off" placeholder="شهر یا فرودگاه مقصد"
+                                onClick="empty(this)" required />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id FCDid2 to" type="hidden" name="to" />
+                            <div class="countryFlight"></div>
+                            <div class="clr"></div>
+                            <div class="outer-searchList">
+                                <div class="searchList">
+                                    <div>
+                                        <ul>
+                                            <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                    class="icon-map"></span><span>تهران - Tehran - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                    class="icon-map"></span><span>استانبول - Istanbul - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                    class="icon-map"></span><span>آنتالیا - Antalya - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                    class="icon-map"></span><span>آلانیا - Alanya - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                    class="icon-map"></span><span>ازمیر - Izmir - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                    class="icon-map"></span><span>کیش - Kish - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                    class="icon-map"></span><span>مشهد - Mashhad - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                    class="icon-map"></span><span>قشم - Qeshm - همه فرودگاه ها</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="Basis_Date_Box">
+                        <div class="frm-other date" id="Fdate">
+                            <div class="custom-select">
+                                <label class="label">تاریخ رفت</label>
+                                <input class="first cal Basis_Date start_date"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp1" name="fdate" type="text" placeholder="رفت" value=""
+                                    readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_fdate" />
+                                <span class="miladyy"></span>
+                                <input type="hidden" class="fday" type="hidden" value="" />
+                            </div>
+                        </div>
+                        <div class="frm-other date z-margin" id="Tdate">
+                            <div class="custom-select">
+                                <label class="label">تاریخ برگشت</label>
+                                <input class="second cal Basis_Date end_date nextCalOpening"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp2" name="tdate" type="text" placeholder="برگشت" value=""
+                                    readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_tdate" />
+                                <span class="miladyy"></span>
+                                <input type="hidden" class="tday" type="hidden" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-other passinfo-field">
+                        <div class="custom-select">
+                            <label class="label">مسافران</label>
+                            <input aria-label="choose passenger" type="text" placeholder="" readonly
+                                class="hotel-input">
+                            <div class="Wrapper-CountPassenger">
+                                <span class="count-adult count-adult-flight">بزرگسال: <span
+                                        class="count">1</span></span>
+                                <span class="count-child count-child-flight">کودک: <span class="count">0</span></span>
+                                <span class="fclass">اکونومی</span>
+                            </div>
+                            <div class="HotelPassengers">
+                                <div class="ShowRow">
+                                    <div class="itemlable2 Classname-box">
+                                        <label> <span class="notshow">کلاس پروازی</span> </label>
+                                        <div class="Class_box_inner">
+                                            <i class="fas fa-chevron-down"></i>
+                                            <select class="FlightClass" name="FlightClass">
+                                                <option value="Economy">Economy Class</option>
+                                                <option value="BusinessClass">Bussines Class</option>
+                                                <option value="FirstClass">First Class</option>
+                                            </select>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="ad-ch">
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">بزرگسال</span> </label>
+                                            <ul class="button-click">
+                                                <li><span class="button secondary"><span class="hide">+</span></span>
+                                                </li>
+                                                <li><span class="button secondary"><span class="hide">-</span></span>
+                                                </li>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox adultcount adult-count adult"
+                                                name="adult" maxlength="4000" value="1" />
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ad-ch">
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">کودک</span> </label>
+                                            <input type="hidden" value="0" class="childcountinput" name="child">
+                                            <ul class="button-click-child">
+                                                <li><span class="button secondary"><span class="hide">+</span></span>
+                                                </li>
+                                                <li><span class="button secondary"><span class="hide">-</span></span>
+                                                </li>
+                                                <div class="clr"></div>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox child-count" maxlength="4000"
+                                                value="0" />
+                                        </div>
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="childDropdowns section-select-age"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="CloseHotelPassengers">تایید</div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="frm-submit-btn">
+                        <button type="submit" class="search-flight">جستجو</button>
+                    </section>
+
+                    <div class="alertsub" style="display:none"><span></span><span>تعداد نوزادان بیشتر از تعداد بزرگسالان
+                            است و یا تعداد مسافران بیش از حد مجاز است.</span></div>
+                    <div class="clr"></div>
+                </form>
+                <form id="multi-flight" method="post" action="/Tem3_Multicity_Search.bc" data-form=""
+                    onsubmit="formMulticity_search_isSubmited(this,event)"
+                    class="frm formflight form-search multicity-form">
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value />
+                    <input type="hidden" name="select-age" class="select-age-value" value="0" />
+                    <div class="route-container">
+                        <div class="route-content" data-index="1">
+                            <div class="multi-route-tlt">مقصد اول</div>
+                            <div>
+                                <div class="first-part Wrapper-DesDep">
+                                    <div class="city fromcity_container p-relative">
+                                        <input type="text" value="" name="" oninput="city_search(this)"
+                                            onblur="set_city_search(this)" data-type='1'
+                                            class="FCD1 country departure fromcity-text" autocomplete="off"
+                                            placeholder="شهر یا فرودگاه مبدا" onClick="empty(this)" required />
+                                        <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif"
+                                                width="20" height="20" /></span>
+                                        <input class="co-id FCDid1 from fromcity" value="" type="hidden" name="from" />
+                                        <div class="countryFlight"></div>
+                                        <div class="clr"></div>
+                                        <div class="outer-searchList">
+                                            <div class="searchList">
+                                                <div>
+                                                    <ul>
+                                                        <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                                class="icon-map"></span><span>تهران
+                                                                - Tehran - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                                class="icon-map"></span><span>استانبول - Istanbul - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                                class="icon-map"></span><span>آنتالیا - Antalya - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                                class="icon-map"></span><span>آلانیا
+                                                                - Alanya - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                                class="icon-map"></span><span>ازمیر
+                                                                - Izmir - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                                class="icon-map"></span><span>کیش -
+                                                                Kish - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                                class="icon-map"></span><span>مشهد -
+                                                                Mashhad - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                                class="icon-map"></span><span>قشم -
+                                                                Qeshm - همه فرودگاه ها</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fa-exchange-container-mc" onclick="exchangeDepDes(this)">
+                                        <div class="inner-exchange"><img src="[##cms.cms.cdn##]/images/arrows.png"
+                                                alt="arrow" /></div>
+                                    </div>
+                                    <div class="city tocity_container p-relative">
+                                        <input type="text" value="" name="" oninput="city_search(this)"
+                                            onblur="set_city_search(this)" data-type='1'
+                                            class="FCD2 country departure tocity-text" autocomplete="off"
+                                            placeholder="شهر یا فرودگاه مقصد" onClick="empty(this)" required />
+                                        <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif"
+                                                width="20" height="20" /></span>
+                                        <input class="co-id FCDid2 to tocity" type="hidden" name="to" value="" />
+                                        <div class="countryFlight"></div>
+                                        <div class="clr"></div>
+                                        <div class="outer-searchList">
+                                            <div class="searchList">
+                                                <div>
+                                                    <ul>
+                                                        <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                                class="icon-map"></span><span>تهران
+                                                                - Tehran - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                                class="icon-map"></span><span>استانبول - Istanbul - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                                class="icon-map"></span><span>آنتالیا - Antalya - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                                class="icon-map"></span><span>آلانیا
+                                                                - Alanya - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                                class="icon-map"></span><span>ازمیر
+                                                                - Izmir - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                                class="icon-map"></span><span>کیش -
+                                                                Kish - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                                class="icon-map"></span><span>مشهد -
+                                                                Mashhad - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                                class="icon-map"></span><span>قشم -
+                                                                Qeshm - همه فرودگاه ها</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="second-part Basis_Date_Box">
+                                    <div class="frm-other date" id="Fdate">
+                                        <div class="custom-select">
+                                            <label class="label">تاریخ رفت</label>
+                                            <input class="first cal Basis_Date start_date"
+                                                onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                                data-cache="0" id="inp3" name="fdate" type="text" placeholder="رفت"
+                                                value="" readonly="true" autocomplete="off">
+                                            <!-- <input value="" class="mstring_date" type="hidden" name="mstring_fdate" /> -->
+                                            <span class="miladyy"></span>
+                                            <input type="hidden" class="fday" type="hidden" value="" />
+                                        </div>
+                                        <div class="custom-select unvisible">
+                                            <label class="label">تاریخ برگشت</label>
+                                            <input class="second cal Basis_Date end_date"
+                                                onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                                data-cache="0" id="inp9" name="tdate" type="text" disabled
+                                                placeholder="برگشت" value="" readonly="true" autocomplete="off">
+                                            <!-- <input value="" class="mstring_date" type="hidden" name="mstring_tdate" /> -->
+                                            <span class="miladyy"></span>
+                                            <input type="hidden" class="tday" type="hidden" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="route-content" data-index="2">
+                            <div class="multi-route-tlt">مقصد دوم</div>
+                            <div>
+                                <div class="first-part Wrapper-DesDep">
+                                    <div class="city fromcity_container p-relative">
+                                        <input type="text" value="" name="" oninput="city_search(this)"
+                                            onblur="set_city_search(this)" data-type='1'
+                                            class="FCD1 country departure fromcity-text" autocomplete="off"
+                                            placeholder="شهر یا فرودگاه مبدا" onClick="empty(this)" required />
+                                        <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif"
+                                                width="20" height="20" /></span>
+                                        <input class="co-id FCDid1 from fromcity" value="" type="hidden" name="from" />
+                                        <div class="countryFlight"></div>
+                                        <div class="clr"></div>
+                                        <div class="outer-searchList">
+                                            <div class="searchList">
+                                                <div>
+                                                    <ul>
+                                                        <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                                class="icon-map"></span><span>تهران
+                                                                - Tehran - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                                class="icon-map"></span><span>استانبول - Istanbul - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                                class="icon-map"></span><span>آنتالیا - Antalya - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                                class="icon-map"></span><span>آلانیا
+                                                                - Alanya - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                                class="icon-map"></span><span>ازمیر
+                                                                - Izmir - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                                class="icon-map"></span><span>کیش -
+                                                                Kish - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                                class="icon-map"></span><span>مشهد -
+                                                                Mashhad - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                                class="icon-map"></span><span>قشم -
+                                                                Qeshm - همه فرودگاه ها</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fa-exchange-container-mc" onclick="exchangeDepDes(this)">
+                                        <div class="inner-exchange"><img src="[##cms.cms.cdn##]/images/arrows.png"
+                                                alt="arrow" /></div>
+                                    </div>
+                                    <div class="city tocity_container p-relative">
+                                        <input type="text" value="" name="" oninput="city_search(this)"
+                                            onblur="set_city_search(this)" data-type='1'
+                                            class="FCD2 country departure tocity-text" autocomplete="off"
+                                            placeholder="شهر یا فرودگاه مقصد" onClick="empty(this)" required />
+                                        <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif"
+                                                width="20" height="20" /></span>
+                                        <input class="co-id FCDid2 to tocity" type="hidden" name="to" value="" />
+                                        <div class="countryFlight"></div>
+                                        <div class="clr"></div>
+                                        <div class="outer-searchList">
+                                            <div class="searchList">
+                                                <div>
+                                                    <ul>
+                                                        <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                                class="icon-map"></span><span>تهران
+                                                                - Tehran - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                                class="icon-map"></span><span>استانبول - Istanbul - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                                class="icon-map"></span><span>آنتالیا - Antalya - همه
+                                                                فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                                class="icon-map"></span><span>آلانیا
+                                                                - Alanya - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                                class="icon-map"></span><span>ازمیر
+                                                                - Izmir - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                                class="icon-map"></span><span>کیش -
+                                                                Kish - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                                class="icon-map"></span><span>مشهد -
+                                                                Mashhad - همه فرودگاه ها</span></li>
+                                                        <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                                class="icon-map"></span><span>قشم -
+                                                                Qeshm - همه فرودگاه ها</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="second-part Basis_Date_Box">
+                                    <div class="frm-other date" id="Fdate">
+                                        <div class="custom-select">
+                                            <label class="label">تاریخ رفت</label>
+                                            <input class="first cal Basis_Date start_date"
+                                                onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                                data-cache="0" id="inp3" name="fdate" type="text" placeholder="رفت"
+                                                value="" readonly="true" autocomplete="off">
+                                            <!-- <input value="" class="mstring_date" type="hidden" name="mstring_fdate" /> -->
+                                            <span class="miladyy"></span>
+                                            <input type="hidden" class="fday" type="hidden" value="" />
+                                        </div>
+                                        <div class="custom-select unvisible">
+                                            <label class="label">تاریخ برگشت</label>
+                                            <input class="second cal Basis_Date end_date"
+                                                onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                                data-cache="0" id="inp9" name="tdate" type="text" placeholder="رفت"
+                                                value="" readonly="true" autocomplete="off">
+                                            <!-- <input value="" class="mstring_date" type="hidden" name="mstring_tdate" /> -->
+                                            <span class="miladyy"></span>
+                                            <input type="hidden" class="tday" type="hidden" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="passenger-section-mc">
+                        <div class="passengers-part">
+                            <div class="frm-other passinfo-field">
+                                <div class="custom-select">
+                                    <label class="label">مسافران</label>
+                                    <input aria-label="choose passenger" type="text" placeholder="" readonly
+                                        class="hotel-input">
+                                    <div class="Wrapper-CountPassenger">
+                                        <span class="count-adult count-adult-flight">بزرگسال: <span
+                                                class="count">1</span></span>
+                                        <span class="count-child count-child-flight">کودک: <span
+                                                class="count">0</span></span>
+                                        <span class="fclass">اکونومی</span>
+                                    </div>
+                                    <div class="HotelPassengers">
+                                        <div class="ShowRow">
+                                            <div class="itemlable2 Classname-box">
+                                                <label> <span class="notshow">کلاس پروازی</span> </label>
+                                                <div class="Class_box_inner">
+                                                    <i class="fas fa-chevron-down"></i>
+                                                    <select class="FlightClass" name="FlightClass">
+                                                        <option value="Economy">Economy Class</option>
+                                                        <option value="BusinessClass">Bussines Class</option>
+                                                        <option value="FirstClass">First Class</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                            <div class="ad-ch">
+                                                <div class="itemlable2">
+                                                    <label> <span class="notshow">بزرگسال</span> </label>
+                                                    <ul class="button-click">
+                                                        <li><span class="button secondary"><span
+                                                                    class="hide">+</span></span>
+                                                        </li>
+                                                        <li><span class="button secondary"><span
+                                                                    class="hide">-</span></span>
+                                                        </li>
+                                                    </ul>
+                                                    <input type="text" readonly
+                                                        class="cat_textbox adultcount adult-count adult" name="adult"
+                                                        maxlength="4000" value="1" />
+                                                    <div class="clr"></div>
+                                                </div>
+                                            </div>
+                                            <div class="ad-ch">
+                                                <div class="itemlable2">
+                                                    <label> <span class="notshow">کودک</span> </label>
+                                                    <input type="hidden" value="0" class="childcountinput" name="child">
+                                                    <ul class="button-click-child">
+                                                        <li><span class="button secondary"><span
+                                                                    class="hide">+</span></span>
+                                                        </li>
+                                                        <li><span class="button secondary"><span
+                                                                    class="hide">-</span></span>
+                                                        </li>
+                                                        <div class="clr"></div>
+                                                    </ul>
+                                                    <input type="text" readonly class="cat_textbox child-count"
+                                                        maxlength="4000" value="0" />
+                                                </div>
+                                            </div>
+                                            <div class="clr"></div>
+                                            <div class="childDropdowns section-select-age"></div>
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div class="CloseHotelPassengers">تایید</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns-part">
+                            <button type="submit" aria-label="search" class="p-relative search-multicity-btn">جستجو</button>
+                            <button class="route-plus-btn p-relative" type="button"
+                                onclick="addMulticityRoute(this)"><span>افزودن
+                                    مقصد</span></button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </form>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div id="r-hotel">
+            <div class="frm-box">
+                <form action="/Tem3_Hotel_Search.bc" method="post" id="hotelsearch" class="frm form-search"
+                    data-form="hotel" onsubmit="form_search_isSubmited(this,event)" rel='nofollow'>
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                    <div class="Wrapper-DesDep">
+                        <div class="city">
+                            <input type="text" value="" name="coHotel" oninput="city_search(this)" data-type='3'
+                                class="country departure" autocomplete="off" onClick="empty(this)" required
+                                placeholder="شهر" />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id from" type="hidden" name="cityid" />
+                            <div class="countryFlight"></div>
+                            <div class="clr"></div>
+                            <div class="outer-searchList">
+                                <div class="searchList">
+                                    <div>
+                                        <ul>
+                                            <li class="category-title"><span>شهرهای پر تردد</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                    class="icon-map"></span><span>تهران - Tehran</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                    class="icon-map"></span><span>استانبول - Istanbul</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                    class="icon-map"></span><span>آنتالیا - Antalya</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1167630"><span
+                                                    class="icon-map"></span><span>آلانیا - Alanya </span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                    class="icon-map"></span><span>ازمیر - Izmir</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                    class="icon-map"></span><span>کیش - Kish </span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                    class="icon-map"></span><span>مشهد - Mashhad</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1211111"><span
+                                                    class="icon-map"></span><span>قشم - Qeshm</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Basis_Date_Box">
+                        <div class="frm-other date">
+                            <div class="custom-select">
+                                <label class="label">تاریخ ورود</label>
+                                <input class="first cal Basis_Date start_date"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp4" name="fdate" type="text" placeholder="ورود" value=""
+                                    required readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_fdate" />
+                                <span class="miladyy2"></span>
+                                <input type="hidden" class="fday2" type="hidden" value="" />
+                            </div>
+                        </div>
+                        <div class="frm-other date">
+                            <div class="custom-select">
+                                <label class="label">تاریخ خروج</label>
+                                <input class="second cal Basis_Date end_date nextCalOpening"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp10" name="tdate" type="text" placeholder="خروج" value=""
+                                    required readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_tdate" />
+                                <span class="miladyy2"></span>
+                                <input type="hidden" class="tday2" type="hidden" value="" />
+                            </div>
+                            <span class="days-night2"></span>
+                            <input type="hidden" class="days-night22" name="days-night" />
+                        </div>
+                    </div>
+                    <div class="frm-other passinfo-field">
+                        <div class="custom-select">
+                            <label class="label">مسافران</label>
+                            <input type="text" placeholder="" readonly class="hotel-input hotel-inputH">
+                            <div class="Wrapper-CountPassenger">
+                                <span class="count-room">اتاق: <span class="count">1</span></span>
+                                <span class="count-adult count-adultRoom">بزرگسال: <span class="count">1</span></span>
+                                <span class="count-child count-childRoom">کودک: <span class="count">0</span></span>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="HotelPassengers">
+                                <div class="itemlable2">
+                                    <label> <span class="notshow">تعداد اتاق</span> </label>
+                                    <ul class="button-click-room">
+                                        <li><span class="button secondary"><span class="hide">+</span></span></li>
+                                        <li><span class="button secondary"><span class="hide">-</span></span></li>
+                                        <div class="clr"></div>
+                                    </ul>
+                                    <input type="text" readonly class="cat_textbox room" maxlength="4000" value="1">
+                                </div>
+                                <div class="clr"></div>
+                                <div class="countRoom countRoomHT ShowRow">
+                                    <div class="contentRooms contentRoom">
+                                        <div class="numberOfRooms RoomRow">اتاق1</div>
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">بزرگسال</span> </label>
+                                            <ul class="button-click-adultRoom defaultAdNum">
+                                                <li><span class="button secondary" onclick="increaseAdult(this)"><span
+                                                            class="hide">+</span></span></li>
+                                                <li><span class="button secondary" onclick="decreaseAdult(this)"><span
+                                                            class="hide">-</span></span></li>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox adultcount adult-count"
+                                                name="_root.rooms__1.adultcount" maxlength="4000" value="1">
+                                            <div class="clr"></div>
+                                        </div>
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">کودک</span> </label>
+                                            <ul class="button-click-childRoom defaultChNum">
+                                                <li><span class="button secondary"><span class="hide">+</span></span>
+                                                </li>
+                                                <li><span class="button secondary"><span class="hide">-</span></span>
+                                                </li>
+                                                <div class="clr"></div>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox chcount child-count"
+                                                maxlength="4000" value="0">
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div class="childDropdowns section-select-age"></div>
+                                        <input type="hidden" name="_root.rooms__1.childcountandage"
+                                            class="childcountandage" value="0" />
+                                    </div>
+                                </div>
+                                <div class="CloseHotelPassengers">تایید</div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <section class="frm-submit-btn">
+                        <button type="submit" class="search-flight">جستجو</button>
+                    </section>
+                    <div class="clr"></div>
+                </form>
+            </div>
+        </div>
+        <div id="r-tour">
+            <div class="frm-box">
+                <form id="tourSearch" class="frm form-search" method="post" action="/Tem3_Tour_Search.bc"
+                    data-form="tour" onsubmit="form_search_isSubmited(this,event)" rel='nofollow'>
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                    <div class="Wrapper-DesDep">
+                        <div class="city">
+                            <input type="text" value="" name="tour-search-text departure" onclick="city_search(this)"
+                                data-type='4' data-active="0" class="tour-search-text" autocomplete="off" readonly
+                                required placeholder="تور" />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id from" type="hidden" name="tourname" />
+                            <div class="countryFlight tour-search-content"></div>
+                            <div class="clr"></div>
+
+                        </div>
+                    </div>
+                    <div class="Basis_Date_Box">
+                        <div class="frm-other date">
+                            <div class="custom-select">
+                                <label class="label">تاریخ رفت</label>
+                                <input type="text" class="first cal Basis_Date start_date"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp5" name="fdate" required readonly="true" autocomplete="off"
+                                    placeholder="رفت" />
+                                <input value="" class="mstring_date" type="hidden" name="mstring_fdate" />
+                                <span class="miladyy3"></span>
+                                <input type="hidden" class="fday3" type="hidden" value="" />
+                            </div>
+                        </div>
+                        <div class="frm-other date">
+                            <div class="custom-select">
+                                <label class="label">تاریخ برگشت</label>
+                                <input type="text" class="second cal Basis_Date end_date nextCalOpening"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp11" name="tdate" required readonly="true" autocomplete="off"
+                                    placeholder="برگشت" />
+                                <input value="" class="mstring_date" type="hidden" name="mstring_tdate" />
+                                <span class="miladyy3"></span>
+                                <input type="hidden" class="tday3" type="hidden" value="" />
+                            </div>
+                            <input type="hidden" class="days-night33" name="days-night" />
+                        </div>
+                    </div>
+                    <div class="frm-other passinfo-field">
+                        <div class="custom-select">
+                            <label class="label">مسافران</label>
+                            <input type="text" placeholder="" class="hotel-input hotel-inputH">
+                            <div class="Wrapper-CountPassenger">
+                                <span class="count-room">اتاق:<span class="count">1</span></span>
+                                <span class="count-adult count-adultRoom">بزرگسال:<span class="count">1</span></span>
+                                <span class="count-child count-childRoom">کودک:<span class="count">0</span></span>
+                            </div>
+                            <div class="HotelPassengers">
+                                <div class="itemlable2">
+                                    <label> <span class="notshow">تعداد اتاق</span> </label>
+                                    <ul class="button-click-room">
+                                        <li><span class="button secondary"><span class="hide">+</span></span></li>
+                                        <li><span class="button secondary"><span class="hide">-</span></span></li>
+                                        <div class="clr"></div>
+                                    </ul>
+                                    <input type="text" readonly class="cat_textbox room" maxlength="4000" value="1">
+                                </div>
+                                <div class="clr"></div>
+                                <div class="countRoom countRoomHT ShowRow">
+                                    <div class="contentRooms contentRoom">
+                                        <div class="numberOfRooms RoomRow">اتاق1</div>
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">بزرگسال</span> </label>
+                                            <ul class="button-click-adultRoom defaultAdNum">
+                                                <li><span class="button secondary" onclick="increaseAdult(this)"><span
+                                                            class="hide">+</span></span></li>
+                                                <li><span class="button secondary" onclick="decreaseAdult(this)"><span
+                                                            class="hide">-</span></span></li>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox adultcount adult-count"
+                                                name="_root.rooms__1.adultcount" maxlength="4000" value="1">
+                                            <div class="clr"></div>
+                                        </div>
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">کودک</span> </label>
+                                            <ul class="button-click-childRoom defaultChNum">
+                                                <li><span class="button secondary"><span class="hide">+</span></span>
+                                                </li>
+                                                <li><span class="button secondary"><span class="hide">-</span></span>
+                                                </li>
+                                                <div class="clr"></div>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox chcount child-count"
+                                                maxlength="4000" value="0">
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div class="childDropdowns section-select-age"></div>
+                                        <input type="hidden" name="_root.rooms__1.childcountandage"
+                                            class="childcountandage" value="0" />
+                                    </div>
+                                </div>
+                                <div class="CloseHotelPassengers">تایید</div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <section class="frm-submit-btn">
+                        <button type="submit" class="search-flight">جستجو</button>
+                    </section>
+                    <div class="clr"></div>
+                </form>
+            </div>
+        </div>
+        <div id="r-flighthotel">
+            <form id="flightHotelSearch" class="frm amitflight form-search" method="post"
+                action="/Tem3_FlightHotel_Search.bc" data-form="flightHotel"
+                onsubmit="form_search_isSubmited(this,event)" rel='nofollow'>
+                <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                <div class="frm-box">
+                    <div class="return">
+                        <div class="Wrapper-DesDep">
+                            <div class="city">
+                                <input type="text" value="" name="DepartureCity" oninput="city_search(this)"
+                                    data-type='1' class="country FCD1 departure" autocomplete="off"
+                                    placeholder="شهر - فرودگاه مبدا" onClick="empty(this)" required />
+                                <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                        height="20" /></span>
+                                <input value="" class="co-id FCDid1 from" type="hidden" name="from" />
+                                <div class="countryFlight"></div>
+                                <div class="clr"></div>
+                                <div class="outer-searchList">
+                                    <div class="searchList">
+                                        <div>
+                                            <ul>
+                                                <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                        class="icon-map"></span><span>تهران - Tehran - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                        class="icon-map"></span><span>استانبول - Istanbul - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                        class="icon-map"></span><span>آنتالیا - Antalya - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                        class="icon-map"></span><span>آلانیا - Alanya - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                        class="icon-map"></span><span>ازمیر - Izmir - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                        class="icon-map"></span><span>کیش - Kish - همه فرودگاه ها</span>
+                                                </li>
+                                                <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                        class="icon-map"></span><span>مشهد - Mashhad - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                        class="icon-map"></span><span>قشم - Qeshm - همه فرودگاه
+                                                        ها</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="fa-exchange" data-index="0">
+                                <div class="inner-exchange"><img src="[##cms.cms.cdn##]/images/arrows.png"
+                                        alt="arrow" /></div>
+                            </span>
+                            <div class="city second-city">
+                                <input type="text" value="" name="DestinationCity" oninput="city_search(this)"
+                                    data-type='1' class="country FCD2 destination" autocomplete="off"
+                                    placeholder="شهر - فرودگاه مقصد" onClick="empty(this)" required />
+                                <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                        height="20" /></span>
+                                <input value="" class="co-id FCDid2 to" type="hidden" name="to" />
+                                <div class="countryFlight"></div>
+                                <div class="clr"></div>
+                                <div class="outer-searchList">
+                                    <div class="searchList">
+                                        <div>
+                                            <ul>
+                                                <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                        class="icon-map"></span><span>تهران - Tehran - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                        class="icon-map"></span><span>استانبول - Istanbul - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                        class="icon-map"></span><span>آنتالیا - Antalya - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                        class="icon-map"></span><span>آلانیا - Alanya - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                        class="icon-map"></span><span>ازمیر - Izmir - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                        class="icon-map"></span><span>کیش - Kish - همه فرودگاه ها</span>
+                                                </li>
+                                                <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                        class="icon-map"></span><span>مشهد - Mashhad - همه فرودگاه
+                                                        ها</span></li>
+                                                <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                        class="icon-map"></span><span>قشم - Qeshm - همه فرودگاه
+                                                        ها</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="Basis_Date_Box">
+                            <div class="frm-other date" id="Fdate">
+                                <div class="custom-select">
+                                    <label class="label">تاریخ رفت</label>
+                                    <input class="first cal Basis_Date start_date start_date_flight" data-type="0-6"
+                                        onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                        data-cache="0" id="inp6" name="fdate" type="text" placeholder="رفت" value=""
+                                        required readonly="true" autocomplete="off">
+                                    <input value="" class="mstring_date" type="hidden" name="mstring_fdate" />
+                                    <span class="miladyy"></span>
+                                    <input type="hidden" class="fday" type="hidden" value="" />
+                                </div>
+                            </div>
+                            <div class="frm-other date z-margin" id="Tdate">
+                                <div class="custom-select">
+                                    <label class="label">تاریخ برگشت</label>
+                                    <input class="second cal Basis_Date end_date nextCalOpening end_date_flight"
+                                        data-type="0-6" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)"
+                                        data-active="0" data-cache="0" id="inp12" name="tdate" type="text"
+                                        placeholder="برگشت" value="" required readonly="true" autocomplete="off">
+                                    <input value="" class="mstring_date" type="hidden" name="mstring_tdate" />
+                                    <span class="miladyy"></span>
+                                    <input type="hidden" class="tday" type="hidden" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frm-other passinfo-field">
+                            <div class="custom-select">
+                                <label class="label">مسافران</label>
+                                <input type="text" placeholder="" readonly class="hotel-input hotel-inputH">
+                                <div class="Wrapper-CountPassenger">
+                                    <span class="count-room">اتاق:<span class="count">1</span></span>
+                                    <span class="count-adult count-adultRoom">بزرگسال:<span
+                                            class="count">1</span></span>
+                                    <span class="count-child count-childRoom">کودک:<span class="count">0</span></span>
+                                    <span class="fclass">اکونومی</span>
+                                </div>
+                                <div class="HotelPassengers">
+                                    <div class="itemlable2 Classname-box">
+                                        <label> <span class="notshow">کلاس پروازی</span> </label>
+                                        <div class="Class_box_inner">
+                                            <i class="fas fa-chevron-down"></i>
+                                            <select class="FlightClass" name="FlightClass">
+                                                <option value="Economy">Economy Class</option>
+                                                <option value="BusinessClass">Bussines Class</option>
+                                                <option value="FirstClass">First Class</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="itemlable2">
+                                        <label> <span class="notshow">تعداد اتاق</span> </label>
+                                        <ul class="button-click-room">
+                                            <li><span class="button secondary"><span class="hide">+</span></span>
+                                            </li>
+                                            <li><span class="button secondary"><span class="hide">-</span></span>
+                                            </li>
+                                            <div class="clr"></div>
+                                        </ul>
+                                        <input type="text" readonly class="cat_textbox room" maxlength="4000" value="1">
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="countRoom countRoomHT ShowRow">
+                                        <div class="contentRooms contentRoom">
+                                            <div class="numberOfRooms RoomRow">اتاق1</div>
+                                            <div class="itemlable2">
+                                                <label> <span class="notshow">بزرگسال</span> </label>
+                                                <ul class="button-click-adultRoom defaultAdNum">
+                                                    <li><span class="button secondary"
+                                                            onclick="increaseAdult(this)"><span
+                                                                class="hide">+</span></span></li>
+                                                    <li><span class="button secondary"
+                                                            onclick="decreaseAdult(this)"><span
+                                                                class="hide">-</span></span></li>
+                                                </ul>
+                                                <input type="text" readonly class="cat_textbox adultcount adult-count"
+                                                    name="_root.rooms__1.adultcount" maxlength="4000" value="1">
+                                                <div class="clr"></div>
+                                            </div>
+                                            <div class="itemlable2">
+                                                <label> <span class="notshow">کودک</span> </label>
+                                                <ul class="button-click-childRoom defaultChNum">
+                                                    <li><span class="button secondary"><span
+                                                                class="hide">+</span></span></li>
+                                                    <li><span class="button secondary"><span
+                                                                class="hide">-</span></span></li>
+                                                    <div class="clr"></div>
+                                                </ul>
+                                                <input type="text" readonly class="cat_textbox chcount child-count"
+                                                    maxlength="4000" value="0">
+                                            </div>
+                                            <div class="clr"></div>
+                                            <div class="childDropdowns section-select-age"></div>
+                                            <input type="hidden" name="_root.rooms__1.childcountandage"
+                                                class="childcountandage" value="0" />
+                                        </div>
+                                    </div>
+                                    <div class="CloseHotelPassengers">تایید</div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <section class="frm-submit-btn">
+                            <button type="submit" class="search-flight">جستجو</button>
+                        </section>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="Wrapper-CheckHotelDate">
+                    <label>من فقط برای بخشی از سفر به هتل نیاز دارم</label>
+                    <input type="checkbox" value="0" onChange="CheckExteraHoteldate(this)" name="Hotel-Date" />
+                </div>
+                <div class="Wrapper-ExteraHoteldate Basis_Date_Box">
+                    <div class="frm-other date">
+                        <div class="custom-select">
+                            <input class="first cal Basis_Date start_date cal-fill-check checkin" data-type="1-6"
+                                onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0" data-cache="0"
+                                id="inp7" name="checkin" type="text" placeholder="تاریخ ورود" value=""
+                                autocomplete="off">
+                            <span class="miladyy"></span>
+                            <input type="hidden" class="fday" type="hidden" value="" />
+                        </div>
+                    </div>
+                    <div class="frm-other date">
+                        <div class="custom-select">
+                            <input class="second cal Basis_Date end_date nextCalOpeningex cal-fill-check checkout"
+                                data-type="1-6" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                data-cache="0" id="inp13" name="checkout" type="text" placeholder="تاریخ خروج" value=""
+                                autocomplete="off">
+                            <span class="miladyy"></span>
+                            <input type="hidden" class="tday" type="hidden" value="" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="r-insurance">
+            <div class="frm-box">
+                <form action="/Tem3_Insurance_Search.bc" method="post" class="frm form-search" id="insuranceSearch"
+                    data-form="insurance" onsubmit="form_search_isSubmited(this,event)" rel='nofollow'>
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                    <div class="Wrapper-DesDep">
+                        <div class="city middle-side">
+                            <input type="text" value="" name="insurancecountry" oninput="city_search(this)"
+                                data-type='5' class="country departure" autocomplete="off" onClick="empty(this)"
+                                required placeholder="کشور" />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id from" type="hidden" name="countryid" />
+                            <div class="countryFlight"></div>
+                        </div>
+                    </div>
+                    <div class="Basis_Date_Box">
+                        <div class="frm-other date">
+                            <div class="custom-select">
+                                <label class="label">تاریخ رفت</label>
+                                <input class="first cal Basis_Date start_date"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp8" name="fdate" type="text" placeholder="رفت" value=""
+                                    required readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_fdate" />
+                                <span class="miladyy2"></span>
+                                <input type="hidden" class="fday2" type="hidden" value="" />
+                            </div>
+                        </div>
+                        <div class="frm-other date">
+                            <div class="custom-select">
+                                <label class="label">تاریخ برگشت</label>
+                                <input class="second cal Basis_Date end_date nextCalOpening"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp14" name="tdate" type="text" placeholder="برگشت" value=""
+                                    required readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_tdate" />
+                                <span class="miladyy2"></span>
+                                <input type="hidden" class="tday2" type="hidden" value="" />
+                            </div>
+                            <!-- <span class="days-night2"></span>
+                            <input type="hidden" class="days-night22" name="days-night" /> -->
+                        </div>
+                    </div>
+                    <div class="frm-other passinfo-field">
+                        <div class="custom-select">
+                            <label class="label">مسافران</label>
+                            <input type="text" placeholder="" readonly class="hotel-input hotel-inputH">
+                            <span class="count-adult count-room"><span class="count">1</span>مسافر</span>
+                            <div class="HotelPassengers">
+                                <div class="ShowRow">
+                                    <div class="itemlable2">
+                                        <label> <span class="notshow">تعداد مسافر</span> </label>
+                                        <ul class="button-click-insurancePassenger">
+                                            <li><span class="button secondary"><span class="hide">+</span></span></li>
+                                            <li><span class="button secondary"><span class="hide">-</span></span></li>
+                                            <div class="clr"></div>
+                                        </ul>
+                                        <input type="text" readonly class="cat_textbox passengercount" maxlength="4000"
+                                            value="1" name="passengercount">
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="countRoom">
+                                        <div class="Wrapper-BirthdatePassenger">
+                                            <div class="BirthdatePassenger">
+                                                <label class="label">تاریخ تولد مسافر 1</label>
+                                                <input class="datepicker" placeholder="تاریخ تولد" type="text"
+                                                    autocomplete="off" readonly="true" required>
+                                                <input value="" name="birthday" class="birthday" type="hidden">
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="CloseHotelPassengers">تایید</div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <section class="frm-submit-btn">
+                        <button type="submit" class="search-insurance">جستجو</button>
+                    </section>
+                    <div class="clr"></div>
+                </form>
+                <div class="clr"></div>
+            </div>
+            <div class="NotEnteringBirthadate">لطفا تاریخ تولد مسافر را وارد نمایید</div>
+        </div>
+        <div id="r-cip">
+            <div class="frm-box">
+                <form id="cipSearch" class="frm formflight form-search" method="post"
+                    action="/Tem3_Cip_Search.bc" data-form="cip" rel='nofollow'>
+                    <input type="hidden" value="0" name="select-age" class="select-age-value" />
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                    <div class="Wrapper-DesDep">
+                        <div class="city">
+                            <input type="text" value="" name="" oninput="city_search(this)" data-type='1'
+                                class="country FCD1 departure" autocomplete="off" placeholder="شهر یا فرودگاه"
+                                onClick="empty(this)" required />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id FCDid1" type="hidden" name="from" />
+                            <div class="countryFlight"></div>
+                            <div class="clr"></div>
+                            <div class="outer-searchList">
+                                <div class="searchList">
+                                    <div>
+                                        <ul>
+                                            <li class="category-title"><span>مسیرهای پرتردد</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1203548"><span
+                                                    class="icon-map"></span><span>تهران - Tehran - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1177676"><span
+                                                    class="icon-map"></span><span>استانبول - Istanbul - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1168092"><span
+                                                    class="icon-map"></span><span>آنتالیا - Antalya - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1197994"><span
+                                                    class="icon-map"></span><span>آلانیا - Alanya - همه فرودگاه
+                                                    ها</span></li>
+                                            <li onClick="SelectPlace(this)" data-id="1177366"><span
+                                                    class="icon-map"></span><span>ازمیر - Izmir - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1211110"><span
+                                                    class="icon-map"></span><span>کیش - Kish - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1211083"><span
+                                                    class="icon-map"></span><span>مشهد - Mashhad - همه فرودگاه ها</span>
+                                            </li>
+                                            <li onClick="SelectPlace(this)" data-id="1196639"><span
+                                                    class="icon-map"></span><span>قشم - Qeshm - همه فرودگاه ها</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="Basis_Date_Box">
+                        <div class="frm-other date" id="Fdate">
+                            <div class="custom-select">
+                                <label class="label">تاریخ</label>
+                                <input class="first cal Basis_Date start_date"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp1" name="fdate" type="text" placeholder="رفت" value=""
+                                    readonly="true" autocomplete="off">
+                                <input value="" class="mstring_date" type="hidden" name="mstring_fdate" />
+                                <span class="miladyy"></span>
+                                <input type="hidden" class="fday" type="hidden" value="" />
+                            </div>
+                        </div>
+                        <div class="frm-other date z-margin unvisible" id="Tdate">
+                            <div class="custom-select">
+                                <input class="second cal Basis_Date end_date"
+                                    onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                    data-cache="0" id="inp2" name="tdate" type="text" placeholder="برگشت" value=""
+                                    readonly="true" autocomplete="off" disabled>
+                                <input value="" class="mstring_date" type="hidden" name="mstring_tdate" />
+                                <span class="miladyy"></span>
+                                <input type="hidden" class="tday" type="hidden" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-other passinfo-field">
+                        <div class="custom-select">
+                            <label class="label">مسافران</label>
+                            <input aria-label="choose passenger" type="text" placeholder="" readonly
+                                class="hotel-input">
+                            <div class="Wrapper-CountPassenger">
+                                <span class="count-adult count-adult-flight">بزرگسال: <span
+                                        class="count">1</span></span>
+                                <span class="count-child count-child-flight">کودک: <span class="count">0</span></span>
+                            </div>
+                            <div class="HotelPassengers">
+                                <div class="ShowRow">
+                                    <div class="ad-ch">
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">بزرگسال</span> </label>
+                                            <ul class="button-click">
+                                                <li><span class="button secondary"><span class="hide">+</span></span>
+                                                </li>
+                                                <li><span class="button secondary"><span class="hide">-</span></span>
+                                                </li>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox adultcount adult-count adult"
+                                                name="adult" maxlength="4000" value="1" />
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ad-ch">
+                                        <div class="itemlable2">
+                                            <label> <span class="notshow">کودک</span> </label>
+                                            <input type="hidden" value="0" class="childcountinput" name="child">
+                                            <ul class="button-click-child">
+                                                <li><span class="button secondary"><span class="hide">+</span></span>
+                                                </li>
+                                                <li><span class="button secondary"><span class="hide">-</span></span>
+                                                </li>
+                                                <div class="clr"></div>
+                                            </ul>
+                                            <input type="text" readonly class="cat_textbox child-count" maxlength="4000"
+                                                value="0" />
+                                        </div>
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="childDropdowns section-select-age"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="CloseHotelPassengers">تایید</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="check-type">
+                    <div class="radio-btns-container"><span class="radio-selected"></span>
+                        <div class="radio-btn-container"><label class="radio-label-all"
+                                onclick="select_all(this)">همه</label><input type="radio" name="traveltype"
+                                class="radio-all" value="0" checked /></div>
+                        <div class="radio-btn-container"><label class="radio-label-internal"
+                                onclick="select_internal(this)">سفر داخلی</label><input type="radio"
+                                name="traveltype" class="radio-internal" value="1" /></div>
+                        <div class="radio-btn-container"><label class="radio-label-external"
+                                onclick="select_external(this)">سفر خارجی</label><input type="radio"
+                                name="traveltype" class="radio-external" value="2" /></div>
+                        <div class="clr"></div>
+                    </div>
+                    </div>
+                    <div class="check-type">
+                        <div class="radio-btns-container"><span class="radio-selected"></span>
+                            <div class="radio-btn-container"><label class="radio-label-all"
+                                    onclick="select_all(this)">همه</label><input type="radio" name="flighttype"
+                                    class="radio-all" value="0" checked /></div>
+                            <div class="radio-btn-container"><label class="radio-label-internal"
+                                    onclick="select_internal(this)">پرواز ورودی</label><input type="radio"
+                                    name="flighttype" class="radio-internal" value="1" /></div>
+                            <div class="radio-btn-container"><label class="radio-label-external"
+                                    onclick="select_external(this)">پرواز خروجی</label><input type="radio"
+                                    name="flighttype" class="radio-external" value="2" /></div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <section class="frm-submit-btn">
+                        <button type="submit" class="search-flight">جستجو</button>
+                    </section>
+                    <div class="clr"></div>
+                </form>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div id="r-visa">
+            <div class="frm-box">
+                <form action="/Tem3_Visa_Search.bc" method="post" id="visaSearch" class="frm form-search"
+                    data-form="visa"  rel='nofollow'>
+                    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+                    <div class="Wrapper-DesDep">
+                        <div class="city">
+                            <input type="text" value="" name="visa-country" oninput="city_search(this)" data-type='5'
+                                class="country departure" autocomplete="off" onClick="empty(this)" required
+                                placeholder="مقصد" />
+                            <span class="mini-loading"><img src="[##cms.cms.cdn##]/images/load.gif" width="20"
+                                    height="20" /></span>
+                            <input value="" class="co-id" type="hidden" name="countryid" />
+                            <div class="countryFlight"></div>
+                            <div class="clr"></div>
+                            <div class="outer-searchList">
+                                <div class="searchList">
+                                    <div>
+                                        <ul>
+                                            <li class="category-title"><span>کشورهای پر تردد</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1002227"><span>Azerbaijan</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002174"><span>Brazil</span></li>
+
+                                    <li onclick="SelectPlace(this)" data-id="1002252"><span>Cambodia</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002168"><span>Canada</span></li>
+                                    <li onclick="SelectPlace(this)" 
+                                    
+                                    data-id="1002215"><span>China</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002255"><span>Hong Kong</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002216"><span>India</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002236"><span>Iran</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002059"><span>Italy</span></li>
+
+
+
+                                    <li onclick="SelectPlace(this)" data-id="1002217"><span>Japan</span></li>
+
+                                    <li onclick="SelectPlace(this)" data-id="1002224"><span>South Korea</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002231"><span>Kyrgyzstan</span></li>
+
+
+                                    <li onclick="SelectPlace(this)" data-id="1002243"><span>Oman</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002222"><span>Pakistan</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002244"><span>Qatar</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002035"><span>Russia</span></li>
+
+
+
+                                    <li onclick="SelectPlace(this)" data-id="1002077"><span>Spain</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002232"><span>Tajikistan</span></li>
+
+                                    <li onclick="SelectPlace(this)" data-id="1002264"><span>Thailand</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002039"><span>Ukraine</span></li>
+                                    
+                                    <li onclick="SelectPlace(this)" data-id="1002225"><span>Sri Lanka</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1167330"><span>England</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002171"><span>America</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002230"><span>Uzbekistan</span></li>
+                                    <li onclick="SelectPlace(this)" data-id="1002248"><span>United Arab Emirates</span>
+                                    </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="frm-submit-btn">
+                        <button type="submit" class="search-flight">جستجو</button>
+                    </section>
+                    <div class="clr"></div>
+                </form>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>
+<script type="text/javascript" src="[##cms.cms.cdn##]/js/NewDatePickerUi.js"></script>
+<script type="text/javascript" src="[##cms.cms.cdn##]/js/NewDatePicker.js"></script>
+<script type="text/javascript" src="[##cms.cms.cdn##]/js/MainDatePicker.js"></script>
+<script type="text/javascript">
+    <basis core="call" file="Client_Basis_Calendar_js.inc" />
+</script>
+<basis core="call" file="Client_Basis_Calendar.inc" />
+<script type="text/javascript">
+
+    // start search box js
+
+    $("#onewayflight").click(function () {
+        $(this).addClass("active-r-btn");
+        $("#returnFlight").removeClass("active-r-btn");
+        $("#multiflight").removeClass("active-r-btn");
+        $("#r-flight #inp2,#r-flight #inp9,#r-flight #inp10,#r-flight #inp11,#r-flight #inp12,#r-flight #inp13").prop("disabled", true);
+        $("#r-flight #inp2,#r-flight #inp9,#r-flight #inp10,#r-flight #inp11,#r-flight #inp12,#r-flight #inp13").closest("#Tdate").addClass("disable-date");
+        $(this).closest("#r-flight").find(".amitflight").find(".second").removeClass("nextCalOpening")
+        $(this).closest("#r-flight").find(".amitflight").find(".second").removeClass("fillit")
+        $("#multi-flight").hide()
+        $(".amitflight").show();
+        if ($(window).width() <= 750) {
+            $("#flightSearch").attr('action', '/M_Oneway_Search.bc')
+        }
+    });
+    $("#returnFlight").click(function () {
+        $(this).addClass("active-r-btn");
+        $("#onewayflight").removeClass("active-r-btn");
+        $("#multiflight").removeClass("active-r-btn");
+        $("#r-flight #inp2,#r-flight #inp9,#r-flight #inp10,#r-flight #inp11,#r-flight #inp12,#r-flight #inp13").prop("disabled", false);
+        $("#r-flight #inp2,#r-flight #inp9,#r-flight #inp10,#r-flight #inp11,#r-flight #inp12,#r-flight #inp13").closest("#Tdate").removeClass("disable-date");
+        $(this).closest("#r-flight").find(".amitflight").find(".second").addClass("nextCalOpening")
+        $("#multi-flight").hide()
+        $(".amitflight").show();
+        if ($(window).width() <= 750) {
+            $("#flightSearch").attr('action', '/M_Roundtrip_Search.bc')
+        }
+    });
+    // $("#multiflight").click(function () {
+    // $(this).addClass("active-r-btn");
+    // $("#onewayflight").removeClass("active-r-btn");
+    // $("#returnFlight").removeClass("active-r-btn");
+    // $("#multi-flight").show()
+    // $(".amitflight").hide();
+    // if ($(window).width() <= 750) {
+    //     $("#multi-flight").attr('action', '/M_MultiCity_Search.bc')
+    // }
+    // });
+    $("#Flight").click(function () {
+        $(this).removeClass("inactive");
+        $("#Hotel").addClass("inactive");
+        $("#Tour").addClass("inactive");
+        $("#FlightHotel").addClass("inactive");
+        $("#Insurance").addClass("inactive");
+        $("#cip").addClass("inactive");
+        $("#visa").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Hotel").find("img").attr("src", "images/hotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Tour").find("img").attr("src", "images/tour-ricon.png");
+        $(this).closest(".rezervation-items").find("#FlightHotel").find("img").attr("src", "images/flighthotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Insurance").find("img").attr("src", "images/insurance-ricon.png");
+        $(this).closest(".rezervation-items").find("#cip").find("img").attr("src", "images/cip-ricon.png");
+        $(this).closest(".rezervation-items").find("#visa").find("img").attr("src", "images/visa-ricon.png");
+        $(this).find("img").attr("src", "images/flight-ricon-active.png");
+        $("#r-flight").show();
+        $("#r-hotel").hide();
+        $("#r-tour").hide();
+        $("#r-flighthotel").hide();
+        $("#r-insurance").hide();
+        $("#r-cip").hide();
+        $("#r-visa").hide();
+    });
+    $("#Hotel").click(function () {
+        $(this).removeClass("inactive");
+        $("#Flight").addClass("inactive");
+        $("#Tour").addClass("inactive");
+        $("#FlightHotel").addClass("inactive");
+        $("#Insurance").addClass("inactive");
+        $("#cip").addClass("inactive");
+        $("#visa").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Flight").find("img").attr("src", "images/flight-ricon.png");
+        $(this).closest(".rezervation-items").find("#Tour").find("img").attr("src", "images/tour-ricon.png");
+        $(this).closest(".rezervation-items").find("#FlightHotel").find("img").attr("src", "images/flighthotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Insurance").find("img").attr("src", "images/insurance-ricon.png");
+        $(this).closest(".rezervation-items").find("#cip").find("img").attr("src", "images/cip-ricon.png");
+        $(this).closest(".rezervation-items").find("#visa").find("img").attr("src", "images/visa-ricon.png");
+        $(this).find("img").attr("src", "images/hotel-ricon-active.png");
+        $("#r-hotel").show();
+        $("#r-flight").hide();
+        $("#r-tour").hide();
+        $("#r-flighthotel").hide();
+        $("#r-insurance").hide();
+        $("#r-cip").hide();
+        $("#r-visa").hide();
+    });
+    $("#Tour").click(function () {
+        $(this).removeClass("inactive");
+        $("#Flight").addClass("inactive");
+        $("#Hotel").addClass("inactive");
+        $("#FlightHotel").addClass("inactive");
+        $("#Insurance").addClass("inactive");
+        $("#cip").addClass("inactive");
+        $("#visa").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Flight").find("img").attr("src", "images/flight-ricon.png");
+        $(this).closest(".rezervation-items").find("#Hotel").find("img").attr("src", "images/hotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#FlightHotel").find("img").attr("src", "images/flighthotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Insurance").find("img").attr("src", "images/insurance-ricon.png");
+        $(this).closest(".rezervation-items").find("#cip").find("img").attr("src", "images/cip-ricon.png");
+        $(this).closest(".rezervation-items").find("#visa").find("img").attr("src", "images/visa-ricon.png");
+        $(this).find("img").attr("src", "images/tour-ricon-active.png");
+        $("#r-tour").show();
+        $("#r-flight").hide();
+        $("#r-hotel").hide();
+        $("#r-flighthotel").hide();
+        $("#r-insurance").hide();
+        $("#r-cip").hide();
+        $("#r-visa").hide();
+    });
+    $("#FlightHotel").click(function () {
+        $(this).removeClass("inactive");
+        $("#Flight").addClass("inactive");
+        $("#Hotel").addClass("inactive");
+        $("#Tour").addClass("inactive");
+        $("#Insurance").addClass("inactive");
+        $("#cip").addClass("inactive");
+        $("#visa").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Flight").find("img").attr("src", "images/flight-ricon.png");
+        $(this).closest(".rezervation-items").find("#Hotel").find("img").attr("src", "images/hotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Tour").find("img").attr("src", "images/tour-ricon.png");
+        $(this).closest(".rezervation-items").find("#Insurance").find("img").attr("src", "images/insurance-ricon.png");
+        $(this).closest(".rezervation-items").find("#cip").find("img").attr("src", "images/cip-ricon.png");
+        $(this).closest(".rezervation-items").find("#visa").find("img").attr("src", "images/visa-ricon.png");
+        $(this).find("img").attr("src", "images/flighthotel-ricon-active.png");
+        $("#r-flighthotel").show();
+        $("#r-flight").hide();
+        $("#r-hotel").hide();
+        $("#r-tour").hide();
+        $("#r-insurance").hide();
+        $("#r-cip").hide();
+        $("#r-visa").hide();
+    });
+    $("#Insurance").click(function () {
+        $(this).removeClass("inactive");
+        $("#Flight").addClass("inactive");
+        $("#Hotel").addClass("inactive");
+        $("#FlightHotel").addClass("inactive");
+        $("#Tour").addClass("inactive");
+        $("#cip").addClass("inactive");
+        $("#visa").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Flight").find("img").attr("src", "images/flight-ricon.png");
+        $(this).closest(".rezervation-items").find("#Hotel").find("img").attr("src", "images/hotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#FlightHotel").find("img").attr("src", "images/flighthotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Tour").find("img").attr("src", "images/tour-ricon.png");
+        $(this).closest(".rezervation-items").find("#cip").find("img").attr("src", "images/cip-ricon.png");
+        $(this).closest(".rezervation-items").find("#visa").find("img").attr("src", "images/visa-ricon.png");
+        $(this).find("img").attr("src", "images/insurance-ricon-active.png");
+        $("#r-insurance").show();
+        $("#r-flight").hide();
+        $("#r-hotel").hide();
+        $("#r-flighthotel").hide();
+        $("#r-tour").hide();
+        $("#r-cip").hide();
+        $("#r-visa").hide();
+    });
+    $("#cip").click(function () {
+        $(this).removeClass("inactive");
+        $("#Flight").addClass("inactive");
+        $("#Hotel").addClass("inactive");
+        $("#FlightHotel").addClass("inactive");
+        $("#Tour").addClass("inactive");
+        $("#Insurance").addClass("inactive");
+        $("#visa").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Flight").find("img").attr("src", "images/flight-ricon.png");
+        $(this).closest(".rezervation-items").find("#Hotel").find("img").attr("src", "images/hotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#FlightHotel").find("img").attr("src", "images/flighthotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Tour").find("img").attr("src", "images/tour-ricon.png");
+        $(this).closest(".rezervation-items").find("#Insurance").find("img").attr("src", "images/insurance-ricon.png");
+        $(this).closest(".rezervation-items").find("#visa").find("img").attr("src", "images/visa-ricon.png");
+        $(this).find("img").attr("src", "images/cip-ricon-active.png");
+        $("#r-cip").show();
+        $("#r-flight").hide();
+        $("#r-hotel").hide();
+        $("#r-flighthotel").hide();
+        $("#r-tour").hide();
+        $("#r-insurance").hide();
+        $("#r-visa").hide();
+    });
+    $("#visa").click(function () {
+        $(this).removeClass("inactive");
+        $("#Flight").addClass("inactive");
+        $("#Hotel").addClass("inactive");
+        $("#FlightHotel").addClass("inactive");
+        $("#Tour").addClass("inactive");
+        $("#cip").addClass("inactive");
+        $("#Insurance").addClass("inactive");
+        $(this).closest(".rezervation-items").find("#Flight").find("img").attr("src", "images/flight-ricon.png");
+        $(this).closest(".rezervation-items").find("#Hotel").find("img").attr("src", "images/hotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#FlightHotel").find("img").attr("src", "images/flighthotel-ricon.png");
+        $(this).closest(".rezervation-items").find("#Tour").find("img").attr("src", "images/tour-ricon.png");
+        $(this).closest(".rezervation-items").find("#cip").find("img").attr("src", "images/cip-ricon.png");
+        $(this).closest(".rezervation-items").find("#Insurance").find("img").attr("src", "images/insurance-ricon.png");
+        $(this).find("img").attr("src", "images/visa-ricon-active.png");
+        $("#r-visa").show();
+        $("#r-flight").hide();
+        $("#r-hotel").hide();
+        $("#r-flighthotel").hide();
+        $("#r-tour").hide();
+        $("#r-cip").hide();
+        $("#r-insurance").hide();
+    });
+    $(".fa-exchange").each(function (index, element) {
+        $(this).click(function () {
+            i = $(this).attr("data-index")
+            if (i == 0) {
+                $(this).attr("data-index", "1")
+                var dep = $(this).closest(".Wrapper-DesDep").find(".FCD1").val()
+                var des = $(this).closest(".Wrapper-DesDep").find(".FCD2").val()
+                var depid = $(this).closest(".Wrapper-DesDep").find(".FCDid1").val()
+                var desid = $(this).closest(".Wrapper-DesDep").find(".FCDid2").val()
+                $(this).closest(".Wrapper-DesDep").find(".FCD1").val(des)
+                $(this).closest(".Wrapper-DesDep").find(".FCD2").val(dep)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid1").val(desid)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid2").val(depid)
+            } else {
+                $(this).attr("data-index", "0")
+                var dep = $(this).closest(".Wrapper-DesDep").find(".FCD1").val()
+                var des = $(this).closest(".Wrapper-DesDep").find(".FCD2").val()
+                var depid = $(this).closest(".Wrapper-DesDep").find(".FCDid1").val()
+                var desid = $(this).closest(".Wrapper-DesDep").find(".FCDid2").val()
+                $(this).closest(".Wrapper-DesDep").find(".FCD1").val(des)
+                $(this).closest(".Wrapper-DesDep").find(".FCD2").val(dep)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid1").val(desid)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid2").val(depid)
+            }
+        })
+    })
+    // for history :
+    // $(document).ready(function () {
+    //     $(".frm").each(function () {
+    //         $(this).submit(function (event) {
+    //             let calFillCheck = $(this).find(".cal");
+    //             if (!calFillCheck.hasClass("cal-fill-check")) {
+    //                 $(this).find(".cal").each(function () {
+    //                     let chdate = $(this).val().length;
+    //                     if (chdate < 1) {
+    //                         if (!$(this).prop("disabled")) {
+    //                             event.preventDefault();
+    //                             $(this).addClass("fillit")
+    //                         }
+
+    //                     }
+    //                 });
+    //             }
+
+    //         })
+    //     });
+    // });
+
+    $('.hotel-input, .count-room, .count-adultRoom, .count-childRoom, .fclass, .hotel-input, .count-adult-flight, .count-child-flight').click(function (e) {
+        $(this).parents('.passinfo-field').find('.HotelPassengers').slideToggle();
+        e.preventDefault();
+        return false;
+    });
+    $('.CloseHotelPassengers').click(function (e) {
+        $(this).parents('.passinfo-field').find('.HotelPassengers').slideUp();
+        e.preventDefault();
+        return false;
+    });
+    
+    $("#cipSearch").submit(function (event) {
+            var select_age = "";
+            $(this).find(".createChildDropdown").each(function (index, element) {
+                select_age = select_age + $(this).find("select").val() + ',' ;
+            });
+            if(select_age !== ''){
+                $(this).find(".select-age-value").val(select_age)
+                var val_1 = $(this).find(".select-age-value").val()
+                var val_2 = val_1.replace(/,(?=[^,]*$)/, '')
+                $(this).find(".select-age-value").val(val_2)
+            }else {
+                  $(this).find(".select-age-value").val(0)
+              }
+
+                    var ad = parseInt($(this).find(".adultcount").val());
+                    var inf = 0
+                    var valueAdded = 1;
+                    var ch = 0;
+                    var sum = 0;
+                    $(this).find(".childDropdowns select").each(function (index, element) {
+                        var age = parseInt($(this).val())
+                        ch += valueAdded;
+                        if (age < 2) {
+                            inf += valueAdded;
+                        }
+                    });
+                    sum = parseInt(ad + ch)
+                    if (inf > ad || sum > 10) {
+                        event.preventDefault();
+                        $(".alertsub").show()
+
+                    }
+    })
+    // for history :
+    // $(".formflight").submit(function (event) {
+    //     var select_age = "";
+    //         $(this).find(".createChildDropdown").each(function (index, element) {
+    //             select_age = select_age + $(this).find("select").val() + ',' ;
+    //         });
+    //         if(select_age !== ''){
+    //             $(this).find(".select-age-value").val(select_age)
+    //             var val_1 = $(this).find(".select-age-value").val()
+    //             var val_2 = val_1.replace(/,(?=[^,]*$)/, '')
+    //             $(this).find(".select-age-value").val(val_2)
+    //         }else {
+    //               $(this).find(".select-age-value").val(0)
+    //           }
+
+    //                 var ad = parseInt($(this).find(".adultcount").val());
+    //                 var inf = 0
+    //                 var valueAdded = 1;
+    //                 var ch = 0;
+    //                 var sum = 0;
+    //                 $(this).find(".childDropdowns select").each(function (index, element) {
+    //                     var age = parseInt($(this).val())
+    //                     ch += valueAdded;
+    //                     if (age < 2) {
+    //                         inf += valueAdded;
+    //                     }
+    //                 });
+    //                 sum = parseInt(ad + ch)
+    //                 if (inf > ad || sum > 10) {
+    //                     event.preventDefault();
+    //                     $(".alertsub").show()
+
+    //                 }
+    //  })
+    $(".basiscalendar").each(function (index, element) {
+        $(this).keydown(function (e) {
+            e.preventDefault();
+        });
+    });
+
+
+    $('.country').each(function () {
+        $(this).on('keyup', function (e) {
+            $(this).closest(".city").find(".outer-searchList").slideUp()
+            $(this).closest(".city").find(".searchList").slideUp()
+        });
+        $(this).on('blur', function () {
+            if ($(this).closest(".city").find(".countryFlight").text().length > 0) {
+                if (hoverelse == 0) {
+                    var defresult = $(this).closest(".city").find(".countryFlight")
+                        .children(".selectCountry:first").find(".txtcountry")
+                        .text();
+                    var spl = defresult.split(" ");
+                    var defresultid = $(this).closest(".city").find(
+                        ".countryFlight").children(".selectCountry:first").find(
+                            ".countryid").val();
+                    $(this).closest(".city").find(".country").val(defresult);
+                    $(this).closest(".city").find(".co-id").val(defresultid);
+                    $(this).closest(".city").find(".countryFlight").empty();
+                }
+
+
+
+            } else {
+
+                $(this).closest(".city").find(".mini-loading").css("display",
+                    "none")
+                $(this).closest(".city").find(".country").val('');
+                $(this).closest(".city").find(".co-id").val('');
+            }
+        });
+
+    });
+    function city_search(a) {
+        if ($(a).attr('data-type') == 4) {
+            $(a).val('')
+            $(a).closest(".city").find(".co-id").val('')
+            if ($(a).attr('data-active') == 0) {
+                $(a).closest(".city").find(".mini-loading").show();
+                $.ajax({
+                    url: '/Client_City_Search.bc',
+                    type: 'get',
+                    data: {
+                        type: $(a).attr('data-type'),
+                        lid: "1"
+                    },
+                    success: function (result) {
+                        $(a).attr('data-active', "1")
+                        $(a).closest(".city").find(".mini-loading").hide();
+                        $(a).closest(".city").find(".countryFlight").empty().html(result);
+                        $(a).closest(".city").find(".countryFlight").slideDown()
+                    }
+                });
+            } else {
+                $(a).closest(".city").find(".countryFlight").slideDown()
+            }
+
+        } else {
+            if (a.which !== 0 && !a.ctrlKey && !a.metaKey && !a.altKey) {
+                upper_case = $(a).val().substr(0, 1).toUpperCase() + $(a).val().substr(1).toLowerCase();
+                $(a).val(upper_case)
+
+                if ($(a).val().length > 2) {
+                    $(a).closest(".city").find(".mini-loading").show();
+
+                    $.ajax({
+                        url: '/Client_City_Search.bc',
+                        type: 'get',
+                        data: {
+                            term: $(a).val(),
+                            type: $(a).attr('data-type')
+                        },
+                        success: function (result) {
+                            $(a).closest(".city").find(".mini-loading").hide();
+                            $(a).closest(".city").find(".countryFlight").empty().html(result)
+                        }
+                    });
+                }
+                else
+                    $(a).closest(".city").find(".countryFlight").empty()
+            }
+        }
+    }
+    /*start js searchList*/
+    /*New code added in empty() function : $(a).closest(".city").find(".searchList").slideDown()*/
+    function SelectPlace(element) {
+        var idSelected = $(element).attr("data-id")
+        var textSelected = $(element).find("span").text()
+        $(element).closest(".city").find(".country").val(textSelected)
+        $(element).closest(".city").find(".co-id").val(idSelected)
+        $(element).closest(".city").find(".outer-searchList").slideUp()
+        $(element).closest(".city").find(".searchList").slideUp()
+    }
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('.searchList,.country').length) {
+            $(".outer-searchList").slideUp();
+            $(".searchList").slideUp();
+        }
+    })
+    /*end js searchList*/
+
+    function empty(a) {
+        $(a).val('')
+        $(a).closest(".city").find(".co-id").val('')
+        $(a).closest(".city").find(".outer-searchList").slideDown()
+        $(a).closest(".city").find(".searchList").slideDown()
+        $(a).closest(".city").siblings(".city").find(".outer-searchList").slideUp()
+        $(a).closest(".city").siblings(".city").find(".searchList").slideUp()
+    }
+    $(".button-click-room .button").on("click", function () {
+        var button = $(this);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        var total_value = "";
+        if (newVal >= 5) return;
+        if (newVal < 1) return;
+        button.closest("ul").next().val(newVal);
+        if (oldVal < newVal) {
+            var room = newVal;
+            button.closest("form").find('.countRoom').empty()
+            for (i = 1; i <= room; i++) {
+                button.closest("form").find('.countRoom').append(
+                    '<div class="contentRooms contentRoom"><div class="numberOfRooms RoomRow">اتاق' + i +
+                    '</div><div class="itemlable2"><label> <span class="notshow">بزرگسال</span> </label><ul class="button-click"><li><span class="button secondary" onclick="increaseAdult(this)"><span class="hide">+</span></span></li><li><span class="button secondary"  onclick="decreaseAdult(this)"><span class="hide">-</span></span></li></ul><input type="text" readonly class="cat_textbox adultcount adult-count" name="_root.rooms__' +
+                    i +
+                    '.adultcount" maxlength="4000" value="1"> <div class="clr"></div></div><div class="itemlable2"> <label> <span class="notshow">کودک</span> </label><ul class="button-click-childRoom"><li><span class="button secondary" onclick="increaseChild(this)"><span class="hide">+</span></span></li><li><span class="button secondary" onclick="decreaseChild(this)"><span class="hide">-</span></span></li><div class="clr"></div></ul><input type="text" readonly class="cat_textbox chcount child-count" maxlength="4000" value="0"></div><div class="clr"></div><div class="childDropdowns section-select-age"></div><input type="hidden" name="_root.rooms__' +
+                    i + '.childcountandage" class="childcountandage" /></div></div>')
+            }
+        } else if (oldVal > newVal) {
+            destroyRoomDropdown(button.closest("form").find('.countRoom'), newVal);
+        }
+        total_value = total_value.substring(0, total_value.length - 2);
+        button.closest("form").find(".count-room").find(".count").text(newVal)
+        button.closest("form").find(".count-adultRoom").find(".count").text(newVal)
+        button.closest("form").find(".count-childRoom").find(".count").text('0')
+        button.closest("form").find(".hotel-inputH").attr('placeholder', '')
+    });
+    var destroyRoomDropdown = function ($el, i) {
+        if (i < 1) return;
+        $el.find('div.contentRooms').get(i).remove();
+    };
+    function increaseAdult(a) {
+        var button = $(a);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        if (newVal >= 10) return;
+        button.closest("ul").next().val(newVal);
+        SumAdult(a)
+    }
+    function decreaseAdult(a) {
+        var button = $(a);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        if (newVal < 1) return;
+        button.closest("ul").next().val(newVal);
+        SumAdult(a)
+    }
+
+    function SumAdult(a) {
+        var ad = 0;
+        var sum = 0;
+        $(a).closest("form").find(".countRoomHT").find(".contentRooms").each(function () {
+            var adultcount = parseInt($(this).find(".adultcount").val())
+            ad += adultcount;
+        })
+        sum = parseInt(ad)
+        $(a).closest("form").find(".count-adultRoom").find(".count").text(sum)
+    }
+    function increaseChild(a) {
+        console.log("koodak")
+        var button = $(a);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        var total_value = "";
+        if (newVal >= 5) return;
+        button.closest("ul").next().val(newVal);
+        if (oldVal < newVal) {
+            var childCount = newVal;
+            button.closest(".contentRooms").find('.childDropdowns').empty()
+            for (i = 1; i <= childCount; i++) {
+                button.closest(".contentRooms").find('.childDropdowns').append('<div class="age-selection createChildDropdown"><div class="label">سن کودک ' + i + '</div><select class="select-age"><option value="1">تا 1 سال</option><option value="2">1 تا 2</option><option value="3">2 تا 3</option><option value="4">3 تا 4</option><option value="5">4 تا 5</option><option value="6">5 تا 6</option><option value="7">6 تا7</option><option value="8">7 تا 8</option><option value="9">8 تا 9</option><option value="10">9 تا 10</option><option value="11">10 تا 11</option><option value="12">11 تا 12</option></select><div class="clr"></div></div>');
+            }
+        }
+        total_value = total_value.substring(0, total_value.length - 2);
+        SumChild(a)
+    }
+    function decreaseChild(a) {
+        var button = $(a);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        var total_value = "";
+        button.closest("ul").next().val(newVal);
+        if (oldVal > newVal) {
+            var childCount = newVal;
+            destroyChildDropdownRoom(button.closest(".contentRooms").find('.childDropdowns'),
+                newVal);
+        }
+        total_value = total_value.substring(0, total_value.length - 2);
+        SumChild(a)
+    }
+    function SumChild(a) {
+        var ch = 0;
+        var sum = 0;
+        $(a).closest("form").find(".countRoomHT").find(".contentRooms").each(function () {
+            var chcount = parseInt($(this).find(".chcount").val())
+            ch += chcount;
+        })
+        sum = parseInt(ch)
+        $(a).closest("form").find(".count-childRoom").find(".count").text(sum)
+    }
+
+    //$(".button-click-childRoom .button").on("click", function () {
+    $(".button-click-childRoom .button").click(function () {
+        console.log("کودک")
+        var button = $(this);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        var total_value = "";
+        if (newVal >= 5) return;
+        button.closest("ul").next().val(newVal);
+        $(".count-childRoom").find(".count").text(newVal)
+        if (oldVal < newVal) {
+            var childCount = newVal;
+            button.closest("form").find('.childDropdowns').empty()
+            for (i = 1; i <= childCount; i++) {
+                button.closest("form").find('.childDropdowns').append(
+                    '<div class="age-selection createChildDropdown"><div class="label">سن کودک ' + i +
+                    '</div><select class="select-age"><option value="1">تا 1 سال</option><option value="2">1 تا 2</option><option value="3">2 تا 3</option><option value="4">3 تا 4</option><option value="5">4 تا 5</option><option value="6">5 تا 6</option><option value="7">6 تا7</option><option value="8">7 تا 8</option><option value="9">8 تا 9</option><option value="10">9 تا 10</option><option value="11">10 تا 11</option><option value="12">11 تا 12</option></select><div class="clr"></div></div>'
+                );
+            }
+
+        } else if (oldVal > newVal) {
+            destroyChildDropdownRoom(button.closest("form").find('.childDropdowns'),
+                newVal);
+        }
+        total_value = total_value.substring(0, total_value.length - 2);
+    });
+    var destroyChildDropdownRoom = function ($el, i) {
+        $el.find('div.age-selection').get(i).remove();
+    };
+    $(".defaultChNum .button").on("click", function () {
+        var button = $(this);
+        var oldValDef = parseInt(button.closest("ul").next().val());
+        button.closest(".city").children(".count-childRoom").find(".count").text(oldValDef);
+    });
+    $(".button-click .button").on("click", function () {
+        var button = $(this);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        if (newVal >= 10) return;
+        if (newVal < 1) return;
+        button.closest("ul").next().val(newVal);
+        $(".cat_textbox").each(function () {
+            var cat = $(this).next('span').text();
+        });
+        $(".hotel-inputF").attr('placeholder', '')
+        $(".count-adult-flight").find(".count").text(newVal)
+    });
+    $(".defaultAdNum .button").on("click", function () {
+        var button = $(this);
+        var oldValDef = parseInt(button.closest("ul").next().val());
+        button.closest(".city").children(".count-adultRoom").find(".count").text(oldValDef);
+    });
+    var createChildDropdown = function (i) {
+        var $childDropdown = $('<div />', {
+            'class': 'createChildDropdown'
+        });
+        $childDropdown.append($('<label class="label"/>', {
+            'for': 'childDropdown-' + i
+        }).text('سن کودک ' + i));
+        $childDropdown.append($('<select />'));
+        var options = ['تا 1 سال', '1 تا 2 سال ', '2 تا 3 سال', '3 تا 4 سال ', '4 تا 5 سال',
+            '5 تا 6 سال', '6 تا 7 سال', '7 تا 8 سال', '8 تا 9 سال', '9 تا 10 سال',
+            '10 تا 11 سال', '11 تا 12 سال'
+        ];
+        options.forEach(function (option, index) {
+            $childDropdown.find('select').append($('<option />').text(option).attr(
+                'value', index + 1));
+        });
+        return $childDropdown;
+    };
+    var destroyChildDropdown = function ($el, i) {
+        $el.find('div.createChildDropdown').get(i).remove();
+    };
+    $(".button-click-child .button").on("click", function () {
+        var button = $(this);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        var total_value = "";
+        if (newVal >= 5) return;
+        button.closest("ul").next().val(newVal);
+        button.closest("ul").prev().val(newVal + ',');
+        button.closest("form").find(".cat_textbox").each(function () {
+            var cat = $(this).next('span').text();
+            total_value += cat + ": " + $(this).val() + "، ";
+        });
+        if (oldVal < newVal) {
+            button.closest("form").find('.childDropdowns').append(createChildDropdown(
+                newVal));
+        } else if (oldVal > newVal) {
+            destroyChildDropdown(button.closest("form").find('.childDropdowns'), newVal);
+        }
+        total_value = total_value.substring(0, total_value.length - 2);
+        $(".count-child-flight").text('کودک: ' + newVal)
+    });
+    $(".search-flight").click(function () {
+
+        s = $(this).closest("form").find(".childcountinput").val();
+        if (s == "0,") {
+            $(this).closest("form").find(".childcountinput").val(0)
+        }
+        $(this).closest("form").find(".contentRooms").each(function (index, element) {
+
+            var childCount = $(this).find(".chcount").val();
+
+            var childAge = "";
+            $(this).find(".select-age").each(function (index, element) {
+                childAge = childAge + ',' + $(this).val();
+            });
+
+            $(this).find(".childcountandage").val(childCount + childAge);
+        });
+    });
+    function roomCount(a) {
+        var room = $(a).val();
+        $(a).closest("form").find(".infoRooms").empty()
+        for (i = 1; i <= room; i++) {
+            $(a).closest("form").find(".infoRooms").append(
+                '<div class="contentRooms counRoom2 contentRoom"><div class="numberOfRooms RoomRow">اتاق' + i +
+                '</div><div class="passengerInfo"><div class="label"><span>بزرگسال</span><span class="age-range">بالای 12 سال</span></div><div class="textbox"><select  name="_root.rooms__' +
+                i +
+                '.adultcount" class="adultcountHotel"><option value="1">1 بزرگسال</option><option value="2">2 بزرگسال</option><option value="3">3 بزرگسال</option><option value="4">4 بزرگسال</option><option value="5">5 بزرگسال</option><option value="6">6 بزرگسال</option><option value="7">7 بزرگسال</option><option value="8">8 بزرگسال</option><option value="9">9 بزرگسال</option></select></div></div><div class="passengerInfo"><div class="label"><span>کودک</span><span class="age-range">1 تا 12 سال</span></div><div class="textbox"><select name="child" onchange="childCount2(this)" class="childCount">       <option value="0">بدون کودک</option><option value="1">1 کودک</option><option value="2">2 کودک</option><option value="3">3 کودک</option><option value="4">4 کودک</option><option value="5">5 کودک</option><option value="6">6 کودک</option></select></div></div><div class="selectAge"></div><input type="hidden"  name="_root.rooms__' +
+                i + '.childcountandage" class="childcountandage"/></div>')
+        }
+    }
+
+    function childCount2(a) {
+        var age = $(a).val();
+        $(a).closest(".contentRooms").find(".selectAge").empty()
+        for (var j = 1; j <= age; j++) {
+            $(a).closest(".contentRooms").find(".selectAge").append(
+                '<div class="createChildDropdown"><div class="label">سن کودک ' + j +
+                '</div><select class="select-age"><option value="1">تا 1 سال</option><option value="2">1 تا 2</option><option value="3">2 تا 3</option><option value="4">3 تا 4</option><option value="5">4 تا 5</option><option value="6">5 تا 6</option><option value="7">6 تا7</option><option value="8">7 تا 8</option><option value="9">8 تا 9</option><option value="10">9 تا 10</option><option value="11">10 تا 11</option><option value="12">11 تا 12</option></select><div class="clr"></div></div>'
+            );
+        }
+    }
+    $(".Classname-box select").each(function (index, element) {
+        $(this).change(function () {
+            var flightclass = $(this).val()
+            var text
+            switch (flightclass) {
+                case 'Economy':
+                    text = "اکونومی";
+                    break;
+                case 'BusinessClass':
+                    text = "بیزینس";
+                    break;
+                case 'FirstClass':
+                    text = "فرست";
+                    break;
+            }
+            $(this).closest(".custom-select").find(".Wrapper-CountPassenger").find(".fclass").text(text)
+        })
+    })
+
+    function openNextCal(e) {
+        let activeBtn = $('.rezervation-items > li:not(.inactive)').attr('data-id');
+        if (activeBtn == 'r-flighthotel') {
+            if ($('.Wrapper-ExteraHoteldate').is(':visible')) {
+                if ($('.Wrapper-ExteraHoteldate').find(".checkin").val() != '') {
+                    let returnDate = $('.Wrapper-ExteraHoteldate').find('.nextCalOpeningex').val();
+                    if (returnDate == '') {
+                        $('.Wrapper-ExteraHoteldate').find('.nextCalOpeningex').trigger("onclick");
+                    }
+                }
+                else {
+                    let returnDate = $('#' + activeBtn).find('.nextCalOpening').val();
+                    if (returnDate == '') {
+                        $('#' + activeBtn).find('.nextCalOpening').trigger("onclick");
+                    }
+                }
+
+            } else {
+                let returnDate = $('#' + activeBtn).find('.nextCalOpening').val();
+                if (returnDate == '') {
+                    $('#' + activeBtn).find('.nextCalOpening').trigger("onclick");
+                }
+            }
+        } else if (activeBtn == 'r-flight') {
+            if ($('#multi-flight').is(':visible')) {
+                let returnDate = $('#multi-flight').find('.nextCalOpeningmulti').val();
+                if (returnDate == '') {
+                    $('#multi-flight').find('.nextCalOpeningmulti').trigger("onclick");
+                }
+            } else {
+                let returnDate = $('#' + activeBtn).find('.nextCalOpening').val();
+                if (returnDate == '') {
+                    $('#' + activeBtn).find('.nextCalOpening').trigger("onclick");
+                }
+            }
+        } else {
+            let returnDate = $('#' + activeBtn).find('.nextCalOpening').val();
+            if (returnDate == '') {
+                $('#' + activeBtn).find('.nextCalOpening').trigger("onclick");
+            }
+
+        }
+    };
+
+    /*start js flighthotel*/
+    function CheckExteraHoteldate(elme) {
+        var isChecked = $(elme).prop("checked")
+        if (isChecked == true) {
+            $(elme).val(1)
+            $(".Wrapper-ExteraHoteldate").show()
+            $(".checkout").attr('required', true)
+            $(".checkin").attr('required', true)
+        } else if (isChecked == false) {
+            $(elme).val(0)
+            $(".Wrapper-ExteraHoteldate").hide()
+            $(".checkout").attr('required', false)
+            $(".checkin").attr('required', false)
+        }
+    }
+    /*end js flighthotel*/
+    /*start js insurance*/
+
+    $(".search-insurance").click(function () {
+        $(".datepicker").each(function () {
+            var myDate = $(this).val()
+            var dateSplitted = myDate.split('-')
+            var dateSplitted1 = dateSplitted[0]
+            if (dateSplitted1 < 1900) {
+                if (dateSplitted1.indexOf('13') > -1) {
+                    jD = PersianDate.PersianToGregorian(dateSplitted[0], dateSplitted[1], dateSplitted[2]);
+                    jResult = jD[0] + "-" + jD[1] + "-" + jD[2];
+                    console.log(jResult)
+                    $(this).val(jResult)
+                } else if (dateSplitted1.indexOf('14') > -1) {
+                    jD = PersianDate.PersianToGregorian(dateSplitted[0], dateSplitted[1], dateSplitted[2]);
+                    jResult = jD[0] + "-" + jD[1] + "-" + jD[2];
+                    console.log(jResult)
+                    $(this).val(jResult)
+                } else if (dateSplitted1.indexOf('12') > -1) {
+                    jD = PersianDate.PersianToGregorian(dateSplitted[0], dateSplitted[1], dateSplitted[2]);
+                    jResult = jD[0] + "-" + jD[1] + "-" + jD[2];
+                    console.log(jResult)
+                    $(this).val(jResult)
+                }
+            }
+        })
+    });
+
+    /*start new datepicker*/
+    function getPassportExpiryDate() {
+        return new Date();
+    }
+    var regional = "",
+        isJalali = false;
+    if (regional == "fa") {
+        isJalali = true;
+    }
+    $('.datepicker').focus(function (e) {
+        FDatepicker(this, {
+            single: true,
+            isJalali: isJalali,
+            changeMonth: true,
+            changeYear: true,
+            minDate: "-100y",
+            maxDate: $("#AdaultMaxDate").val(),
+            yearRangeJalali: "1250:1500",
+            yearRangeGregorian: "1900:2030",
+            numberOfMonths: 1,
+        });
+        var innerContent = $('.nice-select > ul');
+        var option_height = $('.nice-select .option').height();
+        var option_count = $('.nice-select .option').length;
+        var Ul_height = parseInt(option_height) * parseInt(option_count)
+        innerContent.scrollTop(Ul_height / 2);
+    });
+    PersianDate = {
+        g_days_in_month: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        j_days_in_month: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29]
+    };
+    PersianDate.PersianToGregorian = function (j_y, j_m, j_d) {
+        j_y = parseInt(j_y);
+        j_m = parseInt(j_m);
+        j_d = parseInt(j_d);
+        var jy = j_y - 979;
+        var jm = j_m - 1;
+        var jd = j_d - 1;
+
+        var j_day_no = 365 * jy + parseInt(jy / 33) * 8 + parseInt((jy % 33 + 3) / 4);
+        for (var i = 0; i < jm; ++i) j_day_no += PersianDate.j_days_in_month[i];
+        j_day_no += jd;
+        var g_day_no = j_day_no + 79;
+        var gy = 1600 + 400 * parseInt(g_day_no / 146097); /* 146097 = 365*400 + 400/4 - 400/100 + 400/400 */
+        g_day_no = g_day_no % 146097;
+        var leap = true;
+        if (g_day_no >= 36525) /* 36525 = 365*100 + 100/4 */ {
+            g_day_no--;
+            gy += 100 * parseInt(g_day_no / 36524); /* 36524 = 365*100 + 100/4 - 100/100 */
+            g_day_no = g_day_no % 36524;
+
+            if (g_day_no >= 365) g_day_no++;
+            else leap = false;
+        }
+
+        gy += 4 * parseInt(g_day_no / 1461); /* 1461 = 365*4 + 4/4 */
+        g_day_no %= 1461;
+        if (g_day_no >= 366) {
+            leap = false;
+            g_day_no--;
+            gy += parseInt(g_day_no / 365);
+            g_day_no = g_day_no % 365;
+        }
+        for (var i = 0; g_day_no >= PersianDate.g_days_in_month[i] + (i == 1 && leap); i++)
+            g_day_no -= PersianDate.g_days_in_month[i] + (i == 1 && leap);
+        var gm = i + 1;
+        var gd = g_day_no + 1;
+        gm = gm < 10 ? "0" + gm : gm;
+        gd = gd < 10 ? "0" + gd : gd;
+        return [gy, gm, gd];
+    }
+    /*end new datepicker*/
+
+    $(".button-click-insurancePassenger .button").on("click", function () {
+        var button = $(this);
+        var oldVal = parseInt(button.closest("ul").next().val());
+        var newVal = (button.text() == "+") ? oldVal + 1 : (oldVal > 0) ? oldVal - 1 : 0;
+        var total_value = "";
+        if (newVal >= 9) return;
+        if (newVal < 1) return;
+        button.closest("ul").next().val(newVal);
+        if (oldVal < newVal) {
+            var room = newVal;
+            button.closest("form").find('.countRoom').append(createInsPassDropdown(newVal));
+        } else if (oldVal > newVal) {
+            destroyInsurancePassenger(button.closest("form").find('.countRoom'), newVal);
+        }
+        total_value = total_value.substring(0, total_value.length - 2);
+        button.closest("form").find(".count-room").find(".count").text(newVal)
+        button.closest("form").find(".hotel-inputH").attr('placeholder', '')
+        $('.datepicker').focus(function (e) {
+            FDatepicker(this, {
+                single: true,
+                isJalali: isJalali,
+                changeMonth: true,
+                changeYear: true,
+                minDate: "-100y",
+                maxDate: $("#AdaultMaxDate").val(),
+                yearRangeJalali: "1250:1500",
+                yearRangeGregorian: "1900:2030",
+                numberOfMonths: 1,
+            });
+        });
+
+    });
+
+    var createInsPassDropdown = function (i) {
+        var $childDropdown = $('<div />', {
+            'class': 'BirthdatePassenger'
+        });
+        $childDropdown.append('<label class="label">تاریخ تولد مسافر ' + i + '</label><input class="datepicker" placeholder="تاریخ تولد" type="text" autocomplete="off" readonly="true" required><div class="clr"></div>')
+        return $childDropdown;
+    };
+
+    var destroyInsurancePassenger = function ($el, i) {
+        if (i < 1) return;
+        $el.find('div.BirthdatePassenger').get(i).remove();
+    };
+    // for history :
+    //     $("#insuranceSearch").submit(function (event) {
+    //     var passenger_birthday = "";
+    //     $(this).find(".BirthdatePassenger").each(function (index, element) {
+    //         passenger_birthday = passenger_birthday +  '"' + $(this).find(".datepicker").val() + '"' + ',' ;
+    //     });
+    //     $(this).find(".birthday").val(passenger_birthday)
+    //     var val_1 = $(this).find(".birthday").val()
+    //     var val_2 = val_1.replace(/,(?=[^,]*$)/, '')
+    //     $(this).find(".birthday").val(val_2)
+
+    //     $(this).find(".datepicker").each(function () {
+    //         var birthval = $(this).val().length;
+    //         if (birthval < 1) {
+    //             $(this).css("border-color", "red")
+    //             $(".NotEnteringBirthadate").show()
+    //             $(this).closest("form").find(".HotelPassengers").slideDown()
+    //             event.preventDefault();
+    //         }
+    //     })
+    // })
+
+    /*end js insurance*/
+
+    /*-------------------------------START JS FOR CHANGING ACTION OF FORM FOR MOBILE VERSION-------------------------------*/
+    if ($(window).width() <= 750) {
+        if ($("#flightSearch").attr('action') == '/Tem3_Roundtrip_Search.bc') {
+            $("#flightSearch").attr('action', '/M_Roundtrip_Search.bc')
+        }
+        if ($("#flightSearch").attr('action') == '/Tem3_Oneway_Search.bc') {
+            $("#flightSearch").attr('action', '/M_Oneway_Search.bc')
+        }
+        $("#multi-flight").attr('action', '/M_Multicity_Search.bc')
+        $("#hotelsearch").attr('action', '/M_Hotel_Search.bc')
+        $("#flightHotelSearch").attr('action', '/M_FlightHotel_Search.bc')
+        $("#insuranceSearch").attr('action', '/M_Insurance_Search.bc')
+        $("#tourSearch").attr('action', '/M_Tour_Search.bc')
+        $("#cipSearch").attr('action', '/M_Cip_Search.bc')
+        $("#visaSearch").attr('action', '/M_Visa_Search.bc')
+
+    }
+    /*-------------------------------END JS FOR CHANGING ACTION OF FORM FOR MOBILE VERSION-------------------------------*/
+    // end search box js 
+
+
+    ////////<!----- JS  MULTICITY ---->////////
+    if ($(window).width() >= 1024) {
+        $("#multi-flight").find(".route-content").each(function () {
+            $(this).addClass("set_Date_Box");
+        })
+    }
+
+    function showMultiCity(element) {
+        //   $("#multi-flight").removeClass("unvisible");
+        //   $("#flight-form").addClass("unvisible");
+        //   $(this).addClass("active-flight-type");
+        //   $("#oneway").removeClass("active-flight-type");
+        //   $("#backtoback").removeClass("active-flight-type");
+        
+          $("#multi-flight").removeClass("unvisible");
+        $(element).addClass("active-r-btn");
+        $("#onewayflight").removeClass("active-r-btn");
+        $("#returnFlight").removeClass("active-r-btn");
+        $("#multi-flight").show()
+        $(".amitflight").hide();
+        if ($(window).width() <= 750) {
+            $("#multi-flight").attr('action', '/M_MultiCity_Search.bc')
+        }
+    }
+    const destination_nth_txt = ['مقصد اول', 'مقصد دوم', 'مقصد سوم', 'مقصد چهارم'];
+    function addMulticityRoute(element) {
+        if (document.querySelector(".route-container").querySelectorAll(".route-content").length < 4) {
+            const appended_element = document.querySelector(".route-container").querySelectorAll(".route-content")[0].innerHTML;
+            const child = document.createElement("div");
+            child.innerHTML = appended_element;
+
+            if ($(window).width() >= 1024) {
+                child.className = "route-content set_Date_Box";
+            } else {
+                child.className = "route-content";
+            }
+            child.querySelector(".multi-route-tlt").innerText = destination_nth_txt[document.querySelector(".route-container").querySelectorAll(".route-content").length];
+            child.querySelectorAll("input").forEach(e => {
+                e.value = "";
+            });
+            child.insertAdjacentHTML('beforeend',
+                `<div class="route-minus-btn" onclick="deleteMulticityRoute(this)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+    </svg>
+    </div>`
+            );
+            if (child.querySelector(".gregorian_date")) { child.querySelector(".gregorian_date").remove(); }
+            document.querySelector(".route-container").append(child);
+            child.setAttribute("data-index", element.closest("form").querySelector(".route-container").querySelectorAll(".route-content").length)
+            child.querySelector(".fromcity_container").querySelector(".country").value = child.previousElementSibling.querySelector(".tocity_container").querySelector(".country").value;
+            child.querySelector(".fromcity_container").querySelector(".fromcity").value = child.previousElementSibling.querySelector(".tocity_container").querySelector(".tocity").value;
+
+        }
+        checkButtonAddCity();
+        
+    }
+
+    function deleteMulticityRoute(element) {
+        element.closest(".route-content").remove();
+        let index = 0;
+        document.querySelector("#multi-flight").querySelector(".route-container").querySelectorAll(".route-content").forEach(e => {
+            e.querySelector(".multi-route-tlt").innerText = destination_nth_txt[index];
+            index++;
+            e.setAttribute("data-index", index)
+        });
+
+        checkButtonAddCity();
+    }
+
+    function checkButtonAddCity(element) {
+        if(document.querySelector(".route-container").querySelectorAll(".route-content").length >= 4){
+            document.getElementsByClassName("route-plus-btn")[0].classList.add("deactive-addmc");
+        }else{
+            document.getElementsByClassName("route-plus-btn")[0].classList.remove("deactive-addmc");
+
+        }
+    }
+
+    function formMulticity_search_isSubmited(element, event) {
+        let select_age = "";
+        element
+            .querySelector(".section-select-age")
+            .querySelectorAll("select")
+            .forEach((e) => {
+                select_age = select_age + e.value + ",";
+            });
+        if (select_age !== "") {
+            element.querySelector(".select-age-value").value = select_age;
+            var val_1 = element.querySelector(".select-age-value").value;
+            var val_2 = val_1.replace(/,(?=[^,]*$)/, "");
+            element.querySelector(".select-age-value").value = val_2;
+        } else {
+            element.querySelector(".select-age-value").value = 0;
+        }
+        for (let i = 0; i < element.getElementsByClassName("route-content").length; i++) {
+            element.getElementsByClassName("route-content")[i].querySelector(".fromcity").setAttribute("name", `_root.route__${i}.fromcity`);
+            element.getElementsByClassName("route-content")[i].querySelector(".tocity").setAttribute("name", `_root.route__${i}.tocity`);
+            element.getElementsByClassName("route-content")[i].querySelector(".start_date").setAttribute("name", `_root.route__${i}.departuredate`);
+            element.getElementsByClassName("route-content")[i].querySelector(".fromcity-text").setAttribute("name", `_root.route__${i}.fromcityName`);
+            element.getElementsByClassName("route-content")[i].querySelector(".tocity-text").setAttribute("name", `_root.route__${i}.tocityName`);
+            element.getElementsByClassName("route-content")[i].querySelector(".multi-route-tlt").insertAdjacentHTML("beforeend", `<input type="hidden" value="${destination_nth_txt[i]}" name="_root.route__${i}.index"/>`);
+        }
+    };
+
+    $(".fa-exchange").each(function (index, element) {
+        $(this).click(function () {
+            i = $(this).attr("data-index")
+            if (i == 0) {
+                $(this).attr("data-index", "1")
+                var dep = $(this).closest(".Wrapper-DesDep").find(".FCD1").val()
+                var des = $(this).closest(".Wrapper-DesDep").find(".FCD2").val()
+                var depid = $(this).closest(".Wrapper-DesDep").find(".FCDid1").val()
+                var desid = $(this).closest(".Wrapper-DesDep").find(".FCDid2").val()
+                $(this).closest(".Wrapper-DesDep").find(".FCD1").val(des)
+                $(this).closest(".Wrapper-DesDep").find(".FCD2").val(dep)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid1").val(desid)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid2").val(depid)
+            } else {
+                $(this).attr("data-index", "0")
+                var dep = $(this).closest(".Wrapper-DesDep").find(".FCD1").val()
+                var des = $(this).closest(".Wrapper-DesDep").find(".FCD2").val()
+                var depid = $(this).closest(".Wrapper-DesDep").find(".FCDid1").val()
+                var desid = $(this).closest(".Wrapper-DesDep").find(".FCDid2").val()
+                $(this).closest(".Wrapper-DesDep").find(".FCD1").val(des)
+                $(this).closest(".Wrapper-DesDep").find(".FCD2").val(dep)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid1").val(desid)
+                $(this).closest(".Wrapper-DesDep").find(".FCDid2").val(depid)
+            }
+        })
+    })
+
+    function exchangeDepDes(element){
+        var dep = $(element).closest(".route-content").find(".FCD1").val();
+        var des = $(element).closest(".route-content").find(".FCD2").val();
+        var depid = $(element).closest(".route-content").find(".FCDid1").val();
+        var desid = $(element).closest(".route-content").find(".FCDid2").val();
+    
+        $(element).closest(".route-content").find(".FCD1").val(des);
+        $(element).closest(".route-content").find(".FCD2").val(dep);
+        $(element).closest(".route-content").find(".FCDid1").val(desid);
+        $(element).closest(".route-content").find(".FCDid2").val(depid);
+    }
+
+    function select_all(element) {
+    $(element).closest(".radio-btn-container").find("input").prop('checked', true)
+    $(element).closest(".radio-btn-container").siblings().find("input").prop('checked', false)
+    $(element).closest(".check-type").find('.radio-selected').css('right', '1px');
+    $(element).css('color', '#fff');
+    $(element).closest(".check-type").find(".radio-label-internal,.radio-label-external").css('color', '#8e939b');
+}
+function select_internal(element) {
+    $(element).closest(".radio-btn-container").find("input").prop('checked', true)
+    $(element).closest(".radio-btn-container").siblings().find("input").prop('checked', false)
+    $(element).closest(".check-type").find('.radio-selected').css('right', '33%');
+    $(element).css('color', '#fff');
+    $(element).closest(".check-type").find(".radio-label-all,.radio-label-external").css('color', '#8e939b');
+}
+function select_external(element) {
+    $(element).closest(".radio-btn-container").find("input").prop('checked', true)
+    $(element).closest(".radio-btn-container").siblings().find("input").prop('checked', false)
+    $(element).closest(".check-type").find('.radio-selected').css('right', '66%');
+    $(element).css('color', '#fff');
+    $(element).closest(".check-type").find(".radio-label-all,.radio-label-internal").css('color', '#8e939b');
+}
+
+</script>
+<!---STASRT CSS & JS CODE FOR SEARCH HISTORY-->
+<link href="https://cdn.basiscore.net/basisfly.com/css/reservation_search_history.css" type="text/css"
+    rel="stylesheet" />
+<script src="https://cdn.basiscore.net/basisfly.com/js/reservation_search_history.js" type="text/javascript"></script>
+<!---END CSS & JS CODE FOR SEARCH HISTORY-->

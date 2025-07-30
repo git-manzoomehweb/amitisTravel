@@ -1,0 +1,5 @@
+<basis core="dbsource" source="trust_login" name="db">
+    <member name="captcha" type="scalar" request="captcha" />
+  </basis>
+  <img src="/[##db.captcha.captcha##]" width="185" height="65" class="rounded-md" />
+  <input name="captchaid" class="captchaid" value="[##db.captcha.captcha##]" type="hidden" />
