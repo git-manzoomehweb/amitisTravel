@@ -340,7 +340,8 @@
         <basis core="list" datamembername="joining.listtourpage">
             <layout>
                 <section id="box-tours" class="max-w-7xl mx-auto w-full my-24 flex flex-col gap-y-12">@child</section>
-            </layout><else-layout>
+            </layout>
+            <else-layout>
                 <section class="max-w-7xl mx-auto w-full flex flex-col items-center mt-24">
                     <figure><img src="[##cms.cms.cdn##]/images/empty-list-image.png" width="460" height="403" alt="404">
                     </figure>
@@ -996,18 +997,99 @@
                         src="[##cms.cms.cdn##]/images/label-installment-tour-vertically.png" width="185" height="56"
                         alt="installment"></article>
             </face>
+
+
+
+             <face
+                filter="[db.listtours.prp_3087562]='خیر'">
+                <article
+                    class="w-full h-[232px] relative drop-shadow-tourcardvertically hover:drop-shadow-tourcardvertically-hvr transition-all duration-300 group/tourcardvertically ">
+                    <a href="/@db.listtours.link"
+                        class="w-full rounded-3xl bg-white h-[232px] overflow-hidden flex justify-between">
+                        <figure
+                            class="w-[296px] h-[232px] rounded-l-full overflow-hidden border-l-8 border-neutralcolor-800 ">
+                            <img class="w-[296px] h-[232px] object-cover"
+                                src="[##cms.cms.cdn##]/@db.listtours.00296X00232prp" alt="@db.listtours.title"
+                                width="296" height="232"></figure>
+                        <div class="w-[calc(100%-300px)] divide-x flex divide-x-reverse divide-neutralcolor-800">
+                            <div class="w-[27%] h-full flex flex-col justify-evenly text-center ">
+                                <h2 class=" text-center font-yekanbakhsemiboldFA text-lg text-txtneutral-900">
+                                    @db.listtours.title </h2><span
+                                    class="font-yekanbakhregularFA text-base leading-6 text-txtneutral-900 ">@db.listtours.prp_8077
+                                </span>
+                            </div>
+                            <div class="w-1/5 flex items-center flex-col justify-center text-lg">
+                                <div
+                                    class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center h-2/6 flex justify-center items-center">
+                                    ایرلاین</div>
+                                <div class="h-4/6 divide-y "><img
+                                        class="mb-2 mx-auto max-w-max w-[80%] object-contain h-10"
+                                        src="@list.airline.pic" alt="@list.airline.name"></div>
+                            </div>
+                            <div class="w-1/5 block ">
+                                <div
+                                    class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center h-2/6 flex justify-center items-center">
+                                    تاریخ اعتبار</div>
+                                <div class="h-[106px] flex flex-col justify-center items-stretch">
+                                    <div
+                                        class="text-right flex justify-between items-center my-2 w-11/12 mx-auto bg-neutralcolor-50 rounded-[4px] min-h-[52px] pr-2 ">
+                                        <svg class="block" width="24" height="25">
+                                            <use href="./images/sprite-icons.svg#calendar-card-tour-large"></use>
+                                        </svg><span
+                                            class="text-lg text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">@db.listtours.prp_8077
+                                        </span></div>
+                                    <div
+                                        class="text-right flex justify-between items-center my-2 w-11/12 mx-auto bg-neutralcolor-50 rounded-[4px] min-h-[40px] pr-2">
+                                        <svg class="block" width="25" height="24">
+                                            <use href="./images/sprite-icons.svg#daynight-card-tour-large"></use>
+                                        </svg><span
+                                            class="text-lg text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)]">@db.listtours.prp_8076
+                                        </span></div>
+                                </div>
+                            </div>
+                            <div class="w-4/12 block bg-primary-50">
+                                <div
+                                    class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center h-2/6 flex justify-center items-center">
+                                    قیمت تور</div>
+                                <div class="h-4/6 w-10/12 mx-auto">
+                                    <div class=" flex justify-between items-center h-[60px]"><span
+                                            class="font-yekanbakhregularFA text-xs text-txtneutral-500 w-20 ">شروع
+                                            از</span><span
+                                            class="font-yekanbakhboldFA text-2xl text-primary-700 text-left">@db.listtours.prp_8181</span>
+                                    </div>
+                                    <div
+                                        class="bg-primary rounded-[4px] text-white flex justify-between px-6 items-center h-[56px] mt-4 group-hover/tourcardvertically:bg-primary-700 transition-all duration-300 ">
+                                        <span>مشاهده تور</span><svg class="block" width="25" height="25">
+                                            <use href="./images/sprite-icons.svg#show-tour-icon"></use>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a></article>
+            </face>
         </basis>
         <basis core="list" datamembername="db.seotext">
             <layout>
                 <section class="max-w-7xl mx-auto w-[95%]">@child </section>
             </layout>
-            <face filter="TypeID in(150,250,129,250)">
+            <face filter="TypeID in(150)">
                 <h2
-                    class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">
+                    class="bg-neutralcolor-100 text-primary-900 mb-1 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">
+                    @text</h2>
+                <hr class="w-2/3 my-3">
+            </face>
+            <face filter="TypeID in(129)">
+                <div
+                    class="bg-white rounded-2xl py-8 px-6 mb-1 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900">
+                    @largetext </div>
+            </face>
+            <face filter="TypeID in(250,250)">
+                <h2
+                    class="bg-neutralcolor-100 text-primary-900 mb-1 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle ">
                     @text</h2>
                 <hr class="w-2/3 my-3">
                 <div
-                    class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900">
+                    class="bg-white rounded-2xl py-8 px-6 mb-1 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900">
                     @largetext </div>
             </face>
         </basis>
