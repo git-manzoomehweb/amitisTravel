@@ -54,8 +54,8 @@
 
 
         <div class="max-w-7xl mx-auto w-full pt-16">
-            <div class="bg-primary-950 w-full h-[904px] rounded-[64px] my-6">
-                <div class=" w-[90%] mx-auto">
+            <div class="bg-primary-950 w-full h-[904px]  rounded-[64px] my-6">
+                <div class="relative z-20 w-[90%] mx-auto">
                     <div class="float-right mt-5">
                         <h1 class="text-white font-yekanbakhboldFA text-[80px] leading-[203%] ">شرایط اقساط آمیتیس</h1>
                         <h2 class="text-secondary text-2xl font-yekanbakhsemiboldFA leading-10 my-4">جیبتو خالی نکن ،
@@ -69,7 +69,7 @@
             </div>
 
 
-            <div class="flex justify-between items-stretch w-[95%] mx-auto -mt-[600px]">
+            <div class="flex justify-between relative z-20 items-stretch w-[95%] mx-auto -mt-[600px]">
 
                 <div class="  w-7/12 p-3 mt-3">
                     <div class="font-yekanbakhboldFA text-white  text-base flex items-center my-4">
@@ -240,7 +240,8 @@
             </div>
 
 
-            <div class="my-4">
+            <div class="my-4 relative">
+                <img src="[##cms.cms.cdn##]/images/installment-patterns.png" alt="installment-patern" class="installment-patern absolute">
                 <span class="text-white text-lg font-yekanbakhsemiboldFA text-center block ">
                     محاسبه گر اقساط
                 </span>
@@ -409,28 +410,26 @@
             </div>
 
 
-            
-            <div id="modal-signup-background" class="fixed bg-black/40 backdrop-blur-xl top-0 left-0 right-0 bottom-0 hidden z-[999]">
-                
-                <basis core="call" if="{##db.installmentsignup.run|(false)##}" triggers="db.installmentsignup" run="atclient"
-                    file="/installment-signup.bc" 
-                    method="post"
-                    plan="{##db.installmentsignup.plan##}" 
-                    count="{##db.installmentsignup.count##}" 
-                    loanamount="{##db.installmentsignup.loanamount##}" 
-                    amountfacilities="{##db.installmentsignup.amountfacilities##}" 
-                    amounteach="{##db.installmentsignup.amounteach##}" 
-                    adultcount="{##db.installmentsignup.adultcount##}" 
-                    childbed="{##db.installmentsignup.childbed##}" 
-                    childwobed="{##db.installmentsignup.childwobed##}" 
-                    infantcount="{##db.installmentsignup.infantcount##}" ></basis>
+
+            <div id="modal-signup-background"
+                class="fixed bg-black/40 backdrop-blur-xl top-0 left-0 right-0 bottom-0 hidden z-[999]">
+
+                <basis core="call" if="{##db.installmentsignup.run|(false)##}" triggers="db.installmentsignup"
+                    run="atclient" file="/installment-signup.bc" method="post" plan="{##db.installmentsignup.plan##}"
+                    count="{##db.installmentsignup.count##}" loanamount="{##db.installmentsignup.loanamount##}"
+                    amountfacilities="{##db.installmentsignup.amountfacilities##}"
+                    amounteach="{##db.installmentsignup.amounteach##}"
+                    adultcount="{##db.installmentsignup.adultcount##}" childbed="{##db.installmentsignup.childbed##}"
+                    childwobed="{##db.installmentsignup.childwobed##}"
+                    infantcount="{##db.installmentsignup.infantcount##}"></basis>
 
             </div>
             <section class="flex items-center max-w-[1072px] mx-auto w-full my-14 relative">
                 <basis core="print" datamembername="db.installment_info_pic">
                     <face>
                         <figure class="border-8 border-primary rounded-2xl w-[408px] h-[296px] overflow-hidden">
-                          <img class="w-[408px] h-[296px] object-cover drop-shadow-md" src="[##cms.cms.cdn##]/@largeIMG" width="408" height="296" alt="دریافت وام">
+                            <img class="w-[408px] h-[296px] object-cover drop-shadow-md"
+                                src="[##cms.cms.cdn##]/@largeIMG" width="408" height="296" alt="دریافت وام">
                         </figure>
                     </face>
                 </basis>
@@ -447,8 +446,17 @@
                         </div>
                     </face>
                     <face filter="prpID=7245">
-                        <a href="@Answer" aria-label="video" class="absolute bottom-[-15px] right-[-15px] z-10" target="_blank">
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 36.2798C0.00369085 25.8486 3.81265 16.7397 11.7037 9.42849C17.3599 4.18754 24.1123 1.13568 31.8372 0.251477C39.1746 -0.589878 46.1264 0.676049 52.6352 4.10769C60.5133 8.25994 66.14 14.4864 69.3732 22.7188C73.0013 31.9581 72.8942 41.2656 68.9081 50.3375C64.4533 60.4805 56.8354 67.4898 46.0249 70.4599C31.745 74.3823 19.3345 70.7812 9.26034 60.0131C3.12061 53.4478 0.249132 45.4685 0 36.2798ZM25.7713 35.9818C25.7713 41.4448 25.7769 46.9058 25.7658 52.3688C25.764 53.3465 26.098 54.1352 26.9801 54.5968C27.877 55.0662 28.7572 54.9454 29.608 54.3943C30.8647 53.5782 32.1436 52.7953 33.4114 51.9968C40.7617 47.3577 48.1102 42.7146 55.466 38.0813C57.138 37.0277 57.1749 34.9866 55.5048 33.931C46.8276 28.4466 38.1468 22.9661 29.4622 17.4915C29.2131 17.3337 28.9326 17.1954 28.6465 17.1273C27.1037 16.7533 25.7769 17.8888 25.775 19.5968C25.7677 25.0578 25.7732 30.5208 25.7713 35.9818Z" fill="#FFA200"/><path d="M25.7712 35.9787C25.7712 30.5157 25.7675 25.0527 25.7749 19.5917C25.7767 17.8837 27.1036 16.7482 28.6463 17.1222C28.9324 17.1923 29.2129 17.3305 29.462 17.4864C38.1447 22.963 46.8256 28.4415 55.5046 33.9259C57.1747 34.9815 57.1378 37.0226 55.4659 38.0762C48.1119 42.7095 40.7634 47.3525 33.4112 51.9917C32.1434 52.7921 30.8645 53.5751 29.6078 54.3892C28.7571 54.9403 27.8768 55.0611 26.9799 54.5917C26.0978 54.1301 25.7638 53.3414 25.7656 52.3637C25.7749 46.9046 25.7693 41.4416 25.7712 35.9787Z" fill="white"/></svg>
+                        <a href="@Answer" aria-label="video" class="absolute bottom-[-15px] right-[-15px] z-10"
+                            target="_blank">
+                            <svg width="72" height="72" viewBox="0 0 72 72" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 36.2798C0.00369085 25.8486 3.81265 16.7397 11.7037 9.42849C17.3599 4.18754 24.1123 1.13568 31.8372 0.251477C39.1746 -0.589878 46.1264 0.676049 52.6352 4.10769C60.5133 8.25994 66.14 14.4864 69.3732 22.7188C73.0013 31.9581 72.8942 41.2656 68.9081 50.3375C64.4533 60.4805 56.8354 67.4898 46.0249 70.4599C31.745 74.3823 19.3345 70.7812 9.26034 60.0131C3.12061 53.4478 0.249132 45.4685 0 36.2798ZM25.7713 35.9818C25.7713 41.4448 25.7769 46.9058 25.7658 52.3688C25.764 53.3465 26.098 54.1352 26.9801 54.5968C27.877 55.0662 28.7572 54.9454 29.608 54.3943C30.8647 53.5782 32.1436 52.7953 33.4114 51.9968C40.7617 47.3577 48.1102 42.7146 55.466 38.0813C57.138 37.0277 57.1749 34.9866 55.5048 33.931C46.8276 28.4466 38.1468 22.9661 29.4622 17.4915C29.2131 17.3337 28.9326 17.1954 28.6465 17.1273C27.1037 16.7533 25.7769 17.8888 25.775 19.5968C25.7677 25.0578 25.7732 30.5208 25.7713 35.9818Z"
+                                    fill="#FFA200" />
+                                <path
+                                    d="M25.7712 35.9787C25.7712 30.5157 25.7675 25.0527 25.7749 19.5917C25.7767 17.8837 27.1036 16.7482 28.6463 17.1222C28.9324 17.1923 29.2129 17.3305 29.462 17.4864C38.1447 22.963 46.8256 28.4415 55.5046 33.9259C57.1747 34.9815 57.1378 37.0226 55.4659 38.0762C48.1119 42.7095 40.7634 47.3525 33.4112 51.9917C32.1434 52.7921 30.8645 53.5751 29.6078 54.3892C28.7571 54.9403 27.8768 55.0611 26.9799 54.5917C26.0978 54.1301 25.7638 53.3414 25.7656 52.3637C25.7749 46.9046 25.7693 41.4416 25.7712 35.9787Z"
+                                    fill="white" />
+                            </svg>
                         </a>
                     </face>
                 </basis>
@@ -478,10 +486,11 @@
                 </svg>
                 <div class="mx-auto w-[1032px] my-16 py-14 relative">
                     <basis core="print" datamembername="db.installment_levels">
-                      <layout>@child</layout>
-                      <face filter="prpID=7246">
-                         <span class="text-primary text-base absolute w-[198px] installment_levels_item">@Answer</span>
-                      </face>
+                        <layout>@child</layout>
+                        <face filter="prpID=7246">
+                            <span
+                                class="text-primary text-base absolute w-[198px] installment_levels_item">@Answer</span>
+                        </face>
                     </basis>
                     <figure>
                         <img src="[##cms.cms.cdn##]/images/installment-steps.jpg" width="" height="" alt="">
@@ -556,7 +565,8 @@
                             </div>
                             <div class="w-[112px] h-[112px] bg-primary-950 absolute bottom-0 left-0 rounded-bl-[56px]">
                             </div>
-                            <div class="w-[1220px] mx-auto  flex justify-between items-center relative z-10 gap-x-3">@child</div>
+                            <div class="w-[1220px] mx-auto  flex justify-between items-center relative z-10 gap-x-3">
+                                @child</div>
                         </div>
                     </section>
                 </layout>
@@ -661,7 +671,8 @@
                                     <path
                                         d="M11.803 15.9485L8.00978 11.0932C7.59944 10.568 7.97368 9.80068 8.6402 9.80068L15.3598 9.80068C16.0263 9.80068 16.4006 10.568 15.9902 11.0932L12.197 15.9485C12.0969 16.0766 11.9031 16.0766 11.803 15.9485Z"
                                         fill="#667085" />
-                                </svg></div>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div
@@ -829,28 +840,28 @@
         }
 
 
-function calculateInstallments() {
-    adultCountF = document.getElementById("adult-installment").value;
-    childbedCountF = document.getElementById("child-bed-installment").value;
-    childwobedCountF = document.getElementById("child-installment").value;
-    infantCountF = document.getElementById("infant-installment").value;
+        function calculateInstallments() {
+            adultCountF = document.getElementById("adult-installment").value;
+            childbedCountF = document.getElementById("child-bed-installment").value;
+            childwobedCountF = document.getElementById("child-installment").value;
+            infantCountF = document.getElementById("infant-installment").value;
 
-    const totalAmount = loanAmount * 1000000;
-    const totalAdvancePayment = 0;
+            const totalAmount = loanAmount * 1000000;
+            const totalAdvancePayment = 0;
 
-    const totalAmountWithFacilities = (totalAmount + (totalAmount * interestRate) + totalAdvancePayment);
-    const totalAmountafterFacilitiesMinus = (totalAmount + (totalAmount * interestRate));
-    const installmentAmountLocal = totalAmountafterFacilitiesMinus / loanMonths;
+            const totalAmountWithFacilities = (totalAmount + (totalAmount * interestRate) + totalAdvancePayment);
+            const totalAmountafterFacilitiesMinus = (totalAmount + (totalAmount * interestRate));
+            const installmentAmountLocal = totalAmountafterFacilitiesMinus / loanMonths;
 
-    // برای دسترسی در دیگر توابع
-    window.totalprice = totalAmountWithFacilities;
-    window.installmentAmount = installmentAmountLocal;
+            // برای دسترسی در دیگر توابع
+            window.totalprice = totalAmountWithFacilities;
+            window.installmentAmount = installmentAmountLocal;
 
-    document.querySelector('.total-amount').textContent = totalAmount.toLocaleString();
-    document.querySelector('.Total-amount-facilities').textContent = totalAmountWithFacilities.toLocaleString();
-    document.querySelector('.Total-advance-payment').textContent = totalAdvancePayment.toLocaleString();
-    document.querySelector('.amount-each-installment').textContent = parseInt(installmentAmountLocal).toLocaleString();
-}
+            document.querySelector('.total-amount').textContent = totalAmount.toLocaleString();
+            document.querySelector('.Total-amount-facilities').textContent = totalAmountWithFacilities.toLocaleString();
+            document.querySelector('.Total-advance-payment').textContent = totalAdvancePayment.toLocaleString();
+            document.querySelector('.amount-each-installment').textContent = parseInt(installmentAmountLocal).toLocaleString();
+        }
 
 
         updateRangeBackground();
@@ -866,22 +877,22 @@ function calculateInstallments() {
 
 
         async function openSignupInstallmentForm() {
-         document.getElementById('modal-signup-background').classList.remove("hidden")
+            document.getElementById('modal-signup-background').classList.remove("hidden")
 
 
-        $bc.setSource("db.installmentsignup", {
-        plan : planselected,
-        count :loanMonths ,
-        loanamount : loanMonths,
-        amountfacilities : totalprice,
-        amounteach : installmentAmount,
-        adultcount : adultCountF,
-        childbed : childbedCountF,
-        childwobed : childwobedCountF,
-        infantcount : infantCountF,
-        run: true,
-    });
-}
+            $bc.setSource("db.installmentsignup", {
+                plan: planselected,
+                count: loanMonths,
+                loanamount: loanMonths,
+                amountfacilities: totalprice,
+                amounteach: installmentAmount,
+                adultcount: adultCountF,
+                childbed: childbedCountF,
+                childwobed: childwobedCountF,
+                infantcount: infantCountF,
+                run: true,
+            });
+        }
 
 
 
