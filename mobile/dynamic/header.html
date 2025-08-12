@@ -1,18 +1,282 @@
 <basis core="call" file="add_to_home_screen_fa.inc" pageindex="[##cms.cms.pageindex##]"></basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour">
- <member name="cat-amitis-tours" type="tree" request="cat" parentid="110382" order="[##cms.Host.tour-cat-order|(order)##]" />
- <member name="cat-amitis-tours-image" type="tree" request="cat" parentid="140689" postsql="select image,title,catid from [tour.cat-amitis-tours-image] where catid in(140689)" />
- <member name="cat-summer-tours-image" type="tree" request="cat" parentid="155302" postsql="select image,title,catid from [tour.cat-summer-tours-image] where catid in(155302)" />
+   <member name="cat-amitis-tours" type="tree" request="cat" parentid="110382"
+      order="[##cms.Host.tour-cat-order|(order)##]" />
+   <member name="cat-amitis-tours-image" type="tree" request="cat" parentid="140689"
+      postsql="select image,title,catid from [tour.cat-amitis-tours-image] where catid in(140689)" />
+   <member name="cat-summer-tours-image" type="tree" request="cat" parentid="155302"
+      postsql="select image,title,catid from [tour.cat-summer-tours-image] where catid in(155302)" />
 </basis>
- <basis core="dbsource" source="basiscore" lid="1" mid="1" name="article"><member name="cat-visa-services" type="tree" request="cat" parentid="150949" order="[##cms.Host.tour-cat-order|(ord)##]" /></basis>
- <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]"><member name="info" type="view" /></basis>
- <header id="header-contents" class="dir-rtl w-full "><div class="top-header-mobile w-full h-14 bg-white shadow-lg fixed top-0 left-0 right-0 flex justify-between items-center px-4 z-[1002]"><div class="w-1/3 flex justify-start items-center" ><svg onclick="OpenHamburgerMenu(this , '.hamburger-menu')" class="inline-block hamburger-menu-closed" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-menu-closed"></use></svg><svg class="hidden hamburger-menu-opened" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-menu-opened"></use></svg></div><div class="w-1/3 flex justify-center items-center"><a href="/"><img src="[##cms.cms.cdn##]/images/M_logo_header.png" width="112" height="40" alt="Amitis"></a></div><div class="w-1/3 flex justify-end items-center"><a href="tel:1747" class=" bg-neutralcolor-50 rounded-[4px] flex justify-between items-center w-[70px]"><div class="  text-base text-txtneutral-500 w-[calc(100%-24px)] text-center">1747 </div><div class="bg-primary rounded-[4px] flex justify-center items-center w-6 h-6"><svg class="inline-block" width="24" height="24"><use href="./images/sprite-icons.svg#call-icon-mobile"></use></svg></div></a></div></div><div class="hamburger-menu text-sm font-yekanbakhregularFA w-full h-full fixed top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-md hidden z-[1002] justify-normal align-bottom items-end"><nav class="hamburgermenu-items bg-white rounded-l-2xl 
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="article">
+   <member name="cat-visa-services" type="tree" request="cat" parentid="150949"
+      order="[##cms.Host.tour-cat-order|(ord)##]" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+   <member name="info" type="view" />
+</basis>
+<header id="header-contents" class="dir-rtl w-full ">
+   <div
+      class="top-header-mobile w-full h-14 bg-white shadow-lg fixed top-0 left-0 right-0 flex justify-between items-center px-4 z-[1002]">
+      <div class="w-1/3 flex justify-start items-center"><svg onclick="OpenHamburgerMenu(this , '.hamburger-menu')"
+            class="inline-block hamburger-menu-closed" width="24" height="24">
+            <use href="./images/sprite-icons.svg#hamburger-menu-closed"></use>
+         </svg><svg class="hidden hamburger-menu-opened" width="24" height="24">
+            <use href="./images/sprite-icons.svg#hamburger-menu-opened"></use>
+         </svg></div>
+      <div class="w-1/3 flex justify-center items-center"><a href="/"><img
+               src="[##cms.cms.cdn##]/images/M_logo_header.png" width="112" height="40" alt="Amitis"></a></div>
+      <div class="w-1/3 flex justify-end items-center"><a href="tel:1747"
+            class=" bg-neutralcolor-50 rounded-[4px] flex justify-between items-center w-[70px]">
+            <div class="  text-base text-txtneutral-500 w-[calc(100%-24px)] text-center">1747 </div>
+            <div class="bg-primary rounded-[4px] flex justify-center items-center w-6 h-6"><svg class="inline-block"
+                  width="24" height="24">
+                  <use href="./images/sprite-icons.svg#call-icon-mobile"></use>
+               </svg></div>
+         </a></div>
+   </div>
+   <div
+      class="hamburger-menu text-sm font-yekanbakhregularFA w-full h-full fixed top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-md hidden z-[1002] justify-normal align-bottom items-end">
+      <nav class="hamburgermenu-items bg-white rounded-l-2xl 
     max-h-[calc(100%-58px)]
      h-full ease-in-out duration-700 transition-all
-     w-[calc(100%-64px)] translate-x-full "><div><ul class="flex justify-between gap-x-2 w-[90%] mx-auto my-3"><li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group "><a href="Payment" aria-label="payment" class="w-full h-full flex-col justify-center items-center flex px-4 "><svg class="inline-block" width="24" height="24"><use href="./images/sprite-icons.svg#card-payment-icon"></use></svg><span class="block text-xs   text-shadeneutral-100 text-center group-hover:text-primary pt-2">پرداخت آنلاین </span></a></li><li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group "><a href="شرایط_اقساط" class="w-full h-full flex-col justify-center items-center flex px-4 "><svg class="inline-block" width="24" height="24"><use href="./images/sprite-icons.svg#calculator-id"></use></svg><span class="block text-xs   text-shadeneutral-100 text-center group-hover:text-primary pt-2">محاسبه اقساط </span></a></li><li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group "><a href="مجله_گردشگری" class="w-full h-full flex-col justify-center items-center flex px-4 "><svg class="inline-block" width="24" height="24"><use href="./images/sprite-icons.svg#book-icon"></use></svg><span class="block text-xs   text-shadeneutral-100 text-center group-hover:text-primary pt-2">مجله گردشگری </span></a></li></ul></div><ul class="w-full divide-y divide-neutralcolor-600 hamburgermenu-mainmenu h-[calc(100%-100px)] overflow-y-auto "><li class="leading-[56px]"><a class="w-[90%] mx-auto flex justify-start items-center " href="/"><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-home-icon"></use></svg><span class="mr-5 w-[calc(100%-50px)]">خانه </span></a></li><basis core="tree" datamembername="tour.cat-amitis-tours" idcol="catid" parentidcol="parentid" nullvalue="140689"><layout><li class="leading-[56px] "><span class="open-tours w-[90%] mx-auto flex justify-start items-center" onclick="openSubMenu(this)" ><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-map-icon"></use></svg><span class="mr-5 w-[calc(100%-50px)]">تورهای آمیتیس </span><svg class="inline-block rotate-arrow-hm" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use></svg></span><ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul></li></layout><face level="1" ><li><span onclick="openSubMenu(this)" class="flex items-center leading-10 h-10"><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-location-icon"></use></svg><span class="mr-3 w-[calc(100%-20px)] inline-block   text-sm">@title </span><svg class="inline-block rotate-arrow-hm" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use></svg></span><ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul></li></face><face level="2" filter="link is null"><li class="text-sm font-yekanbakhregularFA leading-6 my-4"><a href="/tour-list.bc?lid=1&catid=@catid"><svg class="inline-block ml-2" width="8" height="8"><use href="./images/sprite-icons.svg#hamburger-item-submenu-icon"></use></svg>@title </a></li></face><face level="2"><li class="text-sm font-yekanbakhregularFA leading-6 my-4"><a href="/@link"><svg class="inline-block ml-2" width="8" height="8"><use href="./images/sprite-icons.svg#hamburger-item-submenu-icon"></use></svg>@title </a></li></face></basis><basis core="tree" datamembername="tour.cat-amitis-tours" idcol="catid" parentidcol="parentid" nullvalue="155302"><layout><li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center " onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-img-icon"></use></svg><span class="mr-5 w-[calc(100%-50px)]">تورهای تابستانی </span><svg class="inline-block rotate-arrow-hm" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use></svg></span><ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul></li></layout><face level="1" filter="link is null"><li class="my-4"><a href="/tour-list.bc?lid=1&catid=@catid"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-location-icon"></use></svg>@title </a></li></face><face level="1"><li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-location-icon"></use></svg>@title </a></li></face></basis><basis core="tree" datamembername="article.cat-visa-services" idcol="catid" parentidcol="parentid" nullvalue="150949"><layout><li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center " onclick="openSubMenu(this)" ><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-visaservices-icon"></use></svg><span class="mr-5 w-[calc(100%-50px)]">خدمات ویزا </span><svg class="inline-block rotate-arrow-hm" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use></svg></span><ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul></layout><face filter="catID=150950 and link is null"><li class="my-4"><a href="/visa-list.bc?lid=1&catid=catid"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-visaservices-active-icon"></use></svg>اخذ ویزا </a></li></face><face filter="catID=150950"><li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-visaservices-active-icon"></use></svg>اخذ ویزا </a></li></face><face filter="catID=150951 and link is null"><li class="my-4"><a href="/visa-list.bc?lid=1&catid=catid"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-timer-icon"></use></svg>وقت سفارت </a></li></face><face filter="catID=150951"><li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-timer-icon"></use></svg>وقت سفارت </a></li></face><face filter="catID=202422 and link is null"><li class="my-4"><a href="/visa-list.bc?lid=1&catid=catid" ><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-house-icon"></use></svg>اخذ اقامت </a></li></face><face filter="catID=202422"><li class="my-4"><a href="/@link" ><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-house-icon"></use></svg>اخذ اقامت </a></li></face></basis><li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center " onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-usefulinfo-icon"></use></svg><span class="mr-5 w-[calc(100%-50px)]">اطلاعات مفید </span><svg class="inline-block rotate-arrow-hm" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use></svg></span><ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal"><li class="my-4"><a href="ایرلاین_ها"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-airplane-icon"></use></svg>ایرلاین ها </a></li><li class="my-4"><a href="اطلاعات-هتل-ها" ><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-building-icon"></use></svg>اطلاعات هتل ها </a></li><li class="my-4"><a href="تبدیل_تاریخ"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-calendar-icon"></use></svg>تبدیل تاریخ </a></li></ul></li><li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center" onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-contactinfo-icon"></use></svg><span class="mr-5 w-[calc(100%-50px)]">ارتباط با ما </span><svg class="inline-block rotate-arrow-hm" width="24" height="24"><use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use></svg></span><ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal"><li class="my-4"><a href="ارتباط-با-ما"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-call-icon"></use></svg>تماس با ما </a></li><li class="my-4"><a href="درباره-ما"><svg class="inline-block ml-2" width="16" height="16"><use href="./images/sprite-icons.svg#hamburger-note-icon"></use></svg>درباره ما </a></li></ul></li></ul></nav><div class="w-16 flex justify-center items-center min-h-[512px] pt-8 h-full" onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );"><svg onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );" class="inline-block cursor-pointer" width="40" height="40"><use href="./images/sprite-icons.svg#close-hamburger-menu"></use></svg></div></div><div class=" bottom-menu-items drop-shadow-fixedmenumob fixed bottom-0 left-0 right-0 h-16 bg-white flex justify-between gap-x-2 items-center z-[1000] font-yekanbakhregularFA text-sm "><a href="اطلاعات-هتل-ها" data-page="hotel" class="w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="hidden bmi-active-btn" width="24" height="24"><use href="./images/sprite-icons.svg#active-building-bold-icon-mobile"></use></svg><svg class="inline-block bmi-simple-btn" width="24" height="24"><use href="./images/sprite-icons.svg#simple-building-bold-icon-mobile"></use></svg><span class="tab-text ">هتل</span></a><span data-page="tour" class="open-menu w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="hidden bmi-active-btn" width="24" height="24"><use href="./images/sprite-icons.svg#active-tour-bold-icon-mobile"></use></svg><svg class="inline-block bmi-simple-btn" width="24" height="24"><use href="./images/sprite-icons.svg#simple-tour-bold-icon-mobile"></use></svg><span class="tab-text">تور</span></span><a href="/" data-page="home" class="w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="inline-block bmi-active-btn" width="24" height="24"><use href="./images/sprite-icons.svg#active-home-bold-icon-mobile"></use></svg><svg class="hidden bmi-simple-btn" width="24" height="24"><use href="./images/sprite-icons.svg#simple-home-bold-icon-mobile"></use></svg><span class="tab-text text-primary">خانه</span></a><a href="مجله_گردشگری" data-page="magazine" class="w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="hidden bmi-active-btn" width="24" height="24"><use href="./images/sprite-icons.svg#active-book-bold-icon-mobile"></use></svg><svg class="inline-block bmi-simple-btn" width="24" height="24"><use href="./images/sprite-icons.svg#simple-book-bold-icon-mobile"></use></svg><span class="tab-text">مجله</span></a><div class="w-1/5 flex justify-center flex-col items-center relative "><basis core="call" file="authentication/modal"></basis><span class="tab-text">پروفایل</span></div></div></header>
-     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZJVH2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+     w-[calc(100%-64px)] translate-x-full ">
+         <div>
+            <ul class="flex justify-between gap-x-2 w-[90%] mx-auto my-3">
+               <li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group "><a
+                     href="Payment" aria-label="payment"
+                     class="w-full h-full flex-col justify-center items-center flex px-4 "><svg class="inline-block"
+                        width="24" height="24">
+                        <use href="./images/sprite-icons.svg#card-payment-icon"></use>
+                     </svg><span
+                        class="block text-xs   text-shadeneutral-100 text-center group-hover:text-primary pt-2">پرداخت
+                        آنلاین </span></a></li>
+               <li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group "><a
+                     href="شرایط_اقساط" class="w-full h-full flex-col justify-center items-center flex px-4 "><svg
+                        class="inline-block" width="24" height="24">
+                        <use href="./images/sprite-icons.svg#calculator-id"></use>
+                     </svg><span
+                        class="block text-xs   text-shadeneutral-100 text-center group-hover:text-primary pt-2">محاسبه
+                        اقساط </span></a></li>
+               <li class="w-[72px] h-[88px] rounded-2xl bg-neutralcolor-50 hover:bg-primary-100 group "><a
+                     href="مجله_گردشگری" class="w-full h-full flex-col justify-center items-center flex px-4 "><svg
+                        class="inline-block" width="24" height="24">
+                        <use href="./images/sprite-icons.svg#book-icon"></use>
+                     </svg><span
+                        class="block text-xs   text-shadeneutral-100 text-center group-hover:text-primary pt-2">مجله
+                        گردشگری </span></a></li>
+            </ul>
+         </div>
+         <ul
+            class="w-full divide-y divide-neutralcolor-600 hamburgermenu-mainmenu h-[calc(100%-100px)] overflow-y-auto ">
+            <li class="leading-[56px]"><a class="w-[90%] mx-auto flex justify-start items-center " href="/"><svg
+                     class="inline-block" width="16" height="16">
+                     <use href="./images/sprite-icons.svg#hamburger-home-icon"></use>
+                  </svg><span class="mr-5 w-[calc(100%-50px)]">خانه </span></a></li>
+            <basis core="tree" datamembername="tour.cat-amitis-tours" idcol="catid" parentidcol="parentid"
+               nullvalue="140689">
+               <layout>
+                  <li class="leading-[56px] "><span class="open-tours w-[90%] mx-auto flex justify-start items-center"
+                        onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-map-icon"></use>
+                        </svg><span class="mr-5 w-[calc(100%-50px)]">تورهای آمیتیس </span><svg
+                           class="inline-block rotate-arrow-hm" width="24" height="24">
+                           <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                        </svg></span>
+                     <ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul>
+                  </li>
+               </layout>
+               <face level="1">
+                  <li><span onclick="openSubMenu(this)" class="flex items-center leading-10 h-10"><svg
+                           class="inline-block" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-location-icon"></use>
+                        </svg><span class="mr-3 w-[calc(100%-20px)] inline-block   text-sm">@title </span><svg
+                           class="inline-block rotate-arrow-hm" width="24" height="24">
+                           <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                        </svg></span>
+                     <ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul>
+                  </li>
+               </face>
+               <face level="2" filter="link is null">
+                  <li class="text-sm font-yekanbakhregularFA leading-6 my-4"><a
+                        href="/tour-list.bc?lid=1&catid=@catid"><svg class="inline-block ml-2" width="8" height="8">
+                           <use href="./images/sprite-icons.svg#hamburger-item-submenu-icon"></use>
+                        </svg>@title </a></li>
+               </face>
+               <face level="2">
+                  <li class="text-sm font-yekanbakhregularFA leading-6 my-4"><a href="/@link"><svg
+                           class="inline-block ml-2" width="8" height="8">
+                           <use href="./images/sprite-icons.svg#hamburger-item-submenu-icon"></use>
+                        </svg>@title </a></li>
+               </face>
+            </basis>
+            <basis core="tree" datamembername="tour.cat-amitis-tours" idcol="catid" parentidcol="parentid"
+               nullvalue="155302">
+               <layout>
+                  <li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center "
+                        onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-img-icon"></use>
+                        </svg><span class="mr-5 w-[calc(100%-50px)]">تورهای تابستانی </span><svg
+                           class="inline-block rotate-arrow-hm" width="24" height="24">
+                           <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                        </svg></span>
+                     <ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul>
+                  </li>
+               </layout>
+               <face level="1" filter="link is null">
+                  <li class="my-4"><a href="/tour-list.bc?lid=1&catid=@catid"><svg class="inline-block ml-2" width="16"
+                           height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-location-icon"></use>
+                        </svg>@title </a></li>
+               </face>
+               <face level="1">
+                  <li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-location-icon"></use>
+                        </svg>@title </a></li>
+               </face>
+            </basis>
+            <basis core="tree" datamembername="article.cat-visa-services" idcol="catid" parentidcol="parentid"
+               nullvalue="150949">
+               <layout>
+                  <li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center "
+                        onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-visaservices-icon"></use>
+                        </svg><span class="mr-5 w-[calc(100%-50px)]">خدمات ویزا </span><svg
+                           class="inline-block rotate-arrow-hm" width="24" height="24">
+                           <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                        </svg></span>
+                     <ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">@child </ul>
+               </layout>
+               <face filter="catID=150950 and link is null">
+                  <li class="my-4"><a href="/visa-list.bc?lid=1&catid=catid"><svg class="inline-block ml-2" width="16"
+                           height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-visaservices-active-icon"></use>
+                        </svg>اخذ ویزا </a></li>
+               </face>
+               <face filter="catID=150950">
+                  <li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-visaservices-active-icon"></use>
+                        </svg>اخذ ویزا </a></li>
+               </face>
+               <face filter="catID=150951 and link is null">
+                  <li class="my-4"><a href="/visa-list.bc?lid=1&catid=catid"><svg class="inline-block ml-2" width="16"
+                           height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-timer-icon"></use>
+                        </svg>وقت سفارت </a></li>
+               </face>
+               <face filter="catID=150951">
+                  <li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-timer-icon"></use>
+                        </svg>وقت سفارت </a></li>
+               </face>
+               <face filter="catID=202422 and link is null">
+                  <li class="my-4"><a href="/visa-list.bc?lid=1&catid=catid"><svg class="inline-block ml-2" width="16"
+                           height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-house-icon"></use>
+                        </svg>اخذ اقامت </a></li>
+               </face>
+               <face filter="catID=202422">
+                  <li class="my-4"><a href="/@link"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-house-icon"></use>
+                        </svg>اخذ اقامت </a></li>
+               </face>
+            </basis>
+            <li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center "
+                  onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16">
+                     <use href="./images/sprite-icons.svg#hamburger-usefulinfo-icon"></use>
+                  </svg><span class="mr-5 w-[calc(100%-50px)]">اطلاعات مفید </span><svg
+                     class="inline-block rotate-arrow-hm" width="24" height="24">
+                     <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                  </svg></span>
+               <ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">
+                  <li class="my-4"><a href="ایرلاین_ها"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-airplane-icon"></use>
+                        </svg>ایرلاین ها </a></li>
+                  <li class="my-4"><a href="اطلاعات-هتل-ها"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-building-icon"></use>
+                        </svg>اطلاعات هتل ها </a></li>
+                  <li class="my-4"><a href="تبدیل_تاریخ"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-calendar-icon"></use>
+                        </svg>تبدیل تاریخ </a></li>
+               </ul>
+            </li>
+            <li class="leading-[56px]"><span class="w-[90%] mx-auto flex justify-start items-center"
+                  onclick="openSubMenu(this)"><svg class="inline-block" width="16" height="16">
+                     <use href="./images/sprite-icons.svg#hamburger-contactinfo-icon"></use>
+                  </svg><span class="mr-5 w-[calc(100%-50px)]">ارتباط با ما </span><svg
+                     class="inline-block rotate-arrow-hm" width="24" height="24">
+                     <use href="./images/sprite-icons.svg#hamburger-arrow-down-icon"></use>
+                  </svg></span>
+               <ul class="hidden hamburgermenu-submenu w-10/12 mx-auto leading-normal">
+                  <li class="my-4"><a href="ارتباط-با-ما"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-call-icon"></use>
+                        </svg>تماس با ما </a></li>
+                  <li class="my-4"><a href="درباره-ما"><svg class="inline-block ml-2" width="16" height="16">
+                           <use href="./images/sprite-icons.svg#hamburger-note-icon"></use>
+                        </svg>درباره ما </a></li>
+               </ul>
+            </li>
+         </ul>
+      </nav>
+      <div class="w-16 flex justify-center items-center min-h-[512px] pt-8 h-full"
+         onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );">
+
+         <svg onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );" width="32" height="32"
+            viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+               d="M19.6663 30.0002H11.6663C4.42634 30.0002 1.33301 26.9068 1.33301 19.6668V11.6668C1.33301 4.42683 4.42634 1.3335 11.6663 1.3335H19.6663C26.9063 1.3335 29.9997 4.42683 29.9997 11.6668V19.6668C29.9997 26.9068 26.9063 30.0002 19.6663 30.0002ZM11.6663 3.3335C5.51967 3.3335 3.33301 5.52016 3.33301 11.6668V19.6668C3.33301 25.8135 5.51967 28.0002 11.6663 28.0002H19.6663C25.813 28.0002 27.9997 25.8135 27.9997 19.6668V11.6668C27.9997 5.52016 25.813 3.3335 19.6663 3.3335H11.6663Z"
+               fill="#005FF0" />
+            <path
+               d="M20.476 20.9451C20.0895 21.3317 19.4484 21.3317 19.0618 20.9451L11.0479 12.9312C10.6614 12.5447 10.6614 11.9036 11.0479 11.517C11.4345 11.1305 12.0756 11.1305 12.4621 11.517L20.476 19.5309C20.8626 19.9174 20.872 20.5491 20.476 20.9451Z"
+               fill="#005FF0" />
+            <path
+               d="M11.0392 20.4829C10.6527 20.0964 10.6527 19.4552 11.0392 19.0687L19.0624 11.0455C19.449 10.6589 20.0901 10.6589 20.4766 11.0455C20.8632 11.432 20.8632 12.0731 20.4766 12.4597L12.4534 20.4829C12.0669 20.8695 11.4352 20.8789 11.0392 20.4829Z"
+               fill="#005FF0" />
+         </svg>
+
+         <!-- <svg
+            onclick="closeHamburgerMenu(this , '#header-contents' , '.hamburger-menu' );"
+            class="inline-block cursor-pointer" width="40" height="40">
+            <use href="./images/sprite-icons.svg#close-hamburger-menu"></use>
+         </svg> -->
+
+      </div>
+   </div>
+   <div
+      class=" bottom-menu-items drop-shadow-fixedmenumob fixed bottom-0 left-0 right-0 h-16 bg-white flex justify-between gap-x-2 items-center z-[1000] font-yekanbakhregularFA text-sm ">
+      <a href="اطلاعات-هتل-ها" data-page="hotel" class="w-1/5 flex justify-center flex-col items-center bmi-tab"><svg
+            class="hidden bmi-active-btn" width="24" height="24">
+            <use href="./images/sprite-icons.svg#active-building-bold-icon-mobile"></use>
+         </svg><svg class="inline-block bmi-simple-btn" width="24" height="24">
+            <use href="./images/sprite-icons.svg#simple-building-bold-icon-mobile"></use>
+         </svg><span class="tab-text ">هتل</span></a><span data-page="tour"
+         class="open-menu w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="hidden bmi-active-btn"
+            width="24" height="24">
+            <use href="./images/sprite-icons.svg#active-tour-bold-icon-mobile"></use>
+         </svg><svg class="inline-block bmi-simple-btn" width="24" height="24">
+            <use href="./images/sprite-icons.svg#simple-tour-bold-icon-mobile"></use>
+         </svg><span class="tab-text">تور</span></span><a href="/" data-page="home"
+         class="w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="inline-block bmi-active-btn"
+            width="24" height="24">
+            <use href="./images/sprite-icons.svg#active-home-bold-icon-mobile"></use>
+         </svg><svg class="hidden bmi-simple-btn" width="24" height="24">
+            <use href="./images/sprite-icons.svg#simple-home-bold-icon-mobile"></use>
+         </svg><span class="tab-text text-primary">خانه</span></a><a href="مجله_گردشگری" data-page="magazine"
+         class="w-1/5 flex justify-center flex-col items-center bmi-tab"><svg class="hidden bmi-active-btn" width="24"
+            height="24">
+            <use href="./images/sprite-icons.svg#active-book-bold-icon-mobile"></use>
+         </svg><svg class="inline-block bmi-simple-btn" width="24" height="24">
+            <use href="./images/sprite-icons.svg#simple-book-bold-icon-mobile"></use>
+         </svg><span class="tab-text">مجله</span></a>
+      <div class="w-1/5 flex justify-center flex-col items-center relative ">
+         <basis core="call" file="authentication/modal"></basis><span class="tab-text">پروفایل</span>
+      </div>
+   </div>
+</header>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZJVH2" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-L367K7EJ69"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-L367K7EJ69'); </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L367K7EJ69"></script>
+<script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-L367K7EJ69'); </script>

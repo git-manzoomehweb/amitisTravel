@@ -5657,6 +5657,7 @@ video {
   left: 0;
   top: -700px;
   height: 910px;
+  opacity: 0.65;
 }
 
 li:has(input:checked) {
