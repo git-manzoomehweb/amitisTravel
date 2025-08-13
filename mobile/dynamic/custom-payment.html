@@ -1,0 +1,85 @@
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2380570">
+    <member name="amitis-peyment" type="view" postsql="select * from [db.amitis-peyment] where TypeID in(250)" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="pwa.inc" />
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="style.inc" />
+</head>
+
+<body class="font-yekanbakhregularFA">
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="header.inc"></basis>
+    <main class="w-full relative ">
+        <svg class="svg p-0 w-0 h-0 m-0">
+            <clipPath id="sectionform" clipPathUnits="objectBoundingBox">
+                <path d="M0.573,0.258 C0.66,-0.026,0.893,-0.02,1,0.02 V1 H0 V0.52 C0.348,0.647,0.464,0.614,0.573,0.258">
+                </path>
+            </clipPath>
+        </svg>
+        <div class="bg-primary-950 h-[350px] bg-pattern-tringle-mob bg-center bg-cover bg-no-repeat ">
+            <div class="max-w-5xl mx-auto w-[90%] ">
+                <h1 class="font-yekanbakhboldFA text-2xl text-white leading-6 pt-12 ">درگاه پرداخت امن</h1>
+                <h2 class="text-white leading-6 text-sm font-yekanbakhregularFA mt-4 text-justify">از این درگاه میتوانید
+                    مبالغی را که کارشناسان فروش ما به شما اعلام کرده اند را پرداخت نمایید.</h2>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto w-full h-[200px] relative z-10 clipped-section-form -mt-44"></div>
+        <div class="max-w-5xl mx-auto w-[95%] relative z-10 -mt-60">
+            <figure class=" float-right mt-9 "><img class="w-[216px] h-[184px] object-contain"
+                    src="[##cms.cms.cdn##]/images/secure-pay-form-mob.png" width="216" height="184" alt="secure-pay">
+            </figure>
+            <div class="w-full ">
+                <basis core="call" pageindex="[##cms.cms.pageindex##]" file="form/payment"></basis>
+            </div>
+        </div>
+        <div class="clear-both"></div>
+        <basis core="list" datamembername="db.amitis-peyment">
+            <layout>
+                <section class="my-12">
+                    <ul
+                        class="flex flex-col justify-between items-center mt-3 mb-6 max-w-5xl mx-auto gap-x-8 gap-y-7 w-[90%] ">
+                        @child
+
+                    </ul>
+                </section>
+            </layout>
+            <face>
+                <li class="w-full flex justify-start gap-x-4 items-center ">
+                    <figure class="w-12 ml-2"><img src="[##cms.cms.cdn##]/images/@RowNumber-peyment-am.png"
+                            loading="lazy" width="48" height="48" alt="@text"></figure>
+                    <div>
+                        <h2 class="font-yekanbakhsemiboldFA text-base text-shadeneutral-100 leading-10 ">
+                            @text
+                        </h2>
+
+
+                        <div class="font-yekanbakhregularFA text-xs leading-6 text-txtneutral-500">
+                              @largetext
+                        </div>
+                    </div>
+                </li>
+            </face>
+        </basis>
+
+    </main>
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="footer.inc"></basis>
+</body>
+
+</html>

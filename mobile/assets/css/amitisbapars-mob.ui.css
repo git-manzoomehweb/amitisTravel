@@ -7531,4 +7531,18 @@ input[type="range"]::-moz-range-thumb {
 .pb-100 {
   padding-bottom: 100px !important;
 }
- 
+
+article.drop-shadow-xl.w-full.h-\[136px\].overflow-hidden.bg-neutralcolor-50
+  span.text-neutral-50.text-\[120px\].top-0.bottom-0.font-MontserratAlternatesBold.font-bold {
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+    2px 2px 0 black;
+}
+article.drop-shadow-xl.w-full.h-\[136px\].overflow-hidden.bg-neutralcolor-50:hover
+  span.text-neutral-50.text-\[120px\].top-0.bottom-0.font-MontserratAlternatesBold.font-bold {
+  text-shadow: -2px -2px 0 #f59e0b, 2px -2px 0 #f59e0b, -2px 2px 0 #f59e0b,
+    2px 2px 0 #f59e0b;
+}
+.border-primary {
+  border: 1px solid !important;
+  border-color: var(--primary);
+}
