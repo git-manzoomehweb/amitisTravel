@@ -871,11 +871,23 @@ const renderPriceInfo = async (element, type) => {
             let output = "";
 
             const getValue = (item, prop) => {
-                return item[key]?.[`${key}${prop}`] ?? item[`${key}${prop}`] ?? '';
+                let propKey = `${key}${prop}`;
+                if (prop === 'unit') {
+                    if (key.endsWith('cost')) {
+                        propKey = key.replace('cost', '') + 'unit';
+                    } else {
+                        propKey = `${key}unit`;
+                    }
+                }
+                if (item[key] && item[key][propKey] !== undefined) {
+                    return item[key][propKey];
+                }
+                return item[propKey] ?? '';
             };
 
-            if (prices.length === 1) {
-                const item = prices[0];
+            console.log("prices" , prices)
+
+            prices.forEach((item, index) => {
                 output += `
                     <div class="${wrapperClass}">
                         <span class="tourInventory__details__item__price text-primary-900 text-sm h-8 leading-8">
@@ -887,21 +899,15 @@ const renderPriceInfo = async (element, type) => {
                             </span>`}
                     </div>
                 `;
-            } else {
-                prices.forEach((item, index) => {
+                if (index < prices.length - 1) {
                     output += `
-                        <div class="${wrapperClass}">
-                            <span class="tourInventory__details__item__price text-primary-900 text-sm h-8 leading-8">
-                                ${new Intl.NumberFormat().format(getValue(item, 'f'))}
-                            </span>
-                            ${getValue(item, 'unit')?.length === 0 ? `` : `
-                                <span class="tourInventory__details__item__unit text-sm mr-1 h-8 leading-8">
-                                    ${getValue(item, 'unit')}
-                                </span>`}
-                        </div>
-                    `;
-                });
-            }
+                        <div class="relative w-full flex justify-center items-center -my-2">
+                            <hr class="w-full" />
+                            <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 px-3 mx-auto inline-block">+</span>
+                            <hr class="w-full" />
+                        </div>`;
+                }
+            });
 
             return output;
         };
@@ -924,6 +930,8 @@ const renderPriceInfo = async (element, type) => {
         return '';
     }
 };
+
+
 
 const renderHotelRate = async (element) => {
     try {

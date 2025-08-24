@@ -1034,6 +1034,76 @@ figure.appendChild(a);
 };
 
 
+// const renderPriceInfo = async (element, type) => {
+//     try {
+//         if (!element) return '';
+
+//         const renderPriceBoxes = (prices, key, wrapperClass) => {
+//             let output = "";
+
+//             const getValue = (item, prop) => {
+//                 return item[key]?.[`${key}${prop}`] ?? item[`${key}${prop}`] ?? '';
+//             };
+
+//             if (prices.length === 1) {
+//                 const item = prices[0];
+//                 output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                     <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
+//                         <span class="tourInventory__details__item__price sm:text-xl font-bold">
+//                             ${new Intl.NumberFormat().format(getValue(item, 'f'))}
+//                         </span>
+//                         ${getValue(item, 'unit')?.length === 0 ? `` : `
+//                             <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+//                                 ${getValue(item, 'unit')}
+//                             </span>`}
+//                     </div>
+//                 </div>`;
+//             } else {
+//                 prices.forEach((item, index) => {
+//                     output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                         <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
+//                             <span class="tourInventory__details__item__price sm:text-xl font-bold">
+//                                 ${new Intl.NumberFormat().format(getValue(item, 'f'))}
+//                             </span>
+//                             ${getValue(item, 'unit')?.length === 0 ? `` : `
+//                                 <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+//                                     ${getValue(item, 'unit')}
+//                                 </span>`}
+//                         </div>
+//                     </div>`;
+
+//                     if (index < prices.length - 1) {
+//                         output += `<div class="relative w-full flex justify-center items-center -my-2">
+//                             <hr class="w-full" />
+//                             <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
+//                             <hr class="w-full" />
+//                         </div>`;
+//                     }
+//                 });
+//             }
+
+//             return output;
+//         };
+
+//         switch (type) {
+//             case 'doublecost':
+//                 return renderPriceBoxes(element.priceinfo.doublecost, 'doublecost', 'tourInventory__details__item__double');
+//             case 'singlecost':
+//                 return renderPriceBoxes(element.priceinfo.singlecost, 'singlecost', 'tourInventory__details__item__single');
+//             case 'childwithbed':
+//                 return renderPriceBoxes(element.priceinfo.childwithbed, 'childwithbed', 'tourInventory__details__item__wBed');
+//             case 'childwithoutbed':
+//                 return renderPriceBoxes(element.priceinfo.childwithoutbed, 'childwithoutbed', 'tourInventory__details__item__woBed');
+//             default:
+//                 return '';
+//         }
+
+//     } catch (err) {
+//         console.error('renderPriceInfo=' + err.lineNumber + ',' + err.message);
+//         return '';
+//     }
+// };
+
 const renderPriceInfo = async (element, type) => {
     try {
         if (!element) return '';
@@ -1042,7 +1112,18 @@ const renderPriceInfo = async (element, type) => {
             let output = "";
 
             const getValue = (item, prop) => {
-                return item[key]?.[`${key}${prop}`] ?? item[`${key}${prop}`] ?? '';
+                let propKey = `${key}${prop}`;
+                if (prop === 'unit') {
+                    if (key.endsWith('cost')) {
+                        propKey = key.replace('cost', '') + 'unit';
+                    } else {
+                        propKey = `${key}unit`;
+                    }
+                }
+                if (item[key] && item[key][propKey] !== undefined) {
+                    return item[key][propKey];
+                }
+                return item[propKey] ?? '';
             };
 
             if (prices.length === 1) {
@@ -1103,7 +1184,6 @@ const renderPriceInfo = async (element, type) => {
         return '';
     }
 };
-
 const renderHotelRate = async (element) => {
     try {
         if (element) {
