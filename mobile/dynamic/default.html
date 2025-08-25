@@ -81,6 +81,29 @@
 <body class="page-home">
     <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"></basis>
     <main>
+        <div class="advertise-banner w-full bg-primary-900 h-16 relative">
+            <span class="hidden">[##cms.host.mobile-default-advertisement##]</span>
+            <div class="w-full h-full mx-auto flex justify-center items-center">
+                <a href="[##cms.host.mobile-default-advertisement##]" class="h-full w-full">
+                    <img class="w-full h-full" src="[##cms.cms.cdn##]/images/mobile-default-advertisement.jpg" alt="تبلیغات"
+                        width="1280" height="112" /></a>
+            </div>
+            <button aria-label="close-ads" onclick="CloseAdv(this, 'advertise-banner')">
+                <span class="absolute top-0 bottom-0 left-3 h-full flex items-center">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24.5837 37.5003H14.5837C5.53366 37.5003 1.66699 33.6337 1.66699 24.5837V14.5837C1.66699 5.53366 5.53366 1.66699 14.5837 1.66699H24.5837C33.6337 1.66699 37.5003 5.53366 37.5003 14.5837V24.5837C37.5003 33.6337 33.6337 37.5003 24.5837 37.5003ZM14.5837 4.16699C6.90033 4.16699 4.16699 6.90033 4.16699 14.5837V24.5837C4.16699 32.267 6.90033 35.0003 14.5837 35.0003H24.5837C32.267 35.0003 35.0003 32.267 35.0003 24.5837V14.5837C35.0003 6.90033 32.267 4.16699 24.5837 4.16699H14.5837Z"
+                            fill="white" />
+                        <path
+                            d="M25.5958 26.1815C25.1126 26.6647 24.3112 26.6647 23.828 26.1815L13.8106 16.1642C13.3275 15.681 13.3275 14.8796 13.8106 14.3964C14.2938 13.9132 15.0952 13.9132 15.5784 14.3964L25.5958 24.4137C26.0789 24.8969 26.0907 25.6865 25.5958 26.1815Z"
+                            fill="white" />
+                        <path
+                            d="M13.799 25.6035C13.3158 25.1203 13.3158 24.3189 13.799 23.8357L23.828 13.8067C24.3112 13.3235 25.1126 13.3235 25.5958 13.8067C26.079 14.2899 26.079 15.0913 25.5958 15.5745L15.5668 25.6035C15.0836 26.0867 14.294 26.0985 13.799 25.6035Z"
+                            fill="white" />
+                    </svg>
+                </span>
+            </button>
+        </div>
         <section
             class="search-banner module-banner-background flight-banner-background h-[160px] bg-primary-900 sticky top-[56px] -z-[1] left-0 right-0 bg-no-repeat bg-contain bg-center-top">
             <h1 class="sr-only">آمیتیس بال</h1>
