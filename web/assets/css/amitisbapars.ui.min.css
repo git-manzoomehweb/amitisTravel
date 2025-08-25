@@ -8015,3 +8015,6 @@ article.drop-shadow-xl.w-1\/4.overflow-hidden.bg-neutralcolor-50:hover
 .search-box-container .active-r-btn span {
   color: var(--textColor) !important;
 }
+.plan-item.border-primary{
+  border: 1px solid var(--primary) !important;
+}
