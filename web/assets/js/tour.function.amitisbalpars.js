@@ -180,7 +180,7 @@ function toggleSocialMedia(element){
 
 const page_lang = document.querySelector('main').getAttribute('data-lang');
 // execution - date inventory
-const scrollToTourSection = async (element, type) => {
+const scrollToTourSections = async (element, type) => {
     try {
         window.scroll({
             top: document.querySelector(`.${type}`).offsetTop,
@@ -191,7 +191,7 @@ const scrollToTourSection = async (element, type) => {
         })
         element.classList.add("active");
     } catch (err) {
-        console.error('scrollToTourSection=' + err.lineNumber + ',' + err.message);
+        console.error('scrollToTourSections=' + err.lineNumber + ',' + err.message);
     }
 
 }

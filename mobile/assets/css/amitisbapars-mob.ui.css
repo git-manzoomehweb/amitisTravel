@@ -7546,3 +7546,6 @@ article.drop-shadow-xl.w-full.h-\[136px\].overflow-hidden.bg-neutralcolor-50:hov
   border: 1px solid !important;
   border-color: var(--primary);
 }
+.search-box-container .active-r-btn span {
+  color: var(--textColor) !important;
+}

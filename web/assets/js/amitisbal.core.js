@@ -2336,6 +2336,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".load-elements-banner a");
+  // console.log(slides);
+
+  slides?.forEach((slide) => {
+    const catid = slide.getAttribute("catid");
+    // console.log(catid);
+
+    if (catid) {
+      fetch(`load-banner-link.bc?catid=${catid}`)
+        .then((res) => res.text())
+        .then((data) => {
+          // اگر data فقط یه لینک خالیه
+          const link = data.trim();
+
+          // اضافه کردن لینک به href
+          slide.setAttribute("href", link);
+
+          // console.log(`لینک برای catid=${catid} -> ${link}`);
+        })
+        .catch((err) => {
+          console.error(`خطا در دریافت اطلاعات برای catid=${catid}`, err);
+          slide.setAttribute("href", "#");
+          slide.textContent = "خطا در لود لینک";
+        });
+    }
+  });
+});
+
 const scrollToTourSection = async (element, type) => {
   try {
     window.scroll({
