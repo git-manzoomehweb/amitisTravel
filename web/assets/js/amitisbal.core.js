@@ -128,6 +128,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // lazyloading images
 
+
+  function CloseAdv(element, className) {
+    const target = document.querySelector(`.${className}`);
+    if (target) {
+      target.classList.add("hidden");
+    }
+  }
+  
 // default - mobile - sliders
 if (window.innerWidth < 1024) {
   if (document.querySelector(".advertise-slider")) {
@@ -403,12 +411,7 @@ if (window.innerWidth > 1024) {
     }
   }
 
-  function CloseAdv(element, className) {
-    const target = document.querySelector(`.${className}`);
-    if (target) {
-      target.classList.add("hidden");
-    }
-  }
+
 
   document.addEventListener("click", function () {
     document.querySelectorAll(".share-container").forEach((el) => {
