@@ -1,0 +1,1154 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url(/css/customized.ui.min.css);  */
+
+table {
+    text-indent: initial;
+    border-color: initial;
+    border-collapse: unset; 
+  }
+
+.dir-rtl{direction: rtl;}
+.dir-ltr{direction: ltr;}
+
+body{
+    padding-top: 56px;
+}
+
+:root {
+
+    /* colors */
+    /* primary*/
+    --primary: #005FF0;
+    /* blue10*/
+    --primary-50: #F2F7FF;
+    /* blue9*/
+    --primary-100: #E3EDFC;
+    /* blue8*/
+    --primary-200: #BDE4FC;
+    /* blue7*/
+    --primary-300: #96D0FA;
+    /* blue6*/
+    --primary-400: #499CF5;
+    /* blue11*/
+    --primary-500: #9FEAFF;
+    /* blue5*/
+    --primary-600: #0053D9;
+    /* blue4*/
+    --primary-700: #003EB3;
+    /* blue3*/
+    --primary-800: #002D8F;
+    /* blue2*/
+    --primary-900: #001E6B;
+    /* blue1 */
+    --primary-950: #001145;
+
+    --primary-shade-400: #9FEAFF ;
+
+
+
+    --secondary: #FFA200;
+        /* orange 5 */
+        --secondary-100: #FEF3E4;
+        /* orange 4 */
+        --secondary-200: #FCDAAD;
+        /* orange 3 */
+        --secondary-300: #FBC176;
+        /* orange 2 */
+        --secondary-400: #F9A940;
+        /* orange 1 */
+        --secondary-500: #F79009 ;
+
+
+        
+    /* yellow 1 */
+    --secondary-complementary-50: #FFFDF2;
+    /* orange 10 */
+    --secondary-complementary-100: #FFFAE6;
+    /* orange 9 */
+    --secondary-complementary-200: #FFF1BF;
+    /* orange 8 */
+    --secondary-complementary-300: #FFE699;
+    /* orange 7 */
+    --secondary-complementary-400: #FFC94D;
+    /* orange 6 */
+    --secondary-complementary-500: #facc15;
+
+
+
+
+    /* green 5 */
+    --success-500:#12B76A;
+    /* green 4 */
+    --success-400:#24E98D;
+    /* green 3 */
+    --success-300:#63F0AE;
+    /* green 2 */
+    --success-200:#A1F6CE;
+    /* green 1 */
+    --success-100:#E0FCEF;
+
+    /* red 5 */
+    --error-500:#F04438;
+    /* red 4 */
+    --error-400:#F36E64;
+    /* red 3 */
+    --error-300:#F79790;
+    /* red 2 */
+    --error-200:#FAC1BD;
+    /* red 1 */
+    --error-100:#FDEAE9;
+
+    /* gray 10 */
+    --neutral-50:#F9FBFC;
+    /* gray 9 */
+    --neutral-100:#F5F8FC;
+    /* gray 8 */
+    --neutral-200:#F3F3F3;
+    /* gray 7 */
+    --neutral-300:#E9EFF4;
+    /* gray 6 */
+    --neutral-400:#E0E6F2;
+    /* gray 5 */
+    --neutral-500:#DAE4ED;
+    /* gray 4 */
+    --neutral-600:#D3DEE9;
+    /* gray 3 */
+    --neutral-700:#CCD9E5;
+    /* gray 2 */
+    --neutral-800:#C4D3E2;
+    /* gray 1 */
+    --neutral-900:#BDCEDE;
+
+    /* text color 4 */
+    --txtneutral-200:#D3DBE0;
+    /* text color 3 */
+    --txtneutral-400:#98A2B3;
+    /* text color 2 */
+    --txtneutral-500:#667085;
+    /* text color 1 */
+    --txtneutral-900:#101828;
+
+    /* black color */
+    --shade-0:#FFFFFF;
+    /* white color */
+    --shade-100:#0C0C0C;
+
+    --bgfootercategory : '../images/footer-category.jpg';
+
+    --bg-image: #f3f4f6 ;
+}
+
+
+html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl;position: relative; }
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--primary-50);}
+::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
+
+.scroll-hidden {
+    scrollbar-width: none;         
+    -ms-overflow-style: none;      
+  }
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;              
+  }
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Bold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Bold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-SemiBold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Thin.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Thin.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Light.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Light.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular_fa';font-style:normal;src:url('../fonts/YekanBakhFaNum-Regular.ttf') format('truetype'),url(../fonts/YekanBakhFaNum-Regular.woff) format('woff')}
+
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Bold';font-style:normal;src:url('../fonts/YekanBakh-Bold.ttf') format('truetype'),url(../fonts/YekanBakh-Bold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_SemiBold';font-style:normal;src:url('../fonts/YekanBakh-SemiBold.ttf') format('truetype'),url(../fonts/YekanBakh-SemiBold.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Thin';font-style:normal;src:url('../fonts/YekanBakh-Thin.ttf') format('truetype'),url(../fonts/YekanBakh-Thin.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Light';font-style:normal;src:url('../fonts/YekanBakh-Light.ttf') format('truetype'),url(../fonts/YekanBakh-Light.woff) format('woff')}
+@font-face{font-display:swap;font-family:'Yekan_Bakh_Regular';font-style:normal;src:url('../fonts/YekanBakh-Regular.ttf') format('truetype'),url(../fonts/YekanBakh-Regular.woff) format('woff')}
+    
+@font-face{font-display:swap;font-family:'MontserratAlternates-Bold';font-style:normal;src:url('../fonts/MontserratAlternates-Bold.ttf') format('truetype')}
+
+@font-face{font-display:swap;font-family:'IRANYekanRegularMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanRegular-fa';font-style:normal;src:url('../fonts/IRANYekanRegular\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanMobileBold-fa';font-style:normal;src:url('../fonts/IRANYekanMobileBold\(FaNum\).ttf') format('truetype')}
+@font-face{font-display:swap;font-family:'IRANYekanLightMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
+
+
+
+
+
+
+.clipped-overflow-handler {
+    width: 100%;
+    height: 24px;
+    background: white ;
+    background-size: cover;
+    -webkit-clip-path: url(#clip-path-handler);
+    clip-path: url(#clip-path-handler);
+  }
+
+.writing-mode-sideways-lr{
+    writing-mode: sideways-lr;
+}
+
+
+/* searchbox */
+
+.search-box-container .max-xl\:top-\[65px\] {
+    top: 30px;
+}
+
+.remove-routs{display:  none !important;}
+
+.add-routs , .remove-routs{
+    height: 46px;
+    display: flex
+;
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.multiroute-fields .reserve-field.w-1\/4.h-20.relative.max-xl\:w-full.max-xl\:mb-4.max-xl\:h-auto.max-xl\:my-2.max-xl\:text-center > div{
+    display: flex;
+    justify-items: center;
+    justify-content: space-between ;
+}
+#search-box{background: var(--bgColor);}
+.search-box-container input,
+ .search-box-container select,
+  .search-box-container button span ,
+   .passenger-counts_container , 
+    .traveltype-text  , .flighttype-text , .search-box-container button {
+    border: unset;
+    font-family: 'Yekan_Bakh_Regular_fa' !important;
+    font-size: 16px !important;
+    transform: scale(0.875);
+    transform-origin: right center;
+}
+
+span.module-icon.inline-block {
+    display: block !important;
+    height: 24px;
+    margin-top: -1em;
+  }
+  
+  .search-box-container .reserve-btn.inline-block.ml-3 {
+    display: flex !important
+    ;
+        flex-direction: column;
+        row-gap: 1em;
+        font-size: 12px !important;
+        margin-left: 0 !important;
+  }
+
+
+  span.module-name {
+    margin-top: 0.5em;
+}
+
+.search-box-container .reserve-btn.active-module {
+    color: #fff !important;
+}
+
+svg.module-icon-active,svg.module-icon-deactive{
+    width: 64px !important;
+    height: 64px !important;
+    scale: 0.6;
+}
+.reservation-item{display:flex;justify-content:center;flex-wrap:wrap;width:95%;margin:0 auto;gap:1em}
+.reserve-btn{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:4px;width:64px !important;height:64px !important;background:var(--primary-50);border-radius:8px}
+svg.module-icon-active{display: none !important;}
+.active-module svg.module-icon-active{display: inline-block !important;}
+
+.search-box-container .reserve-btn.active-module .module-icon svg.module-icon-active  {
+    filter: brightness(0) invert(1);
+}
+
+@media (hover: none) {
+    span.module-name.inline-block.hover\:text-primary {
+      color: inherit;
+    }
+
+    span.cursor-pointer.text-sm.text-textColor.group-hover\:text-primary{
+        color: inherit;
+
+    }
+  }
+
+
+  .searchHistory-content {
+    background-color: white !important;
+    position: relative !important;
+    z-index: 10;
+    padding: 1em;
+    margin: 0;
+    width: 100% !important;
+}
+
+.r-flight .flighttype-field {
+    margin: 0 auto;
+    display: flex
+;
+    justify-content: space-around;
+    height: 40px;
+    width: 95%;
+    background: aliceblue;
+    border-radius: 24px !important;
+}
+.flighttype-items{
+    width: 100%;
+    margin: 0 0.3em !important;
+}
+.flighttype-items li, .flighttype-items li > span {
+    margin: auto;
+    height: 32px !important;
+    line-height: 32px !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.flighttype-items{display: flex;justify-content: space-between;}
+.flighttype-items > .clr{display: none !important;}
+.flighttype-items li{width: 33%;border-radius: 24px;display: flex !important;justify-content: center;align-items: center;}
+
+.search-box-container .active-r-btn{
+    color: white !important;
+}
+.addroute-icon{display: none !important;}
+.form-search label>svg , .addroute-icon , .removeall-icon{
+    width: 35px !important;
+    height: 35px !important;
+    scale: 0.55;
+}
+.removeroute-icon  {
+    width: 35px !important;
+    height: 35px !important;
+    scale: 1;
+    margin-top: 165px;
+    margin-right: 20px;
+}
+.multicity-flight-form .route-content:nth-child(3) .reserve-field.departure-date ,
+.multicity-flight-form .route-content:nth-child(4) .reserve-field.departure-date {
+width: 80% !important;
+}
+
+
+.form-search label>span {
+    display: none !important;
+}
+.add-routs > span , .remove-routs > span{font-size: 12px; color: var(--secondary) !important;}
+.add-routs{width: 100% !important; border-radius: 8px !important; border: 1px solid var(--secondary) !important; background-color: var(--shade-0) !important;}
+.exchangeRoute >svg {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.Basis_Date_Box .border-type-1.h-full.rounded-type-1.px-2 {
+    display: flex !important
+;
+    width: 100% !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+
+.reserve-field.departure-route, .reserve-field.destination-route, .reserve-field.passengers-field, .reserve-field.traveltype-field, .reserve-field.flighttype-field {
+    border: 1px solid var(--neutral-800);
+    border-radius: 8px;
+}
+
+.click-content.border-type-1 {
+    display: flex
+    ;
+        align-items: center;
+        /* -moz-column-gap: .25em; */
+        /* column-gap: .25em; */
+        justify-content: right;
+        flex-direction: row;
+}
+
+
+.reserve-field.h-20{
+    height: 48px !important;
+}
+.reserve-field.flightclass-field{
+    height: auto !important;
+}
+.FlightClass {padding-right: 0 !important;}
+
+.toggle-calendar {
+    background: var(--secondary) !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    font-size: 14px !important;
+    margin: 1em auto !important;
+    transform: scale(1) !important;
+}
+
+.passenger-birthday-dropdown {
+
+    margin-top: -50px !important;
+    border-radius: 8px !important;
+}
+
+.plus-count>.h-full.leading-8, .minus-count>.h-full.leading-8 {
+    line-height: 18px !important;
+}
+
+.passenger-item > ul{display: flex !important; justify-content: space-between; align-items: center;}
+.form-search{width: 95%;margin: 1em auto !important;}
+
+label.float-right.w-full.cursor-pointer {
+    width: 35px;
+}
+.Basis_Date_ExteraHoteldate{padding-right: 50px !important;}
+.Basis_Date.pt-12 , .Basis_Date_ExteraHoteldate{padding-top: 0 !important;} 
+.Basis_Date{padding-right: 50px !important;}
+
+.passenger-counts_container {padding-right:  43px !important;}
+.form-search .auto-fit {
+    display: none !important;
+}
+.text-value{
+    height: 52px;
+    width: 100%;
+    background: aquamarine;
+}
+.reserve-field.departure-date , .reserve-field.return-date{
+    border: 1px solid var(--neutral-800);
+    border-radius: 8px;
+}
+/* .reserve-field.departure-date > div , .reserve-field.return-date > div{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+} */
+.reserve-field.return-date label>svg {
+    width: 22px !important;
+    height: 15px !important;
+    scale: 1.1;
+}
+
+.reserve-field label {
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.passenger-counts_container , .passenger-counts , .traveltype-text , .flighttype-text{
+    height: 46px !important;
+    line-height: 46px !important;
+
+}
+
+.passengers-field label {height: 46px;}
+
+@media only screen and (max-width: 1280px) {
+    .Basis_Calendar_Box {
+        margin-top: -56px !important;
+    }
+}
+
+.flightclass-field label{display: none !important;}
+
+.passenger-item label>span {
+    display: block !important;
+}
+.passenger-item{margin-bottom: 0 !important;}
+.passenger-item > .span.text-grays-400.mr-2{font-size: 12px !important;}
+.warningColor-100{
+    color: var(--error-500);
+    font-size: 12px;
+}
+.close-passenger-box{display: none !important;}
+.plus-count, .minus-count {
+    width: 22px !important;
+    height: 22px !important;
+    border: 2px solid var(--neutral-800);
+    color: black;
+    border-radius: 7px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    line-height: 33px !important;
+}
+
+.FlightClass>li {
+    display: flex
+;
+    height: 59px;
+    background-color: var(--neutral-50);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 0.5em auto;
+    width: 100%;
+    align-items: center;
+    justify-content: right;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+}
+
+.flightclass-fa {
+    margin-left: 5px !important;
+    display: block !important;
+    color: var(--shade-100) !important;
+    font-size: 10px !important;
+    font-family: 'Yekan_Bakh_Regular' !important;
+}
+
+.form-search label>span.flightclass-fa, .form-search label>span.flightclass-en {
+    display: block !important;
+}
+
+.flightclass-en {
+    margin-left: 5px !important;
+    color: var(--txtneutral-500) !important;
+    font-size: 10px !important;
+    display: block !important;
+    font-family: 'Yekan_Bakh_Regular' !important;
+}
+
+
+.FlightClass li.active-FlightClass::before {
+    border-color: var(--secondary);
+}
+
+.FlightClass li::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    border: 4px solid var(--neutral-700);
+    display: inline-block;
+}
+
+.FlightClass{display: block !important;}
+.FlightClass label{display: block !important;}
+
+.flightclass-field > div.border-type-1.cursor-pointer.h-full.rounded-type-1.px-2{display: none;}
+
+
+
+
+.reserve-field .down-icon{display: none !important;}
+.reserve-search svg{display: none !important ;}
+.reserve-search > button{background: transparent !important;}
+.reserve-search {    height: 48px !important;
+    background: var(--secondary);
+    border-radius: 8px !important;
+    color: white;}
+
+    .reserve-search:hover{background-color: var(--secondary-500);}
+
+/* banners */
+.flight-banner-background{
+    background-image: url(../images/flight-search-bg-mobile.jpg);
+}
+.hotel-banner-background{
+    background-image: url(../images/hotel-search-bg-mobile.jpg);
+}
+.flighthotel-banner-background{
+    background-image: url(../images/flighthotel-search-bg-mobile.jpg);
+}
+.tour-banner-background{
+    background-image: url(../images/tour-search-bg-mobile.jpg);
+}
+.insurance-banner-background{
+    background-image: url(../images/insurance-search-bg-mobile.jpg);
+}
+.cip-banner-background{
+    background-image: url(../images/cip-search-bg-mobile.jpg);
+}
+.visa-banner-background{
+    background-image: url(../images/visa-search-bg-mobile.jpg);
+}
+/* banners */
+
+
+.reserve-field .return-route label,
+.reserve-field .departure-route label
+
+{
+    rotate: 90deg;
+}
+
+.one-btb-flight-form .exchangeRoute{
+    top: 30px !important;
+
+}
+
+@media not all and (min-width: 1280px) {
+    .search-box-container .max-xl\:top-\[65px\] {
+        top: 30px !important;
+    }
+}
+.passenger-counts_container > span{padding: 0 4px;}
+.passenger-counts_container > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(2px * var(--tw-divide-x-reverse));
+    border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .passenger-counts_container > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 1;
+  }
+
+  .multi-route-tlt{
+    font-size: 12px !important;
+    font-family: 'Yekan_Bakh_SemiBold_fa';
+    color: var(--primary) !important;
+    background: white;
+    margin-bottom: -47px !important;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    height: 22px;
+    top: 11px;
+    right: 12px;
+}
+.route-minus-btn > span{display: none !important;}
+
+.traveltype  , .flighttype  {padding: 0 !important;background: transparent !important;}
+.traveltype-field label , .flighttype-field label{height: 40px !important;line-height: 40px;}
+.active-TravelType , .active-FlightType { background-color: var(--secondary) !important; color: white !important ;}
+.flighttype-field > div , .traveltype-field > div{ display: none !important;}
+.flighttype-field > .flighttype , .traveltype-field  > .traveltype{display: flex !important; justify-content: space-between; column-gap: 4px;}
+.traveltype > li , .flighttype > li {
+    height: 40px !important;
+    line-height: 40px !important;width: 33.33% !important; display: inline-block !important ;border-radius: 8px; margin: 3px;}
+.traveltype > li:hover , .flighttype > li:hover {color: inherit !important ;}
+.traveltype > li > label , .flighttype > li > label {    width: 100% !important;
+    text-align: center !important;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;}
+
+
+
+    .passengerbox, .searchList{
+        border: 1px solid var(--neutral-800);
+        border-radius: 8px;
+    }
+
+
+
+
+
+
+
+        
+
+        
+
+
+        
+           
+       
+                .toggle-calendar {
+                    background: var(--secondary) !important;
+                    border-radius: 6px !important;
+                    width: 100% !important;
+                    font-size: 14px !important;
+                    margin: 1em auto !important
+                }
+        
+                .toggle-calendar:hover {
+                    background: var(--primary) !important;
+                    color: white !important
+                }
+        
+                .calendar-switch {
+                    font-size: 12px;
+                    cursor: pointer;
+                    font-family: 'Yekan_Bakh_Bold' !important;
+                    line-height: 24px !important;
+                    color: var(--secondary)
+                }
+        
+                button.calendar-apply-date {
+                    background: var(--secondary) !important;
+                    color: white !important
+                }
+        
+                .calendar-footer input,
+                .calendar-footer::placeholder {
+                    font-family: 'Yekan_Bakh_Regular_fa' !important
+                }
+        
+                .current_day {
+                    background-color: var(--secondary-400) !important;
+                }
+        
+                .Basis_Calendar .current_day::after {
+                    border-color: var(--secondary-500) transparent transparent !important
+                }
+        
+                .Basis_Calendar .selected_date {
+                    background: var(--secondary-500) !important
+                }
+        
+                .month_name {
+                    background-color: var(--secondary) !important;
+                    color: white !important;
+                    font-size: 13px !important;
+                    padding: .5em;
+                    border-radius: 5px
+                }
+    
+                .date-info span{display: flex ; justify-content: center; justify-items: center; align-items:center ;}
+
+                .fa-calendar , .fa-calendar input ,.fa-calendar button , .date-info-departure , .date-info-destination ,.date-info-departure::placeholder , .date-info-destination::placeholder  {
+                    font-family:'Yekan_Bakh_Regular_fa' !important;
+                }
+
+                .en-calendar , .en-calendar input ,.en-calendar button {
+                    font-family:'Yekan_Bakh_Regular' !important;
+                }
+
+                .calendar-date-info .date-info {
+                    display: flex ;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .calendar-date-info svg{
+                    position: static !important;
+                }
+    
+
+
+                .add-routs.w-1\/2.h-full.text-xl.cursor-pointer.text-primary.hover\:text-secondary.bg-inherit {
+  width: 100% !important;
+  transform: scale(1) !important;
+}
+/* searchbox */
+
+/* default banner slider  */
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+    width: 24px !important;
+    border-radius: 4px !important;
+}
+/* default banner slider  */
+
+/* login */
+button.user-profile-btn{background: transparent;
+    position: absolute;
+    top: 19px;
+    left: 0;
+    right: -32px;
+    width: 152%;
+    height: 100%;
+    bottom: 0;
+    opacity: 0;
+    z-index: 1;
+    display: block;
+    margin: auto;
+    padding: 2em;}
+span.btnstyle{background:transparent;position:absolute;top:0;left:0;right:0;width:100%;bottom:0;opacity:0}
+.user-profile-arrow{display: none;}
+/* login */
+/* tour list */
+ul , .hide-srollbar{
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+
+  .faq-active{
+    border-radius: 8px;
+    border: 1px solid var(--primary-100);
+    margin: 2px auto;
+    overflow: hidden;
+    padding: 0 !important;
+  }
+  .faq-active > .answer-box{
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+ .input-font-standard{
+    font-size: 16px !important;
+    transform: scale(0.875);
+    transform-origin: right center;
+}
+
+/* tour list */
+
+/* visa-list */
+#visa-request-form [data-bc-section] {
+    margin-bottom: 0 !important;
+    padding: 10px 10px;
+    padding-bottom: 0 !important;
+  }
+  
+  #visa-request-form legend {
+    display: none !important;
+  }
+  
+  #visa-request-form [data-bc-answer-container] input[type="text"] ,
+  #visa-request-form [data-bc-answer-container] select 
+  {
+    height: 32px;
+    border: 1px solid var(--neutral-700) !important;
+    font-size: 16px !important;
+    border-radius: 16px !important;
+    /* padding: 0.1em 0.8em !important; */
+  }
+  #visa-request-form [data-bc-answer-container] input[type="text"]::placeholder  {
+    font-size: 16px !important;
+    transform: scale(0.875);
+    transform-origin: right center;
+  }
+  
+  #visa-request-form [data-bc-part-container] , #visa-request-form [data-bc-btn-container] {
+    width: 100% !important;
+  }
+  
+  #visa-request-form [data-bc-answer-container] {
+    display: inline-block;
+    width: 100% !important;
+  }
+  
+  #visa-request-form [data-bc-question] {
+    width: 100%;
+    display: inline-block;
+  }
+  
+  #visa-request-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    display: none !important;
+  }
+  
+/* visa-list */
+
+/* secure payment */
+
+/* .mask-banner-slider{-webkit-mask-image:url(../images/slider-mask-shape.svg);mask-image:url(../images/slider-mask-shape.svg);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;width:100%;height:560px;-webkit-mask-size:100% 100%;mask-size:100% 100%} */
+ .clipped-tag-page{width:100%;height:574px;background-color:var(--primary-950);background-size:cover;-webkit-clip-path:url(#tag-clip-path);clip-path:url(#tag-clip-path)}
+.clamped-text::after{content:"";display:inline-block;width:60%}
+.card:nth-last-child(1),.card:nth-last-child(2):nth-child(odd){margin-left:auto}
+.clipped-section{width:100%;height:1203px;background-size:cover;background-color:var(--primary-950);clip-path:url(#section1)}
+.clipped-section-form {
+    width: 100%;
+    height: 200px;
+    background-color: var(--shade-0);
+    background-size: cover;
+    clip-path: url(#sectionform);
+}
+
+.clipped-about {
+    width: 100%;
+    height: 272px;
+    background-color: var(--primary-950);
+    background-size: cover;
+    -webkit-clip-path: url(#about-clip-path);
+    clip-path: url(#about-clip-path);
+  }
+
+  .clipped-about-txt {
+    width: 100%;
+    min-height: 350px;
+    background-color: var(--primary-950);
+    background-size: cover;
+    -webkit-clip-path: url(#about-txt-clip-path);
+    clip-path: url(#about-txt-clip-path);
+  }
+
+  .clipped-tag-mob {
+    width: 100%;
+    min-height: 184px;
+    background-color: var(--primary-950) ;
+    background-size: cover;
+    -webkit-clip-path: url(#tag-clippath-mob);
+    clip-path: url(#tag-clippath-mob);
+  }
+
+.clipped-airline-section1{width:100%;height:208px;background-color:var(--primary-950);background-image:url(../images/airplane-pattern-mob.png);background-size:cover;clip-path:url(#airline-section1)}
+.clipped-airline-section2{width:100%;height:415px;background-color:var(--primary-950);background-image:url(../images/earth-pattern-mob.png);
+    background-repeat: no-repeat;background-position: center;
+    background-size:contain;clip-path:url(#airline-section2)}
+
+
+
+
+.payment__container {
+    width: 95% !important;
+    margin: 0 auto !important;
+  }
+.payment__container .data-bc-btn{
+    /* width:calc(100% - 75px); */
+    width: 100%;
+    margin:0 auto;
+    display:block;
+    border-radius: 8px !important ;
+    height: 48px !important;
+    font-size: 14px !important;
+    font-family: 'Yekan_Bakh_SemiBold_fa' !important;
+  }
+  
+  .payment__container [data-bc-answer-title-container]{
+    display:none!important
+  }
+  
+  .payment__container [data-bc-schema-direction="rtl"] [data-bc-part-container],.payment__container [data-bc-schema-direction="rtl"] [data-bc-btn-container]{
+    float:none!important;
+    margin:0 auto!important
+  }
+  
+  .payment__container [data-bc-answer-container]{
+    float:none!important;
+    display:inline-block;
+    width:100%!important
+  }
+  
+  .payment__container [data-bc-schema-direction="rtl"] [data-bc-title-container] , .payment__container [data-bc-title-container]{
+    float:none!important;
+    /* margin:5px auto!important; */
+    color:var(--primary-950)!important;
+    /* width:calc(100% - 75px)!important */
+    font-size: 12px !important;
+  }
+  
+  .payment__container [data-bc-answer-container] input[type="text"],
+  .payment__container [data-bc-answer-container] input[type="password"],
+  .payment__container [data-bc-answer-container] input[type="time"],
+  .payment__container [data-bc-answer-container] input[type="color"],
+  .payment__container [data-bc-answer-container] input[type="file"],
+  .payment__container [data-bc-answer-container] select {    height:48px!important;
+    font-size:16px!important
+  }
+  
+  #captchaContainer .captcha-flex{
+    width:100%!important
+  }
+  
+  .payment__container  .captcha>[data-bc-title-container]{
+    /* width:calc(100% - 75px)!important; */
+    width:100% !important;
+    margin:0 auto!important
+  }
+  
+
+  .payment__container  img.inline-block.rounded-xl{
+    height: 48px !important;
+  }
+  
+
+  .payment__container  .svg.inline-block.cursor-pointer.mt-1.ml-1.mr-1{
+    height: 48px !important;
+  }
+
+
+ .payment__container [data-bc-part] {
+    float: none !important ;
+    display: initial !important ;
+    vertical-align: inherit !important;
+    margin-bottom: 0 !important;
+}
+
+.payment__container .unit {
+    margin-left: 0 !important;
+}
+
+.payment__container svg.inline-block.cursor-pointer.mt-1.ml-1.mr-1 {
+    height: 48px !important;
+}
+
+@media (max-width: 1024px) {
+    .payment__container  [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+        width: 100% !important;
+        margin: 0 !important;
+        display: flex !important;
+;
+    }
+}
+
+
+.payment__container  [data-bc-answer-container] input[type="text"], 
+.payment__container  [data-bc-answer-container] input[type="password"],
+ .payment__container  [data-bc-answer-container] input[type="time"], 
+ .payment__container  [data-bc-answer-container] input[type="file"],
+  .payment__container  [data-bc-answer-container] select, 
+  .payment__container  [data-bc-answer-container] textarea {
+
+    border: 1px solid var(--neutral-800) !important;
+    background-color: white !important;
+    border-radius: 8px !important;
+}
+.payment__container  .captcha-flex{
+    border: 1px solid var(--neutral-800) !important;
+    background-color: white !important;
+    border-radius: 8px !important;
+}
+.payment__container  [data-bc-answer-container] input[type="text"].contactUsInput{background: white !important;border: none !important;border-color: white !important;}
+
+.payment__container  [data-bc-schema-info-part="2"] [data-bc-part-related-cell] {
+    width: calc(50% - 10px) !important;
+}
+
+/* .contactUsInput{background: white !important;border: none !important;border-color: white !important;} */
+/* secure payment */
+
+
+/* login-mob */
+section.main-login-container.rtl-lang {
+    z-index: 9999;
+}
+#firstUsername input , .login-btn{
+    font-family:'IRANYekanRegularMobile-fa' !important;
+}
+
+.main-login-container.rtl-lang .login-closed{text-align:left}
+.main-login-container{font-family:"Yekan_Bakh_Regular_fa"!important;text-align:center}
+.main-login-container.rtl-lang{text-align:center!important}
+.main-login-container #login-title{display:flex;align-items:center;align-content:center;flex-direction:column}
+    
+.main-login-container.rtl-lang .login-closed>svg{display:none!important}
+
+.main-login-container.rtl-lang .login-closed::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 72px;
+    float: left;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72"%3E%3Cpath d="M36 46.75C30.07 46.75 25.25 41.93 25.25 36C25.25 30.07 30.07 25.25 36 25.25C41.93 25.25 46.75 30.07 46.75 36C46.75 41.93 41.93 46.75 36 46.75ZM36 26.75C30.9 26.75 26.75 30.9 26.75 36C26.75 41.1 30.9 45.25 36 45.25C41.1 45.25 45.25 41.1 45.25 36C45.25 30.9 41.1 26.75 36 26.75Z" fill="%23101828"/%3E%3Cpath d="M33.1694 39.5801C32.9794 39.5801 32.7894 39.5101 32.6394 39.3601C32.3494 39.0701 32.3494 38.5901 32.6394 38.3001L38.2994 32.6401C38.5894 32.3501 39.0694 32.3501 39.3594 32.6401C39.6494 32.9301 39.6494 33.4101 39.3594 33.7001L33.6994 39.3601C33.5594 39.5101 33.3594 39.5801 33.1694 39.5801Z" fill="%23101828"/%3E%3Cpath d="M38.8294 39.5801C38.6394 39.5801 38.4494 39.5101 38.2994 39.3601L32.6394 33.7001C32.3494 33.4101 32.3494 32.9301 32.6394 32.6401C32.9294 32.3501 33.4094 32.3501 33.6994 32.6401L39.3594 38.3001C39.6494 38.5901 39.6494 39.0701 39.3594 39.3601C39.2094 39.5101 39.0194 39.5801 38.8294 39.5801Z" fill="%23101828"/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+.main-operationUser-container button,
+.login-btn,
+.main-login-container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+    border-radius: 12px
+}
+
+.main-login-container {
+    width: 650px;
+    min-height: 480px
+}
+
+.main-operationUser-container input[type="password"],
+.main-login-container input[type="password"],
+.main-login-container input[type="text"] {
+    font-family:"Yekan_Bakh_Regular_fa"!important;
+}
+.main-login-container .login-mob-img , .main-login-container .login-icon{display: none !important ;}
+
+/* login-mob */
+
+/* payment */
+ /* .clr{clear:both}.bg-secondary,.hover\:bg-secondary:hover,.bg-primary{background-color:var(--primary)}.shadow-lg{box-shadow:0 10px 15px -3px rgb(0 0 0 / .1),0 4px 6px -4px rgb(0 0 0 / .1)}.bg-gray-50{background-color:rgb(249 250 251)}.max-w-7xl{max-width:80rem}.mx-auto{margin-left:auto;margin-right:auto}.layout__body__container{direction:rtl}.rounded-2xl{border-radius:1rem}.p-8{padding:2rem}.relative{position:relative}.flex{display:flex}.justify-between{justify-content:space-between}.pb-8{padding-bottom:2rem}.rounded-md{border-radius:.375rem}.my-8{margin-top:2rem;margin-bottom:2rem}.mb-8{margin-bottom:2rem}.text-xl{font-size:1.25rem;line-height:2rem}.mb-2{margin-bottom:.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.rounded-xl{border-radius:.75rem}.inline-block{display:inline-block}.cursor-pointer{cursor:pointer}.p-1{padding:.25rem}.text-center{text-align:center}.hidden{display:none}[data-bc-part][data-bc-invalid] [data-bc-validation-part] li{color:#b3b2b2!important}[data-bc-answer-container] input[type="text"]{background:#fff!important;font-size:15px!important;font-weight:bold}.payment__title{border-bottom:1px solid rgba(255,255,255,.3)}.payment__content .price{width:calc(90% - 10px)!important}.payment__content .unit input{text-align:center}.payment__content .unit{width:calc(10% - 10px)!important}.payment__content .captcha{width:calc(80% - 10px)!important}.payment__content .refresh{width:calc(20% - 10px)!important}.data-bc-btn{border:none;min-width:100px}.two-part [data-bc-title-container]{margin-top:1.5em}.payment__container .invoice-content{background:#f2f4f5;border-radius:1rem;margin:2em 0;padding:2em;text-align:center;font-size:13px;cursor:pointer}.payment__container .invoice-content img{vertical-align:middle}.payment__container .flex-justify{display:flex;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:#fff;padding:.7em;border-radius:1em}.payment__container .unit-content{margin-right:.5em}.payment__container .firstpay-price{font-size:20px;font-weight:bold}.payment__container .btn-item{min-width:100px;padding:.25rem;border-radius:.75rem;color:#fff;background-color:var(--primary);border:none;cursor:pointer}.payment__container .btn-item:hover{background-color:var(--secondary)}.payment__container #ballsWaveG{margin:1em auto!important}@keyframes ellipsis-dot{25%{content:""}50%{content:"."}75%{content:".."}100%{content:"..."}}#ballsWaveG{position:relative;width:70px;height:16px;margin:auto}.ballsWaveG{position:absolute;top:0;background-color:#bababa;width:9px;height:9px;animation-name:ballsWaveG;-o-animation-name:ballsWaveG;-ms-animation-name:ballsWaveG;-webkit-animation-name:ballsWaveG;-moz-animation-name:ballsWaveG;animation-duration:1.5s;-o-animation-duration:1.5s;-ms-animation-duration:1.5s;-webkit-animation-duration:1.5s;-moz-animation-duration:1.5s;animation-iteration-count:infinite;-o-animation-iteration-count:infinite;-ms-animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;-moz-animation-iteration-count:infinite;animation-direction:normal;-o-animation-direction:normal;-ms-animation-direction:normal;-webkit-animation-direction:normal;-moz-animation-direction:normal;border-radius:5px;-o-border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px}#ballsWaveG_1{left:0;animation-delay:.6s;-o-animation-delay:.6s;-ms-animation-delay:.6s;-webkit-animation-delay:.6s;-moz-animation-delay:.6s}#ballsWaveG_2{left:9px;animation-delay:.75s;-o-animation-delay:.75s;-ms-animation-delay:.75s;-webkit-animation-delay:.75s;-moz-animation-delay:.75s}#ballsWaveG_3{left:18px;animation-delay:.9s;-o-animation-delay:.9s;-ms-animation-delay:.9s;-webkit-animation-delay:.9s;-moz-animation-delay:.9s}#ballsWaveG_4{left:26px;animation-delay:1.05s;-o-animation-delay:1.05s;-ms-animation-delay:1.05s;-webkit-animation-delay:1.05s;-moz-animation-delay:1.05s}#ballsWaveG_5{left:35px;animation-delay:1.2s;-o-animation-delay:1.2s;-ms-animation-delay:1.2s;-webkit-animation-delay:1.2s;-moz-animation-delay:1.2s}#ballsWaveG_6{left:44px;animation-delay:1.35s;-o-animation-delay:1.35s;-ms-animation-delay:1.35s;-webkit-animation-delay:1.35s;-moz-animation-delay:1.35s}#ballsWaveG_7{left:53px;animation-delay:1.5s;-o-animation-delay:1.5s;-ms-animation-delay:1.5s;-webkit-animation-delay:1.5s;-moz-animation-delay:1.5s}#ballsWaveG_8{left:62px;animation-delay:1.64s;-o-animation-delay:1.64s;-ms-animation-delay:1.64s;-webkit-animation-delay:1.64s;-moz-animation-delay:1.64s}@keyframes ballsWaveG{0%{background-color:rgba(158,158,158,.97)}100%{background-color:#fff}}@-o-keyframes ballsWaveG{0%{background-color:rgba(158,158,158,.97)}100%{background-color:#fff}}@-ms-keyframes ballsWaveG{0%{background-color:rgba(158,158,158,.97)}100%{background-color:#fff}}@-webkit-keyframes ballsWaveG{0%{background-color:rgba(158,158,158,.97)}100%{background-color:#fff}}@-moz-keyframes ballsWaveG{0%{background-color:rgba(158,158,158,.97)}100%{background-color:#fff}}.dot-waiting:after{content:"...";overflow:hidden;display:inline-block;vertical-align:bottom;animation:1s .3s infinite ellipsis-dot;width:1.25em;direction:rtl;text-align:right;margin:0 5px}.dot-waiting{direction:rtl;margin-top:1em;text-align:center}.updatepaymentF{text-align:center;font-size:20px;color:#EB5757;font-weight:bold}.updatepaymentT{text-align:center;font-size:20px;color:#2db742;font-weight:bold}.factor-title{margin:1em 0}.factor-info .eachInfo{display:inline-block;margin-left:1em}.factor-info .amount{font-size:18px;margin-left:.5em}.factor-info .resultF{color:#EB5757}.factor-info .resultT{color:#2db742}.payment__container .not-active{background:#e2e7e9!important;cursor:not-allowed!important}.payment__container .not-active .btn-item{cursor:not-allowed!important}@media not all and (min-width:768px){.payment__title{text-align:center}.payment__title .text-left{text-align:center;margin-top:1em}.payment__container [data-bc-part-container],[data-bc-btn-container]{width:100%!important}.data-bc-btn{width:100%}.payment__container .flex-justify{display:inherit;text-align:center}.payment__container .flex-justify li{margin:1em 0}.payment__container .flex-justify img{margin:0 auto}.payment__container .refresh img{width:68px}.message__api{margin:1em 0}.payment__container .p-8{padding:1em}.factor-info .eachInfo{margin-bottom:1em}.payment__content .price,.payment__content .captcha{width:calc(60% - 10px)!important}.payment__content .unit,.payment__content .refresh{width:calc(40% - 10px)!important}.payment__content .refresh{text-align:left}}@media not all and (min-width:1280px){.max-xl\:mx-5{margin-left:1.25rem;margin-right:1.25rem}} */
+
+ .payment__container .invoice-content {
+    background: transparent;
+    border-radius: 1rem;
+    margin: 2em 0;
+    padding: 2em;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+.payment__container .flex-justify {
+    display: flex
+;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: .7em;
+    border-radius: 1em;
+    row-gap: 1em;
+}
+.payment__container .btn-item {
+    min-width: 100px;
+    padding: .25rem;
+    border-radius: 0.75rem;
+    color: #fff;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
+}
+
+.loading__api{margin-top: 1em;}
+.message__api.text-center{margin: 0.5em auto;text-align: center !important; display: block;}
+ /* payment */
+
+ /* magazine */
+ .mask-banner-slider {
+    -webkit-mask-image: url(../images/slider-mask-shape-mob.svg);
+    mask-image: url(../images/slider-mask-shape-mob.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    /* max-width: 1280px;
+    width: 100%;
+    min-height: 432px;
+    max-height: 560px;
+    height: 100%;
+    -webkit-mask-position-y: center; */
+    width: 100%; /* عرض متغیر */
+    height: 143px; /* ارتفاع ثابت */
+    -webkit-mask-size: 100% 100%; /* عرض 100 درصد و ارتفاع ثابت */
+    mask-size: 100% 100%; /* عرض 100 درصد و ارتفاع ثابت */
+
+}
+ /* magazine */
+
+ /* tour.bc */
+ .active-tab-info{background-color: var(--primary-50);color: var(--primary);font-family: "Yekan_Bakh_SemiBold_fa";}
+ li:has(input:checked) {
+    background-color: #e0f2fe;
+  }
+  
+ /* tour.bc */
+
+
+ /* installment */
+ .redial-gradient-installment{
+    border-radius: 2em;
+    margin: 2em auto;
+    width: 290px;
+    height: 290px;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(50% 50% at 50% 50%, #003EB3 0%, #001145 100%);
+ }
+
+ input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right,#005FF0 0%,#F3F3F3 100%);
+    outline: none;
+    transition: background 450ms ease-in;
+    direction: ltr
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #005FF0;
+    cursor: pointer
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #005FF0;
+    cursor: pointer
+}
+ /* installment */

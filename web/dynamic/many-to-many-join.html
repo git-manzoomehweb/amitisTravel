@@ -1,0 +1,19 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="151068">
+ <member name="specialtours" type="list" link="tour.bc" propertyid="10000504,177406" typeid="159" perpage="50" order="ord"></member>
+</basis>
+
+<basis core="dbsource" source="basiscore" mid="1" name="list1" lid="1" schemaid="987">
+    <member name="airline1" type="list" request="spelist"></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list2" lid="1" schemaid="987">
+    <member name="airline2" type="list" request="spelist"></member>
+</basis>
+
+<basis core="inlinesource" name="joining">
+ <member name="listspecial1" lefttblcol="db.specialtours.prp_10000504" righttblcol="list1.airline1.name" format="join" jointype="leftjoin"></member>
+ <member name="listspecial2" lefttblcol="db.specialtours.prp_177406" righttblcol="list2.airline2.name" format="join" jointype="leftjoin"></member>
+</basis>
+
+<basis core="inlinesource" name="finalResult">
+ <member name="mergedData" lefttblcol="joining.listspecial2.db.specialtours.id" righttblcol="joining.listspecial1.db.specialtours.id" format="join" jointype="leftjoin"></member>
+</basis>

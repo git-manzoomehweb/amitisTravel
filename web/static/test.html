@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تبدیل تاریخ میلادی و شمسی</title>
+    <!-- بارگذاری Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <!-- بارگذاری Moment-Jalaali -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-jalaali/0.10.4/moment-jalaali.js"></script>
+    <script>
+        // تابع تبدیل تاریخ شمسی به میلادی
+        function convertToGregorian() {
+            let day = document.getElementById("sh-day").value;
+            let month = document.getElementById("sh-month").value;
+            let year = document.getElementById("sh-year").value;
+
+            // ایجاد تاریخ شمسی
+            let shamsiDate = moment(`${year}/${month}/${day}`, 'jYYYY/jM/jD');
+            if (!shamsiDate.isValid()) {
+                document.getElementById("result-gregorian").innerText = "تاریخ شمسی نامعتبر است.";
+                return;
+            }
+
+            // تبدیل به میلادی
+            let gregorianDate = shamsiDate.format('YYYY/MM/DD');
+            document.getElementById("result-gregorian").innerText = `تاریخ میلادی: ${gregorianDate}`;
+        }
+
+        // تابع تبدیل تاریخ میلادی به شمسی
+        function convertToJalali() {
+            let day = document.getElementById("gr-day").value;
+            let month = document.getElementById("gr-month").value;
+            let year = document.getElementById("gr-year").value;
+
+            // ایجاد تاریخ میلادی
+            let gregorianDate = moment(`${year}-${month}-${day}`, 'YYYY-M-D');
+            if (!gregorianDate.isValid()) {
+                document.getElementById("result-jalali").innerText = "تاریخ میلادی نامعتبر است.";
+                return;
+            }
+
+            // تبدیل به شمسی
+            let jalaliDate = gregorianDate.format('jYYYY/jM/jD');
+            document.getElementById("result-jalali").innerText = `تاریخ شمسی: ${jalaliDate}`;
+        }
+
+        // تابع پر کردن فیلدهای انتخاب روز، ماه و سال
+        function populateSelect(id, min, max) {
+            let select = document.getElementById(id);
+            for (let i = min; i <= max; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                select.appendChild(option);
+            }
+        }
+
+        // پر کردن فیلدهای انتخاب
+        document.addEventListener('DOMContentLoaded', function() {
+            populateSelect("sh-day", 1, 31);
+            populateSelect("sh-month", 1, 12);
+            populateSelect("sh-year", 1300, 1500);
+
+            populateSelect("gr-day", 1, 31);
+            populateSelect("gr-month", 1, 12);
+            populateSelect("gr-year", 1900, 2100);
+        });
+    </script>
+</head>
+<body>
+    <h2>تبدیل تاریخ شمسی به میلادی</h2>
+    <select id="sh-day"></select>
+    <select id="sh-month"></select>
+    <select id="sh-year"></select>
+    <button onclick="convertToGregorian()">تبدیل</button>
+    <p id="result-gregorian"></p>
+
+    <h2>تبدیل تاریخ میلادی به شمسی</h2>
+    <select id="gr-day"></select>
+    <select id="gr-month"></select>
+    <select id="gr-year"></select>
+    <button onclick="convertToJalali()">تبدیل</button>
+    <p id="result-jalali"></p>
+</body>
+</html>

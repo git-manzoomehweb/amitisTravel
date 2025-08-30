@@ -1,0 +1,108 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]"><member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.iid##]"><member name="internal-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328,3087666" perpage="8" size="64X40" order="ord" /></basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.eid##]"><member name="external-airlines" type="list" link="article.bc" propertyid="3087325,3087326,3087327,3087328,3087666" perpage="8" size="64X40" order="ord" /></basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]"><member name="seotext" type="view" /></basis>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
+    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="pwa.inc" />
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="style.inc" />
+
+    <link rel="stylesheet" href="../assets/css/amitisbapars-mob.ui.css">
+
+    
+</head>
+<body class="font-yekanbakhregularFA">
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="header.inc"></basis>
+    <main class="w-full relative ">
+
+        <svg class="svg  absolute h-0 w-0">
+            <clipPath id="tag-clippath-mob" clipPathUnits="objectBoundingBox"><path d="M0,0.87 C0,0.87,0.295,1,0.5,1 C0.705,1,1,0.87,1,0.87 V0 L0,0 L0,0.87"></path></clipPath>
+          </svg>
+
+        <div class="h-[184px] clipped-tag-mob w-[95%] mx-auto relative z-[3] bg-tag-pattern-tringle-mob bg-left bg-cover ">
+            <div class="clear-both h-10 rounded-2xl flex justify-between items-center pl-2 my-3 w-[calc(100%-50px)] ">
+                <svg
+                    class=" block w-6 h-[25px] leading-10 my-2" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M17.9541 22.75H6.37406C3.63406 22.75 1.41406 20.52 1.41406 17.78V10.37C1.41406 9.00997 2.25406 7.29997 3.33406 6.45997L8.72406 2.25997C10.3441 0.999974 12.9341 0.939974 14.6141 2.11997L20.7941 6.44997C21.9841 7.27997 22.9141 9.05997 22.9141 10.51V17.79C22.9141 20.52 20.6941 22.75 17.9541 22.75ZM9.64406 3.43997L4.25406 7.63997C3.54406 8.19997 2.91406 9.46997 2.91406 10.37V17.78C2.91406 19.69 4.46406 21.25 6.37406 21.25H17.9541C19.8641 21.25 21.4141 19.7 21.4141 17.79V10.51C21.4141 9.54997 20.7241 8.21997 19.9341 7.67997L13.7541 3.34997C12.6141 2.54997 10.7341 2.58997 9.64406 3.43997Z"
+                        fill="#fff" />
+                    <path
+                        d="M12.1641 18.75C11.7541 18.75 11.4141 18.41 11.4141 18V15C11.4141 14.59 11.7541 14.25 12.1641 14.25C12.5741 14.25 12.9141 14.59 12.9141 15V18C12.9141 18.41 12.5741 18.75 12.1641 18.75Z"
+                        fill="#fff" />
+                </svg>
+                <ul class="w-[calc(100%-30px)] flex relative items-center justify-start gap-x-1 overflow-x-auto hide-srollbar font-yekanbakhregularFA text-xs
+                 text-white mx-2"
+                    itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li class="whitespace-nowrap" itemprop="itemListElement" itemscope=""
+                        itemtype="https://schema.org/ListItem"><a itemprop="item" href="/" aria-label="home"><span
+                                itemprop="name" class="h-6 leading-6">صفحه اصلی</span>
+                            <meta itemprop="position" content="1">
+                        </a></li>
+                    <basis core="print" datamembername="db.navigation">
+                        <face filter="RowNumber=max(RowNumber) and parentcatid<>110383">
+                            <li class="text-secondary whitespace-nowrap endlevel flex h-6 items-center"
+                                itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><svg
+                                    class="inline-block mx-2" width="9" height="14" viewBox="0 0 9 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#fff" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg><span itemprop="name" class="h-6 leading-6">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </li>
+                        </face>
+                        <face filter="link is null and parentcatid<>110383">
+                            <li class="whitespace-nowrap" itemprop="itemListElement" itemscope=""
+                                itemtype="https://schema.org/ListItem"><a itemprop="item"
+                                    href="/tour-list.bc?catid=@parentcatid" aria-label="@title"
+                                    class="flex h-6 items-center"><svg class="inline-block mx-2" width="9" height="14"
+                                        viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#fff" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg><span itemprop="name" class="h-6 leading-6">@title</span>
+                                    <meta itemprop="position" content="@rownumber" />
+                                </a></li>
+                        </face>
+                        <face filter="parentcatid<>110383">
+                            <li class="whitespace-nowrap" itemprop="itemListElement" itemscope=""
+                                itemtype="https://schema.org/ListItem"><a itemprop="item" href="@link" aria-label="@title"
+                                    class="flex h-6 items-center"><svg class="inline-block mx-2" width="9" height="14"
+                                        viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#fff" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg><span itemprop="name" class="h-6 leading-6">@title</span>
+                                    <meta itemprop="position" content="@rownumber" />
+                                </a></li>
+                        </face>
+                    </basis>
+                </ul>
+            </div>
+
+
+            <div class=" flex justify-between w-11/12 mx-auto gap-x-2 items-center">
+                <div class="text-white ">
+                    <span class="text-nowrap
+                    ">نتایج بر اساس انتخاب شما :</span>
+                    <h1 class="font-yekanbakhboldFA text-2xl line-clamp-1 ">
+                        تورهای ویژه
+                    </h1>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/tag-banner-mob.png" width="104" height="112" alt="tag banner">
+                </figure>
+
+            </div>
+        </div>
+
+    </main>
+    <basis core="call" pageindex="[##cms.cms.pageindex##]" file="footer.inc"></basis>
+</body>
+</html>
