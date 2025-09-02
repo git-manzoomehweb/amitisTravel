@@ -8018,11 +8018,3 @@ article.drop-shadow-xl.w-1\/4.overflow-hidden.bg-neutralcolor-50:hover
 .plan-item.border-primary{
   border: 1px solid var(--primary) !important;
 }
-
-
-/* added jami */
-.max-h-\[800px\] {
-  max-height: 800px;
-}
-
-/* added jami */
