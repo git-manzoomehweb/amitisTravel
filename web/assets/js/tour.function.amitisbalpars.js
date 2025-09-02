@@ -51,9 +51,6 @@ async function showDescriptionHTML(data) {
     if(text.length == 0){
         return '';
     }else if (text.length > 0 && text.length < 8) {
-        console.log(text.length)
-        console.log("showwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-        console.log(text)
         // اگر متن خیلی کوتاه بود، خود متن رو برگردون
         return text;
     } else {
@@ -87,7 +84,6 @@ const renderDescriptionHotelCost = async (element) => {
                             </div>`;
 
 
-        console.log(description);                    
 
         return description;
     } catch (err) {
@@ -235,68 +231,12 @@ const callbackSourceExecutionPlanTypesView = async (args) => {
 
 
 
-// const onrenderedExecutionOrigins = async () => {
-//     try {
-//         if (document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log(document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item"))
-//             let origin = document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".details__city").textContent;
-//             document.querySelector(".tourExecution__container__origins").querySelector(".origins__city").textContent = origin
-//             document.getElementById("destination-departure-tour").textContent = origin ; 
-//             // document.getElementById("origin-departure-tour").textContent = origin ;
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__origins").querySelectorAll(".transportation__img").forEach(e => {
-//                 if (e.dataset.id !== "") {
-//                     ids.push(e.dataset.id)
-//                 }
-//             })
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesOriginsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-
-//     } catch (err) {
-//         console.error('onrenderedExecutionOrigins=' + err.lineNumber + ',' + err.message);
-//     }
-// }
-// const onrenderedExecutionDestinations = async () => {
-//     try {
-//         if (document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log(document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item"))
-//             let destination = document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".details__city").textContent;
-//             document.querySelector(".tourExecution__container__destinations").querySelector(".destinations__city").textContent = destination
-//             document.getElementById("origin-departure-tour").textContent = destination ; 
-//             // document.getElementById("destination-departure-tour").textContent = destination ; 
-
-
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__destinations").querySelectorAll(".transportation__img").forEach(e => {
-//                 ids.push(e.dataset.id)
-//             })
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesDestinationsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-//     } catch (err) {
-//         console.error('onrenderedExecutionDestinations=' + err.lineNumber + ',' + err.message);
-//     }
-
-// }
-
-
-
 
 const onrenderedExecutionOrigins = async () => {
     try {
         const originElement = document.querySelector(".tourExecution__container__origins .execution__details__path__item .details__city");
         if (originElement) {
             let origin = originElement.textContent;
-            console.log(origin)
             document.querySelector(".tourExecution__container__origins .origins__city").textContent = origin;
             // document.getElementById("destination-departure-tour").textContent = origin; // اصلاح ID برای مبدأ
 
@@ -320,7 +260,6 @@ const onrenderedExecutionDestinations = async () => {
         const destinationElement = document.querySelector(".tourExecution__container__destinations .execution__details__path__item .details__city");
         if (destinationElement) {
             let destination = destinationElement.textContent;
-            console.log( destination)
 
             document.querySelector(".tourExecution__container__destinations .destinations__city").textContent = destination;
             // document.getElementById("origin-departure-tour").textContent = destination; // اصلاح ID برای مقصد
@@ -337,76 +276,6 @@ const onrenderedExecutionDestinations = async () => {
         console.error('onrenderedExecutionDestinations=' + err.lineNumber + ',' + err.message);
     }
 }
-
-
-
-
-// const onrenderedExecutionOrigins = async () => {
-//     console.log("onrenderedExecutionOrigins");
-//     try {
-//         if (document.querySelector(".tourExecution__container__origins").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log("found origins path item");
-//             originCityName = document.querySelector(".tourExecution__container__origins")
-//                 .querySelectorAll(".execution__details__path__item")[0]
-//                 .querySelector(".details__city").textContent;
-//             // نمایش نام شهر مبدأ در کارت
-//             document.querySelector(".tourExecution__container__origins")
-//                 .querySelector(".origins__city").textContent = originCityName;
-
-//             console.log("originCityName:", originCityName);
-
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__origins")
-//                 .querySelectorAll(".transportation__img").forEach(e => {
-//                     if (e.dataset.id !== "") {
-//                         ids.push(e.dataset.id);
-//                     }
-//                 });
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesOriginsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-//     } catch (err) {
-//         console.error('onrenderedExecutionOrigins=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
-
-// const onrenderedExecutionDestinations = async () => {
-//     console.log("onrenderedExecutionDestinations");
-//     try {
-//         if (document.querySelector(".tourExecution__container__destinations").querySelectorAll(".execution__details__path__item")[0]) {
-//             console.log("found destinations path item");
-
-//             returnCityName = document.querySelector(".tourExecution__container__destinations")
-//                 .querySelectorAll(".execution__details__path__item")[0]
-//                 .querySelector(".details__city").textContent;
-//             // نمایش نام شهر مقصد در کارت
-//             document.querySelector(".tourExecution__container__destinations")
-//                 .querySelector(".destinations__city").textContent = returnCityName;
-
-//             console.log("returnCityName:", returnCityName);
-
-//             let ids = [];
-//             document.querySelector(".tourExecution__container__destinations")
-//                 .querySelectorAll(".transportation__img").forEach(e => {
-//                     ids.push(e.dataset.id);
-//                 });
-//             if (ids.length > 0) {
-//                 $bc.setSource("db.airlinesDestinationsGallery", {
-//                     ids: ids,
-//                     run: true
-//                 });
-//             }
-//         }
-//     } catch (err) {
-//         console.error('onrenderedExecutionDestinations=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
 
 
 
@@ -712,7 +581,6 @@ const renderMonthDate = async (element, type) => {
 const renderWeekDayDate = async (element, type) => {
     try {
         if (element) {
-            console.log("Element:", element);
             
             let dateTypemonth = type === 'start' ? element.start : element.end;
 
@@ -721,7 +589,6 @@ const renderWeekDayDate = async (element, type) => {
                 return;
             }
 
-            console.log("Date:", dateTypemonth.date);
             
             // ذخیره مقدار در متغیر جدید
             let weekday = getWeekdayFromShamsi(dateTypemonth.date);  
@@ -841,17 +708,6 @@ const renderHotels = async (element, type) => {
         for (let index = 0; index < hotels.length; index++) {
 
 
-            console.log(
-                
-                element.hotelinfo[0].hotels.map((h, i) => ({
-                index: i,
-                hotelname: h.hotel.hotelname,
-                image: h.hotel.image
-              })));
-
-              
-
-
             const hotel = hotels[index].hotel;
 
             const hotelImg = hotel.image && hotel.image.length > 0 ? hotel.image : fallbackImg;
@@ -957,7 +813,6 @@ const onrenderedInventoryView = async () => {
             }
 
         });
-        console.log(ids);
         if (ids.length > 0) {
             $bc.setSource("db.hotelGallery", {
                 ids: ids,
@@ -971,7 +826,6 @@ const onrenderedInventoryView = async () => {
 
 }
 const onProcessedHotelsImg = async (args) => {
-    console.log(args);
     try {
         const response = args.response;
         if (response.status === 200) {
@@ -982,7 +836,6 @@ const onProcessedHotelsImg = async (args) => {
                 const pageName = img.dataset.pagename;
                 const hotelId = parseInt(img.dataset.id);
             
-                console.log(`Checking hotelId: ${hotelId}`);
             
                 const matched = responseJson.find(item => parseInt(item.usedforid) === hotelId);
             
@@ -990,9 +843,7 @@ const onProcessedHotelsImg = async (args) => {
                     console.warn(`No matched image for hotelId ${hotelId}`);
                     return;
                 }
-            
-                console.log(`Matched image for ${hotelId}:`, matched);
-            
+                        
                 // آپدیت تصویر
                 img.src = `/${matched.originalImage}`;
             
@@ -1445,15 +1296,6 @@ const renderServiceHotel = async (element, booking) => {
 
 const renderInventoryView = async (element, day, from, to) => {
 
-    console.log(
-        element,
-        "test",
-        day,
-        "test",
-         from,
-        "test",
-         to
-    )
     try {
         element.closest("ul").querySelectorAll("li").forEach(e => {
             e.classList.remove("active")
@@ -1468,30 +1310,14 @@ const renderInventoryView = async (element, day, from, to) => {
             top: document.querySelector(".tourInventory__container").offsetTop,
             behavior: 'smooth'
         });
-        // if (element.closest(".isFixed")) {
-        //     element.closest(".tour__date__modal__container").classList.add('max-xl:hidden');
-        //     element.closest(".tour__date__modal__container").classList.remove('isFixed');
-        // }
 
-        console.log(            
-            element.querySelector(".start__date").innerText,
-            "111122222",
-        element.querySelector(".start__date").dataset.date,
-        "111122222",
-        element.querySelector(".end__date").innerText,
-        "111122222",
-        element.querySelector(".end__date").dataset.date)
+
         renderedSelectedDate(
             element.querySelector(".start__date").innerText,
             element.querySelector(".start__date").dataset.date,
             element.querySelector(".end__date").innerText,
             element.querySelector(".end__date").dataset.date
         )
-
-        // if(innerWidth < 1024){
-        //     let closeelement = document.querySelector(".tour__date__modal__container .tourDate__container > svg");
-        //     closeModalContainer(closeelement,event,'tour__date__modal__container','hidden')
-        // }
         
 
     } catch (err) {
@@ -1704,7 +1530,6 @@ const renderTourInstallmentForm = async (element) => {
 
 
 
-    console.log(FormhotelName,FormhotelRate,FormhotelService,FormtourName,FormdoubleP,FormsingleP,FormwBedP,FormwoBedP,FormdoubleU,FormsingleU,FormwBedU,FormwoBedU)
    
 } 
 const renderReserveTourInstallmentForm = async (element) => {
@@ -1728,6 +1553,14 @@ const renderReserveTourInstallmentForm = async (element) => {
      ed2= document.querySelector(".date__details .active .end__date").textContent;
     }else{
         ed2= '';
+    }
+
+
+    if(document.querySelector(".execution__details__path__origins")){
+      var form_start_time = document.querySelector(".execution__details__path__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent; 
+    }
+    if(document.querySelector(".execution__details__path__destinations")){
+        var form_end_time = document.querySelector(".execution__details__path__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent;
     }
 
     $bc.setSource("db.tourFormInstallment", {
@@ -1763,9 +1596,9 @@ const renderReserveTourInstallmentForm = async (element) => {
         destinationName:document.querySelector(".tourExecution__container__destinations").querySelector(".destinations__city").textContent,
        
         // __times__start
-        startTime:document.querySelector(".execution__details__path__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent,
+        startTime: form_start_time,
         // __times__start
-        endTime:document.querySelector(".execution__details__path__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent,
+        endTime: form_end_time,
 
 
         totalAmountINS:document.getElementById("white-modal").querySelector(".total-amount").innerText,
@@ -1924,6 +1757,13 @@ const callbackSourceTourBookingForm = async (args) => {
 };
 const OnProcessedTourBookingForm = async (args) => {
     try {
+
+
+        let dropdown = document.querySelector(".tour__booking__form__modal__container .dropdown-modal-content");
+        if(dropdown){
+            dropdown.querySelector(".dropdown-modal-tour").classList.add("hidden");
+        }
+
         var response = args.response;
         var json = await response.json();
         var errorid = json.errorid;
@@ -1931,7 +1771,7 @@ const OnProcessedTourBookingForm = async (args) => {
         if (errorid == "6") {
             if (page_lang === 'fa') {
                                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").classList.remove('hidden');
-                document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "درخواست شما با موفقیت ثبت شد";
+                document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "اطلاعات شما با موفقیت ثبت شد. کارشناسان ما در اولین فرصت با شما تماس می‌گیرند";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "Your request has been successfully registered";
             } else if (page_lang === 'ar') {
@@ -2440,7 +2280,6 @@ const onrenderedSchmaTourBookingFormIns = async (args) => {
             const el = form.querySelector(selector);
             if (el && el[prop] !== undefined) {
                 el[prop] = value;
-                console.log(el);
             } else {
                 console.warn(`❌ المنت ${selector} پیدا نشد یا خاصیت ${prop} وجود ندارد.`);
             }
@@ -2469,51 +2308,6 @@ const onrenderedSchmaTourBookingFormIns = async (args) => {
     }
 };
 
-
-// const onrenderedSchmaTourBookingFormIns = async (args) => {
-//     try {
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".first-last-name input"));
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".first-last-name input").placeholder="نام و نام خانوادگی";
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".phone input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".phone input").placeholder="شماره تماس";
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".message input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".message input").placeholder="توضیحات";
-
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".adult-count").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".adult-count").querySelector("input").value = adultCountF,
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".child-count").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".child-count").querySelector("input").value = childbedCountF,
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".infant-count").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".infant-count").querySelector("input").value = infantCountF + childwobedCountF
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-name").querySelector("input"))
-        
-        
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel__name__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-service").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-service").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel__service__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-rate").querySelector("input"))
-
-
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel-rate").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".hotel__rate__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".tour-name").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".tour-name").querySelector("input").value = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".tour__name__container").textContent;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-amountF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-amountF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".total-amount").innerText;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-advanceF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".total-advanceF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".Total-amount-facilities").innerText;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-facilitiesF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-facilitiesF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".Total-advance-payment").innerText;
-//         console.log(document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-eachF").querySelector("input"))
-//         document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container").querySelector(".amount-eachF").querySelector("input").value = document.querySelector("#white-modal").querySelector(".amount-each-installment").innerText;
-        
-
-
-    
-//     } catch (err) {
-//         console.error('onrenderedSchmatourBookingFormIns=' + err.lineNumber + ',' + err.message);
-//     }
-// };
-
 const callbackSourceTourBookingFormIns = async (args) => {
     try {
         const container = document.querySelector(".tour__booking__form__modal__container_Ins .tour__booking__form__container");
@@ -2535,6 +2329,12 @@ const callbackSourceTourBookingFormIns = async (args) => {
 
 const OnProcessedTourBookingFormIns = async (args) => {
     try {
+
+        let dropdown = document.querySelector(".tour__booking__form__modal__container_Ins .dropdown-modal-content");
+        if(dropdown){
+            dropdown.querySelector(".dropdown-modal-tour").classList.add("hidden");
+        }
+
         var response = args.response;
         var json = await response.json();
         var errorid = json.errorid;
@@ -2542,7 +2342,7 @@ const OnProcessedTourBookingFormIns = async (args) => {
         if (errorid == "6") {
             if (page_lang === 'fa') {
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").classList.remove('hidden');
-                document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "درخواست شما با موفقیت ثبت شد";
+                document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "اطلاعات شما با موفقیت ثبت شد. کارشناسان ما در اولین فرصت با شما تماس می‌گیرند";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "Your request has been successfully registered";
             } else if (page_lang === 'ar') {

@@ -1336,6 +1336,16 @@ const renderTourForm = async (element) => {
         ed= '';
     }
 
+
+
+        if(document.querySelector(".execution__details__path__origins")){
+      var form_start_time = document.querySelector(".execution__details__path__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent; 
+    }
+    if(document.querySelector(".execution__details__path__destinations")){
+        var form_end_time = document.querySelector(".execution__details__path__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent;
+    }
+
+
     $bc.setSource("db.tourForm", {
         hotelName: element.closest(".tourInventory__details__item").querySelector(".showhotel").textContent,
         hotelRate: element.closest(".tourInventory__details__item").querySelector(".tourInventory__details__item__rate").dataset.value,
@@ -1363,9 +1373,9 @@ const renderTourForm = async (element) => {
         destinationName:document.querySelector(".tourExecution__container__destinations").querySelector(".destinations__city").textContent,
        
         // __times__start
-        startTime:document.querySelector(".execution__details__path__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent,
+        startTime: form_start_time,
         // __times__start
-        endTime:document.querySelector(".execution__details__path__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent,
+        endTime: form_end_time,
 
         run: true,
     });
@@ -1484,6 +1494,14 @@ const renderReserveTourInstallmentForm = async (element) => {
         ed2= '';
     }
 
+    
+        if(document.querySelector(".execution__details__path__origins")){
+      var form_start_time = document.querySelector(".execution__details__path__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent; 
+    }
+    if(document.querySelector(".execution__details__path__destinations")){
+        var form_end_time = document.querySelector(".execution__details__path__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent;
+    }
+
     $bc.setSource("db.tourFormInstallment", {
         hotelName:FormhotelName,
         hotelRate:FormhotelRate,
@@ -1517,10 +1535,9 @@ const renderReserveTourInstallmentForm = async (element) => {
         destinationName:document.querySelector(".tourExecution__container__destinations").querySelector(".destinations__city").textContent,
        
         // __times__start
-        startTime:document.querySelector(".execution__details__path__origins").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent,
+        startTime: form_start_time,
         // __times__start
-        endTime:document.querySelector(".execution__details__path__destinations").querySelectorAll(".execution__details__path__item")[0].querySelector(".__times__start").textContent,
-
+        endTime: form_end_time,
 
         totalAmountINS:document.getElementById("white-modal").querySelector(".total-amount").innerText,
         totalAmountFacilityINS:document.getElementById("white-modal").querySelector(".Total-amount-facilities").innerText,
@@ -1634,7 +1651,7 @@ const OnProcessedTourBookingForm = async (args) => {
         if (errorid == "6") {
             if (page_lang === 'fa') {
                                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").classList.remove('hidden');
-                document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "درخواست شما با موفقیت ثبت شد";
+                document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "اطلاعات شما با موفقیت ثبت شد. کارشناسان ما در اولین فرصت با شما تماس می‌گیرند";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container").querySelector(".message__action__container").innerHTML = "Your request has been successfully registered";
             } else if (page_lang === 'ar') {
@@ -2187,7 +2204,7 @@ const OnProcessedTourBookingFormIns = async (args) => {
         if (errorid == "6") {
             if (page_lang === 'fa') {
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").classList.remove('hidden');
-                document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "درخواست شما با موفقیت ثبت شد";
+                document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "اطلاعات شما با موفقیت ثبت شد. کارشناسان ما در اولین فرصت با شما تماس می‌گیرند";
             } else if (page_lang === 'en') {
                 document.querySelector(".tour__booking__form__modal__container_Ins").querySelector(".message__action__container").innerHTML = "Your request has been successfully registered";
             } else if (page_lang === 'ar') {
@@ -2284,5 +2301,3 @@ function setupSimpleAudioToggle(element,audioId) {
         console.warn(`Audio element with id "${audioId}" not found.`);
     }
 }
-
-

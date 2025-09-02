@@ -36,14 +36,14 @@
                                     <div >
                                         <div>
                                             <span class="text-primary-900 text-sm  block leading-10 text-center font-yekanbakhsemiboldFA">طرح
-                                                اقساط با چک صیادی</span>
+                                                اقساط با ازکی وام</span>
                                                 <hr class="border-primary-950 w-8/12 mx-auto my-1">
                                             <span class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح تا
-                                                سقف 100 میلون تومان با چک صیادی</span>
+                                                سقف 75 میلون تومان با ازکی وام</span>
                                         </div>
         
                                         <div class="h-12 plan-container cursor-pointer relative flex justify-center items-center gap-x-1"
-                                            onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 100 , 4 , 0.2)">
+                                            onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' ,  75 , 12 , 0.22)">
                                             <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
                                                 class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected>
                                             <label
@@ -71,7 +71,7 @@
                                         </div>
         
                                         <div class="h-12 plan-container cursor-pointer relative flex justify-center items-center gap-x-1"
-                                            onclick="selectPlanInstallment(this ,'manisa' , 'manisaplan' , 130 , 12 , 0.21)">
+                                            onclick="selectPlanInstallment(this ,'manisa' , 'manisaplan' , 100 , 12 , 0.21)">
                                             <input type="radio" id="manisa" name="plan" value="manisa"
                                                 class="plan-radio w-0 h-0 inline  m-0 p-0 appearance-none">
                                             <label
@@ -254,30 +254,19 @@
         
                                         <div id="month-list" class="swiper planitems w-[70%] mx-auto">
                                             <div class="swiper-wrapper !h-10">
-                                                <div class="swiper-slide !w-[88px]">
-                                                    <div month="4" rate="0.2" onclick="calculateMonth(4 , 0.2 , this)"
-                                                        class="sayyadiplan plan-item h-10 leading-10  rounded-lg bg-primary w-full text-white text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        4ماهه
-                                                </div>
-                                                </div>
-                                                <div class="swiper-slide !w-[88px]">
-                                                    <div onclick="calculateMonth(6 , 0.3 , this)"
+                                                <div class="swiper-slide !w-[88px]" style="display: none;" >
+                                                    <div month="12" rate="0.22" onclick="calculateMonth(12 , 0.22 , this)" 
                                                         class="sayyadiplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        6ماهه
+                                                        12ماهه
                                                 </div>
                                                 </div>
-                                                <div class="swiper-slide !w-[88px]">
-                                                    <div onclick="calculateMonth(8 , 0.4 , this)"
+                                                <div class="swiper-slide !w-[88px]" style="display: none;" >
+                                                    <div month="18" rate="0.22" onclick="calculateMonth(18 , 0.22 , this)" 
                                                         class="sayyadiplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        8ماهه
+                                                        18ماهه
                                                 </div>
                                                 </div>
-                                                <div class="swiper-slide !w-[88px]">
-                                                    <div onclick="calculateMonth(10 , 0.5 , this)"
-                                                        class="sayyadiplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        10ماهه
-                                                </div>
-                                                </div>
+
                                                 <div class="swiper-slide !w-[88px]" style="display: none;" >
                                                     <div month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)" 
                                                         class="manisaplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
@@ -414,47 +403,107 @@ var totalprice = 0;
 
 
 
-    function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
-    loanMonths = lm;
-    interestRate = ir;
 
-    // تغییر رنگ دکمه انتخاب شده
-    document.querySelectorAll(".plan-container .active-check").forEach(ele => {
-        ele.classList.add("hidden");
-    });
-    document.querySelectorAll(".plan-container .deactive-check").forEach(ele => {
-        ele.classList.remove("hidden");
-    });
-    document.querySelectorAll(".plan-container label").forEach(label => {
-        label.classList.remove("bg-primary", "text-white");
-        label.classList.add("bg-neutralcolor-700", "text-txtneutral-500");
-    });
+function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
+  // ست کردن ماه و نرخ پلن انتخابی
+  loanMonths = lm;
+  interestRate = ir;
 
-    console.log(el.querySelector(".deactive-check"))
-    el.querySelector(".deactive-check").classList.add("hidden");
-    el.querySelector(".active-check").classList.remove("hidden");
+  // --- UI: وضعیت دکمه‌ها و آیکن‌ها ---
+  document.querySelectorAll(".plan-container .active-check").forEach(ele => ele.classList.add("hidden"));
+  document.querySelectorAll(".plan-container .deactive-check").forEach(ele => ele.classList.remove("hidden"));
+  document.querySelectorAll(".plan-container label").forEach(label => {
+    label.classList.remove("bg-primary", "text-white");
+    label.classList.add("bg-neutralcolor-700", "text-txtneutral-500");
+  });
 
-    el.querySelector("label").classList.add("bg-primary", "text-white");
-    el.querySelector("label").classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
+  const deactiveIcon = el.querySelector(".deactive-check");
+  const activeIcon = el.querySelector(".active-check");
+  if (deactiveIcon) deactiveIcon.classList.add("hidden");
+  if (activeIcon) activeIcon.classList.remove("hidden");
 
-    // مخفی کردن همه swiper-slide ها
-    document.querySelectorAll(".swiper-slide").forEach(slide => {
-        slide.style.display = "none";
-    });
+  const labelEl = el.querySelector("label");
+  if (labelEl) {
+    labelEl.classList.add("bg-primary", "text-white");
+    labelEl.classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
+  }
 
-    // نمایش آیتم‌های مربوط به پلن انتخاب‌شده
-    document.querySelectorAll(`.${monthplan}`).forEach(item => {
-        let slide = item.closest(".swiper-slide");
-        if (slide) {
-            slide.style.display = "block";
-        }
-    });
+  // --- نمایش فقط اسلایدهای ماهِ مربوط به پلن ---
+  document.querySelectorAll(".swiper-slide").forEach(slide => { slide.style.display = "none"; });
+  document.querySelectorAll(`.${monthplan}`).forEach(item => {
+    const slide = item.closest(".swiper-slide");
+    if (slide) slide.style.display = "block";
+  });
 
-    // آپدیت Swiper.js برای اعمال تغییرات
-    setTimeout(() => {
-        planswiper.update();
-    }, 100);
+  // --- تنظیم سقف وام و هم‌راستا کردن ورودی‌ها ---
+  limitrange = limitinstallment;                      // متغیر سراسری موجود
+  const rangeEl  = document.getElementById('myRange');
+  const amountEl = document.getElementById('amount');
+
+  if (rangeEl) {
+    rangeEl.max = String(limitinstallment);
+
+    // اگر مقدار فعلی از سقف بیشتر باشد، ببریمش روی سقف
+    const curRangeVal = parseInt(rangeEl.value || "0", 10);
+    if (curRangeVal > limitinstallment) {
+      rangeEl.value = String(limitinstallment);
+      loanAmount = limitinstallment;
+    }
+  }
+
+  if (amountEl) {
+    const curAmountVal = parseInt((amountEl.value || "0").toString().replace(/[^\d]/g, ""), 10) || loanAmount;
+    if (curAmountVal > limitinstallment) {
+      amountEl.value = String(limitinstallment);
+    }
+  }
+
+  // --- آپدیت لیبل‌های کنار رِنج (برای موبایل/دسکتاپ یکسان) ---
+  // ساختار فعلی: داخل کانتینرِ relative، اولین span مقدار سقف را نمایش می‌دهد.
+  if (rangeEl) {
+    const container = rangeEl.closest('.relative');
+    if (container) {
+      const labels = container.querySelectorAll('span.text-txtneutral-500');
+      // labels[0] = "100 میلیون تومان" قبلی
+      if (labels && labels[0]) {
+        labels[0].textContent = `${limitinstallment} میلیون تومان `;
+      }
+      // labels[1] همان نمایش مقدار جاری است (id="limit-range")، دست نمی‌زنیم
+    }
+  }
+
+  // --- هایلایت کردن ماه پیش‌فرض برای پلن انتخابی ---
+  const allTabs = document.querySelectorAll('#month-list .swiper-slide > div');
+  allTabs.forEach(tab => {
+    tab.classList.remove('bg-primary', 'text-white');
+    tab.classList.add('bg-neutralcolor-100', 'text-neutralcolor-900');
+  });
+
+  const defaultBtn = document.querySelector(`.${monthplan}[month="${lm}"]`);
+  if (defaultBtn) {
+    defaultBtn.classList.add('bg-primary', 'text-white');
+    defaultBtn.classList.remove('bg-neutralcolor-100', 'text-neutralcolor-900');
+  }
+
+  // --- رفرش Swiper (مخصوصاً مهم برای موبایل) و رفتن به اولین اسلایدِ نمایش‌داده‌شده ---
+  setTimeout(() => {
+    if (typeof planswiper?.update === "function") {
+      planswiper.update();
+      // پیدا کردن اولین اسلایدِ visible و اسکرول به آن (برای موبایل تجربه بهتری می‌دهد)
+      const visibleSlides = Array.from(document.querySelectorAll(".swiper-slide"))
+        .filter(s => s.style.display !== "none");
+      if (visibleSlides.length) {
+        const firstIndex = Array.from(visibleSlides[0].parentNode.children).indexOf(visibleSlides[0]);
+        if (typeof planswiper.slideTo === "function") planswiper.slideTo(firstIndex, 0);
+      }
+    }
+  }, 100);
+
+  // --- محاسبات و به‌روزرسانی ظاهر رِنج ---
+  updateRangeBackground();
+  calculateInstallments();
 }
+
 
 
 

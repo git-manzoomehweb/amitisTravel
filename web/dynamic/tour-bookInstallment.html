@@ -1,2 +1,457 @@
-<style>.tour__booking__form__container [data-bc-answer-container] input[type="text"]{ height: 65px !important; border: none !important; font-size: 16px !important; padding: 0 1rem;} .tour__booking__form__container [data-bc-section]{ margin-bottom: 0 !important; padding: 0 !important;} .tour__booking__form__container [data-bc-answer-container]{ width: 100% !important;} .tour__booking__form__container [data-bc-part-container], .tour__booking__form__container [data-bc-btn-container]{ width: 100% !important;} .tour__booking__form__container [data-bc-schema-main-container]{ display: flex !important; flex-wrap: wrap !important} .tour__booking__form__container [data-bc-section]{ width: 50% !important;} .tour__booking__form__container [data-bc-section]:last-child{ width: 100% !important;} .tour__booking__form__container legend, .tour__booking__form__container [data-bc-title-container]{ display: none !important}
-</style><div class="tour__booking__form__modal__container_Ins modal__container fixed top-0 left-0 w-screen h-screen overflow-hidden z-[999] bg-black/30" onclick="closeModalContainer(this,event,'modal__container','hidden','parent')"><div class="modal__content bg-white fixed inset-x-0 max-md:bottom-0 rounded-t-xl xl:rounded-b-xl w-3/5 max-xl:w-12/12 mx-auto mt-10 p-4 max-h-[650px]"><svg width="30" height="30" onclick="closeModalContainer(this,event,'modal__container','hidden')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg><div class="max-h-[600px] overflow-auto p-4 tour__booking__form__container"><h3 class="tour__name__container w-0 h-0 hidden">[##cms.form.tourName##]</h3><div class="flex flex-col"><div class=" rounded-xl text-sm w-49per"><div class="mb-10 gap-y-3"><basis core="group" if=" '[##cms.form.startDate##]' <>'null' "><div class="bg-secondary text-white font-IRANYekanRegularFA text-sm rounded-tr-[4px] rounded-tl-[32px] text-center h-12 inline-block -z-10 relative"><span class="leading-7 px-5">اطلاعات پروازی</span></div><div class="dropdown-modal-content mb-6 bg-white w-full rounded-2xl border-neutralcolor-800 border -mt-5"><div class="flex justify-between items-center w-[95%] mx-auto my-4" onclick="toggleShowDropDownTour(this, 'dropdown-modal-tour','dropdown-modal-content')"><div class="w-1/2"><div class="flex gap-x-1 items-center "><svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d_6237_1954)"><path d="M3 12.5C3 15.4174 4.15893 18.2153 6.22183 20.2782C8.28473 22.3411 11.0826 23.5 14 23.5C16.9174 23.5 19.7153 22.3411 21.7782 20.2782C23.8411 18.2153 25 15.4174 25 12.5C25 9.58262 23.8411 6.78473 21.7782 4.72183C19.7153 2.65893 16.9174 1.5 14 1.5C11.0826 1.5 8.28473 2.65893 6.22183 4.72183C4.15893 6.78473 3 9.58262 3 12.5Z" fill="#9FEAFF" /><path d="M16.9082 9.21524L11.1662 6.64122C11.0554 6.59173 10.9295 6.58818 10.8161 6.63134L8.60095 7.47522C8.51607 7.50738 8.44265 7.56402 8.39 7.63796C8.33735 7.7119 8.30784 7.7998 8.3052 7.89053C8.30257 7.98126 8.32694 8.07073 8.37522 8.1476C8.4235 8.22446 8.49352 8.28526 8.57639 8.32229L13.4817 10.5205" fill="#FFA200" /><path d="M16.9082 9.21524L11.1662 6.64121C11.0554 6.59173 10.9295 6.58818 10.8161 6.63134L8.60095 7.47522C8.51607 7.50738 8.44265 7.56402 8.39 7.63796C8.33735 7.7119 8.30784 7.7998 8.3052 7.89053C8.30257 7.98126 8.32694 8.07073 8.37522 8.1476C8.4235 8.22446 8.49352 8.28526 8.57639 8.32229L13.4817 10.5205" stroke="#001E6B" stroke-linecap="round" stroke-linejoin="round" /><path d="M21.0977 7.61918L7.48353 12.8055L5.29035 11.8223C5.17958 11.7728 5.05371 11.7693 4.94032 11.8125L3.24079 12.4599C3.16776 12.4877 3.10305 12.5338 3.05282 12.5936C3.00259 12.6535 2.96851 12.7253 2.95381 12.802C2.93912 12.8788 2.9443 12.958 2.96886 13.0322C2.99342 13.1064 3.03655 13.1731 3.09415 13.2259L6.86732 16.6932C6.92999 16.7507 7.00742 16.7896 7.09095 16.8056C7.17448 16.8216 7.26081 16.814 7.34029 16.7838L13.9285 14.274L11.1997 20.3614C11.1624 20.4442 11.1506 20.5362 11.1657 20.6257C11.1808 20.7152 11.2221 20.7982 11.2845 20.8642C11.3468 20.9301 11.4273 20.9761 11.5158 20.9963C11.6043 21.0165 11.6968 21.0099 11.7816 20.9774L14.8534 19.8072C14.9668 19.764 15.0584 19.6776 15.1081 19.567L18.2116 12.6424L22.4947 11.0107C22.7441 10.9158 22.9698 10.7675 23.1559 10.5763C23.3421 10.3851 23.4843 10.1556 23.5726 9.90378C23.6608 9.65194 23.6931 9.38387 23.667 9.11829C23.6409 8.85271 23.5572 8.59602 23.4217 8.36615C23.1836 7.98869 22.8203 7.70701 22.3954 7.57044C21.9705 7.43388 21.5112 7.45113 21.0977 7.61918Z" fill="white" stroke="#001E6B" stroke-linecap="round" stroke-linejoin="round" /></g><defs><filter id="filter0_d_6237_1954" x="0.445312" y="0.5" width="26.5547" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix" /><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" /><feOffset dy="1" /><feGaussianBlur stdDeviation="1" /><feComposite in2="hardAlpha" operator="out" /><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" /><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6237_1954" /><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6237_1954" result="shape" /></filter></defs></svg><span class="font-danademibold text-base font-yekanbakhsemiboldFA">تاریخ رفت :</span><span class="font-danademibold text-base font-yekanbakhsemiboldFA">[##cms.form.startDate##]</span><div class="text-secondary font-yekanbakhregularFA pr-2"><span class="font-danaregular text-base inline-block">[##cms.form.departureName##]</span><span class="font-danaregular text-base inline-block mx-2 ">به</span><span class="font-danaregular text-base inline-block">[##cms.form.destinationName##]</span></div></div></div><div class="w-1/2"><div class="flex gap-x-1 items-center "><svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d_6237_1946)"><path d="M2 12.5C2 15.4174 3.15893 18.2153 5.22183 20.2782C7.28473 22.3411 10.0826 23.5 13 23.5C15.9174 23.5 18.7153 22.3411 20.7782 20.2782C22.8411 18.2153 24 15.4174 24 12.5C24 9.58262 22.8411 6.78473 20.7782 4.72183C18.7153 2.65893 15.9174 1.5 13 1.5C10.0826 1.5 7.28473 2.65893 5.22183 4.72183C3.15893 6.78473 2 9.58262 2 12.5Z" fill="#9FEAFF" /><path d="M18.3959 11.9585L15.7632 6.2432C15.7123 6.13308 15.6198 6.04762 15.506 6.00557L13.2823 5.18444C13.1972 5.15285 13.1046 5.14723 13.0163 5.1683C12.9281 5.18937 12.848 5.23619 12.7864 5.30281C12.7247 5.36943 12.6842 5.45285 12.67 5.54251C12.6559 5.63216 12.6686 5.72401 12.7067 5.8064L14.9563 10.6884" fill="#FFA200" /><path d="M18.3959 11.9585L15.7632 6.2432C15.7123 6.13308 15.6198 6.04762 15.506 6.00557L13.2823 5.18444C13.1972 5.15285 13.1046 5.14723 13.0163 5.1683C12.9281 5.18937 12.848 5.23619 12.7864 5.30281C12.7247 5.36943 12.6842 5.45285 12.67 5.54251C12.6559 5.63216 12.6686 5.72401 12.7067 5.8064L14.9563 10.6884" stroke="#001E6B" stroke-linecap="round" stroke-linejoin="round" /><path d="M22.6045 13.5137L8.93786 8.46717L7.93227 6.28419C7.88137 6.17406 7.78888 6.0886 7.67508 6.04655L5.96901 5.41657C5.89569 5.3895 5.81666 5.38163 5.73944 5.39371C5.66222 5.40578 5.58937 5.4374 5.52781 5.48557C5.46626 5.53373 5.41804 5.59684 5.38775 5.66889C5.35746 5.74094 5.34609 5.81953 5.35473 5.89721L5.91687 10.9906C5.92628 11.0751 5.95902 11.1554 6.01142 11.2224C6.06383 11.2893 6.13384 11.3404 6.21362 11.3699L12.8272 13.812L6.7681 16.6031C6.68561 16.641 6.61622 16.7025 6.56873 16.7799C6.52124 16.8572 6.49779 16.9469 6.50135 17.0376C6.50491 17.1283 6.53532 17.2159 6.58873 17.2893C6.64214 17.3627 6.71613 17.4186 6.80134 17.4499L9.885 18.5886C9.99882 18.6306 10.1246 18.6257 10.2349 18.5751L17.1268 15.3997L21.4264 16.9873C21.6767 17.0798 21.9442 17.1165 22.2102 17.0949C22.4762 17.0733 22.7342 16.9939 22.9663 16.8623C23.1985 16.7306 23.399 16.5499 23.5541 16.3327C23.7091 16.1155 23.8148 15.867 23.8639 15.6047C23.9328 15.1638 23.8444 14.7127 23.6141 14.3304C23.3839 13.9481 23.0265 13.659 22.6045 13.5137Z" fill="white" stroke="#001E6B" stroke-linecap="round" stroke-linejoin="round" /></g><defs><filter id="filter0_d_6237_1946" x="0" y="0.5" width="26.3867" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix" /><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" /><feOffset dy="1" /><feGaussianBlur stdDeviation="1" /><feComposite in2="hardAlpha" operator="out" /><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" /><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6237_1946" /><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6237_1946" result="shape" /></filter></defs></svg><span class="font-danademibold text-base font-yekanbakhsemiboldFA">تاریخ برگشت :</span><span class="font-danademibold text-base font-yekanbakhsemiboldFA">[##cms.form.endDate##]</span><div class="text-secondary font-yekanbakhregularFA pr-2"><span class="font-danaregular text-base inline-block">[##cms.form.destinationName##]</span><span class="font-danaregular text-base inline-block mx-2 ">به</span><span class="font-danaregular text-base inline-block">[##cms.form.departureName##]</span></div></div></div><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow-icon"><path d="M11.8079 15.2695L8.09346 10.8121C7.65924 10.2911 8.02976 9.5 8.70803 9.5L15.292 9.5C15.9702 9.5 16.3408 10.2911 15.9065 10.8121L12.1921 15.2695C12.0921 15.3895 11.9079 15.3895 11.8079 15.2695Z" fill="#667085" /></svg></div><div class="dropdown-modal-tour hidden w-[95%] mx-auto my-4 text-center "><div class="flex gap-x-1 items-center justify-center border-t border-txtneutral-500 pt-4"><div class="rounded-md bg-neutralcolor-50 text-primary-900"><span class="font-danaregular text-base">ساعت [##cms.form.startTime##]</span><span class="font-danaregular text-base">(به وقت [##cms.form.departureName##])</span><span class="font-danademibold text-base">[##cms.form.weekdayStartDate##]</span></div><svg width="104" height="11" viewBox="0 0 104 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 5.5L0.792893 4.79289L0.0857865 5.5L0.792893 6.20711L1.5 5.5ZM102.5 6.5C103.052 6.5 103.5 6.05228 103.5 5.5C103.5 4.94772 103.052 4.5 102.5 4.5V6.5ZM4.79289 0.792893L0.792893 4.79289L2.20711 6.20711L6.20711 2.20711L4.79289 0.792893ZM0.792893 6.20711L4.79289 10.2071L6.20711 8.79289L2.20711 4.79289L0.792893 6.20711ZM1.5 6.5H102.5V4.5H1.5V6.5Z" fill="#FFA200" /></svg><div class="rounded-md bg-neutralcolor-50 text-primary-900"><span class="font-danaregular text-base">ساعت [##cms.form.endTime##]</span><span class="font-danaregular text-base">(به وقت [##cms.form.destinationName##])</span><span class="font-danademibold text-base">[##cms.form.weekdayEndDate##]</span></div></div></div></div></basis><div class="bg-secondary text-white font-IRANYekanRegularFA text-sm rounded-tr-[4px] rounded-tl-[32px] text-center h-12 inline-block -z-10 relative"><span class="leading-7 px-5">اطلاعات هتل</span></div><div class="dropdown-modal-content mb-6 bg-white w-full rounded-2xl border-neutralcolor-800 border -mt-5"><div class="flex justify-between items-center w-[95%] mx-auto my-4" onclick="toggleShowDropDownTour(this, 'dropdown-modal-tour','dropdown-modal-content')"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d_192_81084)"><path d="M21.6519 11.8724H4.69531L6.11627 8.7772C6.19703 8.60117 6.34159 8.44947 6.53066 8.34235C6.71972 8.23523 6.9443 8.17781 7.17436 8.17773H19.1728C19.4029 8.17781 19.6275 8.23523 19.8165 8.34235C20.0056 8.44947 20.1502 8.60117 20.2309 8.7772L21.6519 11.8724Z" fill="#FFA200" /><path d="M20.8039 10.0251L20.2307 8.7772C20.15 8.60117 20.0055 8.44947 19.8163 8.34235C19.6273 8.23523 19.4027 8.17781 19.1727 8.17773H7.17419C6.94412 8.17781 6.71955 8.23523 6.53049 8.34235C6.34142 8.44947 6.19686 8.60117 6.1161 8.7772L5.54297 10.0251H20.8039Z" fill="#F79009" /><path d="M19.9559 11.8711H6.39062V28.4972H19.9559V11.8711Z" fill="#9FEAFF" /><path d="M19.9559 14.6421V11.8711H6.39062V25.7262L19.9559 14.6421Z" fill="#F2F7FF" /><path d="M27.3054 25.2637C27.3054 25.6311 27.1268 25.9836 26.8088 26.2434C26.4908 26.5033 26.0594 26.6492 25.6097 26.6492C25.16 26.6492 24.7287 26.5033 24.4107 26.2434C24.0927 25.9836 23.9141 25.6311 23.9141 25.2637C23.9141 24.4989 25.6097 19.7217 25.6097 19.7217C25.6097 19.7217 27.3054 24.4989 27.3054 25.2637Z" fill="#12B76A" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M25.6094 26.6514V28.4987" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M19.957 11.8711V28.4972" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M6.39062 28.4972V11.8711" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M21.6519 11.8724H4.69531L6.11627 8.7772C6.19703 8.60117 6.34159 8.44947 6.53066 8.34235C6.71972 8.23523 6.9443 8.17781 7.17436 8.17773H19.1728C19.4029 8.17781 19.6275 8.23523 19.8165 8.34235C20.0056 8.44947 20.1502 8.60117 20.2309 8.7772L21.6519 11.8724Z" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.5664 7.25488V8.17855" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M12.043 28.4964V25.7254C12.043 25.4805 12.1621 25.2455 12.3741 25.0723C12.5861 24.8991 12.8736 24.8018 13.1734 24.8018C13.4732 24.8018 13.7608 24.8991 13.9727 25.0723C14.1847 25.2455 14.3039 25.4805 14.3039 25.7254V28.4964H12.043Z" fill="white" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M8.65234 14.6406H9.78279" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M8.65234 17.4131H9.78279" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M8.65234 20.1826H9.78279" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M8.65234 22.958H9.78279" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M8.65234 25.7275H9.78279" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.5664 25.7275H17.6968" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M12.043 14.6406H14.3039" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M12.043 17.4131H14.3039" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M12.043 20.1826H14.3039" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M12.043 22.958H14.3039" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.5664 14.6406H17.6968" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.5664 17.4131H17.6968" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.5664 20.1826H17.6968" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.5664 22.958H17.6968" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M3 28.5H29" stroke="#101828" stroke-linecap="round" stroke-linejoin="round" /><path d="M6.71692 5.8353L7.46456 6.1768L7.39208 5.31056L7.92636 4.65533L7.13433 4.46126L6.71692 3.71484L6.29985 4.46126L5.50781 4.65533L6.04193 5.31056L5.96962 6.1768L6.71692 5.8353Z" fill="#FFA200" /><path d="M9.2398 4.8499L9.98808 4.50735L10.7362 4.8499L10.6626 3.98278L11.1985 3.32755L10.405 3.13435L9.98792 2.38672L9.57117 3.13435L8.77734 3.32755L9.31358 3.98278L9.2398 4.8499Z" fill="#FFA200" /><path d="M15.7789 4.85234L16.5276 4.50805L17.2766 4.85252L17.2016 3.984L17.7392 3.32808L16.944 3.13593L16.5275 2.38672L16.111 3.13593L15.3164 3.32808L15.8536 3.984L15.7789 4.85234Z" fill="#FFA200" /><path d="M12.5093 3.96563L13.2581 3.62133L14.0071 3.9658L13.9321 3.09728L14.4697 2.44136L13.6745 2.24921L13.2579 1.5L12.8415 2.24921L12.0469 2.44136L12.5841 3.09728L12.5093 3.96563Z" fill="#FFA200" /><path d="M21.011 4.65777L20.2146 4.46615L19.7985 3.71484L19.3821 4.46615L18.5859 4.65777L19.1248 5.31335L19.0489 6.18274L19.7985 5.83704L20.5477 6.18274L20.4718 5.31335L21.011 4.65777Z" fill="#FFA200" /></g><defs><filter id="filter0_d_192_81084" x="0.5" y="0.5" width="31" height="31.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix" /><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" /><feOffset dy="1" /><feGaussianBlur stdDeviation="1" /><feComposite in2="hardAlpha" operator="out" /><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" /><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_192_81084" /><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_192_81084" result="shape" /></filter></defs></svg><h3 class="hotel__name__container font-danabold text-lg text-txtneutral-900 font-yekanbakhsemiboldFA ">[##cms.form.hotelName##]</h3><div><span class="hotel__service__container uppercase text-secondary ">[##cms.form.hotelService##]</span></div><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow-icon"><path d="M11.8079 15.2695L8.09346 10.8121C7.65924 10.2911 8.02976 9.5 8.70803 9.5L15.292 9.5C15.9702 9.5 16.3408 10.2911 15.9065 10.8121L12.1921 15.2695C12.0921 15.3895 11.9079 15.3895 11.8079 15.2695Z" fill="#667085" /></svg></div><div class="dropdown-modal-tour hidden w-[95%] mx-auto my-4 text-center "><ul class="flex justify-center flex-wrap gap-4 border-t border-txtneutral-500 pt-4 "><li class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3"><div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت 2 تخته</div><div><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.doubleP##]</span><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.doubleU##]</span></div></li><li class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3"><div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت 1 تخته</div><div><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.singleP##]</span><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.singleU##]</span></div></li><li class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3"><div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت کودک با تخت</div><div><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.wBedP##]</span><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.wBedU##]</span></div></li><li class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3"><div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت کودک بدون تخت </div><div><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.woBedP##]</span><span class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.woBedU##]</span></div></li></ul></div></div></div></div><div><div class="bg-secondary text-white font-IRANYekanRegularFA text-sm rounded-tr-[4px] rounded-tl-[32px] text-center h-12 inline-block -z-10 relative"><span class="leading-7 px-5">اطلاعات مسافر</span></div><div class=" bg-white w-full rounded-2xl border-neutralcolor-800 border -mt-5"><div class=" text-sm p-4"><form><basis core="schema" run="atclient" schemaurl="/schema/domainform/[##cms.host.bookingTourInstallmentId1##]/[##cms.host.bookingTourInstallmentId2##]/fa/رزرو-تور-بصورت-اقساطی" displaymode="new" button="[data-btn-tourBookingFormIns]" resultsourceid="tourBookingFormIns.data" onrendered="onrenderedSchmaTourBookingFormIns"></basis><basis core="api" if="{##db.tourBookingFormIns.run|(false)##}" run="atclient" url="/schema/domainform/[##cms.host.bookingTourInstallmentId1##]/fa/editobject" method="post" body="object_edit={##db.tourBookingFormIns.value##}&captcha={##db.tourBookingFormIns.captcha##}&captchaid={##db.tourBookingFormIns.captchaid##}" content-type="application/x-www-form-urlencoded" triggers='db.tourBookingFormIns' OnProcessed="OnProcessedTourBookingFormIns"></basis><basis core="callback" run="atclient" method="callbackSourceTourBookingFormIns" triggers="tourBookingFormIns.data"></basis><basis core="dbsource" source="trust_login" name="db"><member name="tourBookingFormIns" type="scalar" request="captcha" /></basis><fieldset data-bc-section=""><legend data-bc-section-title="" data-sys-text="">کد امنیتی</legend><div data-bc-schema-column=""><div data-bc-question=""><div data-bc-title-container=""><span data-bc-question-title="" data-bc-schema-info-prpid="" data-sys-text=""></span></div><div data-bc-answer-container="" data-bc-schema-info-multi="0" data-bc-schema-info-word="" data-bc-schema-info-part="" data-bc-schema-info-part-0-type=""><div data-bc-answer-collection=""><div data-bc-answer=""><div data-bc-part-container=""><div class="captcha__container__info flex" data-bc-part-related-cell=""><input type="text" placeholder="کد امنیتی" name="captcha" data-bc-text-input="" data-sys-input-text=""><div class="captcha__container flex justify-center items-center"><svg width="30" height="30" onclick="renderCaptchaCode(this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}" stroke="currentColor" class="inline-block cursor-pointer mt-1 ml-1 mr-1 min-w-8 min-h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" /></svg><span class="captcha__content"><img src="/[##db.tourBookingFormIns.captcha##]" width="185" height="65" class="rounded-md" /><input name="captchaid" value="[##db.tourBookingFormIns.captcha##]" type="hidden" /></span></div></div></div><div data-part-btn-container=""></div></div></div></div></div></div></fieldset><div class="flex justify-between items-center gap-x-2 mt-4"><ul class="flex justify-between gap-x-3 border border-neutralcolor-800 items-center rounded-2xl h-[69px] w-8/12 px-2 "><li class="flex justify-between w-1/3 "><div class="flex flex-col "><span class="font-bold mb-1 ml-1 text-xs font-yekanbakhregularFA text-txtneutral-900">بزرگسال</span><span class="text-[8px] text-txtneutral-500 ">(12 سال به بالا)</span></div><div class="flex gap-3 text-lg mt-2 mr-4"><span class="count__container adult__count__container w-7 h-7 text-center">[##cms.form.adultCount##]</span></div></li><li class="flex justify-between w-1/3 px-2 border-x "><div class="flex flex-col "><span class="font-bold mb-1 ml-1 text-xs font-yekanbakhregularFA text-txtneutral-900">کودک</span><span class="text-[8px] text-txtneutral-500 ">(2 تا 12 سال)</span></div><div class="flex gap-3 text-lg mt-2 mr-4"><span class="count__container child__count__container w-7 h-7 text-center">[##cms.form.childCount##]</span></div></li><li class="flex justify-between w-1/3"><div class="flex flex-col "><span class="font-bold mb-1 ml-1 text-xs font-yekanbakhregularFA text-txtneutral-900">نوزاد</span><span class="text-[8px] text-txtneutral-500 ">(کمتر از 2 سال)</span></div><div class="flex gap-3 text-lg mt-2 mr-4"><span class="count__container infant__count__container w-7 h-7 text-center">[##cms.form.infantCount##]</span></div></li></ul><div class="relative w-4/12 "><button class="bg-secondary text-white text-base text-center leading-[69px] rounded-2xl w-full h-[69px] inline-block border border-solid border-secondary hover:bg-white hover:text-secondary" type="button" data-btn-tourBookingFormIns=""><span>رزرو تور </span></button></div></div></form></div></div></div></div><div class="message__action__container text-center text-white bg-primary p-4 rounded-2xl hidden mt-3"></div></div></div></div>
+<style>
+    .tour__booking__form__container [data-bc-answer-container] input[type="text"] {
+        height: 65px !important;
+        border: none !important;
+        font-size: 16px !important;
+        padding: 0 1rem;
+    }
+
+    .tour__booking__form__container [data-bc-section] {
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+    }
+
+    .tour__booking__form__container [data-bc-answer-container] {
+        width: 100% !important;
+    }
+
+    .tour__booking__form__container [data-bc-part-container],
+    .tour__booking__form__container [data-bc-btn-container] {
+        width: 100% !important;
+    }
+
+    .tour__booking__form__container [data-bc-schema-main-container] {
+        display: flex !important;
+        flex-wrap: wrap !important
+    }
+
+    .tour__booking__form__container [data-bc-section] {
+        width: 50% !important;
+    }
+
+    .tour__booking__form__container [data-bc-section]:last-child {
+        width: 100% !important;
+    }
+
+    .tour__booking__form__container legend,
+    .tour__booking__form__container [data-bc-title-container] {
+        display: none !important
+    }
+</style>
+<div class="tour__booking__form__modal__container_Ins modal__container fixed top-0 left-0 w-screen h-screen overflow-hidden z-[999] bg-black/30"
+    onclick="closeModalContainer(this,event,'modal__container','hidden','parent')">
+    <div
+        class="modal__content bg-white fixed inset-x-0 max-md:bottom-0 rounded-t-xl xl:rounded-b-xl w-3/5 max-xl:w-12/12 mx-auto mt-10 p-4 max-h-[800px]">
+        <svg width="30" height="30" onclick="closeModalContainer(this,event,'modal__container','hidden')"
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="cursor-pointer">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+        <div class="max-h-[650px] overflow-auto p-4 tour__booking__form__container">
+            <h3 class="tour__name__container w-0 h-0 hidden">[##cms.form.tourName##]</h3>
+            <div class="flex flex-col">
+                <div class=" rounded-xl text-sm w-49per">
+                    <div class="mb-10 gap-y-3">
+                        <basis core="group" if=" '[##cms.form.startDate##]' <>'null' ">
+                            <div
+                                class="bg-secondary text-white font-IRANYekanRegularFA text-sm rounded-tr-[4px] rounded-tl-[32px] text-center h-12 inline-block -z-10 relative">
+                                <span class="leading-7 px-5">اطلاعات پروازی</span></div>
+                            <div
+                                class="dropdown-modal-content mb-6 bg-white w-full rounded-2xl border-neutralcolor-800 border -mt-5">
+                                <div class="flex justify-between items-center w-[95%] mx-auto my-4"
+                                    onclick="toggleShowDropDownTour(this, 'dropdown-modal-tour','dropdown-modal-content')">
+                                    <div class="w-1/2">
+                                        <div class="flex gap-x-1 items-center "><svg width="27" height="27"
+                                                viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_6237_1954)">
+                                                    <path
+                                                        d="M3 12.5C3 15.4174 4.15893 18.2153 6.22183 20.2782C8.28473 22.3411 11.0826 23.5 14 23.5C16.9174 23.5 19.7153 22.3411 21.7782 20.2782C23.8411 18.2153 25 15.4174 25 12.5C25 9.58262 23.8411 6.78473 21.7782 4.72183C19.7153 2.65893 16.9174 1.5 14 1.5C11.0826 1.5 8.28473 2.65893 6.22183 4.72183C4.15893 6.78473 3 9.58262 3 12.5Z"
+                                                        fill="#9FEAFF" />
+                                                    <path
+                                                        d="M16.9082 9.21524L11.1662 6.64122C11.0554 6.59173 10.9295 6.58818 10.8161 6.63134L8.60095 7.47522C8.51607 7.50738 8.44265 7.56402 8.39 7.63796C8.33735 7.7119 8.30784 7.7998 8.3052 7.89053C8.30257 7.98126 8.32694 8.07073 8.37522 8.1476C8.4235 8.22446 8.49352 8.28526 8.57639 8.32229L13.4817 10.5205"
+                                                        fill="#FFA200" />
+                                                    <path
+                                                        d="M16.9082 9.21524L11.1662 6.64121C11.0554 6.59173 10.9295 6.58818 10.8161 6.63134L8.60095 7.47522C8.51607 7.50738 8.44265 7.56402 8.39 7.63796C8.33735 7.7119 8.30784 7.7998 8.3052 7.89053C8.30257 7.98126 8.32694 8.07073 8.37522 8.1476C8.4235 8.22446 8.49352 8.28526 8.57639 8.32229L13.4817 10.5205"
+                                                        stroke="#001E6B" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path
+                                                        d="M21.0977 7.61918L7.48353 12.8055L5.29035 11.8223C5.17958 11.7728 5.05371 11.7693 4.94032 11.8125L3.24079 12.4599C3.16776 12.4877 3.10305 12.5338 3.05282 12.5936C3.00259 12.6535 2.96851 12.7253 2.95381 12.802C2.93912 12.8788 2.9443 12.958 2.96886 13.0322C2.99342 13.1064 3.03655 13.1731 3.09415 13.2259L6.86732 16.6932C6.92999 16.7507 7.00742 16.7896 7.09095 16.8056C7.17448 16.8216 7.26081 16.814 7.34029 16.7838L13.9285 14.274L11.1997 20.3614C11.1624 20.4442 11.1506 20.5362 11.1657 20.6257C11.1808 20.7152 11.2221 20.7982 11.2845 20.8642C11.3468 20.9301 11.4273 20.9761 11.5158 20.9963C11.6043 21.0165 11.6968 21.0099 11.7816 20.9774L14.8534 19.8072C14.9668 19.764 15.0584 19.6776 15.1081 19.567L18.2116 12.6424L22.4947 11.0107C22.7441 10.9158 22.9698 10.7675 23.1559 10.5763C23.3421 10.3851 23.4843 10.1556 23.5726 9.90378C23.6608 9.65194 23.6931 9.38387 23.667 9.11829C23.6409 8.85271 23.5572 8.59602 23.4217 8.36615C23.1836 7.98869 22.8203 7.70701 22.3954 7.57044C21.9705 7.43388 21.5112 7.45113 21.0977 7.61918Z"
+                                                        fill="white" stroke="#001E6B" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </g>
+                                                <defs>
+                                                    <filter id="filter0_d_6237_1954" x="0.445312" y="0.5"
+                                                        width="26.5547" height="26" filterUnits="userSpaceOnUse"
+                                                        color-interpolation-filters="sRGB">
+                                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                            result="hardAlpha" />
+                                                        <feOffset dy="1" />
+                                                        <feGaussianBlur stdDeviation="1" />
+                                                        <feComposite in2="hardAlpha" operator="out" />
+                                                        <feColorMatrix type="matrix"
+                                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                                            result="effect1_dropShadow_6237_1954" />
+                                                        <feBlend mode="normal" in="SourceGraphic"
+                                                            in2="effect1_dropShadow_6237_1954" result="shape" />
+                                                    </filter>
+                                                </defs>
+                                            </svg><span
+                                                class="font-danademibold text-base font-yekanbakhsemiboldFA">تاریخ رفت
+                                                :</span><span
+                                                class="font-danademibold text-base font-yekanbakhsemiboldFA">[##cms.form.startDate##]</span>
+                                            <div class="text-secondary font-yekanbakhregularFA pr-2"><span
+                                                    class="font-danaregular text-base inline-block">[##cms.form.departureName##]</span><span
+                                                    class="font-danaregular text-base inline-block mx-2 ">به</span><span
+                                                    class="font-danaregular text-base inline-block">[##cms.form.destinationName##]</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-1/2">
+                                        <div class="flex gap-x-1 items-center "><svg width="27" height="27"
+                                                viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_6237_1946)">
+                                                    <path
+                                                        d="M2 12.5C2 15.4174 3.15893 18.2153 5.22183 20.2782C7.28473 22.3411 10.0826 23.5 13 23.5C15.9174 23.5 18.7153 22.3411 20.7782 20.2782C22.8411 18.2153 24 15.4174 24 12.5C24 9.58262 22.8411 6.78473 20.7782 4.72183C18.7153 2.65893 15.9174 1.5 13 1.5C10.0826 1.5 7.28473 2.65893 5.22183 4.72183C3.15893 6.78473 2 9.58262 2 12.5Z"
+                                                        fill="#9FEAFF" />
+                                                    <path
+                                                        d="M18.3959 11.9585L15.7632 6.2432C15.7123 6.13308 15.6198 6.04762 15.506 6.00557L13.2823 5.18444C13.1972 5.15285 13.1046 5.14723 13.0163 5.1683C12.9281 5.18937 12.848 5.23619 12.7864 5.30281C12.7247 5.36943 12.6842 5.45285 12.67 5.54251C12.6559 5.63216 12.6686 5.72401 12.7067 5.8064L14.9563 10.6884"
+                                                        fill="#FFA200" />
+                                                    <path
+                                                        d="M18.3959 11.9585L15.7632 6.2432C15.7123 6.13308 15.6198 6.04762 15.506 6.00557L13.2823 5.18444C13.1972 5.15285 13.1046 5.14723 13.0163 5.1683C12.9281 5.18937 12.848 5.23619 12.7864 5.30281C12.7247 5.36943 12.6842 5.45285 12.67 5.54251C12.6559 5.63216 12.6686 5.72401 12.7067 5.8064L14.9563 10.6884"
+                                                        stroke="#001E6B" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path
+                                                        d="M22.6045 13.5137L8.93786 8.46717L7.93227 6.28419C7.88137 6.17406 7.78888 6.0886 7.67508 6.04655L5.96901 5.41657C5.89569 5.3895 5.81666 5.38163 5.73944 5.39371C5.66222 5.40578 5.58937 5.4374 5.52781 5.48557C5.46626 5.53373 5.41804 5.59684 5.38775 5.66889C5.35746 5.74094 5.34609 5.81953 5.35473 5.89721L5.91687 10.9906C5.92628 11.0751 5.95902 11.1554 6.01142 11.2224C6.06383 11.2893 6.13384 11.3404 6.21362 11.3699L12.8272 13.812L6.7681 16.6031C6.68561 16.641 6.61622 16.7025 6.56873 16.7799C6.52124 16.8572 6.49779 16.9469 6.50135 17.0376C6.50491 17.1283 6.53532 17.2159 6.58873 17.2893C6.64214 17.3627 6.71613 17.4186 6.80134 17.4499L9.885 18.5886C9.99882 18.6306 10.1246 18.6257 10.2349 18.5751L17.1268 15.3997L21.4264 16.9873C21.6767 17.0798 21.9442 17.1165 22.2102 17.0949C22.4762 17.0733 22.7342 16.9939 22.9663 16.8623C23.1985 16.7306 23.399 16.5499 23.5541 16.3327C23.7091 16.1155 23.8148 15.867 23.8639 15.6047C23.9328 15.1638 23.8444 14.7127 23.6141 14.3304C23.3839 13.9481 23.0265 13.659 22.6045 13.5137Z"
+                                                        fill="white" stroke="#001E6B" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </g>
+                                                <defs>
+                                                    <filter id="filter0_d_6237_1946" x="0" y="0.5" width="26.3867"
+                                                        height="26" filterUnits="userSpaceOnUse"
+                                                        color-interpolation-filters="sRGB">
+                                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                            result="hardAlpha" />
+                                                        <feOffset dy="1" />
+                                                        <feGaussianBlur stdDeviation="1" />
+                                                        <feComposite in2="hardAlpha" operator="out" />
+                                                        <feColorMatrix type="matrix"
+                                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                                            result="effect1_dropShadow_6237_1946" />
+                                                        <feBlend mode="normal" in="SourceGraphic"
+                                                            in2="effect1_dropShadow_6237_1946" result="shape" />
+                                                    </filter>
+                                                </defs>
+                                            </svg><span
+                                                class="font-danademibold text-base font-yekanbakhsemiboldFA">تاریخ برگشت
+                                                :</span><span
+                                                class="font-danademibold text-base font-yekanbakhsemiboldFA">[##cms.form.endDate##]</span>
+                                            <div class="text-secondary font-yekanbakhregularFA pr-2"><span
+                                                    class="font-danaregular text-base inline-block">[##cms.form.destinationName##]</span><span
+                                                    class="font-danaregular text-base inline-block mx-2 ">به</span><span
+                                                    class="font-danaregular text-base inline-block">[##cms.form.departureName##]</span>
+                                            </div>
+                                        </div>
+                                    </div><svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow-icon">
+                                        <path
+                                            d="M11.8079 15.2695L8.09346 10.8121C7.65924 10.2911 8.02976 9.5 8.70803 9.5L15.292 9.5C15.9702 9.5 16.3408 10.2911 15.9065 10.8121L12.1921 15.2695C12.0921 15.3895 11.9079 15.3895 11.8079 15.2695Z"
+                                            fill="#667085" />
+                                    </svg>
+                                </div>
+                                <div class="dropdown-modal-tour hidden w-[95%] mx-auto my-4 text-center ">
+                                    <div
+                                        class="flex gap-x-1 items-center justify-center border-t border-txtneutral-500 pt-4">
+                                        <div class="rounded-md bg-neutralcolor-50 text-primary-900"><span
+                                                class="font-danaregular text-base">ساعت
+                                                [##cms.form.startTime##]</span><span
+                                                class="font-danaregular text-base">(به وقت
+                                                [##cms.form.departureName##])</span><span
+                                                class="font-danademibold text-base">[##cms.form.weekdayStartDate##]</span>
+                                        </div><svg width="104" height="11" viewBox="0 0 104 11" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1.5 5.5L0.792893 4.79289L0.0857865 5.5L0.792893 6.20711L1.5 5.5ZM102.5 6.5C103.052 6.5 103.5 6.05228 103.5 5.5C103.5 4.94772 103.052 4.5 102.5 4.5V6.5ZM4.79289 0.792893L0.792893 4.79289L2.20711 6.20711L6.20711 2.20711L4.79289 0.792893ZM0.792893 6.20711L4.79289 10.2071L6.20711 8.79289L2.20711 4.79289L0.792893 6.20711ZM1.5 6.5H102.5V4.5H1.5V6.5Z"
+                                                fill="#FFA200" />
+                                        </svg>
+                                        <div class="rounded-md bg-neutralcolor-50 text-primary-900"><span
+                                                class="font-danaregular text-base">ساعت
+                                                [##cms.form.endTime##]</span><span
+                                                class="font-danaregular text-base">(به وقت
+                                                [##cms.form.destinationName##])</span><span
+                                                class="font-danademibold text-base">[##cms.form.weekdayEndDate##]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </basis>
+                        <div
+                            class="bg-secondary text-white font-IRANYekanRegularFA text-sm rounded-tr-[4px] rounded-tl-[32px] text-center h-12 inline-block -z-10 relative">
+                            <span class="leading-7 px-5">اطلاعات هتل</span></div>
+                        <div
+                            class="dropdown-modal-content mb-6 bg-white w-full rounded-2xl border-neutralcolor-800 border -mt-5">
+                            <div class="flex justify-between items-center w-[95%] mx-auto my-4"
+                                onclick="toggleShowDropDownTour(this, 'dropdown-modal-tour','dropdown-modal-content')">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g filter="url(#filter0_d_192_81084)">
+                                        <path
+                                            d="M21.6519 11.8724H4.69531L6.11627 8.7772C6.19703 8.60117 6.34159 8.44947 6.53066 8.34235C6.71972 8.23523 6.9443 8.17781 7.17436 8.17773H19.1728C19.4029 8.17781 19.6275 8.23523 19.8165 8.34235C20.0056 8.44947 20.1502 8.60117 20.2309 8.7772L21.6519 11.8724Z"
+                                            fill="#FFA200" />
+                                        <path
+                                            d="M20.8039 10.0251L20.2307 8.7772C20.15 8.60117 20.0055 8.44947 19.8163 8.34235C19.6273 8.23523 19.4027 8.17781 19.1727 8.17773H7.17419C6.94412 8.17781 6.71955 8.23523 6.53049 8.34235C6.34142 8.44947 6.19686 8.60117 6.1161 8.7772L5.54297 10.0251H20.8039Z"
+                                            fill="#F79009" />
+                                        <path d="M19.9559 11.8711H6.39062V28.4972H19.9559V11.8711Z" fill="#9FEAFF" />
+                                        <path d="M19.9559 14.6421V11.8711H6.39062V25.7262L19.9559 14.6421Z"
+                                            fill="#F2F7FF" />
+                                        <path
+                                            d="M27.3054 25.2637C27.3054 25.6311 27.1268 25.9836 26.8088 26.2434C26.4908 26.5033 26.0594 26.6492 25.6097 26.6492C25.16 26.6492 24.7287 26.5033 24.4107 26.2434C24.0927 25.9836 23.9141 25.6311 23.9141 25.2637C23.9141 24.4989 25.6097 19.7217 25.6097 19.7217C25.6097 19.7217 27.3054 24.4989 27.3054 25.2637Z"
+                                            fill="#12B76A" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M25.6094 26.6514V28.4987" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M19.957 11.8711V28.4972" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M6.39062 28.4972V11.8711" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M21.6519 11.8724H4.69531L6.11627 8.7772C6.19703 8.60117 6.34159 8.44947 6.53066 8.34235C6.71972 8.23523 6.9443 8.17781 7.17436 8.17773H19.1728C19.4029 8.17781 19.6275 8.23523 19.8165 8.34235C20.0056 8.44947 20.1502 8.60117 20.2309 8.7772L21.6519 11.8724Z"
+                                            stroke="#101828" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M16.5664 7.25488V8.17855" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M12.043 28.4964V25.7254C12.043 25.4805 12.1621 25.2455 12.3741 25.0723C12.5861 24.8991 12.8736 24.8018 13.1734 24.8018C13.4732 24.8018 13.7608 24.8991 13.9727 25.0723C14.1847 25.2455 14.3039 25.4805 14.3039 25.7254V28.4964H12.043Z"
+                                            fill="white" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M8.65234 14.6406H9.78279" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M8.65234 17.4131H9.78279" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M8.65234 20.1826H9.78279" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M8.65234 22.958H9.78279" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M8.65234 25.7275H9.78279" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M16.5664 25.7275H17.6968" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M12.043 14.6406H14.3039" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M12.043 17.4131H14.3039" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M12.043 20.1826H14.3039" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M12.043 22.958H14.3039" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M16.5664 14.6406H17.6968" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M16.5664 17.4131H17.6968" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M16.5664 20.1826H17.6968" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M16.5664 22.958H17.6968" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M3 28.5H29" stroke="#101828" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M6.71692 5.8353L7.46456 6.1768L7.39208 5.31056L7.92636 4.65533L7.13433 4.46126L6.71692 3.71484L6.29985 4.46126L5.50781 4.65533L6.04193 5.31056L5.96962 6.1768L6.71692 5.8353Z"
+                                            fill="#FFA200" />
+                                        <path
+                                            d="M9.2398 4.8499L9.98808 4.50735L10.7362 4.8499L10.6626 3.98278L11.1985 3.32755L10.405 3.13435L9.98792 2.38672L9.57117 3.13435L8.77734 3.32755L9.31358 3.98278L9.2398 4.8499Z"
+                                            fill="#FFA200" />
+                                        <path
+                                            d="M15.7789 4.85234L16.5276 4.50805L17.2766 4.85252L17.2016 3.984L17.7392 3.32808L16.944 3.13593L16.5275 2.38672L16.111 3.13593L15.3164 3.32808L15.8536 3.984L15.7789 4.85234Z"
+                                            fill="#FFA200" />
+                                        <path
+                                            d="M12.5093 3.96563L13.2581 3.62133L14.0071 3.9658L13.9321 3.09728L14.4697 2.44136L13.6745 2.24921L13.2579 1.5L12.8415 2.24921L12.0469 2.44136L12.5841 3.09728L12.5093 3.96563Z"
+                                            fill="#FFA200" />
+                                        <path
+                                            d="M21.011 4.65777L20.2146 4.46615L19.7985 3.71484L19.3821 4.46615L18.5859 4.65777L19.1248 5.31335L19.0489 6.18274L19.7985 5.83704L20.5477 6.18274L20.4718 5.31335L21.011 4.65777Z"
+                                            fill="#FFA200" />
+                                    </g>
+                                    <defs>
+                                        <filter id="filter0_d_192_81084" x="0.5" y="0.5" width="31" height="31.5"
+                                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                            <feOffset dy="1" />
+                                            <feGaussianBlur stdDeviation="1" />
+                                            <feComposite in2="hardAlpha" operator="out" />
+                                            <feColorMatrix type="matrix"
+                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                            <feBlend mode="normal" in2="BackgroundImageFix"
+                                                result="effect1_dropShadow_192_81084" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_192_81084"
+                                                result="shape" />
+                                        </filter>
+                                    </defs>
+                                </svg>
+                                <h3
+                                    class="hotel__name__container font-danabold text-lg text-txtneutral-900 font-yekanbakhsemiboldFA ">
+                                    [##cms.form.hotelName##]</h3>
+                                <div><span
+                                        class="hotel__service__container uppercase text-secondary ">[##cms.form.hotelService##]</span>
+                                </div><svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow-icon">
+                                    <path
+                                        d="M11.8079 15.2695L8.09346 10.8121C7.65924 10.2911 8.02976 9.5 8.70803 9.5L15.292 9.5C15.9702 9.5 16.3408 10.2911 15.9065 10.8121L12.1921 15.2695C12.0921 15.3895 11.9079 15.3895 11.8079 15.2695Z"
+                                        fill="#667085" />
+                                </svg>
+                            </div>
+                            <div class="dropdown-modal-tour hidden w-[95%] mx-auto my-4 text-center ">
+                                <ul class="flex justify-center flex-wrap gap-4 border-t border-txtneutral-500 pt-4 ">
+                                    <li
+                                        class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3">
+                                        <div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت 2
+                                            تخته</div>
+                                        <div><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.doubleP##]</span><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.doubleU##]</span>
+                                        </div>
+                                    </li>
+                                    <li
+                                        class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3">
+                                        <div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت 1
+                                            تخته</div>
+                                        <div><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.singleP##]</span><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.singleU##]</span>
+                                        </div>
+                                    </li>
+                                    <li
+                                        class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3">
+                                        <div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت
+                                            کودک با تخت</div>
+                                        <div><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.wBedP##]</span><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.wBedU##]</span>
+                                        </div>
+                                    </li>
+                                    <li
+                                        class="rounded-[4px] bg-neutralcolor-50 h-12 leading-[48px] flex justify-center items-center w-[48%] gap-x-3">
+                                        <div class="text-txtneutral-500 text-xs font-yekanbakhregularFA">(هر نفر) قیمت
+                                            کودک بدون تخت </div>
+                                        <div><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg ">[##cms.form.woBedP##]</span><span
+                                                class="text-primary-900 font-yekanbakhsemiboldFA text-lg">[##cms.form.woBedU##]</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="bg-secondary text-white font-IRANYekanRegularFA text-sm rounded-tr-[4px] rounded-tl-[32px] text-center h-12 inline-block -z-10 relative">
+                        <span class="leading-7 px-5">اطلاعات مسافر</span></div>
+                    <div class=" bg-white w-full rounded-2xl border-neutralcolor-800 border -mt-5">
+                        <div class=" text-sm p-4">
+                            <form>
+                                <basis core="schema" run="atclient"
+                                    schemaurl="/schema/domainform/[##cms.host.bookingTourInstallmentId1##]/[##cms.host.bookingTourInstallmentId2##]/fa/رزرو-تور-بصورت-اقساطی"
+                                    displaymode="new" button="[data-btn-tourBookingFormIns]"
+                                    resultsourceid="tourBookingFormIns.data"
+                                    onrendered="onrenderedSchmaTourBookingFormIns"></basis>
+                                <basis core="api" if="{##db.tourBookingFormIns.run|(false)##}" run="atclient"
+                                    url="/schema/domainform/[##cms.host.bookingTourInstallmentId1##]/fa/editobject"
+                                    method="post"
+                                    body="object_edit={##db.tourBookingFormIns.value##}&captcha={##db.tourBookingFormIns.captcha##}&captchaid={##db.tourBookingFormIns.captchaid##}"
+                                    content-type="application/x-www-form-urlencoded" triggers='db.tourBookingFormIns'
+                                    OnProcessed="OnProcessedTourBookingFormIns"></basis>
+                                <basis core="callback" run="atclient" method="callbackSourceTourBookingFormIns"
+                                    triggers="tourBookingFormIns.data"></basis>
+                                <basis core="dbsource" source="trust_login" name="db">
+                                    <member name="tourBookingFormIns" type="scalar" request="captcha" />
+                                </basis>
+                                <fieldset data-bc-section="">
+                                    <legend data-bc-section-title="" data-sys-text="">کد امنیتی</legend>
+                                    <div data-bc-schema-column="">
+                                        <div data-bc-question="">
+                                            <div data-bc-title-container=""><span data-bc-question-title=""
+                                                    data-bc-schema-info-prpid="" data-sys-text=""></span></div>
+                                            <div data-bc-answer-container="" data-bc-schema-info-multi="0"
+                                                data-bc-schema-info-word="" data-bc-schema-info-part=""
+                                                data-bc-schema-info-part-0-type="">
+                                                <div data-bc-answer-collection="">
+                                                    <div data-bc-answer="">
+                                                        <div data-bc-part-container="">
+                                                            <div class="captcha__container__info flex"
+                                                                data-bc-part-related-cell=""><input type="text"
+                                                                    placeholder="کد امنیتی" name="captcha"
+                                                                    data-bc-text-input="" data-sys-input-text="">
+                                                                <div
+                                                                    class="captcha__container flex justify-center items-center">
+                                                                    <svg width="30" height="30"
+                                                                        onclick="renderCaptchaCode(this)"
+                                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                        viewBox="0 0 24 24" strokeWidth="{1.5}"
+                                                                        stroke="currentColor"
+                                                                        class="inline-block cursor-pointer mt-1 ml-1 mr-1 min-w-8 min-h-8">
+                                                                        <path strokeLinecap="round"
+                                                                            strokeLinejoin="round"
+                                                                            d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+                                                                    </svg><span class="captcha__content"><img
+                                                                            src="/[##db.tourBookingFormIns.captcha##]"
+                                                                            width="185" height="65"
+                                                                            class="rounded-md" /><input name="captchaid"
+                                                                            value="[##db.tourBookingFormIns.captcha##]"
+                                                                            type="hidden" /></span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div data-part-btn-container=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="flex justify-between items-center gap-x-2 mt-4">
+                                    <ul
+                                        class="flex justify-between gap-x-3 border border-neutralcolor-800 items-center rounded-2xl h-[69px] w-8/12 px-2 ">
+                                        <li class="flex justify-between w-1/3 ">
+                                            <div class="flex flex-col "><span
+                                                    class="font-bold mb-1 ml-1 text-xs font-yekanbakhregularFA text-txtneutral-900">بزرگسال</span><span
+                                                    class="text-[8px] text-txtneutral-500 ">(12 سال به بالا)</span>
+                                            </div>
+                                            <div class="flex gap-3 text-lg mt-2 mr-4"><span
+                                                    class="count__container adult__count__container w-7 h-7 text-center">[##cms.form.adultCount##]</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex justify-between w-1/3 px-2 border-x ">
+                                            <div class="flex flex-col "><span
+                                                    class="font-bold mb-1 ml-1 text-xs font-yekanbakhregularFA text-txtneutral-900">کودک</span><span
+                                                    class="text-[8px] text-txtneutral-500 ">(2 تا 12 سال)</span></div>
+                                            <div class="flex gap-3 text-lg mt-2 mr-4"><span
+                                                    class="count__container child__count__container w-7 h-7 text-center">[##cms.form.childCount##]</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex justify-between w-1/3">
+                                            <div class="flex flex-col "><span
+                                                    class="font-bold mb-1 ml-1 text-xs font-yekanbakhregularFA text-txtneutral-900">نوزاد</span><span
+                                                    class="text-[8px] text-txtneutral-500 ">(کمتر از 2 سال)</span></div>
+                                            <div class="flex gap-3 text-lg mt-2 mr-4"><span
+                                                    class="count__container infant__count__container w-7 h-7 text-center">[##cms.form.infantCount##]</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="relative w-4/12 "><button
+                                            class="bg-secondary text-white text-base text-center leading-[69px] rounded-2xl w-full h-[69px] inline-block border border-solid border-secondary hover:bg-white hover:text-secondary"
+                                            type="button" data-btn-tourBookingFormIns=""><span>رزرو تور </span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="message__action__container text-center text-white bg-primary p-4 rounded-2xl hidden mt-3"></div>
+        </div>
+    </div>
+</div>
