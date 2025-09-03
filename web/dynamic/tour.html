@@ -107,7 +107,7 @@ catid="[##cms.query.id|(0)##]">
 <basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="product">
     <member type="list" name="tour-gallery" format="4" order="ord" />
     <member type="list" name="tour-gallery-travelplan" format="4" order="ord"
-        postsql="SELECT * FROM [db.tour-gallery-travelplan] where ord not in(1000,1001,100)" />
+        postsql="SELECT * FROM [db.tour-gallery-travelplan] where ord not in(1000,1001,100,500)" />
     <member type="list" name="hero" format="4" order="ord" postsql="SELECT * FROM [db.hero] where ord in(100)" />
     <member type="list" name="pdf" format="pdf" />
 </basis>
