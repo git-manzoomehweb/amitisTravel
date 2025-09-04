@@ -570,19 +570,17 @@ const getMinuteLabel = () => {
 };
 // updated
 const renderRouteStop = async (element) => {
-    try {
-
-        if (element && element.info.stop && element.info.stop !== '') {
-            return `<div class="my-8 text-sm">${getStopLabel()}<span class="mr-1 ml-1">${element.info.stop}</span><span>${getMinuteLabel()}</span></div>`;
-        } else {
-            return `<div class="my-4 text-sm"></div>`;
-        }
-
-    } catch (err) {
-        console.error('renderRouteStop=' + err.lineNumber + ',' + err.message);
-        return '';
+  try {
+    if (element && element.info.stop && element.info.stop !== '') {
+      return `<div class="mr-3 my-8 text-xs">${getStopLabel()}<span class="mr-1 ml-1">${element.info.stop}</span><span>${getMinuteLabel()}</span></div>`;
+    } else {
+      return ``;
     }
-}
+  } catch (err) {
+    console.error('renderRouteStop=' + err.lineNumber + ',' + err.message);
+    return '';
+  }
+};
 
 const renderRouteType = async (element, type) => {
     try {
@@ -900,9 +898,17 @@ const renderHotels = async (element, type) => {
             const imageOrder = index === 0 ? "order-2" : "order-1";  // تصویر اول بالاتر از بقیه
 
             imageSection += `
+
+                                        ${hotel?.label
+      ? `<img class="absolute top-2 -right-5 z-10 "
+               src="./images/label-special-price.png"
+               width="183" height="56" alt="installment" />`
+      : ''}
+
+
             <figure data-index="${index}" class="${index > 0 ? '-mr-24' : ''} bg-neutralcolor-400 border-l-8 border-neutralcolor-400 w-fit rounded-r-3xl rounded-l-[264px] relative ${imageOrder}">
                 <img 
-                    class="tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
+                    class=" tourInventory__details__item__img w-[216px] h-[160px] rounded-r-3xl rounded-l-[264px] overflow-hidden" 
                     src="${hotelImg}" 
                     data-pageName="${pageName}" 
                           data-id="${hotel.hotelname1.hotelid}"
@@ -910,6 +916,9 @@ const renderHotels = async (element, type) => {
                     width="216" 
                     height="160" 
                     alt="${escapeHtml(cleanHotelName)}" />
+
+
+
                 <figcaption class="group bg-primary text-white rounded-full w-fit h-6 absolute bottom-5 left-12 flex items-center gap-x-1 justify-center px-1">
                     <span class="text-xs font-yekanbakhsemiboldFA text-center hidden group-hover:inline-block line-clamp-1 text-nowrap ">${escapeHtml(hotel.location)}</span>
                     <svg class="inline-block" width="19" height="18">
@@ -953,7 +962,7 @@ const renderHotels = async (element, type) => {
         const output = `
                 <div class="p-3 tourInventory__details__item__info">
                     <div class="inline-block float-right">
-                        <div class="flex flex-row-reverse flex-wrap gap-y-4">
+                        <div class="flex flex-row-reverse flex-wrap gap-y-4 relative">
                             ${imageSection}
                         </div>
                     </div>

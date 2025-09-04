@@ -403,7 +403,9 @@
                                                 <h2 id="origin-departure-tour" class="text-lg text-txtneutral-900 font-yekanbakhsemiboldFA ">@info.destination.city.name@</h2>
                                             </div>
                                         </div>
-                                    </div>                              
+                                    </div>   
+                                                    {{ return await renderRouteStop($data)}}
+                           
                                 </script>
                             </face>
                         </basis>
@@ -482,6 +484,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                                    {{ return await renderRouteStop($data)}}
+
                                 </script>
                             </face>
                         </basis>
