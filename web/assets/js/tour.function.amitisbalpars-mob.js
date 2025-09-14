@@ -80,6 +80,8 @@ function ShowHotelInfo(el, descClass) {
 
 const renderDescriptionHotelCost = async (element) => {
     try {
+            const text = element?.hotelinfo[0].hotels[0].hotel.description.trim() || '';
+
         let descriptionPrice = `<div onclick="showDescription(this,'description-hotel')" class="w-28 text-xs my-3 bg-neutralcolor-50 text-primary gap-x-2 flex justify-center items-center rounded-lg h-10 leading-10">
                                         <svg width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <use href="./images/sprite-icons.svg#description-icon-mob"></use>
@@ -91,10 +93,10 @@ const renderDescriptionHotelCost = async (element) => {
                                     <div class="description-hotel w-full my-3 text-xs font-yekanbakhregularFA bg-neutralcolor-50 text-primary-900 text-center px-2 rounded-lg min-h-10 leading-10 hidden">
                     
                                         <span>
-                                            ${element.description[0].descriptionf}
+                                            ${text}
                                         </span>
                                     </div>`;
-        if(element.description[0].descriptionf){
+        if(text){
             return descriptionPrice;
         }else{
             return '';

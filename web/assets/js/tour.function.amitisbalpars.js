@@ -15,11 +15,14 @@
   
 
 function showDescription(el, descClass) {
+    console.log("showDescription is clicked!!!!!!!");
+
     const parentContainer = el.closest('.price-type'); 
     const descBox = parentContainer.closest(".hotel-card").querySelector(`.${descClass}`); 
     const svgIcon = el.querySelector('svg'); 
     
     if (descBox && descBox.textContent.trim() !== '') {
+
         descBox.classList.toggle('hidden'); 
         if (svgIcon) {
             svgIcon.classList.toggle('rotate-180'); 
@@ -47,7 +50,7 @@ function CleanShowDescription() {
 
 
 async function showDescriptionHTML(data) {
-    const text = data?.description[0].descriptionf.trim() || '';
+    const text = data?.hotelinfo[0].hotels[0].hotel.description.trim() || '';
     if(text.length == 0){
         return '';
     }else if (text.length > 0 && text.length < 8) {
@@ -75,7 +78,7 @@ const renderDescriptionHotelCost = async (element) => {
         //     return '';
         // }
 
-        let descriptionPrice = element.description[0].descriptionf;
+        let descriptionPrice = element.hotelinfo[0].hotels[0].hotel.description;
 
         let description = `<div class="bg-neutral-50 w-full min-h-[80px] rounded-[4px] 
                               flex justify-center items-center
