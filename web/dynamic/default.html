@@ -1,0 +1,2584 @@
+<basis
+  core="dbsource"
+  source="media"
+  lid="1"
+  name="db"
+  usedforid="2318548"
+  sourcemid="ads"
+>
+  <member type="list" name="ads" format="4" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="20" name="db" lid="1">
+  <member
+    name="destinations"
+    type="tree"
+    request="cat"
+    parentid="140689"
+    postsql="select * from [db.destinations] where parentid in(140689)"
+  />
+</basis>
+<basis
+  core="dbsource"
+  source="basiscore"
+  lid="1"
+  mid="20"
+  name="db"
+  catid="151068"
+>
+  <member
+    name="specialtours"
+    type="list"
+    link="tour.bc"
+    size="288X224"
+    propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491, 3087492, 3087493, 3087494, 3087497, 3087501, 3087502 ,3087561,3087562,3087563 "
+    typeid="159"
+    perpage="50"
+    order="ord"
+  ></member>
+</basis>
+<basis
+  core="dbsource"
+  source="basiscore"
+  mid="1"
+  name="list"
+  lid="1"
+  schemaid="987"
+  term="[##cms.query.term##]"
+>
+  <member name="airline" type="list" request="spelist"></member>
+</basis>
+<basis core="inlinesource" name="joining">
+  <member
+    name="listspecial"
+    lefttblcol="db.specialtours.prp_10000504"
+    righttblcol="list.airline.name"
+    format="join"
+    jointype="leftjoin"
+  ></member>
+</basis>
+<basis
+  core="dbsource"
+  source="basiscore"
+  lid="1"
+  mid="20"
+  name="db"
+  catid="150876"
+>
+  <member
+    name="papulartours"
+    type="list"
+    link="tour.bc"
+    size="408X432"
+    propertyid=" 8181,8076,8077,10000502,10000503, 10000504, 177406, 177585, 3087490, 3087491, 3087492, 3087493, 3087494, 3087497, 3087501, 3087502 ,3087561,3087562,3087563 "
+    typeid="159"
+    perpage="16"
+    order="ord"
+  ></member>
+</basis>
+<basis core="inlinesource" name="joining">
+  <member
+    name="listpapular"
+    lefttblcol="db.papulartours.prp_10000504"
+    righttblcol="list.airline.name"
+    format="join"
+    jointype="leftjoin"
+  ></member>
+</basis>
+<basis
+  core="dbsource"
+  source="basiscore"
+  lid="1"
+  mid="1"
+  name="db"
+  catid="213266"
+>
+  <member
+    name="magazinetourism"
+    type="list"
+    link="article.bc"
+    propertyid="7244,7249"
+    typeid="159"
+    perpage="4"
+    order="ord"
+  ></member>
+</basis>
+<basis
+  core="dbsource"
+  source="basiscore"
+  name="db"
+  mid="1"
+  lid="1"
+  usedforid="2307288"
+>
+  <member
+    name="faqcontent"
+    type="view"
+    postsql="select * from [db.faqcontent] where TypeID in(250)"
+  />
+</basis>
+<basis
+  core="dbsource"
+  source="basiscore"
+  name="db"
+  mid="1"
+  lid="1"
+  usedforid="2374946"
+>
+  <member
+    name="slogan"
+    type="view"
+    postsql="select * from [db.slogan] where TypeID in(250)"
+  />
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
+    />
+    <title>
+      آمیتیس | مجری تخصصی تور های خارجی ، رزرو بلیط ،هتل،خدمات ویزا ،بهترین قیمت
+      | اقساطی
+    </title>
+    <meta
+      name="description"
+      content="آژانس مسافرتی آمیتیس، همراه مطمئن شما در سفر خدمات اخذ ویزا، رزرو تورهای داخلی و خارجی و برنامه ریزی سفرهای خاص.
+تجربه ای متفاوت از سفر را با ما تجربه کنید. برای اطلاعات بیشتر و مشاوره رایگان، به وبسایت ما مراجعه کنید."
+    />
+    <link
+      rel="canonical"
+      href="[##cms.request.:scheme|(http)##]://[##cms.request.full-url##]"
+    />
+    <meta name="og:locale" content="fa_IR" />
+    <meta
+      property="og:title"
+      content="آمیتیس | مجری تخصصی تور های خارجی ، رزرو بلیط ،هتل،خدمات ویزا ،بهترین قیمت | اقساطی"
+    />
+    <meta
+      property="og:url"
+      content="https://cdn.basiscore.net/amitistravel.com"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="آمیتیس" />
+    <meta property="og:image:alt" content=" Amitis" />
+    <meta
+      property="og:image"
+      content="[##cms.cms.cdn##]/images/custom_image_1200x630.jpg"
+    />
+    <meta
+      property="og:description"
+      content="آژانس مسافرتی آمیتیس، همراه مطمئن شما در سفر خدمات اخذ ویزا، رزرو تورهای داخلی و خارجی و برنامه ریزی سفرهای خاص.
+تجربه ای متفاوت از سفر را با ما تجربه کنید. برای اطلاعات بیشتر و مشاوره رایگان، به وبسایت ما مراجعه کنید."
+    />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:width" content="630" />
+    <meta property="og:image:type" content=" image/png" />
+    <meta name="twitter:card" content=" " />
+    <meta name="twitter:site" content=" " />
+    <meta name="twitter:creator" content=" " />
+    <meta
+      name="twitter:image"
+      content="[##cms.cms.cdn##]/images/custom_image_1200x630.jpg"
+    />
+    <meta
+      name="twitter:title"
+      content="آمیتیس | مجری تخصصی تور های خارجی ، رزرو بلیط ،هتل،خدمات ویزا ،بهترین قیمت | اقساطی"
+    />
+    <meta
+      name="twitter:description"
+      content="آژانس مسافرتی آمیتیس، همراه مطمئن شما در سفر خدمات اخذ ویزا، رزرو تورهای داخلی و خارجی و برنامه ریزی سفرهای خاص.
+تجربه ای متفاوت از سفر را با ما تجربه کنید. برای اطلاعات بیشتر و مشاوره رایگان، به وبسایت ما مراجعه کنید."
+    />
+    <meta property="seo:robots" content="index, follow" />
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+    <link
+      rel="stylesheet"
+      href="[##cms.cms.cdn##]/_css/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body class="font-yekanbakhregularFA bg-neutralcolor-50">
+    <basis
+      core="call"
+      file="header.inc"
+      pageindex="[##cms.cms.pageindex##]"
+    ></basis>
+    <main class="w-full">
+      <div class="advertise-banner w-full bg-primary-900 h-28 relative">
+       <span class="hidden">[##cms.host.default-advertisement##]</span>
+        <div class="w-full h-full mx-auto flex justify-center items-center">
+          <a href="[##cms.host.default-advertisement##]" class="h-full w-full">
+            <img
+              class="w-full h-full"
+              src="[##cms.cms.cdn##]/images/default-advertisement.gif"
+              alt="تبلیغات"
+              width="1280"
+              height="112"
+          /></a>
+        </div>
+        <button
+          aria-label="close-ads"
+          onclick="CloseAdv(this, 'advertise-banner')"
+        >
+          <span class="absolute top-0 bottom-0 left-3 h-full flex items-center">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.5837 37.5003H14.5837C5.53366 37.5003 1.66699 33.6337 1.66699 24.5837V14.5837C1.66699 5.53366 5.53366 1.66699 14.5837 1.66699H24.5837C33.6337 1.66699 37.5003 5.53366 37.5003 14.5837V24.5837C37.5003 33.6337 33.6337 37.5003 24.5837 37.5003ZM14.5837 4.16699C6.90033 4.16699 4.16699 6.90033 4.16699 14.5837V24.5837C4.16699 32.267 6.90033 35.0003 14.5837 35.0003H24.5837C32.267 35.0003 35.0003 32.267 35.0003 24.5837V14.5837C35.0003 6.90033 32.267 4.16699 24.5837 4.16699H14.5837Z"
+                fill="white"
+              />
+              <path
+                d="M25.5958 26.1815C25.1126 26.6647 24.3112 26.6647 23.828 26.1815L13.8106 16.1642C13.3275 15.681 13.3275 14.8796 13.8106 14.3964C14.2938 13.9132 15.0952 13.9132 15.5784 14.3964L25.5958 24.4137C26.0789 24.8969 26.0907 25.6865 25.5958 26.1815Z"
+                fill="white"
+              />
+              <path
+                d="M13.799 25.6035C13.3158 25.1203 13.3158 24.3189 13.799 23.8357L23.828 13.8067C24.3112 13.3235 25.1126 13.3235 25.5958 13.8067C26.079 14.2899 26.079 15.0913 25.5958 15.5745L15.5668 25.6035C15.0836 26.0867 14.294 26.0985 13.799 25.6035Z"
+                fill="white"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <section class="max-w-7xl mx-auto max-xl:w-[95%] mt-9 rounded-t-3xl">
+        <div
+          class="h-[480px] bg-primary-900 rounded-t-3xl bg-module-active module-banner search-banner module-banner-background flight-banner-background"
+        ></div>
+        <h1 class="sr-only">آمیتیس بال پارس | Amitis Bal Pars</h1>
+        <h2 class="sr-only">
+          آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری
+        </h2>
+        <div
+          class="bg-white border border-neutralcolor-800 min-h-[266px] w-full rounded-t-lg rounded-3xl -mt-4 search-box-container pb-10"
+        >
+          <div id="search-box">
+            <div class="loader-searchbox mx-auto"></div>
+          </div>
+        </div>
+      </section>
+      <div class="clear-both"></div>
+      <div
+        class="flex justify-between max-w-7xl mx-auto max-xl:w-[95%] my-12 clear-both"
+      >
+        <a href="[##cms.host.adver-1##]" class="max-xl:w-[48%]">
+          <figure
+            class="w-[628px] h-[280px] rounded-r-3xl overflow-hidden bg-imagecolor max-xl:w-full"
+          >
+            <img
+              class="object-cover w-[628px] h-[280px]"
+              loading="lazy"
+              src="[##cms.cms.cdn##]/images/adver-1.jpg"
+              data-src="[##cms.cms.cdn##]/images/adver-1.jpg"
+              width="628"
+              height="280"
+              alt=" adver-1"
+            />
+          </figure>
+        </a>
+
+        <a href="[##cms.host.adver-2##]" class="max-xl:w-[48%]">
+          <figure
+            class="w-[628px] h-[280px] rounded-l-3xl overflow-hidden bg-imagecolor max-xl:w-full"
+          >
+            <img
+              class="object-cover w-[628px] h-[280px]"
+              loading="lazy"
+              src="[##cms.cms.cdn##]/images/adver-2.jpg"
+              data-src="[##cms.cms.cdn##]/images/adver-2.jpg"
+              width="628"
+              height="280"
+              alt="adver-2"
+            />
+          </figure>
+        </a>
+      </div>
+      <div class="clear-both"></div>
+
+      <basis
+        core="tree"
+        datamembername="db.destinations"
+        idcol="catid"
+        parentidcol="parentid"
+        nullvalue="140689"
+      >
+        <layout>
+          <section
+            class="max-w-7xl mx-auto max-xl:w-[full] text-center mt-16 block"
+          >
+            <h2
+              class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-6 before:-top-4"
+            >
+              مقاصد <span class="font-yekanbakhboldFA">گردشگــــری </span>
+            </h2>
+            <div
+              class="flex flex-wrap justify-start my-12 gap-8 max-xl:gap-x-0"
+            >
+              @child
+            </div>
+          </section>
+        </layout>
+        <face filter="link is null and RowNumber < 9 ">
+          <div
+            class="w-[296px] h-[224px] max-xl:w-1/3 flex justify-center items-center"
+          >
+            <article
+              class="w-[296px] h-[224px] rounded-3xl overflow-hidden group/categorycard"
+            >
+              <a href="/tour-list.bc?catid=@catid" class="block w-full h-full">
+                <figure class="relative w-full h-full">
+                  <img
+                    class="object-contain group-hover/categorycard:scale-110 transition-all duration-500"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/images/image-not-found-296x224.jpg"
+                    width="296"
+                    height="224"
+                    data-src="[##cms.cms.cdn##]/@image"
+                    alt="@title"
+                    aria-hidden="true"
+                  />
+                  <figcaption
+                    class="absolute bottom-0 left-0 right-0 z-30 top-0 block bg-gradient-to-t from-txtneutral-900 to-transparent to-50% group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90% transition-all duration-500"
+                  >
+                    <span
+                      class="text-white font-yekanbakhsemiboldFA text-2xl absolute bottom-8 left-6 flex flex-row-reverse leading-6 group-hover/categorycard:left-8 transition-all duration-500"
+                      ><span
+                        class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block"
+                        >@title </span
+                      ><svg
+                        width="24"
+                        height="25"
+                        class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#arrow-right-icon"
+                        ></use></svg
+                    ></span>
+                  </figcaption>
+                </figure>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter=" RowNumber < 9 ">
+          <div
+            class="w-[296px] h-[224px] max-xl:w-1/3 flex justify-center items-center"
+          >
+            <article
+              class="w-[296px] h-[224px] rounded-3xl overflow-hidden group/categorycard"
+            >
+              <a href="/@link" class="block w-full h-full">
+                <figure class="relative w-full h-full">
+                  <img
+                    class="object-contain group-hover/categorycard:scale-110 transition-all duration-500"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/images/image-not-found-296x224.jpg"
+                    width="296"
+                    height="224"
+                    data-src="[##cms.cms.cdn##]/@image"
+                    alt="@title"
+                    aria-hidden="true"
+                  />
+                  <figcaption
+                    class="absolute bottom-0 left-0 right-0 z-30 top-0 block bg-gradient-to-t from-txtneutral-900 to-transparent to-50% group-hover/categorycard:from-primary-900 group-hover/categorycard:to-90% transition-all duration-500"
+                  >
+                    <span
+                      class="text-white font-yekanbakhsemiboldFA text-2xl absolute bottom-8 left-6 flex flex-row-reverse leading-6 group-hover/categorycard:left-8 transition-all duration-500"
+                      ><span
+                        class="group-hover/categorycard:scale-125 transition-all duration-500 w-fit inline-block"
+                        >@title </span
+                      ><svg
+                        width="24"
+                        height="25"
+                        class="block ml-2 group-hover/categorycard:ml-5 transition-all duration-500"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#arrow-right-icon"
+                        ></use></svg
+                    ></span>
+                  </figcaption>
+                </figure>
+              </a>
+            </article>
+          </div>
+        </face>
+      </basis>
+
+      <basis core="list" datamembername="joining.listspecial">
+        <layout>
+          <section class="mt-12 block bg-white h-[592px] pt-16">
+            <div class="max-w-7xl mx-auto text-center max-xl:w-[95%]">
+              <h2
+                class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-12 before:-top-4"
+              >
+                تورهای <span class="font-yekanbakhboldFA">تابستان 1404 </span>
+              </h2>
+            </div>
+            <div class="my-5 w-full relative z-10 h-[448px]">
+              <div class="max-w-[1336px] w-full mx-auto mt-14 relative">
+                <div class="swiper swiper-tourcard max-w-7xl mx-auto w-full">
+                  <div class="swiper-wrapper">@child</div>
+                </div>
+                <div
+                  class="swipertourcard-button-prev absolute top-auto bottom-[180px] z-50 -left-6 max-[1390px]:left-0 mt-auto rounded-full w-12 h-12 bg-white border-r-4 border-secondary flex justify-center items-center"
+                >
+                  <svg
+                    width="19"
+                    height="29"
+                    viewBox="0 0 19 29"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.6074 3.18359L4.19933 14.5917L15.6074 25.9998"
+                      stroke="#FFA200"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="swipertourcard-button-next absolute top-auto bottom-[180px] z-50 -right-6 max-[1390px]:right-0 mt-auto rounded-full w-12 h-12 bg-white border-l-4 border-secondary flex justify-center items-center"
+                >
+                  <svg
+                    width="19"
+                    height="29"
+                    viewBox="0 0 19 29"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.13086 3.18359L14.5389 14.5917L3.13086 25.9998"
+                      stroke="#FFA200"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <span
+                class="absolute -z-10 left-0 right-0 bottom-0 top-auto h-[224px] w-full bg-secondary-redial-gradient"
+              ></span>
+            </div>
+          </section>
+        </layout>
+        <face
+          filter="[db.specialtours.link] is null and [db.specialtours.prp_3087561]=null and [db.specialtours.prp_3087562]=null "
+        >
+          <div class="swiper-slide state-1">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a
+                href="/tour.bc?id=@db.specialtours.id"
+                class="block w-full h-full"
+              >
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      ><span
+                        class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                        >@db.specialtours.prp_8181
+                      </span>
+                    </div>
+                  </footer>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.specialtours.link] is null and [db.specialtours.prp_3087561]='بله' and [db.specialtours.prp_3087562]=null"
+        >
+          <div class="swiper-slide state-2">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a
+                href="/tour.bc?id=@db.specialtours.id"
+                class="block w-full h-full"
+              >
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      >
+                      <div class="flex justify-between items-center gap-x-3">
+                        <span
+                          class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through"
+                          >@db.specialtours.prp_3087563 </span
+                        ><span
+                          class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                          >@db.specialtours.prp_8181
+                        </span>
+                      </div>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-9 -right-[16px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[36px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >تخفیف ویژه </span
+                ><svg width="141" height="50">
+                  <use
+                    href="./images/sprite-icons.svg#takhfif-card-tour-1"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.specialtours.link] is null and [db.specialtours.prp_3087562]='بله' and [db.specialtours.prp_3087561]=null "
+        >
+          <div class="swiper-slide state-3">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a
+                href="/tour.bc?id=@db.specialtours.id"
+                class="block w-full h-full"
+              >
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      ><span
+                        class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                        >@db.specialtours.prp_8181
+                      </span>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-[4.25em] -right-[17px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[31px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >شرایط اقساطی </span
+                ><svg width="188" height="58">
+                  <use
+                    href="./images/sprite-icons.svg#aghsat-card-tour"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.specialtours.link] is null and [db.specialtours.prp_3087561]='بله' and [db.specialtours.prp_3087562]='بله' "
+        >
+          <div class="swiper-slide state-4">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a
+                href="/tour.bc?id=@db.specialtours.id"
+                class="block w-full h-full"
+              >
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      >
+                      <div class="flex justify-between items-center gap-x-3">
+                        <span
+                          class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through"
+                          >@db.specialtours.prp_3087563 </span
+                        ><span
+                          class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                          >@db.specialtours.prp_8181
+                        </span>
+                      </div>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-9 -right-[16px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[36px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >تخفیف ویژه </span
+                ><svg width="188" height="59">
+                  <use
+                    href="./images/sprite-icons.svg#takhfif-card-tour"
+                  ></use></svg></span
+              ><span class="absolute top-[4.25em] -right-[17px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[31px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >شرایط اقساطی </span
+                ><svg width="188" height="58">
+                  <use
+                    href="./images/sprite-icons.svg#aghsat-card-tour"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.specialtours.prp_3087561] is null and [db.specialtours.prp_3087562] is null "
+        >
+          <div class="swiper-slide state-5">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a href="/@db.specialtours.link" class="block w-full h-full">
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      ><span
+                        class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                        >@db.specialtours.prp_8181
+                      </span>
+                    </div>
+                  </footer>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.specialtours.prp_3087561]='بله' and [db.specialtours.prp_3087562]='بله' "
+        >
+          <div class="swiper-slide state-7">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a href="/@db.specialtours.link" class="block w-full h-full">
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      >
+                      <div class="flex justify-between items-center gap-x-3">
+                        <span
+                          class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through"
+                          >@db.specialtours.prp_3087563 </span
+                        ><span
+                          class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                          >@db.specialtours.prp_8181
+                        </span>
+                      </div>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-9 -right-[16px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[36px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >تخفیف ویژه </span
+                ><svg width="188" height="59">
+                  <use
+                    href="./images/sprite-icons.svg#takhfif-card-tour"
+                  ></use></svg></span
+              ><span class="absolute top-[4.25em] -right-[17px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[31px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >شرایط اقساطی </span
+                ><svg width="188" height="58">
+                  <use
+                    href="./images/sprite-icons.svg#aghsat-card-tour"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.specialtours.prp_3087561]='بله' and [db.specialtours.prp_3087562]='بله' "
+        >
+          <div class="swiper-slide state-7">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a href="/@db.specialtours.link" class="block w-full h-full">
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      >
+                      <div class="flex justify-between items-center gap-x-3">
+                        <span
+                          class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through"
+                          >@db.specialtours.prp_3087563 </span
+                        ><span
+                          class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                          >@db.specialtours.prp_8181
+                        </span>
+                      </div>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-9 -right-[16px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[36px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >تخفیف ویژه </span
+                ><svg width="188" height="59">
+                  <use
+                    href="./images/sprite-icons.svg#takhfif-card-tour"
+                  ></use></svg></span
+              ><span class="absolute top-[4.25em] -right-[17px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[31px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >شرایط اقساطی </span
+                ><svg width="188" height="58">
+                  <use
+                    href="./images/sprite-icons.svg#aghsat-card-tour"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+        <face filter="[db.specialtours.prp_3087561]='بله' ">
+          <div class="swiper-slide takhfif">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a href="/@db.specialtours.link" class="block w-full h-full">
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      >
+                      <div class="flex justify-between items-center gap-x-3">
+                        <span
+                          class="text-xs font-yekanbakhregularFA text-txtneutral-500 line-through"
+                          >@db.specialtours.prp_3087563 </span
+                        ><span
+                          class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                          >@db.specialtours.prp_8181
+                        </span>
+                      </div>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-9 -right-[16px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[36px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >تخفیف ویژه </span
+                ><svg width="141" height="50">
+                  <use
+                    href="./images/sprite-icons.svg#takhfif-card-tour-1"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+        <face filter="[db.specialtours.prp_3087562]='بله' ">
+          <div class="swiper-slide aghsat">
+            <article
+              class="w-[336px] h-[432px] rounded-t-[72px] bg-white border border-secondary group/tourcard relative"
+            >
+              <a href="/@db.specialtours.link" class="block w-full h-full">
+                <figure class="w-[288px] h-[224px] mx-auto mt-6 relative">
+                  <div class="rounded-t-[48px] overflow-hidden">
+                    <img
+                      class="object-cover group-hover/tourcard:scale-110 transition-all duration-500 w-[288px] h-[224px] overflow-hidden"
+                      loading="lazy"
+                      src="[##cms.cms.cdn##]/images/image-not-found-288x224.jpg"
+                      data-src="[##cms.cms.cdn##]/@db.specialtours.00288X00224prp"
+                      alt="@db.specialtours.title"
+                    />
+                  </div>
+                </figure>
+                <div class="flex flex-col justify-between h-[calc(100%-248px)]">
+                  <header class="w-[288px] mx-auto">
+                    <h2
+                      class="text-base font-yekanbakhsemibold leading-10 h-10 line-clamp-1"
+                    >
+                      @db.specialtours.title
+                    </h2>
+                    <div
+                      class="w-full flex justify-center items-center my-1 mx-2"
+                    >
+                      <svg
+                        class="inline-block w-[17px] h-[16px] ml-1"
+                        width="17"
+                        height="16"
+                      >
+                        <use
+                          href="./images/sprite-icons.svg#calendar-card-tour"
+                        ></use></svg
+                      ><span
+                        class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                        >@db.specialtours.prp_8077
+                      </span>
+                    </div>
+                    <div
+                      class="flex flex-row-reverse justify-between items-center rounded-lg border border-neutralcolor-700 p-1 gap-2 my-1"
+                    >
+                      <div class="w-[88px]">
+                        <img
+                          class="object-contain"
+                          src="@list.airline.pic"
+                          width="88"
+                          height="32"
+                          alt="@db.specialtours.title"
+                        />
+                      </div>
+                      <div
+                        class="w-[calc(100%-90px)] border-l px-1 border-neutralcolor-700 flex items-center justify-center"
+                      >
+                        <svg
+                          class="inline-block w-[17px] h-[16px] ml-1"
+                          width="17"
+                          height="16"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#daynight-card-tour"
+                          ></use></svg
+                        ><span
+                          class="w-[calc(100%-17px)] text-sm text-txtneutral-900 font-yekanbakhregularFA line-clamp-1"
+                          >@db.specialtours.prp_8076
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+                  <footer
+                    class="w-full mx-auto h-[56px] bg-secondarycomplementary-50 flex flex-col justify-center items-center"
+                  >
+                    <div
+                      class="w-[288px] mx-auto flex justify-between items-center flex-wrap"
+                    >
+                      <span
+                        class="text-xs font-yekanbakhregularFA text-txtneutral-500"
+                        >قیمت از</span
+                      ><span
+                        class="text-primary-700 text-base font-yekanbakhsemiboldFA"
+                        >@db.specialtours.prp_8181
+                      </span>
+                    </div>
+                  </footer>
+                </div> </a
+              ><span class="absolute top-[4.25em] -right-[17px]"
+                ><span
+                  class="absolute top-0 right-0 left-0 bottom-0 m-auto inline-block text-white h-[31px] text-center font-yekanbakhsemiboldFA text-xs"
+                  >شرایط اقساطی </span
+                ><svg width="188" height="58">
+                  <use
+                    href="./images/sprite-icons.svg#aghsat-card-tour"
+                  ></use></svg
+              ></span>
+            </article>
+          </div>
+        </face>
+      </basis>
+      <basis core="list" datamembername="joining.listpapular">
+        <layout>
+          <section class="block bg-white h-[780px] pt-24">
+            <div class="max-w-7xl mx-auto text-center relative max-xl:w-[95%]">
+              <h2
+                class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-12 before:-top-4"
+              >
+                محبوب ترین
+                <span class="font-yekanbakhboldFA">تــور های آمیتیس</span>
+              </h2>
+              <div
+                class="rounded-2xl border border-neutralcolor-800 h-[568px] w-11/12 absolute right-0 mt-10 max-[1230px]:w-[95%]max-[1230px]:mx-auto"
+              ></div>
+              <div class="relative h-[568px]">
+                <div
+                  class="swiper swiper-papulartourcard h-[568px] mt-10 relative"
+                >
+                  <div class="swiper-wrapper !w-[824px] max-[1230px]:!w-11/12">
+                    @child
+                  </div>
+                </div>
+                <div
+                  class="papulartourcard-button-prev top-20 absolute -right-[10px]"
+                >
+                  <svg
+                    width="22"
+                    height="23"
+                    viewBox="0 0 22 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.1511 10.6238L4.9303 15.82C3.99653 16.7493 2.47989 16.7249 1.57657 15.7659C0.701447 14.8368 0.732348 13.3778 1.64602 12.4866L9.8621 4.47286C10.3572 3.98998 11.147 3.99005 11.642 4.47303L20.0634 12.6904C20.974 13.5789 20.9812 15.0408 20.0795 15.9382C19.1989 16.8147 17.7786 16.8247 16.8857 15.9607L11.3616 10.6153C11.0231 10.2878 10.4848 10.2916 10.1511 10.6238Z"
+                      fill="#005FF0"
+                    />
+                    <ellipse
+                      cx="10.752"
+                      cy="17.7308"
+                      rx="2.14029"
+                      ry="2.15043"
+                      transform="rotate(-90 10.752 17.7308)"
+                      fill="#005FF0"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="papulartourcard-button-next bottom-20 absolute -right-[10px]"
+                >
+                  <svg
+                    width="22"
+                    height="23"
+                    viewBox="0 0 22 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.1511 12.6613L4.9303 7.46519C3.99653 6.53582 2.47989 6.56027 1.57657 7.51927C0.701447 8.44834 0.732348 9.90734 1.64602 10.7985L9.8621 18.8123C10.3572 19.2952 11.147 19.2951 11.642 18.8121L20.0634 10.5947C20.974 9.70622 20.9812 8.2444 20.0795 7.34694C19.1989 6.47046 17.7786 6.46046 16.8857 7.32445L11.3616 12.6698C11.0231 12.9973 10.4848 12.9935 10.1511 12.6613Z"
+                      fill="#005FF0"
+                    />
+                    <ellipse
+                      cx="2.14029"
+                      cy="2.15043"
+                      rx="2.14029"
+                      ry="2.15043"
+                      transform="matrix(-4.39185e-08 1 1 4.35053e-08 8.60156 3.41406)"
+                      fill="#005FF0"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="swiper-scrollbar papulartourcard-scrollbar !my-auto !bg-primary !w-[3px] !h-[340px] !left-0 !right-0 !top-0 !bottom-0"
+                ></div>
+              </div>
+              <figure
+                class="absolute left-0 top-[374px] bottom-[284px] my-auto w-[408px] h-[432px] max-[1300px]:w-[300px] max-[1300px]:h-[300px] max-[1230px]:!hidden rounded-3xl overflow-hidden drop-shadow-papulartours-swiper papulartours-image"
+              >
+                <img
+                  id="papular-image-holder"
+                  class="w-[408px] h-[432px] object-cover"
+                  loading="lazy"
+                  src="[##cms.cms.cdn##]/images/image-not-found-408x432.jpg"
+                  alt="تصویر جایگزین"
+                />
+              </figure>
+            </div>
+          </section>
+        </layout>
+        <face
+          filter=" [db.papulartours.link] is null and [db.papulartours.prp_3087561] is null and [db.papulartours.prp_3087562] is null "
+        >
+          <div
+            class="swiper-slide mr-8 !h-[104px]"
+            data-image="@db.papulartours.00408X00432prp"
+          >
+            <article
+              class="w-[824px] h-[104px] max-xl:w-full rounded-lg bg-white border border-neutralcolor-800 group/papulartourcard relative p-2 pr-0"
+            >
+              <a
+                href="/tour.bc?id=@db.papulartours.id"
+                class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse items-center w-full h-full gap-2"
+              >
+                <div
+                  class="w-[30%] h-full flex flex-col items-center justify-center"
+                >
+                  <span
+                    class="text-primary-700 text-lg font-yekanbakhsemiboldFA"
+                    >@db.papulartours.prp_8181
+                  </span>
+                </div>
+                <div
+                  class="w-[15%] h-full flex flex-col items-center justify-center"
+                >
+                  <img
+                    class="w-20 mx-2 object-contain"
+                    src="@list.airline.pic"
+                    alt="@list.airline.name"
+                  />
+                </div>
+                <div
+                  class="w-[20%] h-full flex flex-col items-center justify-center pl-1"
+                >
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="24" height="25">
+                      <use
+                        href="./images/sprite-icons.svg#calendar-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8077
+                    </span>
+                  </div>
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="25" height="24">
+                      <use
+                        href="./images/sprite-icons.svg#daynight-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8076
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-[35%] h-full flex flex-col items-center justify-center"
+                >
+                  <h2 class="line-clamp-3">@db.papulartours.title</h2>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face
+          filter=" [db.papulartours.link] is null and [db.papulartours.prp_3087561] is null and [db.papulartours.prp_3087562]='بله' "
+        >
+          <div
+            class="swiper-slide mr-8 !h-[104px]"
+            data-image="@db.papulartours.00408X00432prp"
+          >
+            <article
+              class="w-[824px] h-[104px] max-xl:w-full rounded-lg bg-white border border-neutralcolor-800 group/papulartourcard relative p-2 pr-0 drop-shadow-papulartours-aghsat-swiper"
+            >
+              <a
+                href="/tour.bc?id=@db.papulartours.id"
+                class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse items-center w-full h-full gap-2"
+              >
+                <div
+                  class="w-[30%] h-full flex flex-col items-center justify-center"
+                >
+                  <span
+                    class="text-primary-700 text-lg font-yekanbakhsemiboldFA"
+                    >@db.papulartours.prp_8181
+                  </span>
+                </div>
+                <div
+                  class="w-[15%] h-full flex flex-col items-center justify-center"
+                >
+                  <img
+                    class="w-20 mx-2 object-contain"
+                    src="@list.airline.pic"
+                    alt="@list.airline.name"
+                  />
+                </div>
+                <div
+                  class="w-[20%] h-full flex flex-col items-center justify-center pl-1"
+                >
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="24" height="25">
+                      <use
+                        href="./images/sprite-icons.svg#calendar-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8077
+                    </span>
+                  </div>
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="25" height="24">
+                      <use
+                        href="./images/sprite-icons.svg#daynight-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8076
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-[35%] h-full flex flex-col items-center justify-center"
+                >
+                  <h2 class="line-clamp-3">@db.papulartours.title</h2>
+                </div>
+              </a>
+              <div
+                class="transition-all duration-300 ease-in-out absolute px-2 pt-3 group-hover/papulartourcard:pt-1 right-0 group-hover/papulartourcard:-right-[10px] -z-10 rotate-90 text-xs top-0 bottom-0 my-0 font-yekanbakhsemiboldFA text-white rounded-t-lg bg-success-500"
+              >
+                شرایط اقساط
+              </div>
+            </article>
+          </div>
+        </face>
+        <face
+          filter=" [db.papulartours.link] is null and [db.papulartours.prp_3087561]='بله' and [db.papulartours.prp_3087562] is null "
+        >
+          <div
+            class="swiper-slide mr-8 !h-[104px]"
+            data-image="@db.papulartours.00408X00432prp"
+          >
+            <article
+              class="w-[824px] h-[104px] max-xl:w-full rounded-lg bg-white border border-neutralcolor-800 group/papulartourcard relative p-2 pr-0 drop-shadow-papulartours-takhfif-swiper"
+            >
+              <a
+                href="/tour.bc?id=@db.papulartours.id"
+                class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse items-center w-full h-full gap-2"
+              >
+                <div
+                  class="w-[30%] h-full flex flex-col items-center justify-center"
+                >
+                  <span
+                    class="text-primary-700 text-lg font-yekanbakhsemiboldFA"
+                    >@db.papulartours.prp_8181 </span
+                  ><span
+                    class="line-through text-lg font-IRANYekanRegularMobileFA text-txtneutral-500"
+                    >@db.papulartours.prp_3087563
+                  </span>
+                </div>
+                <div
+                  class="w-[15%] h-full flex flex-col items-center justify-center"
+                >
+                  <img
+                    class="w-20 mx-2 object-contain"
+                    src="@list.airline.pic"
+                    alt="@list.airline.name"
+                  />
+                </div>
+                <div
+                  class="w-[20%] h-full flex flex-col items-center justify-center pl-1"
+                >
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="24" height="25">
+                      <use
+                        href="./images/sprite-icons.svg#calendar-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8077
+                    </span>
+                  </div>
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="25" height="24">
+                      <use
+                        href="./images/sprite-icons.svg#daynight-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8076
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-[35%] h-full flex flex-col items-center justify-center"
+                >
+                  <h2 class="line-clamp-3">@db.papulartours.title</h2>
+                </div>
+              </a>
+              <div
+                class="transition-all duration-300 ease-in-out absolute px-2 pt-3 group-hover/papulartourcard:pt-1 right-0 group-hover/papulartourcard:-right-[10px] -z-10 rotate-90 text-xs top-0 bottom-0 my-0 font-yekanbakhsemiboldFA text-white rounded-t-lg bg-error-500"
+              >
+                تخفیف ویژه
+              </div>
+            </article>
+          </div>
+        </face>
+        <face
+          filter=" [db.papulartours.prp_3087561] is null and [db.papulartours.prp_3087562] is null "
+        >
+          <div
+            class="swiper-slide mr-8 !h-[104px]"
+            data-image="@db.papulartours.00408X00432prp"
+          >
+            <article
+              class="w-[824px] h-[104px] max-xl:w-full rounded-lg bg-white border border-neutralcolor-800 group/papulartourcard relative p-2 pr-0"
+            >
+              <a
+                href="/@db.papulartours.link"
+                class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse items-center w-full h-full gap-2"
+              >
+                <div
+                  class="w-[30%] h-full flex flex-col items-center justify-center"
+                >
+                  <span
+                    class="text-primary-700 text-lg font-yekanbakhsemiboldFA"
+                    >@db.papulartours.prp_8181
+                  </span>
+                </div>
+                <div
+                  class="w-[15%] h-full flex flex-col items-center justify-center"
+                >
+                  <img
+                    class="w-20 mx-2 object-contain"
+                    src="@list.airline.pic"
+                    alt="@list.airline.name"
+                  />
+                </div>
+                <div
+                  class="w-[20%] h-full flex flex-col items-center justify-center pl-1"
+                >
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="24" height="25">
+                      <use
+                        href="./images/sprite-icons.svg#calendar-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8077
+                    </span>
+                  </div>
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="25" height="24">
+                      <use
+                        href="./images/sprite-icons.svg#daynight-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8076
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-[35%] h-full flex flex-col items-center justify-center"
+                >
+                  <h2 class="line-clamp-3">@db.papulartours.title</h2>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face
+          filter=" [db.papulartours.prp_3087561] is null and [db.papulartours.prp_3087562]='بله' "
+        >
+          <div
+            class="swiper-slide mr-8 !h-[104px]"
+            data-image="@db.papulartours.00408X00432prp"
+          >
+            <article
+              class="w-[824px] h-[104px] max-xl:w-full rounded-lg bg-white border border-neutralcolor-800 group/papulartourcard relative p-2 pr-0 drop-shadow-papulartours-aghsat-swiper"
+            >
+              <a
+                href="/@db.papulartours.link"
+                class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse items-center w-full h-full gap-2"
+              >
+                <div
+                  class="w-[30%] h-full flex flex-col items-center justify-center"
+                >
+                  <span
+                    class="text-primary-700 text-lg font-yekanbakhsemiboldFA"
+                    >@db.papulartours.prp_8181
+                  </span>
+                </div>
+                <div
+                  class="w-[15%] h-full flex flex-col items-center justify-center"
+                >
+                  <img
+                    class="w-20 mx-2 object-contain"
+                    src="@list.airline.pic"
+                    alt="@list.airline.name"
+                  />
+                </div>
+                <div
+                  class="w-[20%] h-full flex flex-col items-center justify-center pl-1"
+                >
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="24" height="25">
+                      <use
+                        href="./images/sprite-icons.svg#calendar-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8077
+                    </span>
+                  </div>
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="25" height="24">
+                      <use
+                        href="./images/sprite-icons.svg#daynight-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8076
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-[35%] h-full flex flex-col items-center justify-center"
+                >
+                  <h2 class="line-clamp-3">@db.papulartours.title</h2>
+                </div>
+              </a>
+              <div
+                class="transition-all duration-300 ease-in-out absolute px-2 pt-3 group-hover/papulartourcard:pt-1 right-0 group-hover/papulartourcard:-right-[10px] -z-10 rotate-90 text-xs top-0 bottom-0 my-0 font-yekanbakhsemiboldFA text-white rounded-t-lg bg-success-500"
+              >
+                شرایط اقساط
+              </div>
+            </article>
+          </div>
+        </face>
+        <face
+          filter="[db.papulartours.prp_3087561]='بله' and [db.papulartours.prp_3087562] is null "
+        >
+          <div
+            class="swiper-slide mr-8 !h-[104px]"
+            data-image="@db.papulartours.00408X00432prp"
+          >
+            <article
+              class="w-[824px] h-[104px] max-xl:w-full rounded-lg bg-white border border-neutralcolor-800 group/papulartourcard relative p-2 pr-0 drop-shadow-papulartours-takhfif-swiper"
+            >
+              <a
+                href="/@db.papulartours.link"
+                class="bg-white flex justify-between divide-x divide-neutralcolor-800 flex-row-reverse items-center w-full h-full gap-2"
+              >
+                <div
+                  class="w-[30%] h-full flex flex-col items-center justify-center"
+                >
+                  <span
+                    class="text-primary-700 text-lg font-yekanbakhsemiboldFA"
+                    >@db.papulartours.prp_8181 </span
+                  ><span
+                    class="line-through text-lg font-IRANYekanRegularMobileFA text-txtneutral-500"
+                    >@db.papulartours.prp_3087563
+                  </span>
+                </div>
+                <div
+                  class="w-[15%] h-full flex flex-col items-center justify-center"
+                >
+                  <img
+                    class="w-20 mx-2 object-contain"
+                    src="@list.airline.pic"
+                    alt="@list.airline.name"
+                  />
+                </div>
+                <div
+                  class="w-[20%] h-full flex flex-col items-center justify-center pl-1"
+                >
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="24" height="25">
+                      <use
+                        href="./images/sprite-icons.svg#calendar-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8077
+                    </span>
+                  </div>
+                  <div
+                    class="text-right flex justify-between items-center my-2 w-full"
+                  >
+                    <svg class="block" width="25" height="24">
+                      <use
+                        href="./images/sprite-icons.svg#daynight-card-tour-large"
+                      ></use></svg
+                    ><span
+                      class="text-base text-txtneutral-900 font-yekanbakhregularFA text-center w-[calc(100%-25px)] line-clamp-1"
+                      >@db.papulartours.prp_8076
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-[35%] h-full flex flex-col items-center justify-center"
+                >
+                  <h2 class="line-clamp-3">@db.papulartours.title</h2>
+                </div>
+              </a>
+              <div
+                class="transition-all duration-300 ease-in-out absolute px-2 pt-3 group-hover/papulartourcard:pt-1 right-0 group-hover/papulartourcard:-right-[10px] -z-10 rotate-90 text-xs top-0 bottom-0 my-0 font-yekanbakhsemiboldFA text-white rounded-t-lg bg-error-500"
+              >
+                تخفیف ویژه
+              </div>
+            </article>
+          </div>
+        </face>
+      </basis>
+      <basis core="list" datamembername="db.magazinetourism">
+        <layout>
+          <section
+            class="block pt-24 bg-tourism-pattern bg-center bg-cover bg-no-repeat"
+          >
+            <div class="max-w-7xl mx-auto text-center relative max-xl:w-[95%]">
+              <h2
+                class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-10 before:-top-4"
+              >
+                مجله <span class="font-yekanbakhboldFA">گردشگری</span>
+              </h2>
+              <div
+                class="grid grid-cols-[328px_288px_288px_296px] grid-rows-7 gap-6 max-w-7xl mx-auto w-full mt-12 max-xl:gap-x-0 max-xl:grid-cols-4"
+              >
+                @child
+              </div>
+            </div>
+          </section>
+        </layout>
+        <face filter="RowNumber in(1) and link is null">
+          <div
+            class="magasine-card relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4 row-span-6 row-start-2 row-end-7"
+          >
+            <article>
+              <a href="/article.bc?id@id">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[480px] w-[296px]"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    width="296"
+                    height="480"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 mb-6 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                      <div
+                        class="text-white line-clamp-4 text-justify font-yekanbakhregularFA text-base"
+                      >
+                        @prp_7244
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(2) and link is null">
+          <div
+            class="magasine-card row-span-3 col-start-2 row-start-3 relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4"
+          >
+            <article>
+              <a href="/article.bc?id@id">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[256px] w-[256px]"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    width="256"
+                    height="256"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(3) and link is null">
+          <div
+            class="magasine-card row-span-3 col-start-3 row-start-4 relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4"
+          >
+            <article>
+              <a href="/article.bc?id@id">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[256px] w-[256px]"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    width="256"
+                    height="256"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(4) and link is null">
+          <div
+            class="magasine-card row-span-4 col-start-4 row-start-2 relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4"
+          >
+            <article>
+              <a href="/article.bc?id@id">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[370px] w-264px"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    width="230"
+                    height="370"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 mb-5 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                      <div
+                        class="text-white line-clamp-4 text-justify font-yekanbakhregularFA text-base"
+                      >
+                        @prp_7244
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(1)">
+          <div
+            class="magasine-card relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4 row-span-6 row-start-2 row-end-7"
+          >
+            <article>
+              <a href="@link">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[480px] w-[296px]"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    alt=""
+                    aria-hidden="true"
+                    width="296"
+                    height="480"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 mb-6 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                      <div
+                        class="text-white line-clamp-4 text-justify font-yekanbakhregularFA text-base"
+                      >
+                        @prp_7244
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(2)">
+          <div
+            class="magasine-card row-span-3 col-start-2 row-start-3 relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4"
+          >
+            <article>
+              <a href="@link">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[256px] w-[256px]"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    alt=""
+                    aria-hidden="true"
+                    width="256"
+                    height="256"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(3)">
+          <div
+            class="magasine-card row-span-3 col-start-3 row-start-4 relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4"
+          >
+            <article>
+              <a href="@link">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[256px] w-[256px]"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    alt=""
+                    aria-hidden="true"
+                    width="256"
+                    height="256"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+        <face filter="RowNumber in(4)">
+          <div
+            class="magasine-card row-span-4 col-start-4 row-start-2 relative transition-all duration-500 group/tourism-magazine-card overflow-hidden rounded-3xl border border-transparent hover:border-[#B7B7B7] m-4"
+          >
+            <article>
+              <a href="@link">
+                <figure
+                  class="m-4 rounded-2xl overflow-hidden h-full flex justify-center items-center"
+                >
+                  <img
+                    class="object-cover h-[370px] w-264px"
+                    loading="lazy"
+                    src="[##cms.cms.cdn##]/@type_159"
+                    alt=""
+                    aria-hidden="true"
+                    width="264"
+                    height="370"
+                  />
+                </figure>
+                <div
+                  class="transition-all duration-300 group-hover/tourism-magazine-card:backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 p-3 z-20"
+                >
+                  <div
+                    class="m-4 mb-5 rounded-2xl h-full bg-gradient-to-t from-black/30 from-0% to-20% to-transparent transition-all duration-300 group-hover/tourism-magazine-card:to-80% group-hover/tourism-magazine-card:backdrop-blur-sm mt-auto absolute bottom-0 top-auto left-0 right-0"
+                  >
+                    <div
+                      class="h-5/12 absolute bottom-0 group-hover/tourism-magazine-card:opacity-100 opacity-0 m-4 text-right transition-all duration-300 ease-in-out"
+                    >
+                      <h2
+                        class="text-white leading-10 line-clamp-2 text-2xl font-yekanbakhboldFA mt-auto"
+                      >
+                        @title
+                      </h2>
+                      <span
+                        class="text-white font-IRANYekanMobileBoldFA leading-8 text-xl"
+                        ><svg
+                          width="24"
+                          height="25"
+                          class="filter invert brightness-0 sepia saturate-100 hue-rotate-180 inline-block"
+                        >
+                          <use
+                            href="./images/sprite-icons.svg#calendar-card-tour-large"
+                          ></use></svg
+                        >@prp_7249
+                      </span>
+                      <div
+                        class="text-white line-clamp-4 text-justify font-yekanbakhregularFA text-base"
+                      >
+                        @prp_7244
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </face>
+      </basis>
+      <div class="w-full my-6 h-[600px] relative">
+        <div
+          class="bg-primary w-full h-[600px] absolute left-0 right-0 -z-10 my-auto top-0 bottom-0"
+        ></div>
+        <figure>
+          <img
+            class="w-full h-[600px] object-contain"
+            loading="lazy"
+            width="1280"
+            height="600"
+            src="[##cms.cms.cdn##]/images/pwa-banner.png"
+            alt="pwa-banner"
+          />
+        </figure>
+      </div>
+      <basis core="list" datamembername="db.faqcontent">
+        <layout>
+          <section
+            class="block pt-24 bg-faq-pattern bg-center bg-cover bg-no-repeat"
+          >
+            <div class="max-w-7xl mx-auto text-center relative max-xl:w-[95%]">
+              <h2
+                class="font-yekanbakhlightFA text-[32px] text-secondary text-center inline-block mx-auto w-fit relative before:content-[' '] before:w-20 before:h-20 before:bg-secondary before:opacity-20 before:rounded-full before:block before:absolute before:-right-10 before:-top-4"
+              >
+                سوالات <span class="font-yekanbakhboldFA">متداول</span>
+              </h2>
+              <ul class="mt-12">
+                @child
+              </ul>
+            </div>
+          </section>
+        </layout>
+        <face>
+          <li class="mt-6 cursor-pointer" onclick="ToggleFAQ(this )">
+            <div
+              class="question-box bg-white rounded-lg px-12 h-16 relative overflow-hidden"
+            >
+              <span class="absolute top-0 left-0 z-10"></span>
+              <div
+                class="flex justify-between items-center gap-6 h-16 relative z-20"
+              >
+                <div
+                  class="number-of-faq-row w-[39px] h-[39px] rounded-full bg-secondary flex justify-end items-start"
+                >
+                  <div
+                    class="number-of-faq-row w-9 h-9 rounded-full bg-white flex justify-center items-center font-IRANYekanRegularMobileFA text-lg text-txtneutral-500"
+                  >
+                    @RowNumber
+                  </div>
+                </div>
+                <h2
+                  class="w-[calc(100%-65px)] block text-right font-yekanbakhsemiboldFA text-base text-txtneutral-500"
+                >
+                  @text
+                </h2>
+                <div
+                  class="w-[25.6px] h-[25px] rounded-[4px] flex justify-center items-center bg-white"
+                >
+                  <svg
+                    width="24"
+                    height="26"
+                    viewBox="0 0 24 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.803 15.9485L8.00978 11.0932C7.59944 10.568 7.97368 9.80068 8.6402 9.80068L15.3598 9.80068C16.0263 9.80068 16.4006 10.568 15.9902 11.0932L12.197 15.9485C12.0969 16.0766 11.9031 16.0766 11.803 15.9485Z"
+                      fill="#667085"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div
+              class="answer-box bg-white rounded-md border border-neutralcolor-400 text-right invisible h-0 w-full p-0 m-0 transition-all duration-500"
+            >
+              <div class="answer-text opacity-0 transition-all duration-500">
+                @largetext
+              </div>
+            </div>
+          </li>
+        </face>
+      </basis>
+      <basis core="list" datamembername="db.slogan">
+        <layout>
+          <section class="my-12">
+            <ul
+              class="flex justify-between items-center my-6 max-w-7xl mx-auto gap-x-8 max-xl:w-[95%]"
+            >
+              @child
+            </ul>
+          </section>
+        </layout>
+        <face filter="RowNumber in(1)">
+          <li class="w-1/3 flex justify-start gap-x-4 items-center">
+            <figure>
+              <img
+                src="[##cms.cms.cdn##]/images/freebird.png"
+                width="104"
+                height="104"
+                alt=""
+                aria-hidden="true"
+              />
+            </figure>
+            <div>
+              <h2
+                class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 leading-10"
+              >
+                @text
+              </h2>
+              <div
+                class="font-yekanbakhregularFA text-sm leading-6 text-txtneutral-500"
+              >
+                @largetext
+              </div>
+            </div>
+          </li>
+        </face>
+        <face filter="RowNumber in(2)">
+          <li class="w-1/3 flex justify-start gap-x-4 items-center">
+            <figure>
+              <img
+                src="[##cms.cms.cdn##]/images/wallet-travel.png"
+                width="104"
+                height="104"
+                alt=""
+                aria-hidden="true"
+              />
+            </figure>
+            <div>
+              <h2
+                class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 leading-10"
+              >
+                @text
+              </h2>
+              <div
+                class="font-yekanbakhregularFA text-sm leading-6 text-txtneutral-500"
+              >
+                @largetext
+              </div>
+            </div>
+          </li>
+        </face>
+        <face filter="RowNumber in(3)">
+          <li class="w-1/3 flex justify-start gap-x-4 items-center">
+            <figure>
+              <img
+                src="[##cms.cms.cdn##]/images/internal-external-tours.png"
+                width="104"
+                height="104"
+                alt=""
+                aria-hidden="true"
+              />
+            </figure>
+            <div>
+              <h2
+                class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 leading-10"
+              >
+                @text
+              </h2>
+              <div
+                class="font-yekanbakhregularFA text-sm leading-6 text-txtneutral-500"
+              >
+                @largetext
+              </div>
+            </div>
+          </li>
+        </face>
+      </basis>
+    </main>
+    <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js "></script>
+    <basis
+      core="call"
+      file="footer.inc"
+      pageindex="[##cms.cms.pageindex##]"
+    ></basis>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "آمیتیس",
+        "url": "https://amitistravel.com",
+        "logo": "https://cdn.basiscore.net/amitistravel.com/images/logo.png"
+      }
+    </script>
+  </body>
+</html>

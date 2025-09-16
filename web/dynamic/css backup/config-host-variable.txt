@@ -1,0 +1,12 @@
+
+calendar-type
+flight-module
+multiflight-module
+hotel-module
+flighthotel-module
+tour-module
+insurance-module
+cip-module
+visa-module
+service-module
+train-module

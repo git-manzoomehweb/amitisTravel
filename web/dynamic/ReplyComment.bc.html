@@ -1,0 +1,13 @@
+<basis core="call" file="Client_CheckRkey.inc"></basis>
+<basis core="group" name="replycomment">
+<basis core="dbsource" source="userbehavior" name="db" parentid="[##cms.form.parentid##]" usedforid="[##cms.form.replyProductid##]" userid="[##db.checkrkey.userid|(0)##]" title="[##cms.form.username##]" username="[##cms.form.username##]" comment="_comment"  mid="[##cms.form.mid|(1)##]">
+    <member name="Opinion" type="scalar" request="comment" />
+    <params><add name="comment" value="[##cms.form.ReplyComment##]" /></params>
+    </basis>
+   <basis core="group" if="'[##db.Opinion.Column1##]'='ok'">
+   <span>پاسخ شما با موفقیت ثبت شد پس از بررسی توسط مدیر سایت نمایش داده خواهد شد</span>
+   </basis>
+   <basis core="group" if="'[##db.Opinion.Column1##]'<>'ok'">
+   <span>پاسخ شما ثبت نشد لطفا مجددا سعی کنید</span>
+   </basis>
+</basis>

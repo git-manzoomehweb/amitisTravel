@@ -1,0 +1,970 @@
+[
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=2363141'>Mirage Hotel Colombo</a>",
+                            "hotelname1": {
+                                "realname": "Mirage Hotel Colombo",
+                                "hotelid": "2363141"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "SWISS RESIDENCE KANDY ",
+                            "hotelname1": {
+                                "realname": "SWISS RESIDENCE KANDY ",
+                                "hotelid": ""
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1223530'>Hotel Turyaa Kalutara</a>",
+                            "hotelname1": {
+                                "realname": "Hotel Turyaa Kalutara",
+                                "hotelid": "1223530"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "94990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "119990000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "82690000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1,
+        "booking": "-",
+        "basiscoreid": "-",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1439263'>Granbell Hotel Colombo</a>",
+                            "hotelname1": {
+                                "realname": "Granbell Hotel Colombo",
+                                "hotelid": "1439263"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065209'>Hotel Topaz Kandy</a>",
+                            "hotelname1": {
+                                "realname": "Hotel Topaz Kandy",
+                                "hotelid": "1065209"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1223530'>Hotel Turyaa Kalutara</a>",
+                            "hotelname1": {
+                                "realname": "Hotel Turyaa Kalutara",
+                                "hotelid": "1223530"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "97990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "124690000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "83390000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 2,
+        "booking": "",
+        "basiscoreid": "",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "GRANBELL COLOMBO",
+                            "hotelname1": {
+                                "realname": "GRANBELL COLOMBO",
+                                "hotelid": ""
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065209'>Hotel Topaz Kandy</a>",
+                            "hotelname1": {
+                                "realname": "Hotel Topaz Kandy",
+                                "hotelid": "1065209"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1127885'>AVANI Kalutara Resort</a>",
+                            "hotelname1": {
+                                "realname": "AVANI Kalutara Resort",
+                                "hotelid": "1127885"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "99990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "127790000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "84890000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 3,
+        "booking": "",
+        "basiscoreid": "",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "Cinnamon Lakeside Colombo",
+                            "hotelname1": {
+                                "realname": "Cinnamon Lakeside Colombo",
+                                "hotelid": ""
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=2378110'>Kandy Myst by Cinnamon</a>",
+                            "hotelname1": {
+                                "realname": "Kandy Myst by Cinnamon",
+                                "hotelid": "2378110"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1127885'>AVANI Kalutara Resort</a>",
+                            "hotelname1": {
+                                "realname": "AVANI Kalutara Resort",
+                                "hotelid": "1127885"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "104990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "135390000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "85990000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": "ویژه"
+            }
+        ],
+        "order": 4,
+        "booking": "",
+        "basiscoreid": "",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065868'>Cinnamon Lakeside Colombo</a>",
+                            "hotelname1": {
+                                "realname": "Cinnamon Lakeside Colombo",
+                                "hotelid": "1065868"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "MAHAWELI REACH",
+                            "hotelname1": {
+                                "realname": "MAHAWELI REACH",
+                                "hotelid": ""
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1043024'>Eden Resort And Spa</a>",
+                            "hotelname1": {
+                                "realname": "Eden Resort And Spa",
+                                "hotelid": "1043024"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "110990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "144490000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "87590000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": "ویژه"
+            }
+        ],
+        "order": 5,
+        "booking": "-",
+        "basiscoreid": "-",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1439263'>Granbell Hotel Colombo</a>",
+                            "hotelname1": {
+                                "realname": "Granbell Hotel Colombo",
+                                "hotelid": "1439263"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065209'>Hotel Topaz Kandy</a>",
+                            "hotelname1": {
+                                "realname": "Hotel Topaz Kandy",
+                                "hotelid": "1065209"
+                            },
+                            "star": "4",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1248829'>Riu Sri Lanka Hotel</a>",
+                            "hotelname1": {
+                                "realname": "Riu Sri Lanka Hotel",
+                                "hotelid": "1248829"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1658",
+                                "service": "ALL"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "113990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "152790000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "87490000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 6,
+        "booking": "-",
+        "basiscoreid": "-",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065868'>Cinnamon Lakeside Colombo</a>",
+                            "hotelname1": {
+                                "realname": "Cinnamon Lakeside Colombo",
+                                "hotelid": "1065868"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=2378110'>Kandy Myst by Cinnamon</a>",
+                            "hotelname1": {
+                                "realname": "Kandy Myst by Cinnamon",
+                                "hotelid": "2378110"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1248829'>Riu Sri Lanka Hotel</a>",
+                            "hotelname1": {
+                                "realname": "Riu Sri Lanka Hotel",
+                                "hotelid": "1248829"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1658",
+                                "service": "ALL"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "121490000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "162890000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "90390000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42990000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": "ویژه"
+            }
+        ],
+        "order": 7,
+        "booking": "-",
+        "basiscoreid": "-",
+        "label": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065868'>Cinnamon Lakeside Colombo</a>",
+                            "hotelname1": {
+                                "realname": "Cinnamon Lakeside Colombo",
+                                "hotelid": "1065868"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "<a class='showhotel' href='\Tem1_Hotel.bc?id=1065214'>Mahaweli Reach Hotel</a>",
+                            "hotelname1": {
+                                "realname": "Mahaweli Reach Hotel",
+                                "hotelid": "1065214"
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hotel": {
+                            "hotelname": "Riu Sri Lanka Hotel",
+                            "hotelname1": {
+                                "realname": "Riu Sri Lanka Hotel",
+                                "hotelid": ""
+                            },
+                            "star": "5",
+                            "service": {
+                                "vid": "1658",
+                                "service": "ALL"
+                            },
+                            "booking": "",
+                            "basiscoreid": "",
+                            "location": "",
+                            "label": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "122990000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "165990000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "90390000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "42999000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": "ویژه"
+            }
+        ],
+        "order": 8,
+        "booking": "-",
+        "basiscoreid": "-",
+        "label": ""
+    }
+]

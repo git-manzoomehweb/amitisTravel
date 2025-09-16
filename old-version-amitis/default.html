@@ -1,0 +1,594 @@
+<basis core="dbsource" source="basiscore" mid="20" name="db" lid="1">
+    <member name="tour-list" type="tree" request="cat" parentid="140689" preview=""
+        postsql="select catID , countid , Title, lid , mid , image , ord , URLtitle , URLdescription , link , enabled , parentid  from [db.tour-list]" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="20" name="db" lid="1" catid="150876">
+    <member name="popular-tour" type="list" link="tour.bc" order="ord" propertyid="10000504,8077,8181,8076,177348"
+        perpage="12" typeid="159"
+        postsql="select prp_10000504 , link , id , type_159 , title , prp_8181 , prp_8076 , prp_8077, Ord  from [db.popular-tour]" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist" order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1" catid="150936">
+    <member name="airline-list" type="list" link="article.bc" propertyid="7244" order="ord" typeid="159" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307287">
+    <member name="qu-inflight" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307288">
+    <member name="qu-exflight" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307289">
+    <member name="qu-train" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307290">
+    <member name="qu-bus" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2307291">
+    <member name="qu-tour" type="view" />
+</basis>
+<!doctype html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" />
+    <title>آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری </title>
+    <meta name="enamad" content="741568327" />
+    <meta property="og:description" content="آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری " />
+    <meta name="description" content="آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری " />
+    <meta property="og:title" content="آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری" />
+    <meta property="og:url" content="[##cms.cms.cdn##]" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="آمیتیس | تور لحظه آخری | فروش تور داخلی | تور خارجی | تور لاکچری" />
+    <meta property="og:image" content="[##cms.cms.cdn##]/images/logo.png" />
+    <meta property="og:image:width" content="192" />
+    <meta property="og:image:height" content="59" />
+    <meta property="og:image:secure_url" content="[##cms.cms.cdn##]/images/logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Amitis" />
+    <link rel="shortcut icon" href="[##cms.cms.cdn##]/images/favicon.png" />
+    <link rel="apple-touch-icon" href="[##cms.cms.cdn##]/images/custom_icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="[##cms.cms.cdn##]/images/custom_icon.png">
+    <link rel="stylesheet" type="text/css" href="[##cms.cms.cdn##]/css/amitis-master-new.css">
+    <link rel="stylesheet" type="text/css" href="[##cms.cms.cdn##]/css/DatePicker_New.css" />
+    <script type="text/javascript" lang="javascript" src="[##cms.cms.cdn##]/js/jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="loginRegister"></div>
+        <basis core="call" file="header-new.inc" />
+        <main>
+
+            <div id="searchbox-resize"><img data-src="[##cms.cms.cdn##]/images/gif-loading.gif" class="imagiload lozad"
+                    alt="gif" /></div>
+            <div class="adver-flex">
+                <div class="inner-resize">
+                    <div class="outer-flex-box">
+                        <figure class="iner-flex-box"><a href="/"><img src="[##cms.cms.cdn##]/images/adver-1.jpg"
+                                    alt="آمیتیس تراول"></a></figure>
+                        <figure class="iner-flex-box"><a href="/"><img src="[##cms.cms.cdn##]/images/adver-2.jpg"
+                                    alt="آمیتیس تراول"></a></figure>
+                    </div>
+
+                </div>
+            </div>
+            <div id="artricles-resize">
+                <div class="inner-resize">
+                    <H1 style="opacity: 0;">آمیتیس ، تور لحظه آخری</H1>
+                    <div class="title-box">
+                        <div class="title-spt">
+                            <P>مقاصد گردشگری</P>
+                        </div>
+                        <span>Tourism Destinations</span>
+                    </div>
+                    <div class="article-items">
+                        <basis core="tree" dataMemberName="db.tour-list" idCol="catid" parentidCol="ParentID"
+                            nullvalue="140689">
+                            <face filter="ord in (1,2,3,4,5,6,7,8) and link is null">
+                                <div class="ar-outer-item">
+                                    <div class="ar-item shine-hover">
+                                        <a href="tour-list.bc?catid=@catid">
+                                            <div class="ar-img"><img src="[##cms.cms.cdn##]/@image" width="275"
+                                                    height="375" alt="@title" /></div>
+                                            <div class="ar-info ar-info-top">
+                                                <h2 class="ar-name">@title</H2>
+                                            </div>
+                                            <div class="ar-info ar-info-bottom"><span
+                                                    class="ar-counter tour-counter"></span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </face>
+                            <face filter="ord in (1,2,3,4,5,6,7,8)">
+                                <div class="ar-outer-item">
+                                    <div class="ar-item shine-hover">
+                                        <a href="/@link">
+                                            <div class="ar-img"><img data-src="[##cms.cms.cdn##]/@image" class="lozad"
+                                                    width="275" height="375" alt="@title" /></div>
+                                            <div class="ar-info ar-info-top">
+                                                <h2 class="ar-name">@title</h2>
+                                            </div>
+                                            <div class="ar-info ar-info-bottom"><span
+                                                    class="ar-counter tour-counter"></span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </face>
+                        </basis>
+
+
+                        <div class="clr"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="tours-resize">
+                <div class="inner-resize">
+                    <div class="title-box">
+                        <div class="title-spt">
+                            <P>محبوب ترین تورها</P>
+                        </div>
+                        <span>Popular Tours</span>
+                    </div>
+                    <div class="tour-items">
+                        <basis core="inlinesource" name="joining">
+                            <member name="populars" lefttblcol="db.popular-tour.prp_10000504"
+                                righttblcol="list.airline.name" format="join" jointype="leftjoin" order="ord" />
+                        </basis>
+                        <basis core="list" datamembername="joining.populars" order="ord">
+                            <face>
+                                <div class="tour-outer-item">
+                                    <div class="tour-item">
+                                        <a href="/@db.popular-tour.link">
+                                            <div class="tour-img">
+                                                <div class="hover-effect shine-hover"></div><img
+                                                    data-src="/@db.popular-tour.type_159" class="lozad" width=""
+                                                    height="300" alt="@db.popular-tour.title" />
+                                            </div>
+                                            <div class="tour-info">
+                                                <!-- <div class="rate"><img src="images/star.png" alt="rating"/><span>سطح </span></div> -->
+                                                <div class="tour-name">
+                                                    <h2>@db.popular-tour.title</h2>
+                                                </div>
+                                                <div class="tour-price"><span
+                                                        class="cost">@db.popular-tour.prp_8181</span><span
+                                                        class="tour-price-unit"> / هر نفر</span></div>
+                                                <div class="tour-duration"><i
+                                                        class="fas fa-clock"></i><span>@db.popular-tour.prp_8076</span><span
+                                                        class="tour-du-details"></span></div>
+                                                <div class="season-inf"><i
+                                                        class="fas fa-calendar-alt"></i><span>@db.popular-tour.prp_8077</span>
+                                                </div>
+                                                <div class="extra-tour-details">
+                                                    <div class="tour-viewpoint">
+                                                        <div><span><img data-src="/@list.airline.pic" class="lozad"
+                                                                    alt="@db.popular-tour.prp_10000504" width=""
+                                                                    height="27"></span></div>
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="tour-airline"><i
+                                                            class="fas fa-plane"></i><span>@db.popular-tour.prp_10000504</span>
+                                                    </div>
+                                                    <div class="clr"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </face>
+                            <face filter="link is null">
+                                <div class="tour-outer-item">
+                                    <div class="tour-item">
+                                        <a href="/tour.bc?id-@db.popular-tour.id">
+                                            <div class="tour-img">
+                                                <div class="hover-effect shine-hover"></div><img
+                                                    data-src="/@db.popular-tour.type_159" class="lozad" width=""
+                                                    height="300" alt="@db.popular-tour.title" />
+                                            </div>
+                                            <div class="tour-info">
+                                                <!-- <div class="rate"><img src="images/star.png" alt="rating"/><span>سطح </span></div> -->
+                                                <div class="tour-name">
+                                                    <H2>@db.popular-tour.title</H2>
+                                                </div>
+                                                <div class="tour-price"><span
+                                                        class="cost">@db.popular-tour.prp_8181</span><span
+                                                        class="tour-price-unit"> / هر نفر</span></div>
+                                                <div class="tour-duration"><i
+                                                        class="fas fa-clock"></i><span>@db.popular-tour.prp_8076</span><span
+                                                        class="tour-du-details"></span></div>
+                                                <div class="season-inf"><i
+                                                        class="fas fa-calendar-alt"></i><span>@db.popular-tour.prp_8077</span>
+                                                </div>
+                                                <div class="extra-tour-details">
+                                                    <div class="tour-viewpoint">
+                                                        <div><span><img data-src="/@list.airline.pic"
+                                                                    alt="@db.popular-tour.prp_10000504" class="lozad"
+                                                                    width="" height="27"></span></div>
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="tour-airline"><i
+                                                            class="fas fa-plane"></i><span>@db.popular-tour.prp_10000504</span>
+                                                    </div>
+                                                    <div class="clr"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </face>
+                        </basis>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div id="middle-banner-resize">
+                <a href="https://amitistravel.com/تورهای-ویژه-آمیتیس"><img style="width: 100%;"
+                        data-src="[##cms.cms.cdn##]/images/middle-banner.png" class="lozad"
+                        alt="تورهای بهار 1401" /></a>
+            </div>
+            <div id="travel-style-resize">
+                <div class="inner-resize">
+                    <div class="title-box">
+                        <div class="title-spt">
+                            <P>سبک سفر</P>
+                        </div>
+                        <span>Travel Style</span>
+                    </div>
+                    <div class="text-box-top">
+                        <span>بعضی از افراد میگویند دوست دارند همیشه در سفر باشند اما نمیدانند چگونه باید سفر کنند و چه
+                            نوع سفری به سبک زندگی و شخصیتشان میخورد .</span>
+                    </div>
+                    <div class="travel-middle-box">
+                        <div id="work-style" class="travelstyle"><a href="سفر-کاری">
+                                <div class="travel-style-hover"><span>سفر کاری</span></div><img
+                                    data-src="[##cms.cms.cdn##]/images/flight-travelstyle.png" class="lozad"
+                                    alt="travelstyle" />
+                            </a></div>
+                        <div id="adventure-style" class="travelstyle"><a href="سفر-ماجراجویانه">
+                                <div class="travel-style-hover"><span>سفر ماجراجویانه</span></div><img
+                                    data-src="[##cms.cms.cdn##]/images/man-travelstyle.png" class="lozad"
+                                    alt="travelstyle" />
+                            </a></div>
+                        <div id="ship-style" class="travelstyle"><a href="سفر-دریایی">
+                                <div class="travel-style-hover"><span>سفر دریایی</span></div><img
+                                    data-src="[##cms.cms.cdn##]/images/ship-travelstyle.png" class="lozad"
+                                    alt="travelstyle" />
+                            </a></div>
+                        <div id="amitis-style" class="amitis-travelstyle actice-travelstyle"><a href="/درباره-ما"><img
+                                    data-src="[##cms.cms.cdn##]/images/amitis-travelstyle.png" class="lozad"
+                                    alt="travelstyle" /></a></div>
+                        <div id="sport-style" class="travelstyle"><a href="سفر-ورزشی">
+                                <div class="travel-style-hover"><span>سفر ورزشی</span></div><img
+                                    data-src="[##cms.cms.cdn##]/images/ski-travelstyle.png" class="lozad"
+                                    alt="travelstyle" />
+                            </a></div>
+                        <div id="relation-style" class="travelstyle"><a href="تور-مناسبتی">
+                                <div class="travel-style-hover"><span>سفر مناسبتی</span></div><img
+                                    data-src="[##cms.cms.cdn##]/images/food-travelstyle.png" class="lozad"
+                                    alt="travelstyle" />
+                            </a></div>
+                        <div id="honeymoon-style" class="travelstyle"><a href="تور-ماه- عسل">
+                                <div class="travel-style-hover"><span>ماه عسل</span></div><img
+                                    data-src="[##cms.cms.cdn##]/images/suit-travelstyle.png" class="lozad"
+                                    alt="travelstyle" />
+                            </a></div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div id="ask-question-resize">
+                <div class="inner-resize">
+                    <div class="title-box">
+                        <div class="title-spt">
+                            <P>پرسش و پاسخ</P>
+                        </div>
+                        <span>Question and Answer</span>
+                    </div>
+                    <div class="question-box">
+                        <div class="inner-question">
+                            <div class="qu-tabs">
+                                <div id="inflight-qu-tab" class="qu-tab active-qu-tab"><span>پرواز داخلی</span></div>
+                                <div id="exflight-qu-tab" class="qu-tab"><span>پرواز خارجی</span></div>
+                                <div id="train-qu-tab" class="qu-tab"><span>قطار</span></div>
+                                <div id="bus-qu-tab" class="qu-tab"><span>اتوبوس</span></div>
+                                <div id="tour-qu-tab" class="qu-tab"><span>تور</span></div>
+                            </div>
+                            <div class="qu-contents">
+                                <div id="qu-general" class="qu-content">
+                                    <div class="qu-content-inner">
+                                        <div class="question" data-index="0"><span class="qu-icon"><img
+                                                    data-src="[##cms.cms.cdn##]/images/question.png" class="lozad"
+                                                    alt="question" /></span><span>آیا عضویت در سایت آمیتیس برای خرید
+                                                بلیط الزامیست؟</span><i class="fas fa-chevron-down"></i></div>
+                                        <div class="answer"><span>بله . با هدف امکان پذیری پیگیری های بعدی و ارائه
+                                                پشتیبانی شایسته، عضویت در وب سایت الزامیست .</span></div>
+                                    </div>
+                                </div>
+                                <div id="qu-inflight" class="qu-content active-qu-content">
+                                    <basis core="print" datamembername="db.qu-inflight">
+                                        <face filter="prpid not in (7243,8358,8359,8360,54539)" replace="true">
+                                            <div class="qu-content-inner">
+                                                <div class="question" data-index="0"><span class="qu-icon"><img
+                                                            data-src="[##cms.cms.cdn##]/images/question.png"
+                                                            class="lozad" alt="question" /></span><span>@text</span><i
+                                                        class="fas fa-chevron-down"></i></div>
+                                                <div class="answer"><span>@largetext </span></div>
+                                            </div>
+                                        </face>
+                                        <replace tagname="text"> <a
+                                                style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7"
+                                                href="@val3">@val2</a> </replace>
+                                        <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a>
+                                        </replace>
+                                        <replace tagname="img"> <img class="replace-art lozad" src="/@val2" alt="@val3"
+                                                style="display:block;margin:15px auto;max-width:800px;height:auto;width:96%">
+                                        </replace>
+                                        <replace tagname="bold"><b>@val2</b></replace>
+                                    </basis>
+                                </div>
+                                <div id="qu-exflight" class="qu-content">
+                                    <basis core="print" datamembername="db.qu-exflight">
+                                        <face filter="prpid not in (7243,8358,8359,8360,54539)" replace="true">
+                                            <div class="qu-content-inner">
+                                                <div class="question" data-index="0"><span class="qu-icon"><img
+                                                            data-src="[##cms.cms.cdn##]/images/question.png"
+                                                            class="lozad" alt="question" /></span><span>@text</span><i
+                                                        class="fas fa-chevron-down"></i></div>
+                                                <div class="answer"><span>@largetext </span></div>
+                                            </div>
+                                        </face>
+                                        <replace tagname="text"> <a
+                                                style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7"
+                                                href="@val3">@val2</a> </replace>
+                                        <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a>
+                                        </replace>
+                                        <replace tagname="img"> <img class="replace-art lozad" src="/@val2" alt="@val3"
+                                                style="display:block;margin:15px auto;max-width:800px;height:auto;width:96%">
+                                        </replace>
+                                        <replace tagname="bold"><b>@val2</b></replace>
+                                    </basis>
+                                </div>
+                                <div id="qu-train" class="qu-content">
+                                    <basis core="print" datamembername="db.qu-train">
+                                        <face filter="prpid not in (7243,8358,8359,8360,54539)" replace="true">
+                                            <div class="qu-content-inner">
+                                                <div class="question" data-index="0"><span class="qu-icon"><img
+                                                            data-src="[##cms.cms.cdn##]/images/question.png"
+                                                            class="lozad" alt="question" /></span><span>@text</span><i
+                                                        class="fas fa-chevron-down"></i></div>
+                                                <div class="answer"><span>@largetext </span></div>
+                                            </div>
+                                        </face>
+                                        <replace tagname="text"> <a
+                                                style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7"
+                                                href="@val3">@val2</a> </replace>
+                                        <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a>
+                                        </replace>
+                                        <replace tagname="img"> <img class="replace-art lozad" src="/@val2" alt="@val3"
+                                                style="display:block;margin:15px auto;max-width:800px;height:auto;width:96%">
+                                        </replace>
+                                        <replace tagname="bold"><b>@val2</b></replace>
+                                    </basis>
+                                </div>
+                                <div id="qu-bus" class="qu-content">
+                                    <basis core="print" datamembername="db.qu-bus">
+                                        <face filter="prpid not in (7243,8358,8359,8360,54539)" replace="true">
+                                            <div class="qu-content-inner">
+                                                <div class="question" data-index="0"><span class="qu-icon"><img
+                                                            data-src="[##cms.cms.cdn##]/images/question.png"
+                                                            class="lozad" alt="question" /></span><span>@text</span><i
+                                                        class="fas fa-chevron-down"></i></div>
+                                                <div class="answer"><span>@largetext </span></div>
+                                            </div>
+                                        </face>
+                                        <replace tagname="text"> <a
+                                                style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7"
+                                                href="@val3">@val2</a> </replace>
+                                        <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a>
+                                        </replace>
+                                        <replace tagname="img"> <img class="replace-art lozad" src="/@val2" alt="@val3"
+                                                style="display:block;margin:15px auto;max-width:800px;height:auto;width:96%">
+                                        </replace>
+                                        <replace tagname="bold"><b>@val2</b></replace>
+                                    </basis>
+                                </div>
+                                <div id="qu-tour" class="qu-content">
+                                    <basis core="print" datamembername="db.qu-tour">
+                                        <face filter="prpid not in (7243,8358,8359,8360,54539)" replace="true">
+                                            <div class="qu-content-inner">
+                                                <div class="question" data-index="0"><span class="qu-icon"><img
+                                                            data-src="[##cms.cms.cdn##]/images/question.png"
+                                                            class="lozad" alt="question" /></span><span>@text</span><i
+                                                        class="fas fa-chevron-down"></i></div>
+                                                <div class="answer"><span>@largetext </span></div>
+                                            </div>
+                                        </face>
+                                        <replace tagname="text"> <a
+                                                style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7"
+                                                href="@val3">@val2</a> </replace>
+                                        <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a>
+                                        </replace>
+                                        <replace tagname="img"> <img class="replace-art lozad" src="/@val2" alt="@val3"
+                                                style="display:block;margin:15px auto;max-width:800px;height:auto;width:96%">
+                                        </replace>
+                                        <replace tagname="bold"><b>@val2</b></replace>
+                                    </basis>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="about-amitis-resize">
+                <div class="inner-resize">
+                    <div class="title-box">
+                        <div class="title-spt">
+                            <P>درباره آمیتیس</P>
+                        </div>
+                        <span>About Amitis</span>
+                    </div>
+                    <div class="about-text-box">
+                        <div class="paragraph-text">
+                            <basis core="view" datamembername="contact.content">
+                                <face filter="prpID=8004" replace="true">
+                                    <div><span> @answer </span></div>
+                                </face>
+                                <replace tagname="text"> <a
+                                        style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7"
+                                        href="@val3">@val2</a> </replace>
+                                <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a> </replace>
+                                <replace tagname="img"> <img class="replace-art lozad" src="/@val2" alt="@val3"
+                                        style="display:block;margin:15px auto;max-width:800px;height:auto;width:96%">
+                                </replace>
+                                <replace tagname="bold"><b>@val2</b></replace>
+                            </basis>
+                        </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div id="airlines-resize">
+                <div class="inner-resize">
+                    <div class="inner-arilines-box">
+                        <div id="demo2">
+                            <div id="owl-demo2" class="owl-carousel">
+                                <basis core="list" datamembername="db.airline-list">
+                                    <face filter="link is null">
+                                        <div><a href="/article.bc?id=@id"><img data-src="/@type_159" class="lozad"
+                                                    alt="@title" /></a></div>
+                                    </face>
+                                    <face>
+                                        <div><a href="@link"><img data-src="[##cms.cms.cdn##]/@type_159" class="lozad"
+                                                    alt="@title" /></a></div>
+                                    </face>
+                                </basis>
+                            </div>
+                        </div>
+
+                        <div class="clr"></div>
+                    
+        </main>
+        <basis core="call" file="footer-new.inc" />
+    </div>
+    <div class="clr"></div>
+    </div>
+    <script type='text/javascript' src="[##cms.cms.cdn##]/js/jquery.navgoco.js"></script>
+    <!--js menu-->
+    <script type='text/javascript' src="[##cms.cms.cdn##]/js/off-canvas.js"></script>
+    <!--js menu-->
+    <script type="text/javascript" src="[##cms.cms.cdn##]/js/menu.js"> </script>
+    <script src="[##cms.cms.cdn##]/js/lozad.min.js"></script>
+    <script src="[##cms.cms.cdn##]/js/owl.carousel.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#searchbox-resize').load('/search_box.bc');
+        });
+
+        $(document).ready(function () {
+            const observer = lozad(); // lazy loads
+            observer.observe();
+        });
+
+
+
+        $("#inflight-qu-tab").click(function () {
+            $(".qu-tab").removeClass("active-qu-tab");
+            $(this).addClass("active-qu-tab");
+            $(".qu-content").removeClass("active-qu-content");
+            $("#qu-inflight").addClass("active-qu-content");
+        });
+
+        $("#exflight-qu-tab").click(function () {
+            $(".qu-tab").removeClass("active-qu-tab");
+            $(this).addClass("active-qu-tab");
+            $(".qu-content").removeClass("active-qu-content");
+            $("#qu-exflight").addClass("active-qu-content");
+        });
+
+        $("#train-qu-tab").click(function () {
+            $(".qu-tab").removeClass("active-qu-tab");
+            $(this).addClass("active-qu-tab");
+            $(".qu-content").removeClass("active-qu-content");
+            $("#qu-train").addClass("active-qu-content");
+        });
+
+        $("#bus-qu-tab").click(function () {
+            $(".qu-tab").removeClass("active-qu-tab");
+            $(this).addClass("active-qu-tab");
+            $(".qu-content").removeClass("active-qu-content");
+            $("#qu-bus").addClass("active-qu-content");
+        });
+
+        $("#tour-qu-tab").click(function () {
+            $(".qu-tab").removeClass("active-qu-tab");
+            $(this).addClass("active-qu-tab");
+            $(".qu-content").removeClass("active-qu-content");
+            $("#qu-tour").addClass("active-qu-content");
+        });
+
+        $(".qu-content-inner .question").each(function (index, element) {
+            $(this).click(function () {
+                i = $(this).attr("data-index")
+                if (i == 0) {
+                    $(this).attr("data-index", "1")
+                    $(this).closest(".qu-content-inner").addClass("active-question")
+                    $(this).closest(".qu-content-inner").find(".qu-icon img").attr("src",
+                        "[##cms.cms.cdn##]/images/question_hover.png")
+                } else {
+                    $(this).attr("data-index", "0")
+                    $(this).closest(".qu-content-inner").removeClass("active-question")
+                    $(this).closest(".qu-content-inner").find(".qu-icon img").attr("src",
+                        "[##cms.cms.cdn##]/images/question.png")
+                }
+            })
+        })
+
+
+        $(document).ready(function () {
+            $("#owl-demo2").owlCarousel({
+                autoPlay: 4000,
+                navigation: true,
+                navigationText: ['<span  class="fa-angle-left"></span>',
+                    '<span  class="fa-angle-right"></span>'
+                ],
+                items: 6,
+                itemsDesktop: [1199, 6],
+                itemsDesktopSmall: [979, 3],
+                itemsTablet: [768, 3],
+                itemsTablet: [602, 2],
+                itemsMobile: [479, 1]
+            });
+        });
+    </script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- Najva Push Notification -->
+    <script type="text/javascript">
+        (function () {
+            var now = new Date();
+            var version = now.getFullYear().toString() + "0" + now.getMonth() + "0" + now.getDate() +
+                "0" + now.getHours();
+            var head = document.getElementsByTagName("head")[0];
+            var link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = "https://app.najva.com/static/css/local-messaging.css" + "?v=" + version;
+            head.appendChild(link);
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.async = true;
+            script.src =
+                "https://app.najva.com/static/js/scripts/amitistravel751-website-13361-33796895-86bb-43c5-b637-e2bdceb66988.js" +
+                "?v=" + version;
+            head.appendChild(script);
+        })()
+    </script>
+    <!-- END NAJVA PUSH NOTIFICATION -->
+    <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_tem2_calendar.css" type="text/css" rel="stylesheet" />
+</body>
+
+</html>

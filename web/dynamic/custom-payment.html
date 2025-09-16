@@ -1,0 +1,82 @@
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2380570">
+    <member name="amitis-peyment" type="view" postsql="select * from [db.amitis-peyment] where TypeID in(250)" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist"></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="style.inc" />
+</head>
+
+<body class="font-yekanbakhregularFA bg-neutralcolor-50">
+    <basis core="call" file="header.inc"></basis>
+    <main class="w-full relative ">
+        <svg class="svg">
+            <clipPath id="sectionform" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M1,0 H0 V0.859 C0.414,1,0.461,0.982,0.562,0.662 C0.565,0.651,0.569,0.639,0.573,0.628 C0.66,0.353,0.893,0.36,1,0.398 V0">
+                </path>
+            </clipPath>
+        </svg>
+        <div class="clipped-section-form -mt-[150px]">
+            <div class="max-w-7xl mx-auto w-[95%] ">
+                <h1 class="font-yekanbakhboldFA text-[80px] text-white leading-[200px] pt-12">درگاه پرداخت امن</h1>
+                <h2 class="text-secondary text-2xl font-yekanbakhsemiboldFA ">از این درگاه میتوانید مبالغی را که
+                    کارشناسان فروش ما به شما اعلام کرده اند را پرداخت نمایید.</h2>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto w-[95%] -mt-[715px] relative z-10">
+            <figure class=" float-right w-1/2 mt-9 max-xl:w-1/3"><img src="[##cms.cms.cdn##]/images/secure-pay-form.png"
+                    width="640" height="556" alt="secure-pay-form"></figure>
+            <div class="w-[640px] py-6 bg-[#3652AD] bg-opacity-25 rounded-lg float-left">
+                <basis core="call" file="form/payment"></basis>
+            </div>
+        </div>
+        <div class="clear-both"></div>
+        <basis core="list" datamembername="db.amitis-peyment">
+            <layout>
+                <section class="my-12">
+                    <ul class="flex justify-between items-center my-6 max-w-7xl mx-auto gap-x-8 ">
+                        @child
+
+                    </ul>
+                </section>
+            </layout>
+            <face>
+                <li class="w-1/3 flex justify-start gap-x-4 items-center ">
+                    <figure><img src="[##cms.cms.cdn##]/images/@RowNumber-peyment-am.png" width="104" height="104"
+                            alt="@text"></figure>
+                    <div>
+                        <h2 class="font-yekanbakhsemiboldFA text-xl text-shadeneutral-100 ">@text
+                        </h2>
+                        <div class="font-yekanbakhregularFA text-sm leading-6 text-txtneutral-500">
+
+                            @largetext
+                        </div>
+                    </div>
+                </li>
+            </face>
+        </basis>
+
+    </main>
+    <basis core="call" file="footer.inc"></basis>
+</body>
+
+</html>

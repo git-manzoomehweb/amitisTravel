@@ -1,0 +1,669 @@
+
+[
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1434401",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1434401'>Hotel Royal Georgia</a>",
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "28950000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "37370000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "28950000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1434368",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1434368'>grand palace hotel</a>",
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "32850000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "40560000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "32850000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1442371",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1442371'>The Rumi Hotel Batumi</a>",
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "36890000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "49060000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "36890000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "2348574",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=2348574'>Wyn Residences Batumi</a>",
+                            "star": "4",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "38500000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "55440000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "38500000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "2356768",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=2356768'>Steps Batumi Hotel And Suites</a>",
+                            "star": "5",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "43500000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "64530000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "43500000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1250981",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1250981'>Euphoria Batumi Hotel</a>",
+                            "star": "5",
+                            "service": {
+                                "vid": "1656",
+                                "service": "H.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "49360000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "75180000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "49360000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1373733",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1373733'>The Grand Gloria Hotel</a>",
+                            "star": "5",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "51210000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "75180000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "51360000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": "-"
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1101131",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1101131'>Sheraton Batumi Hotel</a>",
+                            "star": "5",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "78440000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "120450000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "78790000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    },
+    {
+        "hotelinfo": [
+            {
+                "hotels": [
+                    {
+                        "hotel": {
+                            "hotelid": "1134582",
+                            "hotelname": "<a class='showhotel' href='\\Tem1_Hotel.bc?id=1134582'>Radisson Blu Hotel Batumi</a>",
+                            "star": "5",
+                            "service": {
+                                "vid": "1655",
+                                "service": "B.B"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "priceinfo": {
+            "doublecost": [
+                {
+                    "doublecost": {
+                        "doublecostf": "80960000",
+                        "doubleunit": "تومان"
+                    }
+                }
+            ],
+            "singlecost": [
+                {
+                    "singlecost": {
+                        "singlecostf": "123410000",
+                        "singleunit": "تومان"
+                    }
+                }
+            ],
+            "triplecost": [
+                {
+                    "triplecost": {
+                        "triplecostf": "",
+                        "tripleunit": ""
+                    }
+                }
+            ],
+            "childwithbed": [
+                {
+                    "childwithbed": {
+                        "childwithbedf": "60340000",
+                        "childwithbedunit": "تومان"
+                    }
+                }
+            ],
+            "childwithoutbed": [
+                {
+                    "childwithoutbed": {
+                        "childwithoutbedf": "19500000",
+                        "childwithoutbedunit": "تومان"
+                    }
+                }
+            ]
+        },
+        "location": [
+            {
+                "locationf": ""
+            }
+        ],
+        "description": [
+            {
+                "descriptionf": ""
+            }
+        ],
+        "order": 1000,
+        "booking": "",
+        "basiscoreid": ""
+    }
+]

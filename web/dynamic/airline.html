@@ -1,0 +1,37 @@
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member name="navigation" type="tree" request="navigationcat" />
+    <member name="article-view" type="view" />
+    <member request="json-ld" type="scalar" name="json" />
+</basis>
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="article">
+    <member type="list" name="bannerimage" format="4" order="ord" postsql="SELECT * FROM [db.bannerimage] LIMIT 1"></member>
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <title>[##cms.seo.title|(آمیتیس بال پارس)##]</title>
+    <meta name="description" content="[##cms.seo.description|(آمیتیس بال پارس)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
+    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
+    <link rel="preload" as="image" imageSrcSet="[##cms.cms.cdn##]/[##db.bannerimage.largeIMG##]" fetchpriority="high" />
+    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="style.inc" />
+</head>
+<body class="font-yekanbakhregularFA bg-white">
+    <basis core="call" file="header.inc" ></basis>
+    <main class="w-full relative bg-list-pattern-v2 bg-no-repeat bg-top bg-cover">  
+    <section class="max-w-7xl mx-auto w-full "><figure class="w-full h-[560px] border-b-[16px] border-b-neutralcolor-600 rounded-b-[263.5px] overflow-hidden"><img class="w-full h-full object-cover" src="[##cms.cms.cdn##]/[##db.bannerimage.largeIMG##]" width="1280" height="544" alt="[##db.bannerimage.name##]"><basis core="list" datamembername="db.article-view"><layout><figcaption>@child </figcaption></layout><face filter="TypeID in(150)"><h1 class="sr-only">@text </h1></face></basis></figure></section>
+    <div class="max-w-7xl mx-auto w-[95%] my-6"><ul class="breadcrumbs-list flex h-[56px] items-end gap-x-3 justify-start font-yekanbakhregularFA text-base leading-[56px] " itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/" aria-label="home"><svg class="inline-block ml-2" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.9541 22.75H6.37406C3.63406 22.75 1.41406 20.52 1.41406 17.78V10.37C1.41406 9.00997 2.25406 7.29997 3.33406 6.45997L8.72406 2.25997C10.3441 0.999974 12.9341 0.939974 14.6141 2.11997L20.7941 6.44997C21.9841 7.27997 22.9141 9.05997 22.9141 10.51V17.79C22.9141 20.52 20.6941 22.75 17.9541 22.75ZM9.64406 3.43997L4.25406 7.63997C3.54406 8.19997 2.91406 9.46997 2.91406 10.37V17.78C2.91406 19.69 4.46406 21.25 6.37406 21.25H17.9541C19.8641 21.25 21.4141 19.7 21.4141 17.79V10.51C21.4141 9.54997 20.7241 8.21997 19.9341 7.67997L13.7541 3.34997C12.6141 2.54997 10.7341 2.58997 9.64406 3.43997Z" fill="#667085" /><path d="M12.1641 18.75C11.7541 18.75 11.4141 18.41 11.4141 18V15C11.4141 14.59 11.7541 14.25 12.1641 14.25C12.5741 14.25 12.9141 14.59 12.9141 15V18C12.9141 18.41 12.5741 18.75 12.1641 18.75Z" fill="#667085" /></svg><span itemprop="name" class="text-txtneutral-500">صفحه اصلی</span><meta itemprop="position" content="1"></a></li><basis core="print" datamembername="db.navigation"><face filter="RowNumber=max(RowNumber) and parentcatid<>110383"><li class="text-secondary" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><svg class="inline-block mx-2" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#667085" stroke-width="2" stroke-linecap="round" /></svg><span itemprop="name">@title</span><meta itemprop="position" content="@rownumber" /></li></face><face filter="link is null and parentcatid<>110383"><li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/tour-list.bc?catid=@parentcatid" aria-label="@title"><svg class="inline-block mx-2" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#667085" stroke-width="2" stroke-linecap="round" /></svg><span itemprop="name " class="text-txtneutral-500">@title</span><meta itemprop="position" content="@rownumber" /></a></li></face><face filter="parentcatid<>110383"><li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="@link" aria-label="@title"><svg class="inline-block mx-2" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.75L2.25 7L7.5 12.25" stroke="#667085" stroke-width="2" stroke-linecap="round" /></svg><span itemprop="name" class="text-txtneutral-500">@title</span><meta itemprop="position" content="@rownumber" /></a></li></face></basis></ul></div>
+        <basis core="list" datamembername="db.article-view">
+            <layout><section class="max-w-7xl mx-auto w-[95%] pt-6 ">@child </section></layout>
+            <face filter="TypeID in(150)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle " >@text</h2><hr class="w-2/3 my-3"></face>
+            <face filter="TypeID in(129)"><div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">@largetext </div></face>
+            <face filter="TypeID in(250)"><h2 class="bg-neutralcolor-100 text-primary-900 rounded-[4px] w-full font-yekanbakhsemiboldFA text-2xl leading-10 p-2 h-[56px] before:content-[''] before:w-6 before:h-6 before:rounded-full before:bg-primary-900 before:inline-block before:ml-3 before:align-middle " >@text</h2><hr class="w-2/3 my-3"><div class="bg-white rounded-2xl py-8 px-6 text-justify font-yekanbakhregularFA text-lg leading-10 text-txtneutral-900 my-6">@largetext </div></face>
+        </basis>
+    </main>
+    <basis core="call" file="footer.inc" ></basis>
+    <script  type="application/ld+json">[##db.json.Column1##]</script>
+</body>
+</html>
