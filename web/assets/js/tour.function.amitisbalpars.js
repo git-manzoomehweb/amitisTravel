@@ -899,10 +899,10 @@ const renderHotels = async (element, type) => {
 
             // تنظیم order برای تصاویر
             const imageOrder = index === 0 ? "order-2" : "order-1";  // تصویر اول بالاتر از بقیه
-
+            console.log("Hotel label:", hotel?.label);
             imageSection += `
 
-                                        ${hotel?.label
+                                        ${hotel?.label&& hotel.label !== "Guarantee Room"
       ? `<img class="absolute top-2 -right-5 z-10 "
                src="./images/label-special-price.png"
                width="183" height="56" alt="installment" />`

@@ -8018,7 +8018,10 @@ article.drop-shadow-xl.w-1\/4.overflow-hidden.bg-neutralcolor-50:hover
 .plan-item.border-primary{
   border: 1px solid var(--primary) !important;
 }
+.grid-rows-\[120px_120px_120px_120px\] div.overflow-hidden.col-start-3.col-end-3.row-start-3.row-end-5.rounded-lg img{
+  height: 100% !important;
 
+}
 
 /* added jami */
 .max-h-\[800px\] {
