@@ -86,11 +86,11 @@
                                     <span
                                         class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح
                                         تا
-                                        سقف 70 میلون تومان با چک صیادی</span>
+                                        سقف 75 میلون تومان با چک صیادی</span>
                                 </div>
 
                                 <div class="h-16 plan-container cursor-pointer relative mt-[14px]"
-                                    onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 70 , 12 , 0.2)">
+                                    onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 75 , 12 , 0.1232)">
                                     <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
                                         class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected>
                                     <label
@@ -279,9 +279,9 @@
 
 
                             <div class="relative mt-6 flex justify-between gap-x-3 items-center">
-                                <span class="text-txtneutral-500 top-7 font-yekanbakhregularFA text-base w-48">70
+                                <span class="text-txtneutral-500 top-7 font-yekanbakhregularFA text-base w-48">75
                                     میلیون تومان </span>
-                                <input oninput="updateLoanFromRange(this.value)" type="range" min="10" max="70"
+                                <input oninput="updateLoanFromRange(this.value)" type="range" min="10" max="75"
                                     value="10" class="slider w-8/12" id="myRange">
 
 
@@ -299,13 +299,13 @@
                                 <div id="month-list" class="swiper planitems w-[90%] mx-auto">
                                     <div class="swiper-wrapper !h-14">
                                         <div class="swiper-slide !w-32">
-                                            <div month="12" rate="0.2" onclick="calculateMonth(12 , 0.2 , this)"
+                                            <div month="12" rate="0.1232" onclick="calculateMonth(12 , 0.1232 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg border border-primary w-full text-primary text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 12ماهه
                                             </div>
                                         </div>
                                         <div class="swiper-slide !w-32">
-                                            <div onclick="calculateMonth(18 , 0.3 , this)"
+                                            <div month="18" rate="0.1232" onclick="calculateMonth(18 , 0.1232 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg border bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 18ماهه
                                             </div>
@@ -889,6 +889,9 @@
             if (amountEachEl) amountEachEl.textContent = parseInt(installmentAmountLocal).toLocaleString();
         }
 
+
+
+
         updateRangeBackground();
         calculateInstallments();
 
@@ -923,7 +926,7 @@
             if (sayyadiInput) {
                 sayyadiInput.addEventListener('change', function () {
                     if (sayyadiInput.checked !== false) {
-                        setRangeMax(70);
+                        setRangeMax(75);
                     }
                 });
             }
@@ -938,11 +941,11 @@
 
             // پیش‌فرض: اگر هیچکدوم انتخاب نشده، 70 اعمال شود
             if (sayyadiInput && sayyadiInput.checked) {
-                setRangeMax(70);
+                setRangeMax(75);
             } else if (amitisInput && amitisInput.checked) {
                 setRangeMax(100);
             } else {
-                setRangeMax(70);
+                setRangeMax(75);
             }
         })();
 

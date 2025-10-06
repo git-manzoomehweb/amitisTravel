@@ -91,7 +91,7 @@
                                         </div>
 
                                         <div class="h-12 plan-container cursor-pointer relative flex justify-center items-center gap-x-1"
-                                            onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 70 , 12 , 0.2)">
+                                            onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 75 , 12 , 0.22)">
                                             <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
                                                 class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected />
                                             <label
@@ -317,40 +317,15 @@
                                         <div id="month-list" class="swiper planitems w-[70%] mx-auto">
                                             <div class="swiper-wrapper !h-10">
                                                 <div class="swiper-slide !w-[88px]">
-                                                    <div month="12" rate="0.2" onclick="calculateMonth(12 , 0.2 , this)"
+                                                    <div month="12" rate="0.2" onclick="calculateMonth(12 , 0.22 , this)"
                                                         class="sayyadiplan plan-item h-10 leading-10 rounded-lg border border-primary w-full text-primary text-center hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                         12ماهه
                                                     </div>
                                                 </div>
                                                 <div class="swiper-slide !w-[88px]">
-                                                    <div onclick="calculateMonth(18 , 0.3 , this)"
+                                                    <div onclick="calculateMonth(18 , 0.22 , this)"
                                                         class="sayyadiplan plan-item h-10 leading-10 rounded-lg border bg-neutralcolor-100 w-full text-neutralcolor-900 text-center hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                         18ماهه
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide !w-[88px]" style="display: none">
-                                                    <div month="4" rate="0.21" onclick="calculateMonth(4 , 0.21 , this)"
-                                                        class="amitisplan plan-item h-10 leading-10 rounded-lg borderbg-neutralcolor-100 w-full text-neutralcolor-900 text-center hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        4ماهه
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide !w-[88px]" style="display: none">
-                                                    <div month="6" rate="0.21" onclick="calculateMonth(6 , 0.21 , this)"
-                                                        class="amitisplan plan-item h-10 leading-10 rounded-lg borderbg-neutralcolor-100 w-full text-neutralcolor-900 text-center hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        6ماهه
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide !w-[88px]" style="display: none">
-                                                    <div month="8" rate="0.21" onclick="calculateMonth(8 , 0.21 , this)"
-                                                        class="amitisplan plan-item h-10 leading-10 rounded-lg borderbg-neutralcolor-100 w-full text-neutralcolor-900 text-center hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        8ماهه
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide !w-[88px]" style="display: none">
-                                                    <div month="10" rate="0.27"
-                                                        onclick="calculateMonth(10 , 0.27 , this)"
-                                                        class="amitisplan plan-item h-10 leading-10 rounded-lg border bg-neutralcolor-100 w-full text-neutralcolor-900 text-center hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        10ماهه
                                                     </div>
                                                 </div>
                                             </div>
@@ -715,7 +690,7 @@
         let planselected = "check-sayyadi";
         var loanAmount = 10; // مقدار بر حسب میلیون
         var loanMonths = 12;
-        var interestRate = 0.2;
+        var interestRate = 0.22;
         var totalprice = 0;
 
         var adultCountF = 2;
