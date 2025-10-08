@@ -340,7 +340,8 @@
                                     <use href="./images/sprite-icons.svg#flight-tour-detail-icon"></use>
                                 </svg>
                                 <h2 class="font-yekanbakhsemiboldFA text-base text-txtneutral-900 ">
-                                    <span class="origins__city"></span>(شروع تور/ مسیر رفت) </h2>
+                                    <span class="origins__city"></span>(شروع تور/ مسیر رفت)
+                                </h2>
                             </div>
                             <div
                                 class="font-yekanbakhregularFA text-sm text-txtneutral-900 bg-neutralcolor-300 h-8 flex items-center px-4 rounded-l-md drop-shadow-sm z-10 -mr-2 ">
@@ -420,7 +421,8 @@
                                     <use href="./images/sprite-icons.svg#flight-tour-detail-icon"></use>
                                 </svg>
                                 <h2 class="font-yekanbakhsemiboldFA text-base text-txtneutral-900 ">
-                                    <span class="destinations__city"></span>(پایان تور/ مسیر برگشت) </h2>
+                                    <span class="destinations__city"></span>(پایان تور/ مسیر برگشت)
+                                </h2>
                             </div>
                             <div
                                 class="font-yekanbakhregularFA text-sm text-txtneutral-900 bg-neutralcolor-300 h-8 flex items-center px-4 rounded-l-md drop-shadow-sm z-10 -mr-2 ">
@@ -547,27 +549,39 @@
                                 </svg></a></li>
                     </ul>
                 </div>
-                <basis core="print" datamembername="db.pdf"><else-layout><a
-                            href="/Tem1_Pdf_Package.bc?id=[##cms.query.id##]" target="_blank">
-                            <div
-                                class="group/packagedownload w-[302px] h-[56px] relative z-50 transition-all duration-500 my-2 hover:w-[302px] hover:h-fit ">
+                <basis core="print" datamembername="db.pdf">
+                    <else-layout>
+                        <form method="POST" target="_blank" action="/tours/package/pdf?id=[##cms.query.id##]"
+                            class="tour-pdf-form w-full">
+                            <input type="hidden" class="hidden" name="id" value="[##cms.query.id##]">
+                            <input type="hidden" class="hidden" name="from" id="form-from">
+                            <input type="hidden" class="hidden" name="to" id="form-to">
+                            <input type="hidden" class="hidden" name="day" id="form-day">
+                            <input type="hidden" class="hidden" name="fdate" id="fdate">
+                            <input type="hidden" class="hidden" name="rdate" id="rdate"> 
+                            <button type="submit">
                                 <div
-                                    class="w-[302px] h-[56px] rounded-[28px] bg-primary drop-shadow-xl p-1 cursor-pointer transition-all duration-500 border border-primary z-20 group-hover/packagedownload:w-[302px] group-hover/packagedownload:bg-white ">
+                                    class="group/packagedownload w-[302px] h-[56px] relative z-50 transition-all duration-500 my-2 hover:w-[302px] hover:h-fit ">
                                     <div
-                                        class="bg-activation-sharebtn bg-white w-12 h-12 rounded-full absolute top-0 bottom-0 left-0 my-auto mx-1 -z-10 group-hover/packagedownload:bg-primary ">
-                                    </div>
-                                    <div class="flex justify-between items-center"><span
-                                            class="text-white w-[calc(100%-48px)] text-center block text-base font-yekanbakhregularFA group-hover/packagedownload:text-primary ">دانلود
-                                            پکیج </span>
-                                        <div class="w-12 h-12 flex justify-center items-center"><svg width="24"
-                                                height="24"
-                                                class=" group-hover/packagedownload:fill-white group-hover/packagedownload:stroke-white">
-                                                <use href="./images/sprite-icons.svg#packagedownload"></use>
-                                            </svg></div>
+                                        class="w-[302px] h-[56px] rounded-[28px] bg-primary drop-shadow-xl p-1 cursor-pointer transition-all duration-500 border border-primary z-20 group-hover/packagedownload:w-[302px] group-hover/packagedownload:bg-white ">
+                                        <div
+                                            class="bg-activation-sharebtn bg-white w-12 h-12 rounded-full absolute top-0 bottom-0 left-0 my-auto mx-1 -z-10 group-hover/packagedownload:bg-primary ">
+                                        </div>
+                                        <div class="flex justify-between items-center"><span
+                                                class="text-white w-[calc(100%-48px)] text-center block text-base font-yekanbakhregularFA group-hover/packagedownload:text-primary ">دانلود
+                                                پکیج </span>
+                                            <div class="w-12 h-12 flex justify-center items-center"><svg width="24"
+                                                    height="24"
+                                                    class=" group-hover/packagedownload:fill-white group-hover/packagedownload:stroke-white">
+                                                    <use href="./images/sprite-icons.svg#packagedownload"></use>
+                                                </svg></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a></else-layout>
+                            </button>
+                        </form>
+
+                    </else-layout>
                     <layout>@child </layout>
                     <face><a href="/@largeIMG" target="_blank">
                             <div
