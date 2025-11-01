@@ -1152,3 +1152,17 @@ input[type=range]::-moz-range-thumb {
     cursor: pointer
 }
  /* installment */
+
+
+ /* globals.css */
+.blur-overlay {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Fallback برای مرورگرهایی که پشتیبانی ندارند */
+@supports not (backdrop-filter: blur(6px)) {
+  .blur-overlay {
+    background-color: rgba(0,0,0,.35); /* حداقل تیرگی به‌جای blur */
+  }
+}
