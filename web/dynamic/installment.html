@@ -77,28 +77,29 @@
                     </div>
                     <ul class=" columns-2">
                         <li class="group bg-white rounded-xl hover:bg-primary-200">
-                            <div>
+                            <a class="block" href="https://azkivam.com/shop/amitistravel/">
                                 <div>
                                     <span
-                                        class="text-primary-950 text-2xl  block leading-10 text-center font-yekanbakhsemiboldFA pt-3">طرح
-                                        اقساط با چک صیادی</span>
+                                        class="text-primary-950 text-2xl  block leading-10 text-center font-yekanbakhsemiboldFA pt-3">
+                                        وام سفر</span>
                                     <hr class="border-primary-950 w-8/12 mx-auto my-2">
                                     <span
                                         class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA leading-10 text-center block">طرح
                                         تا
-                                        سقف 100 میلون تومان با چک صیادی</span>
+                                        سقف 75 میلون تومان با چک صیادی</span>
                                 </div>
 
                                 <div class="h-16 plan-container cursor-pointer relative mt-[14px]"
-                                    onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' , 100 , 4 , 0.2)">
-                                    <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
-                                        class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected>
+                                   >
+                                    <!-- <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
+                                        class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" > -->
                                     <label
                                         class="absolute left-0 right-0 top-0 bottom-0 w-full bg-neutralcolor-700 text-txtneutral-500 text-2xl h-16 leading-[64px] rounded-lg block font-yekanbakhsemiboldFA text-center group-hover:text-white group-hover:bg-primary-700"
                                         for="check-sayyadi">انتخاب</label>
                                 </div>
-                            </div>
+                            </a>
                         </li>
+
                         <li class="group bg-white rounded-xl hover:bg-primary-200">
                             <div>
                                 <div>
@@ -113,9 +114,9 @@
                                 </div>
 
                                 <div class="h-16 plan-container cursor-pointer relative mt-[14px]"
-                                    onclick="selectPlanInstallment(this ,'amitis' , 'amitisplan' , 130 , 12 , 0.21)">
+                                    onclick="selectPlanInstallment(this ,'amitis' , 'amitisplan' , 130 , 4 , 0.21)">
                                     <input type="radio" id="amitis" name="plan" value="amitis"
-                                        class="plan-radio w-0 h-0 inline  m-0 p-0 appearance-none">
+                                        class="plan-radio w-0 h-0 inline  m-0 p-0 appearance-none" selected>
                                     <label
                                         class="absolute left-0 right-0 top-0 bottom-0 w-full bg-neutralcolor-700 text-txtneutral-500 text-2xl h-16 leading-[64px] rounded-lg block font-yekanbakhsemiboldFA text-center group-hover:text-white group-hover:bg-primary-700"
                                         for="amitis">انتخاب</label>
@@ -241,7 +242,8 @@
 
 
             <div class="my-4 relative">
-                <img src="[##cms.cms.cdn##]/images/installment-patterns.png" alt="installment-patern" class="installment-patern absolute">
+                <img src="[##cms.cms.cdn##]/images/installment-patterns.png" alt="installment-patern"
+                    class="installment-patern absolute">
                 <span class="text-white text-lg font-yekanbakhsemiboldFA text-center block ">
                     محاسبه گر اقساط
                 </span>
@@ -297,42 +299,56 @@
 
                                 <div id="month-list" class="swiper planitems w-[90%] mx-auto">
                                     <div class="swiper-wrapper !h-14">
-                                        <div class="swiper-slide !w-32">
-                                            <div month="4" rate="0.2" onclick="calculateMonth(4 , 0.2 , this)"
+                                        <!-- <div class="swiper-slide !w-32">
+                                            <div month="12" rate="0.1232" onclick="calculateMonth(12 , 0.1232 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg border border-primary w-full text-primary text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                4ماهه
+                                                12ماهه
                                             </div>
                                         </div>
                                         <div class="swiper-slide !w-32">
-                                            <div onclick="calculateMonth(6 , 0.3 , this)"
+                                            <div month="18" rate="0.1232" onclick="calculateMonth(18 , 0.1232 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg border bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                6ماهه
+                                                18ماهه
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide !w-32">
+                                        </div> -->
+                                        <!-- <div class="swiper-slide !w-32">
                                             <div onclick="calculateMonth(8 , 0.4 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg border bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 8ماهه
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide !w-32">
+                                        </div> -->
+                                        <!-- <div class="swiper-slide !w-32">
                                             <div onclick="calculateMonth(10 , 0.5 , this)"
                                                 class="sayyadiplan plan-item h-[56px] leading-[56px]  rounded-lg border bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                 10ماهه
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide !w-32" style="display: none;">
-                                            <div month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)"
+                                        </div> -->
+                                        <div class="swiper-slide !w-32">
+                                            <div month="4" rate="0.21" onclick="calculateMonth(4 , 0.21 , this)"
                                                 class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                12ماهه
+                                                4ماهه
                                             </div>
                                         </div>
-                                        <div class="swiper-slide !w-32" style="display: none;">
-                                            <div month="18" rate="0.27" onclick="calculateMonth(18 , 0.27 , this)"
+                                        <div class="swiper-slide !w-32">
+                                            <div month="6" rate="0.21" onclick="calculateMonth(6 , 0.21 , this)"
                                                 class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                18ماهه
+                                                6ماهه
                                             </div>
                                         </div>
+                                        <div class="swiper-slide !w-32">
+                                            <div month="8" rate="0.21" onclick="calculateMonth(8 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                8ماهه
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide !w-32">
+                                            <div month="10" rate="0.21" onclick="calculateMonth(10 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                10ماهه
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
 
@@ -699,6 +715,7 @@
     <!-- footer end-->
 
     <script>
+        // ---- init swiper (بدون تغییر) ----
         var planswiper = new Swiper(".planitems", {
             slidesPerView: 'auto',
             spaceBetween: 10,
@@ -708,57 +725,81 @@
             },
         });
 
-        function calculateMonth(month, rate, element) {
-            // حذف کلاس active از همه آیتم‌ها
-            document.querySelectorAll('.plan-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // اضافه کردن کلاس active به آیتم انتخاب شده
-            element.classList.add('active');
-        }
-
-
-        // TOUR INSTALLMENT
-        let planselected = 'check-sayyadi';
+        // ---- متغیرها ----
+        let planselected = 'amitis';
 
         var limitrange = 100;
         var rangeInput = document.getElementById('myRange');
         var amountInput = document.getElementById('amount');
-        rangeInput.addEventListener('input', updateRangeBackground);
+        if (rangeInput) rangeInput.addEventListener('input', updateRangeBackground);
+
         var loanAmount = 10;
         var loanMonths = 4;
-        var interestRate = 0.2;
+        var interestRate = 0.21;
         var totalprice = 0;
-
 
         var adultCountF = 2;
         var childbedCountF = 0;
         var childwobedCountF = 0;
         var infantCountF = 0;
 
+        // ---- تابع کمکی: تغییر max و اسپن ----
+        function setRangeMax(newMax) {
+            limitrange = Number(newMax);
+            if (rangeInput) {
+                rangeInput.max = limitrange;
 
+                if (Number(loanAmount) > limitrange) {
+                    loanAmount = limitrange;
+                    rangeInput.value = loanAmount;
+                    if (amountInput) amountInput.value = (loanAmount * 1000000).toLocaleString();
+                }
 
+                var leftSpan = rangeInput.parentElement ? rangeInput.parentElement.querySelectorAll('.text-txtneutral-500')[0] : null;
+                if (leftSpan) {
+                    leftSpan.textContent = `${limitrange} میلیون تومان`;
+                }
+
+                updateRangeBackground();
+                calculateInstallments();
+            }
+        }
+
+        // ---- آپدیت بک‌گراند و اسپن سمت راست ----
+        function updateRangeBackground() {
+            if (!rangeInput) return;
+            const value = Number(rangeInput.value);
+            const min = Number(rangeInput.min || 0);
+            const max = Number(rangeInput.max || limitrange || 100);
+            const percentage = max === min ? 0 : ((value - min) / (max - min)) * 100;
+            rangeInput.style.background = `linear-gradient(to right, #005FF0 ${percentage}%, #F3F3F3 ${percentage}%)`;
+
+            if (amountInput) amountInput.value = ((value) * 1000000).toLocaleString();
+
+            var rightSpan = document.getElementById('limit-range');
+            if (rightSpan) rightSpan.textContent = value;
+        }
+
+        // ---- توابع باقی مانده ----
         function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
             planselected = plan;
             loanMonths = lm;
             interestRate = ir;
 
-            // تغییر رنگ دکمه انتخاب شده
             document.querySelectorAll(".plan-container label").forEach(label => {
                 label.classList.remove("border-primary", "text-primary");
                 label.classList.add("bg-neutralcolor-700", "text-txtneutral-500");
             });
 
-            el.querySelector("label").classList.add("border-primary", "text-primary");
-            el.querySelector("label").classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
+            if (el && el.querySelector) {
+                el.querySelector("label")?.classList.add("border-primary", "text-primary");
+                el.querySelector("label")?.classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
+            }
 
-            // مخفی کردن همه swiper-slide ها
             document.querySelectorAll(".swiper-slide").forEach(slide => {
                 slide.style.display = "none";
             });
 
-            // نمایش آیتم‌های مربوط به پلن انتخاب‌شده
             document.querySelectorAll(`.${monthplan}`).forEach(item => {
                 let slide = item.closest(".swiper-slide");
                 if (slide) {
@@ -766,42 +807,26 @@
                 }
             });
 
-            // آپدیت Swiper.js برای اعمال تغییرات
             setTimeout(() => {
                 planswiper.update();
             }, 100);
         }
 
-
-
-
-
-
-        function updateRangeBackground() {
-            const value = rangeInput.value;
-            const min = rangeInput.min;
-            const max = rangeInput.max;
-            const percentage = ((value - min) / (max - min)) * 100;
-            rangeInput.style.background = `linear-gradient(to right, #005FF0 ${percentage}%, #F3F3F3 ${percentage}%)`;
-            amountInput.value = ((value) * 1000000).toLocaleString();
-        }
-
         function updateLoanAmount(amount) {
             loanAmount = amount;
-            document.getElementById('myRange').value = amount;
+            if (document.getElementById('myRange')) document.getElementById('myRange').value = amount;
             updateRangeBackground();
             calculateInstallments();
         }
 
         function updateLoanFromRange(amount) {
             loanAmount = amount;
-            document.getElementById('amount').value = amount;
+            if (document.getElementById('amount')) document.getElementById('amount').value = amount;
             updateRangeBackground();
             calculateInstallments();
         }
 
-        function increase(element) {
-
+        function increase() {
             loanAmount = Math.min(parseInt(loanAmount) + 1, limitrange);
             document.getElementById('amount').value = loanAmount;
             document.getElementById('myRange').value = loanAmount;
@@ -818,33 +843,31 @@
         }
 
         function calculateMonth(months, interestrate, element) {
-
             const allTabs = document.querySelectorAll('#month-list .swiper-slide > div ');
             allTabs.forEach(function (tab) {
                 tab.classList.remove('border-primary');
                 tab.classList.add('bg-neutralcolor-100');
-
                 tab.classList.add('text-neutralcolor-900');
                 tab.classList.remove('text-primary');
             });
 
-            element.classList.remove('text-neutralcolor-900');
-            element.classList.add('text-primary');
-
-            element.classList.remove('bg-neutralcolor-100');
-            element.classList.add('border-primary');
+            if (element) {
+                element.classList.remove('text-neutralcolor-900');
+                element.classList.add('text-primary');
+                element.classList.remove('bg-neutralcolor-100');
+                element.classList.add('border-primary');
+            }
 
             loanMonths = months;
             interestRate = interestrate;
             calculateInstallments();
         }
 
-
         function calculateInstallments() {
-            adultCountF = document.getElementById("adult-installment").value;
-            childbedCountF = document.getElementById("child-bed-installment").value;
-            childwobedCountF = document.getElementById("child-installment").value;
-            infantCountF = document.getElementById("infant-installment").value;
+            adultCountF = document.getElementById("adult-installment") ? document.getElementById("adult-installment").value : adultCountF;
+            childbedCountF = document.getElementById("child-bed-installment") ? document.getElementById("child-bed-installment").value : childbedCountF;
+            childwobedCountF = document.getElementById("child-installment") ? document.getElementById("child-installment").value : childwobedCountF;
+            infantCountF = document.getElementById("infant-installment") ? document.getElementById("infant-installment").value : infantCountF;
 
             const totalAmount = loanAmount * 1000000;
             const totalAdvancePayment = 0;
@@ -853,32 +876,34 @@
             const totalAmountafterFacilitiesMinus = (totalAmount + (totalAmount * interestRate));
             const installmentAmountLocal = totalAmountafterFacilitiesMinus / loanMonths;
 
-            // برای دسترسی در دیگر توابع
             window.totalprice = totalAmountWithFacilities;
             window.installmentAmount = installmentAmountLocal;
 
-            document.querySelector('.total-amount').textContent = totalAmount.toLocaleString();
-            document.querySelector('.Total-amount-facilities').textContent = totalAmountWithFacilities.toLocaleString();
-            document.querySelector('.Total-advance-payment').textContent = totalAdvancePayment.toLocaleString();
-            document.querySelector('.amount-each-installment').textContent = parseInt(installmentAmountLocal).toLocaleString();
+            var totalAmountEl = document.querySelector('.total-amount');
+            var totalFacilitiesEl = document.querySelector('.Total-amount-facilities');
+            var totalAdvanceEl = document.querySelector('.Total-advance-payment');
+            var amountEachEl = document.querySelector('.amount-each-installment');
+
+            if (totalAmountEl) totalAmountEl.textContent = totalAmount.toLocaleString();
+            if (totalFacilitiesEl) totalFacilitiesEl.textContent = totalAmountWithFacilities.toLocaleString();
+            if (totalAdvanceEl) totalAdvanceEl.textContent = totalAdvancePayment.toLocaleString();
+            if (amountEachEl) amountEachEl.textContent = parseInt(installmentAmountLocal).toLocaleString();
         }
+
+
 
 
         updateRangeBackground();
         calculateInstallments();
 
-
         function closeModalContainerForm(event) {
-            // بررسی اینکه آیا کلیک روی پس‌زمینه مودال انجام شده است یا خیر
             if (event.target === event.currentTarget) {
                 event.currentTarget.classList.add('hidden');
             }
         }
 
-
         async function openSignupInstallmentForm() {
-            document.getElementById('modal-signup-background').classList.remove("hidden")
-
+            document.getElementById('modal-signup-background').classList.remove("hidden");
 
             $bc.setSource("db.installmentsignup", {
                 plan: planselected,
@@ -894,16 +919,42 @@
             });
         }
 
+        // ---- کنترل انتخاب پلن ----
+        (function attachPlanInputs() {
+            var sayyadiInput = document.getElementById('check-sayyadi');
+            var amitisInput = document.getElementById('amitis');
 
+            if (sayyadiInput) {
+                sayyadiInput.addEventListener('change', function () {
+                    if (sayyadiInput.checked !== false) {
+                        setRangeMax(75);
+                    }
+                });
+            }
 
+            if (amitisInput) {
+                amitisInput.addEventListener('change', function () {
+                    if (amitisInput.checked !== false) {
+                        setRangeMax(100);
+                    }
+                });
+            }
 
-
-
-
-
-
+            // پیش‌فرض: اگر هیچکدوم انتخاب نشده، 70 اعمال شود
+            if (sayyadiInput && sayyadiInput.checked) {
+                setRangeMax(75);
+            } else if (amitisInput && amitisInput.checked) {
+                setRangeMax(100);
+            } 
+            
+            else {
+                setRangeMax(100);
+            }
+        })();
 
     </script>
+
+
 
 </body>
 

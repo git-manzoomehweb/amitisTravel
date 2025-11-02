@@ -33,7 +33,7 @@
                         <div class="  w-full py-3 mt-3">
                             <ul class="flex flex-col gap-y-2 ">
                                 <li class="bg-neutralcolor-50 rounded-xl">
-                                    <div >
+                                    <a href="https://azkivam.com/shop/amitistravel/"  class="block">
                                         <div>
                                             <span class="text-primary-900 text-sm  block leading-10 text-center font-yekanbakhsemiboldFA">طرح
                                                 اقساط با ازکی وام</span>
@@ -42,10 +42,9 @@
                                                 سقف 75 میلون تومان با ازکی وام</span>
                                         </div>
         
-                                        <div class="h-12 plan-container cursor-pointer relative flex justify-center items-center gap-x-1"
-                                            onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' ,  75 , 12 , 0.22)">
-                                            <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
-                                                class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected>
+                                        <div class="h-12 plan-container cursor-pointer relative flex justify-center items-center gap-x-1">
+                                            <!-- <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
+                                                class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" > -->
                                             <label
                                                 class="absolute left-0 right-0 top-0 flex justify-center bottom-0 w-full bg-neutralcolor-700 text-txtneutral-500 text-sm h-12 leading-[48px] rounded-lg font-yekanbakhsemiboldFA text-center flex justify-center items-center"
                                                 for="check-sayyadi">
@@ -58,7 +57,7 @@
 
                                                 انتخاب</label>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                                 <li class="bg-neutralcolor-50 rounded-xl">
                                     <div >
@@ -73,7 +72,7 @@
                                         <div class="h-12 plan-container cursor-pointer relative flex justify-center items-center gap-x-1"
                                             onclick="selectPlanInstallment(this ,'manisa' , 'manisaplan' , 100 , 12 , 0.21)">
                                             <input type="radio" id="manisa" name="plan" value="manisa"
-                                                class="plan-radio w-0 h-0 inline  m-0 p-0 appearance-none">
+                                                class="plan-radio w-0 h-0 inline  m-0 p-0 appearance-none" selected>
                                             <label
                                                 class="absolute left-0 right-0 top-0 flex justify-center bottom-0 w-full bg-neutralcolor-700 text-txtneutral-500 text-sm h-12 leading-[48px] rounded-lg font-yekanbakhsemiboldFA text-center flex justify-center items-center"
                                                 for="manisa">
@@ -254,29 +253,41 @@
         
                                         <div id="month-list" class="swiper planitems w-[70%] mx-auto">
                                             <div class="swiper-wrapper !h-10">
-                                                <div class="swiper-slide !w-[88px]" style="display: none;" >
+                                                <!-- <div class="swiper-slide !w-[88px]" >
                                                     <div month="12" rate="0.22" onclick="calculateMonth(12 , 0.22 , this)" 
                                                         class="sayyadiplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                         12ماهه
                                                 </div>
                                                 </div>
-                                                <div class="swiper-slide !w-[88px]" style="display: none;" >
+                                                <div class="swiper-slide !w-[88px]" >
                                                     <div month="18" rate="0.22" onclick="calculateMonth(18 , 0.22 , this)" 
                                                         class="sayyadiplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
                                                         18ماهه
                                                 </div>
-                                                </div>
+                                                </div> -->
 
-                                                <div class="swiper-slide !w-[88px]" style="display: none;" >
-                                                    <div month="12" rate="0.21" onclick="calculateMonth(12 , 0.21 , this)" 
+                                                <div class="swiper-slide !w-[88px]" >
+                                                    <div month="12" rate="0.21" onclick="calculateMonth(4 , 0.21 , this)" 
                                                         class="manisaplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        12ماهه
+                                                        4ماهه
                                                 </div>
                                                 </div>
-                                                <div class="swiper-slide !w-[88px]" style="display: none;" >
-                                                    <div month="18" rate="0.27" onclick="calculateMonth(18 , 0.27 , this)" 
+                                                <div class="swiper-slide !w-[88px]" >
+                                                    <div month="18" rate="0.27" onclick="calculateMonth(6 , 0.21 , this)" 
                                                         class="manisaplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
-                                                        18ماهه
+                                                        6ماهه
+                                                </div>
+                                                </div>
+                                                <div class="swiper-slide !w-[88px]" >
+                                                    <div month="12" rate="0.21" onclick="calculateMonth(8 , 0.21 , this)" 
+                                                        class="manisaplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                        8ماهه
+                                                </div>
+                                                </div>
+                                                <div class="swiper-slide !w-[88px]" >
+                                                    <div month="18" rate="0.27" onclick="calculateMonth(10 , 0.21 , this)" 
+                                                        class="manisaplan plan-item h-10 leading-10  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center  hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                        10ماهه
                                                 </div>
                                                 </div>
                                             </div>
@@ -392,7 +403,7 @@ var amountInput = document.getElementById('amount');
 rangeInput.addEventListener('input', updateRangeBackground);
 var loanAmount = 10;
 var loanMonths = 4;
-var interestRate = 0.2;
+var interestRate = 0.21;
 var totalprice = 0;
 
 
@@ -429,11 +440,11 @@ function selectPlanInstallment(el, plan, monthplan, limitinstallment, lm, ir) {
   }
 
   // --- نمایش فقط اسلایدهای ماهِ مربوط به پلن ---
-  document.querySelectorAll(".swiper-slide").forEach(slide => { slide.style.display = "none"; });
-  document.querySelectorAll(`.${monthplan}`).forEach(item => {
-    const slide = item.closest(".swiper-slide");
-    if (slide) slide.style.display = "block";
-  });
+//   document.querySelectorAll(".swiper-slide").forEach(slide => { slide.style.display = "none"; });
+//   document.querySelectorAll(`.${monthplan}`).forEach(item => {
+//     const slide = item.closest(".swiper-slide");
+//     if (slide) slide.style.display = "block";
+//   });
 
   // --- تنظیم سقف وام و هم‌راستا کردن ورودی‌ها ---
   limitrange = limitinstallment;                      // متغیر سراسری موجود

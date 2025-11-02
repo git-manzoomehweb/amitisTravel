@@ -36,7 +36,7 @@
                             </div>
                             <ul class=" columns-2">
                                 <li class=" bg-white rounded-xl">
-                                    <div>
+                                    <a class="block" href="https://azkivam.com/shop/amitistravel/" >
                                         <div>
                                             <span
                                                 class="text-primary-950 text-2xl  block leading-10 text-center font-yekanbakhsemiboldFA pt-3">طرح
@@ -48,15 +48,14 @@
                                                 سقف 75 میلون تومان با ازکی وام</span>
                                         </div>
 
-                                        <div class="h-16 plan-container cursor-pointer relative mt-[14px]"
-                                            onclick="selectPlanInstallment(this ,'check-sayyadi' , 'sayyadiplan' ,  75 , 12 , 0.22)">
-                                            <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
-                                                class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected>
+                                        <div class="h-16 plan-container cursor-pointer relative mt-[14px]" >
+                                            <!-- <input type="radio" id="check-sayyadi" name="plan" value="sayyadi"
+                                                class="plan-radio w-0 h-0 inline m-0 p-0 appearance-none" selected> -->
                                             <label
                                                 class="absolute left-0 right-0 top-0 bottom-0 w-full bg-neutralcolor-700 text-txtneutral-500 text-2xl h-16 leading-[64px] rounded-lg block font-yekanbakhsemiboldFA text-center"
                                                 for="check-sayyadi">انتخاب</label>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                                 <li class=" bg-white rounded-xl">
                                     <div>
@@ -263,7 +262,7 @@
                                         <div id="month-list" class="swiper planitems w-[90%] mx-auto">
                                             <div class="swiper-wrapper !h-14">
                                                 <!-- --- فقط همین دو آیتم برای sayyadiplan بماند --- -->
-                                                <div class="swiper-slide !w-52">
+                                                <!-- <div class="swiper-slide !w-52">
                                                     <div month="12" rate="0.22"
                                                         onclick="calculateMonth(12 , 0.22 , this)"
                                                         class="sayyadiplan plan-item h-[56px] leading-[56px] rounded-lg bg-primary w-full text-white text-center text-xs cursor-pointer">
@@ -276,23 +275,53 @@
                                                         class="sayyadiplan plan-item h-[56px] leading-[56px] rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center text-xs cursor-pointer">
                                                         18ماهه
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                                 <!-- --- این دو آیتم manisaplan مثل قبل بماند (نمایشش با انتخاب پلن کنترل می‌شود) --- -->
-                                                <div class="swiper-slide !w-52" style="display: none;">
+                                                <!-- <div class="swiper-slide !w-52" >
                                                     <div month="12" rate="0.21"
                                                         onclick="calculateMonth(12 , 0.21 , this)"
                                                         class="manisaplan plan-item h-[56px] leading-[56px] rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center text-xs cursor-pointer">
                                                         12ماهه
                                                     </div>
                                                 </div>
-                                                <div class="swiper-slide !w-52" style="display: none;">
+                                                <div class="swiper-slide !w-52" >
                                                     <div month="18" rate="0.27"
                                                         onclick="calculateMonth(18 , 0.27 , this)"
                                                         class="manisaplan plan-item h-[56px] leading-[56px] rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center text-xs cursor-pointer">
                                                         18ماهه
                                                     </div>
-                                                </div>
+                                                </div> -->
+
+
+
+                                                <div class="swiper-slide !w-32">
+                                            <div month="4" rate="0.21" onclick="calculateMonth(4 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                4ماهه
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide !w-32">
+                                            <div month="6" rate="0.21" onclick="calculateMonth(6 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                6ماهه
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide !w-32">
+                                            <div month="8" rate="0.21" onclick="calculateMonth(8 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                8ماهه
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide !w-32">
+                                            <div month="10" rate="0.21" onclick="calculateMonth(10 , 0.21 , this)"
+                                                class="amitisplan plan-item h-[56px] leading-[56px]  rounded-lg bg-neutralcolor-100 w-full text-neutralcolor-900 text-center leading-53px hover:bg-primary-400 hover:text-white text-xs cursor-pointer">
+                                                10ماهه
+                                            </div>
+                                        </div>
+
+
+
                                             </div>
                                         </div>
 
@@ -414,7 +443,7 @@
         rangeInput.addEventListener('input', updateRangeBackground);
         var loanAmount = 10;
         var loanMonths = 4;
-        var interestRate = 0.2;
+        var interestRate = 0.21;
         var totalprice = 0;
 
 
@@ -437,11 +466,11 @@
             el.querySelector("label").classList.remove("bg-neutralcolor-700", "text-txtneutral-500");
 
             // نمایش اسلایدهای مربوط به پلن
-            document.querySelectorAll(".swiper-slide").forEach(slide => { slide.style.display = "none"; });
-            document.querySelectorAll(`.${monthplan}`).forEach(item => {
-                let slide = item.closest(".swiper-slide");
-                if (slide) slide.style.display = "block";
-            });
+            // document.querySelectorAll(".swiper-slide").forEach(slide => { slide.style.display = "none"; });
+            // document.querySelectorAll(`.${monthplan}`).forEach(item => {
+            //     let slide = item.closest(".swiper-slide");
+            //     if (slide) slide.style.display = "block";
+            // });
 
             // ***** تغییرات جدید برای تنظیم سقف وام و لیبل‌ها *****
             // به‌روز کردن سقف اسلایدر
