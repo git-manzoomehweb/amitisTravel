@@ -1,3 +1,6 @@
+@import url(customized.ui.min.css);
+
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -9611,4 +9614,8 @@ input[type=range]::-moz-range-thumb {
   .\31 920\:h-\[550px\] {
     height: 550px;
   }
+}
+
+.flighttype-field li.active-r-btn span{
+  color: var(--primary) !important;
 }

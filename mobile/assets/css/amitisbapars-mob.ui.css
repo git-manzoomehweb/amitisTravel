@@ -6858,3 +6858,6 @@ input[type=range]::-moz-range-thumb {
     border-bottom-left-radius: 0.75rem;
   }
 }
+.tour-service-icon svg{
+transform: scale(0.5) !important;
+}
