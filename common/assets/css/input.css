@@ -40,6 +40,10 @@ body{
 .dir-ltr{direction: ltr;}
 :root {
 
+    --bookSpecial-1: #F8F8F8 !important;
+    --bookSpecial-2: #005FF0 !important;
+    --bookSpecial-3: #FFA200 !important;
+
     /* colors */
     /* primary*/
     --primary: #005FF0;
@@ -81,6 +85,13 @@ body{
         --secondary-400: #F9A940;
         /* orange 1 */
         --secondary-500: #F79009 ;
+
+    --secondary-50: #F9D185;
+    --secondary-600: #F78300;
+    --secondary-700: #F57D00;
+    --secondary-800: #F27500;
+    --secondary-900: #EC6D00;
+    --secondary-950: #E56600;
 
 
         
@@ -188,6 +199,17 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 @font-face{font-display:swap;font-family:'IRANYekanMobileBold-fa';font-style:normal;src:url('../fonts/IRANYekanMobileBold\(FaNum\).ttf') format('truetype')}
 @font-face{font-display:swap;font-family:'IRANYekanLightMobile-fa';font-style:normal;src:url('../fonts/IRANYekanLightMobile\(FaNum\).ttf') format('truetype')}
 
+
+
+.calendar-switch,
+.calendar-today,
+.calendar-footer input,
+.calendar-footer ::placeholder,
+.calendar-apply-date {
+  font-family: "Yekan_Bakh_Regular" !important;
+}
+
+
 .active-menu-item{color:var(--shade-100)!important;}
 .active-megamenu-tab span{transition:all;animation-duration:.5s;transform:scale(110%)!important;color:var(--shade-100)!important;transform-origin:center!important;display:inline-block}
 .active-megamenu-tab::after,.active-menu-item::after{display:block!important}
@@ -223,3 +245,20 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
   font-family: Iransansweb !important;
 }
     /* reservation */
+
+    .book-bg-primary-500 {
+  background-color: var(--primary) !important;
+}
+
+.book-active__module__type {
+  background-color: var(--primary) !important;
+
+}
+
+input::placeholder, textarea::placeholder , input , textarea , button {
+  font-family: "Yekan_Bakh_Regular_fa" !important;
+}
+
+.book-bg-primary-500.book-rounded-lg.book-px-2.book-text-center.book-cursor-pointer.hover\:book-bg-secondary-500 {
+  height: 44px !important;
+}
