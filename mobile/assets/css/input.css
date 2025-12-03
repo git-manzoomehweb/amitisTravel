@@ -525,13 +525,25 @@ label.float-right.w-full.cursor-pointer {
     border: 4px solid var(--neutral-700);
     display: inline-block;
 }
-
-.FlightClass{display: block !important;}
+body.page-home.overflow-hidden {
+    overflow: auto !important;
+}
+/* .FlightClass{display: block !important;} */
 .FlightClass label{display: block !important;}
+.flightclass-field > div.border-type-1.cursor-pointer.h-full.rounded-type-1.px-2{
+     border: 1px solid var(--neutral-800);
+    border-radius: 8px;
+}
 
-.flightclass-field > div.border-type-1.cursor-pointer.h-full.rounded-type-1.px-2{display: none;}
+.reserve-field.flightclass-field.flightclass-outof-passengerbox.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4{
+    height: 46px !important;
+    line-height: 46px !important;
+}
+/* .flightclass-field > div.border-type-1.cursor-pointer.h-full.rounded-type-1.px-2{display: none;} */
 
-
+.search-box-container .exchangeRoute.hover\:bg-primary:hover {
+    background-color: unset !important;
+}
 
 
 .reserve-field .down-icon{display: none !important;}
