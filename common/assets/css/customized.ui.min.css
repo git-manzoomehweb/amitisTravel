@@ -672,6 +672,9 @@ button,
 .inline-block {
     display: inline-block
 }
+.inline-flex{
+    display: inline-flex;
+}
 
 .\!flex {
     display: flex !important

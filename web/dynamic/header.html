@@ -6,10 +6,10 @@
     <basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour">
         <member name="cat-amitis-tours" type="tree" request="cat" parentid="110382" order="ord" />
         <member name="cat-amitis-tours-image" type="tree" request="cat" parentid="140689" postsql="select image,title,catid from [tour.cat-amitis-tours-image] where catid in(140689)" />
-        <member name="cat-summer-tours-image" type="tree" request="cat" parentid="155302" postsql="select image,title,catid from [tour.cat-summer-tours-image] where catid in(155302)" />
+        <member name="cat-summer-tours-image" type="tree" request="cat" parentid="201306" postsql="select image,title,catid from [tour.cat-summer-tours-image] where catid in(201306)" />
     </basis>
     <basis core="dbsource" source="basiscore" lid="1" mid="1" name="article"><member name="cat-visa-services" type="tree" request="cat" parentid="150949" order="ord" /></basis>
-    <header id="header-contents" class="dir-rtl relative z-[100]">
+    <header id="header-contents" class="dir-rtl relative z-[1000]">
         <div id="bg-dark-full" class="absolute -z-10 w-full h-full top-[80px] bottom-0 left-0 right-0 bg-black/30 hidden"></div>
         <div class="h-20 shadow-sm bg-white fixed left-0 right-0 top-0 z-[100]">
             <div class="max-w-7xl mx-auto max-xl:w-[95%] flex justify-between items-center h-20">
@@ -19,7 +19,7 @@
                                 class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px]">صفحه
                                 اصلی </a></li>
                         <li class="nav-item pr-2 "><span onclick="openMegaMenu(this , '.megamenu-box')"
-                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px] ">تور
+                                class="relative text-sm font-yekanbakhsemiboldFA inline-flex leading-4 text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px] ">تور
                                 های آمیتیس <svg class="inline-block arrowkey-main-navitem " width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -45,7 +45,7 @@
                                     class="text-txtneutral-500 text-sm font-yekanbakhsemiboldFA px-2">@title</span></div>
                         </li>
                         </face>
-                        <face filter="catID=155302">
+                        <face filter="catID=201306">
                             <li onclick="openSubMegaMenu(this , 'summertour-megamenu-box','!flex', 'submegamenu')"
                                 class="h-[50px] group/category-megamenu relative after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden hover:after:block cursor-pointer after:rounded-t-xl after:absolute after:bottom-0 ">
                                 <div class="flex justify-center items-center h-[50px]"><img class="inline-block disable-icon"
@@ -136,7 +136,7 @@
                             <div
                                 class="summertour-megamenu-box gap-x-2 submegamenu max-w-7xl mx-auto max-xl:w-[95%] justify-between relative items-center hidden">
                                 <basis core="tree" datamembername="tour.cat-amitis-tours" idcol="catid" parentidcol="parentid"
-                                    nullvalue="155302">
+                                    nullvalue="201306">
                                     <layout>
                                         <div
                                             class=" overflow-y-auto border-r-4 border-white w-[calc(100%-250px)] h-full before:block before:absolute before:top-0 before:bottom-0 before:-right-1 before:z-50 before:content-[''] before:w-2 before:h-full before:bg-white ">
@@ -212,12 +212,12 @@
                         </li>
                         <li class="nav-item pr-2 pl-1 "><a href="تورهای-ویژه-آمیتیس"
                                 class="relative text-sm font-yekanbakhsemiboldFA text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px] ">تور
-                                های تابستان </a></li>
+                                های پاییز</a></li>
                         <basis core="tree" datamembername="article.cat-visa-services" idcol="catid" parentidcol="parentid"
                             nullvalue="150949">
                             <layout>
                                 <li class="nav-item pr-2 relative"><span onclick="toggleDropDownMenu(this , '.dropdownmenu')"
-                                        class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px]">خدمات
+                                        class="relative text-sm font-yekanbakhsemiboldFA inline-flex leading-4 text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px]">خدمات
                                         ویزا <svg class="inline-block arrowkey-main-navitem" width="16" height="16" viewBox="0 0 24 24"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -292,7 +292,7 @@
                             </face>
                         </basis>
                         <li class="nav-item pr-2 relative"><span onclick="toggleDropDownMenu(this , '.dropdownmenu')"
-                                class="relative text-sm font-yekanbakhsemiboldFA text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px]">اطلاعات
+                                class="relative text-sm font-yekanbakhsemiboldFA inline-flex leading-4 text-txtneutral-500 hover:text-secondary cursor-pointer after:h-1 after:w-10/12 after:mx-auto after:left-0 after:right-0 after:bg-secondary after:content-[''] after:hidden after:rounded-t-xl after:absolute after:-bottom-[29px]">اطلاعات
                                 مفید <svg class="inline-block arrowkey-main-navitem" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
