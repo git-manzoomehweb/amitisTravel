@@ -1365,6 +1365,12 @@ const renderPriceInfo = async (element, type) => {
           "childwithoutbed",
           "tourInventory__details__item__woBed"
         );
+      case "triplecost":
+        return renderPriceBoxes(
+          element.priceinfo.triplecost,
+          "triplecost",
+          "tourInventory__details__item__triplecost"
+        );
       default:
         return "";
     }
@@ -3317,3 +3323,4 @@ function jalali_to_gregorian(jy, jm, jd) {
   }
   return [gy, gm, gd];
 }
+
