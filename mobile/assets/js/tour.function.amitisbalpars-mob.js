@@ -1197,6 +1197,8 @@ const renderPriceInfo = async (element, type) => {
                 return renderPriceBoxes(element.priceinfo.childwithbed, 'childwithbed', 'tourInventory__details__item__wBed');
             case 'childwithoutbed':
                 return renderPriceBoxes(element.priceinfo.childwithoutbed, 'childwithoutbed', 'tourInventory__details__item__woBed');
+            case 'triplecost':
+                return renderPriceBoxes(element.priceinfo.triplecost, 'triplecost', 'tourInventory__details__item__triplecost');
             default:
                 return '';
         }
@@ -1629,10 +1631,12 @@ const renderTourForm = async (element) => {
         tourName: document.querySelector(".tour__name__container").textContent,
         doubleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__price").textContent,
         singleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__price").textContent,
+        tripleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__price").textContent,
         wBedP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__price").textContent,
         woBedP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__price").textContent,
         doubleU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         singleU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
+        tripleU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         wBedU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         woBedU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         //origins__start__day
@@ -1667,10 +1671,12 @@ let FormhotelService ;
 let FormtourName ;
 let FormdoubleP ;
 let FormsingleP ;
+let FormtripleP ;
 let FormwBedP ;
 let FormwoBedP ;
 let FormdoubleU ;
 let FormsingleU ;
+let FormtripleU ;
 let FormwBedU ;
 let FormwoBedU ;
 // let adultCount;
@@ -1719,10 +1725,12 @@ const renderTourInstallmentForm = async (element) => {
         tourName: document.querySelector(".tour__name__container").textContent,
         doubleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__price").textContent,
         singleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__price").textContent,
+        tripleP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__price").textContent,
         wBedP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__price").textContent,
         woBedP: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__price").textContent,
         doubleU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         singleU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
+        tripleU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         wBedU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         woBedU: element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
         run: true,
@@ -1735,10 +1743,12 @@ const renderTourInstallmentForm = async (element) => {
     FormtourName = document.querySelector(".tour__name__container").textContent,
     FormdoubleP = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__price").textContent,
     FormsingleP = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__price").textContent,
+    FormtripleP = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__price").textContent,
     FormwBedP = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__price").textContent,
     FormwoBedP = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__price").textContent,
     FormdoubleU = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__double")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
     FormsingleU = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__single")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
+    FormtripleU = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__triplecost")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
     FormwBedU = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__wBed")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `,
     FormwoBedU = element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__unit") ? element.closest(".tourInventory__details").querySelectorAll(".tourInventory__details__item__woBed")[0].querySelector(".tourInventory__details__item__unit").textContent : ` `;
 
@@ -1785,10 +1795,12 @@ const renderReserveTourInstallmentForm = async (element) => {
         tourName:FormtourName,
         doubleP:FormdoubleP,
         singleP:FormsingleP,
+        tripleP:FormtripleP,
         wBedP:FormwBedP,
         woBedP:FormwoBedP,
         doubleU:FormdoubleU,
         singleU:FormsingleU,
+        tripleU:FormtripleU,
         wBedU:FormwBedU,
         woBedU:FormwoBedU,
 

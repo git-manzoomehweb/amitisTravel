@@ -2455,6 +2455,12 @@ video {
 .\!w-1\/5 {
   width: 20% !important;
 }
+.w-1\/6 {
+  width: 16.666667%;
+}
+.\!w-1\/6 {
+  width: 16.666667% ;
+}
 
 .\!w-10\/12 {
   width: 83.333333% !important;

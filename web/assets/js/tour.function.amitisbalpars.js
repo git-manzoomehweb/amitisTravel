@@ -1266,119 +1266,209 @@ const onProcessedHotelsImg = async (args) => {
 //     }
 // };
 
+// const renderPriceInfo = async (element, type) => {
+//   try {
+//     if (!element) return "";
+
+//     const renderPriceBoxes = (prices, key, wrapperClass) => {
+//       let output = "";
+
+//       const getValue = (item, prop) => {
+//         let propKey = `${key}${prop}`;
+//         if (prop === "unit") {
+//           if (key.endsWith("cost")) {
+//             propKey = key.replace("cost", "") + "unit";
+//           } else {
+//             propKey = `${key}unit`;
+//           }
+//         }
+//         if (item[key] && item[key][propKey] !== undefined) {
+//           return item[key][propKey];
+//         }
+//         return item[propKey] ?? "";
+//       };
+
+//       if (prices.length === 1) {
+//         const item = prices[0];
+//         output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                     <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
+//                         <span class="tourInventory__details__item__price sm:text-xl font-bold">
+//                             ${new Intl.NumberFormat().format(
+//                               getValue(item, "f")
+//                             )}
+//                         </span>
+//                         ${
+//                           getValue(item, "unit")?.length === 0
+//                             ? ``
+//                             : `
+//                             <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+//                                 ${getValue(item, "unit")}
+//                             </span>`
+//                         }
+//                     </div>
+//                 </div>`;
+//       } else {
+//         prices.forEach((item, index) => {
+//           output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
+//                         <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
+//                             <span class="tourInventory__details__item__price sm:text-xl font-bold">
+//                                 ${new Intl.NumberFormat().format(
+//                                   getValue(item, "f")
+//                                 )}
+//                             </span>
+//                             ${
+//                               getValue(item, "unit")?.length === 0
+//                                 ? ``
+//                                 : `
+//                                 <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
+//                                     ${getValue(item, "unit")}
+//                                 </span>`
+//                             }
+//                         </div>
+//                     </div>`;
+
+//           if (index < prices.length - 1) {
+//             output += `<div class="relative w-full flex justify-center items-center -my-2">
+//                             <hr class="w-full" />
+//                             <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
+//                             <hr class="w-full" />
+//                         </div>`;
+//           }
+//         });
+//       }
+
+//       return output;
+//     };
+
+//     switch (type) {
+//       case "doublecost":
+//         return renderPriceBoxes(
+//           element.priceinfo.doublecost,
+//           "doublecost",
+//           "tourInventory__details__item__double"
+//         );
+//       case "singlecost":
+//         return renderPriceBoxes(
+//           element.priceinfo.singlecost,
+//           "singlecost",
+//           "tourInventory__details__item__single"
+//         );
+//       case "childwithbed":
+//         return renderPriceBoxes(
+//           element.priceinfo.childwithbed,
+//           "childwithbed",
+//           "tourInventory__details__item__wBed"
+//         );
+//       case "childwithoutbed":
+//         return renderPriceBoxes(
+//           element.priceinfo.childwithoutbed,
+//           "childwithoutbed",
+//           "tourInventory__details__item__woBed"
+//         );
+//       case "triplecost":
+//         return renderPriceBoxes(
+//           element.priceinfo.triplecost,
+//           "triplecost",
+//           "tourInventory__details__item__triplecost"
+//         );
+//       default:
+//         return "";
+//     }
+//   } catch (err) {
+//     console.error("renderPriceInfo=" + err.lineNumber + "," + err.message);
+//     return "";
+//   }
+// };
+
 const renderPriceInfo = async (element, type) => {
   try {
-    if (!element) return "";
+    if (!element?.priceinfo) return "";
+
+    const safeArray = (v) => (Array.isArray(v) ? v : []);
+    const toNumber = (v) => {
+      if (v === null || v === undefined) return null;
+      const s = String(v).trim();
+      if (!s) return null;
+      const n = Number(s.replaceAll(",", ""));
+      return Number.isFinite(n) ? n : null;
+    };
 
     const renderPriceBoxes = (prices, key, wrapperClass) => {
-      let output = "";
+      prices = safeArray(prices);
+      if (prices.length === 0) return "";
 
       const getValue = (item, prop) => {
+        // f -> `${key}f`  |  unit -> `${key.replace('cost','')}unit`
         let propKey = `${key}${prop}`;
         if (prop === "unit") {
-          if (key.endsWith("cost")) {
-            propKey = key.replace("cost", "") + "unit";
-          } else {
-            propKey = `${key}unit`;
-          }
+          propKey = key.endsWith("cost") ? key.replace("cost", "") + "unit" : `${key}unit`;
         }
-        if (item[key] && item[key][propKey] !== undefined) {
-          return item[key][propKey];
-        }
-        return item[propKey] ?? "";
+
+        // هم حالت تو در تو: { doublecost: { doublecostf, doubleunit } }
+        // هم حالت تخت: { doublecostf, doubleunit }
+        if (item?.[key]?.[propKey] !== undefined) return item[key][propKey];
+        if (item?.[propKey] !== undefined) return item[propKey];
+        return "";
       };
 
-      if (prices.length === 1) {
-        const item = prices[0];
-        output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
-                    <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
-                        <span class="tourInventory__details__item__price sm:text-xl font-bold">
-                            ${new Intl.NumberFormat().format(
-                              getValue(item, "f")
-                            )}
-                        </span>
-                        ${
-                          getValue(item, "unit")?.length === 0
-                            ? ``
-                            : `
-                            <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
-                                ${getValue(item, "unit")}
-                            </span>`
-                        }
-                    </div>
-                </div>`;
-      } else {
-        prices.forEach((item, index) => {
-          output += `<div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA ">
-                        <div class="${wrapperClass} flex items-center justify-center gap-2 h-12">
-                            <span class="tourInventory__details__item__price sm:text-xl font-bold">
-                                ${new Intl.NumberFormat().format(
-                                  getValue(item, "f")
-                                )}
-                            </span>
-                            ${
-                              getValue(item, "unit")?.length === 0
-                                ? ``
-                                : `
-                                <span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">
-                                    ${getValue(item, "unit")}
-                                </span>`
-                            }
-                        </div>
-                    </div>`;
+      let output = "";
+      prices.forEach((item, index) => {
+        const raw = getValue(item, "f");
+        const unit = getValue(item, "unit");
 
-          if (index < prices.length - 1) {
-            output += `<div class="relative w-full flex justify-center items-center -my-2">
-                            <hr class="w-full" />
-                            <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
-                            <hr class="w-full" />
-                        </div>`;
-          }
-        });
-      }
+        const num = toNumber(raw);
+
+        // اگر خالی بود، به جای کرش کردن، هیچی/خط تیره نشون بده
+        const priceText = num === null ? "-" : new Intl.NumberFormat().format(num);
+
+        output += `
+          <div class="bg-neutralcolor-50 w-full h-12 rounded-[4px] my-2 text-center leading-[48px] text-primary-900 text-lg font-yekanbakhsemiboldFA">
+            <div class="${wrapperClass} flex items-center justify-center h-12">
+              <span class="tourInventory__details__item__price sm:text-base font-bold">${priceText}</span>
+              ${unit && String(unit).trim().length ? `<span class="tourInventory__details__item__unit sm:text-base max-sm:text-sm mr-1">${unit}</span>` : ""}
+            </div>
+          </div>
+        `;
+
+        if (index < prices.length - 1) {
+          output += `
+            <div class="relative w-full flex justify-center items-center -my-2">
+              <hr class="w-full" />
+              <span class="leading-4 font-IRANYekanMobileBoldFA text-2xl text-primary-900 bg-white px-3 mx-auto inline-block">+</span>
+              <hr class="w-full" />
+            </div>
+          `;
+        }
+      });
 
       return output;
     };
 
     switch (type) {
       case "doublecost":
-        return renderPriceBoxes(
-          element.priceinfo.doublecost,
-          "doublecost",
-          "tourInventory__details__item__double"
-        );
+        return renderPriceBoxes(element.priceinfo.doublecost, "doublecost", "tourInventory__details__item__double");
       case "singlecost":
-        return renderPriceBoxes(
-          element.priceinfo.singlecost,
-          "singlecost",
-          "tourInventory__details__item__single"
-        );
+        return renderPriceBoxes(element.priceinfo.singlecost, "singlecost", "tourInventory__details__item__single");
       case "childwithbed":
-        return renderPriceBoxes(
-          element.priceinfo.childwithbed,
-          "childwithbed",
-          "tourInventory__details__item__wBed"
-        );
+        return renderPriceBoxes(element.priceinfo.childwithbed, "childwithbed", "tourInventory__details__item__wBed");
       case "childwithoutbed":
-        return renderPriceBoxes(
-          element.priceinfo.childwithoutbed,
-          "childwithoutbed",
-          "tourInventory__details__item__woBed"
-        );
+        return renderPriceBoxes(element.priceinfo.childwithoutbed, "childwithoutbed", "tourInventory__details__item__woBed");
       case "triplecost":
-        return renderPriceBoxes(
-          element.priceinfo.triplecost,
-          "triplecost",
-          "tourInventory__details__item__triplecost"
-        );
+        return renderPriceBoxes(element.priceinfo.triplecost, "triplecost", "tourInventory__details__item__triplecost");
       default:
         return "";
     }
   } catch (err) {
-    console.error("renderPriceInfo=" + err.lineNumber + "," + err.message);
+    console.error("renderPriceInfo=", err);
     return "";
   }
 };
+
+
+
+
+
+
 const renderHotelRate = async (element) => {
   try {
     if (element) {
@@ -1951,6 +2041,10 @@ const renderTourForm = async (element) => {
       .closest(".tourInventory__details")
       .querySelectorAll(".tourInventory__details__item__single")[0]
       .querySelector(".tourInventory__details__item__price").textContent,
+    tripleP: element
+      .closest(".tourInventory__details")
+      .querySelectorAll(".tourInventory__details__item__triplecost")[0]
+      .querySelector(".tourInventory__details__item__price").textContent,
     wBedP: element
       .closest(".tourInventory__details")
       .querySelectorAll(".tourInventory__details__item__wBed")[0]
@@ -1975,6 +2069,15 @@ const renderTourForm = async (element) => {
       ? element
           .closest(".tourInventory__details")
           .querySelectorAll(".tourInventory__details__item__single")[0]
+          .querySelector(".tourInventory__details__item__unit").textContent
+      : ` `,
+    tripleU: element
+      .closest(".tourInventory__details")
+      .querySelectorAll(".tourInventory__details__item__triplecost")[0]
+      .querySelector(".tourInventory__details__item__unit")
+      ? element
+          .closest(".tourInventory__details")
+          .querySelectorAll(".tourInventory__details__item__triplecost")[0]
           .querySelector(".tourInventory__details__item__unit").textContent
       : ` `,
     wBedU: element
@@ -2031,10 +2134,12 @@ let FormhotelService;
 let FormtourName;
 let FormdoubleP;
 let FormsingleP;
+let FormtripleP;
 let FormwBedP;
 let FormwoBedP;
 let FormdoubleU;
 let FormsingleU;
+let FormtripleU;
 let FormwBedU;
 let FormwoBedU;
 // let adultCount;
@@ -2095,6 +2200,10 @@ const renderTourInstallmentForm = async (element) => {
       .closest(".tourInventory__details")
       .querySelectorAll(".tourInventory__details__item__single")[0]
       .querySelector(".tourInventory__details__item__price").textContent,
+    tripleP: element
+      .closest(".tourInventory__details")
+      .querySelectorAll(".tourInventory__details__item__triplecost")[0]
+      .querySelector(".tourInventory__details__item__price").textContent,
     wBedP: element
       .closest(".tourInventory__details")
       .querySelectorAll(".tourInventory__details__item__wBed")[0]
@@ -2119,6 +2228,15 @@ const renderTourInstallmentForm = async (element) => {
       ? element
           .closest(".tourInventory__details")
           .querySelectorAll(".tourInventory__details__item__single")[0]
+          .querySelector(".tourInventory__details__item__unit").textContent
+      : ` `,
+    tripleU: element
+      .closest(".tourInventory__details")
+      .querySelectorAll(".tourInventory__details__item__triplecost")[0]
+      .querySelector(".tourInventory__details__item__unit")
+      ? element
+          .closest(".tourInventory__details")
+          .querySelectorAll(".tourInventory__details__item__triplecost")[0]
           .querySelector(".tourInventory__details__item__unit").textContent
       : ` `,
     wBedU: element
@@ -2160,6 +2278,10 @@ const renderTourInstallmentForm = async (element) => {
       .closest(".tourInventory__details")
       .querySelectorAll(".tourInventory__details__item__single")[0]
       .querySelector(".tourInventory__details__item__price").textContent),
+    (FormtripleP = element
+      .closest(".tourInventory__details")
+      .querySelectorAll(".tourInventory__details__item__triplecost")[0]
+      .querySelector(".tourInventory__details__item__price").textContent),
     (FormwBedP = element
       .closest(".tourInventory__details")
       .querySelectorAll(".tourInventory__details__item__wBed")[0]
@@ -2184,6 +2306,15 @@ const renderTourInstallmentForm = async (element) => {
       ? element
           .closest(".tourInventory__details")
           .querySelectorAll(".tourInventory__details__item__single")[0]
+          .querySelector(".tourInventory__details__item__unit").textContent
+      : ` `),
+    (FormtripleU = element
+      .closest(".tourInventory__details")
+      .querySelectorAll(".tourInventory__details__item__triplecost")[0]
+      .querySelector(".tourInventory__details__item__unit")
+      ? element
+          .closest(".tourInventory__details")
+          .querySelectorAll(".tourInventory__details__item__triplecost")[0]
           .querySelector(".tourInventory__details__item__unit").textContent
       : ` `),
     (FormwBedU = element
@@ -2256,10 +2387,12 @@ const renderReserveTourInstallmentForm = async (element) => {
     tourName: FormtourName,
     doubleP: FormdoubleP,
     singleP: FormsingleP,
+    tripleP: FormtripleP,
     wBedP: FormwBedP,
     woBedP: FormwoBedP,
     doubleU: FormdoubleU,
     singleU: FormsingleU,
+    tripleU: FormtripleU,
     wBedU: FormwBedU,
     woBedU: FormwoBedU,
 

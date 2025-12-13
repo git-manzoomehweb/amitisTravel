@@ -114,7 +114,8 @@
     box-sizing: border-box;
     border-width: 0;
     border-style: solid;
-    border-color: #e5e7eb
+    border-color: #e5e7eb;
+    padding: 0;
 }
 
 ::before,
@@ -297,7 +298,8 @@ textarea::placeholder {
 
 button,
 [role="button"] {
-    cursor: pointer
+    cursor: pointer;
+    /* padding: 0; */
 }
 
 :disabled {
@@ -1912,7 +1914,18 @@ body {
 }
 
 input::placeholder, textarea::placeholder , input , textarea , button {
-  font-family: "Yekan_Bakh_Regular_fa" !important;
+    font-family: "Yekan_Bakh_Regular_fa" !important;
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+
 }
 .book-bg-primary-500.book-rounded-lg.book-px-2.book-text-center.book-cursor-pointer.hover\:book-bg-secondary-500 {
   height: 44px !important;
